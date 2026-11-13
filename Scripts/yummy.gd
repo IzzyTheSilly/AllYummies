@@ -5,6 +5,7 @@ class_name Yummy
 @export_enum("Red", "Orange", "Yellow", "Green", "Cyan", "Blue", "Purple") var type: String = "Red"
 @export var sprite2d: AnimatedSprite2D
 @export var timer: Timer
+@export var animation_player: AnimationPlayer
 var target: Vector2 = Vector2.ZERO
 @export var speed: int = 15
 
@@ -13,7 +14,7 @@ var state = State.WANDER
 
 
 func _ready() -> void:
-	pass
+	animation_player.play("bounce")
 
 
 func _process(delta: float) -> void:

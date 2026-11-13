@@ -49,6 +49,8 @@ shader = ExtResource("1_5up26")
 size = Vector2(20, 12)
 
 [node name="PlayerCharacter" type="CharacterBody2D" unique_id=1522660109 node_paths=PackedStringArray("interaction_raycast")]
+z_as_relative = false
+y_sort_enabled = true
 collision_mask = 6
 script = ExtResource("1_o0f8b")
 test_dialogue = SubResource("Resource_o0f8b")

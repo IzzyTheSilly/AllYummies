@@ -4,6 +4,70 @@
 [ext_resource type="Script" uid="uid://dtqhr2uiu1flh" path="res://Scripts/yummy.gd" id="1_wsthx"]
 [ext_resource type="Texture2D" uid="uid://46i3nqtioiuf" path="res://Assets/Sprites/yummy_test.png" id="3_osvtb"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ir5lp"]
+
+[sub_resource type="Animation" id="Animation_osvtb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -8)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.051282052, 0.051546387)]
+}
+
+[sub_resource type="Animation" id="Animation_ve61t"]
+resource_name = "bounce"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.051282052, 0.051546387), Vector2(0.03076923, 0.051546387), Vector2(0.06666667, 0.023195881), Vector2(0.05128205, 0.050257728)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -8), Vector2(-2.842171e-14, -23), Vector2(0, -3), Vector2(0, -8.249998)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ex11a"]
+_data = {
+&"RESET": SubResource("Animation_osvtb"),
+&"bounce": SubResource("Animation_ve61t")
+}
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_ir5lp"]
 animations = [{
 "frames": [{
@@ -18,26 +82,24 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ir5lp"]
-
-[node name="Yummy" type="Area2D" unique_id=762481958 node_paths=PackedStringArray("sprite2d", "timer")]
+[node name="Yummy" type="Area2D" unique_id=762481958 node_paths=PackedStringArray("sprite2d", "timer", "animation_player")]
+z_as_relative = false
+y_sort_enabled = true
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_wsthx")
 sprite2d = NodePath("AnimatedSprite2D")
 timer = NodePath("Timer")
+animation_player = NodePath("AnimationPlayer")
 speed = 30
 
 [node name="Shadow" type="Sprite2D" parent="." unique_id=1871059682]
+z_index = -1
+z_as_relative = false
+y_sort_enabled = true
 position = Vector2(0, 0.4999997)
 scale = Vector2(0.101562515, 0.0546875)
 texture = ExtResource("1_4xhlt")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1808961550]
-position = Vector2(0, -8)
-scale = Vector2(0.051282052, 0.051546387)
-sprite_frames = SubResource("SpriteFrames_ir5lp")
-frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1739644351]
 shape = SubResource("RectangleShape2D_ir5lp")
@@ -45,5 +107,14 @@ metadata/_edit_lock_ = true
 
 [node name="Timer" type="Timer" parent="." unique_id=262312675]
 autostart = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1377049254]
+libraries/ = SubResource("AnimationLibrary_ex11a")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1808961550]
+position = Vector2(0, -8)
+scale = Vector2(0.051282052, 0.051546387)
+sprite_frames = SubResource("SpriteFrames_ir5lp")
+frame = 1
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -4,10 +4,12 @@ class_name YummySpawner
 
 @export var spawn_areas: Array[Area2D]
 @export var yummy_scene: PackedScene
+@export var timer: Timer
 
 
 func _on_timer_timeout() -> void:
 	spawn_yummy()
+	timer.wait_time = randf_range(0.7, 1.4)
 
 
 func spawn_yummy():
