@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://b2w4a8g0tsq3a"]
+
+[ext_resource type="Script" uid="uid://dgjmpvroimmp1" path="res://Scripts/audio_manager.gd" id="1_sm2tf"]
+
+[node name="AudioManager" type="Node" unique_id=123644192 node_paths=PackedStringArray("audio_stream_players")]
+script = ExtResource("1_sm2tf")
+audio_stream_players = [NodePath("DialogueBlips")]
+
+[node name="DialogueBlips" type="AudioStreamPlayer" parent="." unique_id=569689949]
+volume_db = -23.5

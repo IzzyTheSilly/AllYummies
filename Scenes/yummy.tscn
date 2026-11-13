@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://clrjk2d7w4s10"]
+
+[ext_resource type="Texture2D" uid="uid://c3w0t1m1fe2mj" path="res://Assets/Sprites/icon.svg" id="1_4xhlt"]
+[ext_resource type="Script" uid="uid://dtqhr2uiu1flh" path="res://Scripts/yummy.gd" id="1_wsthx"]
+[ext_resource type="Texture2D" uid="uid://46i3nqtioiuf" path="res://Assets/Sprites/yummy_test.png" id="3_osvtb"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ir5lp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_4xhlt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_osvtb")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ir5lp"]
+
+[node name="Yummy" type="Area2D" unique_id=762481958 node_paths=PackedStringArray("sprite2d", "timer")]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_wsthx")
+sprite2d = NodePath("AnimatedSprite2D")
+timer = NodePath("Timer")
+speed = 30
+
+[node name="Shadow" type="Sprite2D" parent="." unique_id=1871059682]
+position = Vector2(0, 0.4999997)
+scale = Vector2(0.101562515, 0.0546875)
+texture = ExtResource("1_4xhlt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1808961550]
+position = Vector2(0, -8)
+scale = Vector2(0.051282052, 0.051546387)
+sprite_frames = SubResource("SpriteFrames_ir5lp")
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1739644351]
+shape = SubResource("RectangleShape2D_ir5lp")
+metadata/_edit_lock_ = true
+
+[node name="Timer" type="Timer" parent="." unique_id=262312675]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

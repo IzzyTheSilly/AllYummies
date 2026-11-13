@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://bfftyyryl7vdc"]
+
+[ext_resource type="Script" uid="uid://myr57m6o6jrl" path="res://Scripts/options_menu.gd" id="1_plplt"]
+[ext_resource type="Texture2D" uid="uid://dehx21vg6a76g" path="res://Assets/Sprites/titlescreenbgplaceholder.jpg" id="2_uj0ok"]
+
+[node name="OptionsMenu" type="Control" unique_id=142809403]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = 20.0
+offset_right = -40.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_plplt")
+
+[node name="Background" type="TextureRect" parent="." unique_id=326081557]
+modulate = Color(0.005974963, 0.11008581, 6.016344e-09, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_uj0ok")
+expand_mode = 1
+
+[node name="BackButton" type="Button" parent="." unique_id=50456514]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = -41.0
+offset_right = 81.0
+offset_bottom = -10.0
+grow_vertical = 0
+text = "Go Back"
+
+[node name="DialogueAudioSlider" type="HSlider" parent="." unique_id=2101820957]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 8.0
+offset_right = 225.0
+offset_bottom = 40.0
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="value_changed" from="DialogueAudioSlider" to="." method="_on_dialogue_audio_slider_value_changed"]

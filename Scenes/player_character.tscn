@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://dcs7wggifh5by"]
+
+[ext_resource type="Texture2D" uid="uid://boe0n28wym8if" path="res://Assets/Sprites/squadword.PNG" id="1_02ohv"]
+[ext_resource type="Shader" uid="uid://b6lvqdwt7cnd8" path="res://Assets/Shaders/player_character.tres" id="1_5up26"]
+[ext_resource type="Script" uid="uid://b1abic7bgamk7" path="res://Scripts/player_character.gd" id="1_o0f8b"]
+[ext_resource type="AudioStream" uid="uid://cilay0xwylgkn" path="res://Assets/Audio/soundshelfstudio-sci-fi-system-blip-525671.mp3" id="2_pb3n0"]
+[ext_resource type="Script" uid="uid://dvl6mehpirn4w" path="res://Scripts/dialogue_data.gd" id="2_wko77"]
+[ext_resource type="Texture2D" uid="uid://c3w0t1m1fe2mj" path="res://Assets/Sprites/icon.svg" id="5_flf3p"]
+[ext_resource type="Script" uid="uid://cprsdu68b8n21" path="res://Scripts/cutscene_data.gd" id="5_ons1q"]
+[ext_resource type="Texture2D" uid="uid://dehx21vg6a76g" path="res://Assets/Sprites/titlescreenbgplaceholder.jpg" id="6_fcng2"]
+
+[sub_resource type="Resource" id="Resource_o0f8b"]
+script = ExtResource("2_wko77")
+text = "testing, testing, 1, 2, 3, this is DOCTOR EGGMAN speaking."
+blip = ExtResource("2_pb3n0")
+portrait = ExtResource("1_02ohv")
+metadata/_custom_type_script = "uid://dvl6mehpirn4w"
+
+[sub_resource type="Resource" id="Resource_ons1q"]
+script = ExtResource("2_wko77")
+text = "Oh hey, you're here. I've been waiting for you."
+blip = ExtResource("2_pb3n0")
+portrait = ExtResource("1_02ohv")
+metadata/_custom_type_script = "uid://dvl6mehpirn4w"
+
+[sub_resource type="Resource" id="Resource_ajo0r"]
+script = ExtResource("2_wko77")
+text = "I just wanna tell you something... Something quite... spooky."
+blip = ExtResource("2_pb3n0")
+portrait = ExtResource("5_flf3p")
+metadata/_custom_type_script = "uid://dvl6mehpirn4w"
+
+[sub_resource type="Resource" id="Resource_flf3p"]
+script = ExtResource("2_wko77")
+text = "Chicken butt. Hahahaha you fucking idiot. Now get away from me."
+blip = ExtResource("2_pb3n0")
+portrait = ExtResource("6_fcng2")
+metadata/_custom_type_script = "uid://dvl6mehpirn4w"
+
+[sub_resource type="Resource" id="Resource_pb3n0"]
+script = ExtResource("5_ons1q")
+dialogues = Array[ExtResource("2_wko77")]([SubResource("Resource_ons1q"), SubResource("Resource_ajo0r"), SubResource("Resource_flf3p")])
+metadata/_custom_type_script = "uid://cprsdu68b8n21"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ak2if"]
+shader = ExtResource("1_5up26")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ir5lp"]
+size = Vector2(20, 12)
+
+[node name="PlayerCharacter" type="CharacterBody2D" unique_id=1522660109 node_paths=PackedStringArray("interaction_raycast")]
+collision_mask = 6
+script = ExtResource("1_o0f8b")
+test_dialogue = SubResource("Resource_o0f8b")
+test_cutscene = SubResource("Resource_pb3n0")
+speed = 12000
+interaction_raycast = NodePath("RayCast2D")
+interaction_distance = 45
+
+[node name="Squadword" type="Sprite2D" parent="." unique_id=1722447921]
+material = SubResource("ShaderMaterial_ak2if")
+position = Vector2(0, -9.000001)
+scale = Vector2(0.09950249, 0.15075377)
+texture = ExtResource("1_02ohv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=12978143]
+shape = SubResource("RectangleShape2D_ir5lp")
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=122288240]
+target_position = Vector2(0, 0)
+collision_mask = 4
+hit_from_inside = true
+collide_with_areas = true

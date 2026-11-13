@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://cb44ak8oqnwuy"]
+
+[ext_resource type="Script" uid="uid://qe1h7tj1p6ue" path="res://Scripts/dialogue_box.gd" id="1_kyvu4"]
+[ext_resource type="Texture2D" uid="uid://c3w0t1m1fe2mj" path="res://Assets/Sprites/icon.svg" id="1_l8qb8"]
+[ext_resource type="Texture2D" uid="uid://boe0n28wym8if" path="res://Assets/Sprites/squadword.PNG" id="2_kyvu4"]
+
+[node name="DialogueBox" type="Control" unique_id=572266800 node_paths=PackedStringArray("dialogue_text", "portrait_image", "dialogue_timer")]
+z_index = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kyvu4")
+dialogue_text = NodePath("DialogueArea/DialogueText")
+portrait_image = NodePath("PortraitArea/PortraitImage")
+dialogue_timer = NodePath("DialogueTimer")
+
+[node name="DialogueArea" type="TextureRect" parent="." unique_id=164686226]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 220.0
+offset_right = 300.0
+offset_bottom = 300.0
+texture = ExtResource("1_l8qb8")
+expand_mode = 1
+
+[node name="DialogueText" type="RichTextLabel" parent="DialogueArea" unique_id=985742294]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "a"
+scroll_active = false
+visible_characters_behavior = 1
+
+[node name="PortraitArea" type="TextureRect" parent="." unique_id=1894745620]
+layout_mode = 0
+offset_left = 220.0
+offset_top = 160.0
+offset_right = 280.0
+offset_bottom = 220.0
+
+[node name="PortraitImage" type="TextureRect" parent="PortraitArea" unique_id=1694417042]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_kyvu4")
+expand_mode = 1
+
+[node name="DialogueTimer" type="Timer" parent="." unique_id=1191380493]

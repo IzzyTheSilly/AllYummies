@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://df7uqkd4csot"]
+
+[ext_resource type="Script" uid="uid://dbeaqcd4uxs18" path="res://Scripts/cutscene_handler.gd" id="1_lkejs"]
+
+[node name="CutsceneHandler" type="Node" unique_id=485998949]
+script = ExtResource("1_lkejs")
