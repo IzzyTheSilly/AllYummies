@@ -4,11 +4,6 @@ class_name YummySpawner
 
 @export var spawn_areas: Array[Area2D]
 @export var yummy_scene: PackedScene
-var game_area: Node2D
-
-
-func _ready() -> void:
-	game_area = get_parent()
 
 
 func _on_timer_timeout() -> void:
@@ -22,4 +17,4 @@ func spawn_yummy():
 	pos.x = randf_range(-150, 150)
 	pos.y = randf_range(-150, 150)
 	yummy.position = pos
-	game_area.add_child(yummy)
+	add_child(yummy)

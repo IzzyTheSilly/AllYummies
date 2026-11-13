@@ -35,6 +35,7 @@ offset_right = -160.0
 offset_bottom = -160.0
 
 [node name="OptionsMenu" parent="PlayerCharacter/Camera2D" unique_id=142809403 instance=ExtResource("3_87rxc")]
+z_index = 2
 offset_left = -120.0
 offset_top = -417.0
 offset_right = 122.0

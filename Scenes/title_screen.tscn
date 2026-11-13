@@ -318,12 +318,12 @@ theme_override_font_sizes/font_size = 30
 text = "BIG poo"
 
 [node name="OptionsMenu" parent="." unique_id=142809403 instance=ExtResource("3_4gxqj")]
-visible = false
+z_index = 2
 layout_mode = 1
 offset_left = -111.0
-offset_top = -120.0
+offset_top = -420.0
 offset_right = 139.0
-offset_bottom = 141.0
+offset_bottom = -159.0
 
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="OptionsButton" to="." method="_on_options_button_pressed"]
