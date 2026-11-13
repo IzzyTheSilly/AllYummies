@@ -25,6 +25,7 @@ GlobalData="*uid://bdckpye4xo4sd"
 CutsceneHandler="*uid://df7uqkd4csot"
 AudioManager="*uid://b2w4a8g0tsq3a"
 OptionsHandler="*uid://b58x4y8npiapw"
+GameManager="*uid://bkve41je0enm2"
 
 [debug]
 

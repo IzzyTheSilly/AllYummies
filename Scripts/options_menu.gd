@@ -10,7 +10,7 @@ class_name OptionsMenu
 func _ready() -> void:
 	OptionsHandler.options_menu = self
 	dialogue_volume_slider.value = GlobalData.dialogue_volume
-	if GlobalData.in_game:
+	if GameManager.in_game:
 		main_menu_button.show()
 	else:
 		main_menu_button.hide()
@@ -26,5 +26,5 @@ func _on_dialogue_volume_slider_value_changed(value: float) -> void:
 
 
 func _on_main_menu_button_pressed() -> void:
-	GlobalData.in_game = false
+	GameManager.in_game = false
 	get_tree().change_scene_to_file("res://Scenes/title_screen.tscn")

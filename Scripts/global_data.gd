@@ -1,8 +1,5 @@
 extends Node
 
-# Game States
-var in_game: bool
-
 # Settings
 var dialogue_volume: float = 1.0
 
