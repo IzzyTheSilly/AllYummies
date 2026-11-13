@@ -259,6 +259,7 @@ script = ExtResource("1_ak2if")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=995333620]
 modulate = Color(1, 1, 1, 0.19607843)
+z_index = -1
 layout_mode = 0
 offset_left = -141.0
 offset_top = -153.0
@@ -318,12 +319,11 @@ theme_override_font_sizes/font_size = 30
 text = "BIG poo"
 
 [node name="OptionsMenu" parent="." unique_id=142809403 instance=ExtResource("3_4gxqj")]
-z_index = 2
 layout_mode = 1
-offset_left = -111.0
-offset_top = -420.0
-offset_right = 139.0
-offset_bottom = -159.0
+offset_left = -118.0
+offset_top = -133.0
+offset_right = 162.0
+offset_bottom = 147.0
 
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="OptionsButton" to="." method="_on_options_button_pressed"]

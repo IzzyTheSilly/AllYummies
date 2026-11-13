@@ -10,12 +10,10 @@ func change_volume(audio_stream_player_index: int, volume: float):
 
 
 func show_options():
-	var down_tween = get_tree().create_tween()
-	down_tween.tween_property(options_menu, "position", Vector2(-120.0, -117.0), 0.5).set_trans(Tween.TRANS_CUBIC)
+	options_menu.show()
 	showing_options = true
 
 
 func hide_options():
-	var up_tween = get_tree().create_tween()
-	up_tween.tween_property(options_menu, "position", Vector2(-120.0, -417.0), 0.5).set_trans(Tween.TRANS_CUBIC)
+	options_menu.hide()
 	showing_options = false

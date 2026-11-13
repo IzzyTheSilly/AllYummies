@@ -3,7 +3,8 @@
 [ext_resource type="Script" uid="uid://myr57m6o6jrl" path="res://Scripts/options_menu.gd" id="1_plplt"]
 [ext_resource type="Texture2D" uid="uid://dehx21vg6a76g" path="res://Assets/Sprites/titlescreenbgplaceholder.jpg" id="2_uj0ok"]
 
-[node name="OptionsMenu" type="Control" unique_id=142809403]
+[node name="OptionsMenu" type="Control" unique_id=142809403 node_paths=PackedStringArray("back_button", "dialogue_volume_slider", "main_menu_button")]
+visible = false
 z_index = 2
 layout_mode = 3
 anchors_preset = 15
@@ -16,6 +17,9 @@ offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_plplt")
+back_button = NodePath("BackButton")
+dialogue_volume_slider = NodePath("DialogueVolumeSlider")
+main_menu_button = NodePath("MainMenuButton")
 
 [node name="Background" type="TextureRect" parent="." unique_id=326081557]
 modulate = Color(0.005974963, 0.11008581, 6.016344e-09, 1)
@@ -40,7 +44,7 @@ offset_bottom = -10.0
 grow_vertical = 0
 text = "Go Back"
 
-[node name="DialogueAudioSlider" type="HSlider" parent="." unique_id=2101820957]
+[node name="DialogueVolumeSlider" type="HSlider" parent="." unique_id=2101820957]
 layout_mode = 0
 offset_left = 18.0
 offset_top = 8.0
@@ -51,5 +55,14 @@ step = 0.01
 value = 1.0
 scrollable = false
 
+[node name="MainMenuButton" type="Button" parent="." unique_id=1323681724]
+layout_mode = 0
+offset_left = 135.0
+offset_top = 239.0
+offset_right = 231.0
+offset_bottom = 270.0
+text = "Main Menu"
+
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
-[connection signal="value_changed" from="DialogueAudioSlider" to="." method="_on_dialogue_audio_slider_value_changed"]
+[connection signal="value_changed" from="DialogueVolumeSlider" to="." method="_on_dialogue_volume_slider_value_changed"]
+[connection signal="pressed" from="MainMenuButton" to="." method="_on_main_menu_button_pressed"]
