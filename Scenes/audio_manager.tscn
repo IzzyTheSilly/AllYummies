@@ -7,4 +7,3 @@ script = ExtResource("1_sm2tf")
 audio_stream_players = [NodePath("DialogueBlips")]
 
 [node name="DialogueBlips" type="AudioStreamPlayer" parent="." unique_id=569689949]
-volume_db = -23.5

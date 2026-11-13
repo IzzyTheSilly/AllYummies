@@ -4,7 +4,7 @@ extends Node
 var in_game: bool
 
 # Settings
-var dialogue_volume: float
+var dialogue_volume: float = 1.0
 
 # Game Stats
 var yummies: int
