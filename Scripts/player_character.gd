@@ -1,6 +1,7 @@
 extends CharacterBody2D
 class_name Player
 
+
 @export var test_dialogue: DialogueData
 @export var test_cutscene: CutsceneData
 
@@ -10,6 +11,7 @@ class_name Player
 @export var interaction_cooldown: float
 ##How many things the player can interact with at once.
 @export var interaction_stacking: int
+
 
 func _physics_process(delta: float) -> void:
 	var direction: Vector2 = Vector2.ZERO

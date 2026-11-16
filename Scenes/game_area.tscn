@@ -24,6 +24,7 @@ size = Vector2(40, 20)
 [node name="GameArea" type="Node2D" unique_id=1160759184]
 
 [node name="PlayerCharacter" parent="." unique_id=1522660109 instance=ExtResource("1_1i6hu")]
+position = Vector2(160, 160)
 
 [node name="Camera2D" type="Camera2D" parent="PlayerCharacter" unique_id=2038902481]
 
@@ -39,8 +40,10 @@ offset_left = -120.0
 offset_top = -120.0
 offset_right = 120.0
 offset_bottom = 120.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Boundaries" type="StaticBody2D" parent="." unique_id=397609970]
+position = Vector2(160, 160)
 collision_layer = 2
 collision_mask = 0
 
@@ -61,9 +64,10 @@ position = Vector2(-150, 0)
 shape = SubResource("RectangleShape2D_q1q2r")
 
 [node name="Yummy" parent="." unique_id=762481958 instance=ExtResource("2_1i6hu")]
-position = Vector2(94, 21)
+position = Vector2(254, 181)
 
 [node name="StatsViewer" type="StaticBody2D" parent="." unique_id=137115902]
+position = Vector2(160, 160)
 collision_layer = 6
 collision_mask = 0
 
@@ -72,6 +76,7 @@ position = Vector2(-31, -130)
 shape = SubResource("RectangleShape2D_ir5lp")
 
 [node name="TradingStation" type="StaticBody2D" parent="." unique_id=865394039]
+position = Vector2(160, 160)
 collision_layer = 6
 collision_mask = 0
 
@@ -80,3 +85,4 @@ position = Vector2(31, -130)
 shape = SubResource("RectangleShape2D_vx3cr")
 
 [node name="YummySpawner" parent="." unique_id=826669829 instance=ExtResource("4_vx3cr")]
+position = Vector2(160, 160)

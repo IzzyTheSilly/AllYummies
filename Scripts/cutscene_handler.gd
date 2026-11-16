@@ -1,5 +1,6 @@
 extends Node
 
+
 signal dialogue_accepted
 
 var dialogue_box: DialogueBox
