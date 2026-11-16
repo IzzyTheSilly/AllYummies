@@ -2,8 +2,15 @@
 
 [ext_resource type="Script" uid="uid://dgjmpvroimmp1" path="res://Scripts/audio_manager.gd" id="1_sm2tf"]
 
-[node name="AudioManager" type="Node" unique_id=123644192 node_paths=PackedStringArray("audio_stream_players")]
+[node name="AudioManager" type="Node" unique_id=123644192 node_paths=PackedStringArray("audio_stream_players", "dialogue_audio", "sfx_audio", "music_audio")]
 script = ExtResource("1_sm2tf")
-audio_stream_players = [NodePath("DialogueBlips")]
+audio_stream_players = [NodePath("DialogueBlips"), NodePath("SoundEffects"), NodePath("Music")]
+dialogue_audio = NodePath("DialogueBlips")
+sfx_audio = NodePath("SoundEffects")
+music_audio = NodePath("Music")
 
 [node name="DialogueBlips" type="AudioStreamPlayer" parent="." unique_id=569689949]
+
+[node name="SoundEffects" type="AudioStreamPlayer" parent="." unique_id=992467667]
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=352932335]
