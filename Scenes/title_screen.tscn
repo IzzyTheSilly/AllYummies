@@ -317,6 +317,7 @@ theme_override_font_sizes/font_size = 30
 text = "BIG poo"
 
 [node name="OptionsMenu" parent="." unique_id=142809403 instance=ExtResource("3_4gxqj")]
+visible = false
 layout_mode = 1
 offset_left = 41.0
 offset_top = 41.0

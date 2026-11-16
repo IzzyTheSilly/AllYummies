@@ -41,13 +41,21 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="Page1Label" type="RichTextLabel" parent="Page1" unique_id=1491461564]
+layout_mode = 0
+offset_left = 89.0
+offset_top = 3.0
+offset_right = 161.0
+offset_bottom = 43.0
+text = "AUDIO"
+
 [node name="DialogueVolumeSlider" type="HSlider" parent="Page1" unique_id=2101820957]
 z_index = 1
 layout_mode = 0
-offset_left = 18.0
-offset_top = 8.0
-offset_right = 225.0
-offset_bottom = 40.0
+offset_left = 19.0
+offset_top = 28.0
+offset_right = 226.0
+offset_bottom = 60.0
 max_value = 1.0
 step = 0.01
 value = 1.0
@@ -57,9 +65,9 @@ scrollable = false
 z_index = 1
 layout_mode = 0
 offset_left = 19.0
-offset_top = 61.0
+offset_top = 71.0
 offset_right = 226.0
-offset_bottom = 93.0
+offset_bottom = 103.0
 max_value = 1.0
 step = 0.01
 value = 1.0
@@ -68,14 +76,38 @@ scrollable = false
 [node name="MusicVolumeSlider3" type="HSlider" parent="Page1" unique_id=1414490530]
 z_index = 1
 layout_mode = 0
-offset_left = 18.0
-offset_top = 114.0
-offset_right = 225.0
-offset_bottom = 146.0
+offset_left = 20.0
+offset_top = 119.0
+offset_right = 227.0
+offset_bottom = 151.0
 max_value = 1.0
 step = 0.01
 value = 1.0
 scrollable = false
+
+[node name="DialogueVolumeLabel" type="RichTextLabel" parent="Page1" unique_id=1688352395]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 44.0
+offset_right = 167.0
+offset_bottom = 84.0
+text = "Dialogue Volume"
+
+[node name="SFXVolumeLabel2" type="RichTextLabel" parent="Page1" unique_id=681139275]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 90.0
+offset_right = 150.0
+offset_bottom = 130.0
+text = "SFX Volume"
+
+[node name="MusicVolumeLabel3" type="RichTextLabel" parent="Page1" unique_id=1660102430]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 137.0
+offset_right = 144.0
+offset_bottom = 177.0
+text = "Music Volume"
 
 [node name="Page2" type="Control" parent="." unique_id=644323091]
 visible = false
@@ -83,11 +115,27 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="Page2Label" type="RichTextLabel" parent="Page2" unique_id=1083779061]
+layout_mode = 0
+offset_left = 89.0
+offset_top = 3.0
+offset_right = 161.0
+offset_bottom = 43.0
+text = "VISUALS"
+
 [node name="Page3" type="Control" parent="." unique_id=536508017]
 visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="Page3Label" type="RichTextLabel" parent="Page3" unique_id=2047042881]
+layout_mode = 0
+offset_left = 74.0
+offset_top = 3.0
+offset_right = 180.0
+offset_bottom = 43.0
+text = "GAMEPLAY"
 
 [node name="BackButton" type="Button" parent="." unique_id=50456514]
 layout_mode = 1
