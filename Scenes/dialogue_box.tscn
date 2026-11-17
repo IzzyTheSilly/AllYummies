@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://cb44ak8oqnwuy"]
 
 [ext_resource type="Script" uid="uid://qe1h7tj1p6ue" path="res://Scripts/dialogue_box.gd" id="1_kyvu4"]
-[ext_resource type="Texture2D" uid="uid://c3w0t1m1fe2mj" path="res://Assets/Sprites/icon.svg" id="1_l8qb8"]
 [ext_resource type="Texture2D" uid="uid://boe0n28wym8if" path="res://Assets/Sprites/squadword.PNG" id="2_kyvu4"]
+[ext_resource type="Texture2D" uid="uid://cevhg0g6rc051" path="res://Assets/Sprites/black.jpg" id="2_tlprh"]
 
 [node name="DialogueBox" type="Control" unique_id=572266800 node_paths=PackedStringArray("dialogue_text", "portrait_image", "dialogue_timer")]
 z_index = 1
@@ -23,7 +23,7 @@ offset_left = 20.0
 offset_top = 220.0
 offset_right = 300.0
 offset_bottom = 300.0
-texture = ExtResource("1_l8qb8")
+texture = ExtResource("2_tlprh")
 expand_mode = 1
 
 [node name="DialogueText" type="RichTextLabel" parent="DialogueArea" unique_id=985742294]

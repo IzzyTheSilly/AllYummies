@@ -3,25 +3,36 @@
 [ext_resource type="Texture2D" uid="uid://c38nihrqswwdp" path="res://Assets/Sprites/irsela_laceholder.jpg" id="1_7dy2a"]
 [ext_resource type="Script" uid="uid://cirn5aiyi64yg" path="res://Scripts/irsela.gd" id="1_ksfs5"]
 [ext_resource type="Script" uid="uid://dvl6mehpirn4w" path="res://Scripts/dialogue_data.gd" id="2_jinyc"]
+[ext_resource type="AudioStream" uid="uid://cilay0xwylgkn" path="res://Assets/Audio/soundshelfstudio-sci-fi-system-blip-525671.mp3" id="3_pm7kn"]
 [ext_resource type="Script" uid="uid://cprsdu68b8n21" path="res://Scripts/cutscene_data.gd" id="3_qld7d"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_ir5lp"]
-
-[sub_resource type="Resource" id="Resource_ipdxr"]
+[sub_resource type="Resource" id="Resource_rqkk3"]
 script = ExtResource("2_jinyc")
+text = "Wow, you're actually here."
+blip = ExtResource("3_pm7kn")
+portrait = ExtResource("1_7dy2a")
 metadata/_custom_type_script = "uid://dvl6mehpirn4w"
 
-[sub_resource type="Resource" id="Resource_jinyc"]
+[sub_resource type="Resource" id="Resource_u83eq"]
 script = ExtResource("2_jinyc")
+text = "You know, you're the only person I hired who didn't chicken out."
+blip = ExtResource("3_pm7kn")
+portrait = ExtResource("1_7dy2a")
 metadata/_custom_type_script = "uid://dvl6mehpirn4w"
 
-[sub_resource type="Resource" id="Resource_qld7d"]
+[sub_resource type="Resource" id="Resource_x5kaa"]
 script = ExtResource("2_jinyc")
+text = "Anyways, I assume you already know what to do, right?"
+blip = ExtResource("3_pm7kn")
+portrait = ExtResource("1_7dy2a")
 metadata/_custom_type_script = "uid://dvl6mehpirn4w"
 
-[sub_resource type="Resource" id="Resource_ksfs5"]
+[sub_resource type="Resource" id="Resource_pm7kn"]
 script = ExtResource("3_qld7d")
-dialogues = Array[ExtResource("2_jinyc")]([SubResource("Resource_ipdxr"), SubResource("Resource_jinyc"), SubResource("Resource_qld7d")])
+dialogues = Array[ExtResource("2_jinyc")]([SubResource("Resource_rqkk3"), SubResource("Resource_u83eq"), SubResource("Resource_x5kaa")])
+set_flags = Dictionary[int, bool]({
+0: true
+})
 metadata/_custom_type_script = "uid://cprsdu68b8n21"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vkdgo"]
@@ -30,10 +41,11 @@ size = Vector2(18, 11)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5ow5o"]
 size = Vector2(20, 30)
 
-[node name="Irsela" type="AnimatedSprite2D" unique_id=1623085982]
-sprite_frames = SubResource("SpriteFrames_ir5lp")
+[node name="Irsela" type="Area2D" unique_id=2047269392]
+collision_layer = 4
 script = ExtResource("1_ksfs5")
-test_cutscene = SubResource("Resource_ksfs5")
+cutscene = SubResource("Resource_pm7kn")
+metadata/_custom_type_script = "uid://bs6wnpnyqscgq"
 
 [node name="Collision" type="StaticBody2D" parent="." unique_id=1328324927]
 collision_layer = 2
@@ -47,9 +59,6 @@ position = Vector2(-0.99999714, 2.861023e-06)
 scale = Vector2(0.09259261, 0.09259264)
 texture = ExtResource("1_7dy2a")
 
-[node name="Interact" type="Area2D" parent="." unique_id=2126032401]
-collision_layer = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Interact" unique_id=1186446353]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1186446353]
 position = Vector2(-1, 5)
 shape = SubResource("RectangleShape2D_5ow5o")

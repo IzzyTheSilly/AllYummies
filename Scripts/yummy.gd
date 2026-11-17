@@ -49,7 +49,6 @@ func _on_timer_timeout() -> void:
 		behaviour_state = BehaviourState.IDLE
 	if randi_range(1, 100) < 90:
 		set_health(health - 1, false)
-		print("uh oh!")
 
 
 func _on_body_entered(body: Node2D) -> void: # Collide

@@ -1,5 +1,2 @@
-extends AnimatedSprite2D
+extends Entity
 class_name Irsela
-
-
-@export var test_cutscene: CutsceneData

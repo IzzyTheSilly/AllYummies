@@ -10,9 +10,13 @@ var dialogue_has_finished: bool = true
 
 func show_cutscene(cutscene: CutsceneData):
 	in_cutscene = true
-	for i in range(cutscene.dialogues.size()):
-		show_dialogue(cutscene.dialogues[i])
-		await dialogue_accepted
+	if cutscene.dialogues:
+		for i in range(cutscene.dialogues.size()):
+			show_dialogue(cutscene.dialogues[i])
+			await dialogue_accepted
+	if cutscene.set_flags:
+		for key in cutscene.set_flags:
+			GlobalData.flags[key] = cutscene.set_flags[key]
 	in_cutscene = false
 
 

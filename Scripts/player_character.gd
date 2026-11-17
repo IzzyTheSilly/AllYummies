@@ -2,9 +2,6 @@ extends CharacterBody2D
 class_name Player
 
 
-@export var test_dialogue: DialogueData
-@export var test_cutscene: CutsceneData
-
 @export var speed: int
 @export var sprint_speed: float = 1.5
 @export var interaction_raycast: RayCast2D
@@ -37,7 +34,8 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("interact"):
 		# test functions, delete later when implementing entity interaction
 		if interaction_raycast.get_collider() and !CutsceneHandler.in_cutscene and !OptionsHandler.showing_options:
-			CutsceneHandler.show_cutscene(test_cutscene)
+			if interaction_raycast.get_collider() is Entity:
+				interaction_raycast.get_collider()._on_interact()
 		elif CutsceneHandler.in_cutscene:
 			CutsceneHandler.hide_dialogue()
 	

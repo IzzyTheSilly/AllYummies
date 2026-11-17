@@ -65,3 +65,12 @@ func reset_values():
 	yummies_in_stock_market = 0
 	max_yummy_pull = 5
 	yummy_interest = yummy_interest_average
+
+
+"""Flags"""
+@export var flags: Array[bool]
+
+
+func reset_flags():
+	for flag in flags:
+		flag = false

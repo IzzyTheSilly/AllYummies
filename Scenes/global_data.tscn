@@ -4,3 +4,4 @@
 
 [node name="GlobalData" type="Node" unique_id=42985718]
 script = ExtResource("1_gqdbo")
+flags = Array[bool]([false])
