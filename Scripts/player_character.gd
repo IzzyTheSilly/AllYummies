@@ -9,8 +9,12 @@ class_name Player
 @export var interaction_raycast: RayCast2D
 @export var interaction_distance: int
 @export var interaction_cooldown: float
-##How many things the player can interact with at once.
-@export var interaction_stacking: int
+##How many yummies the player can collect with at once.
+@export var collection_stacking: int
+
+
+func _ready() -> void:
+	pass
 
 
 func _physics_process(delta: float) -> void:

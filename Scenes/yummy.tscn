@@ -82,7 +82,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Yummy" type="Area2D" unique_id=762481958 node_paths=PackedStringArray("sprite2d", "timer", "animation_player")]
+[node name="Yummy" type="Area2D" unique_id=762481958 node_paths=PackedStringArray("sprite2d", "timer", "animation_player", "healthbar")]
 z_as_relative = false
 y_sort_enabled = true
 collision_layer = 4
@@ -93,6 +93,7 @@ timer = NodePath("Timer")
 animation_player = NodePath("AnimationPlayer")
 speed = 30
 wander_distance = 500
+healthbar = NodePath("Control/Healthbar")
 
 [node name="Shadow" type="Sprite2D" parent="." unique_id=1871059682]
 z_index = -1
@@ -118,6 +119,30 @@ position = Vector2(0, -8)
 scale = Vector2(0.051282052, 0.051546387)
 sprite_frames = SubResource("SpriteFrames_ir5lp")
 frame = 1
+
+[node name="Control" type="Control" parent="." unique_id=1932939047]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Healthbar" type="TextureProgressBar" parent="Control" unique_id=920276548]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -14.0
+offset_top = -24.0
+offset_right = -26.0
+offset_bottom = -58.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+max_value = 5.0
+value = 5.0
+nine_patch_stretch = true
+texture_progress = ExtResource("3_osvtb")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

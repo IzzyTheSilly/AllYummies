@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://dn6lprs8nnb7n"]
 
 [ext_resource type="PackedScene" uid="uid://dcs7wggifh5by" path="res://Scenes/player_character.tscn" id="1_1i6hu"]
-[ext_resource type="PackedScene" uid="uid://clrjk2d7w4s10" path="res://Scenes/yummy.tscn" id="2_1i6hu"]
 [ext_resource type="PackedScene" uid="uid://cb44ak8oqnwuy" path="res://Scenes/dialogue_box.tscn" id="3_3x2t2"]
 [ext_resource type="PackedScene" uid="uid://bfftyyryl7vdc" path="res://Scenes/options_menu.tscn" id="3_87rxc"]
 [ext_resource type="PackedScene" uid="uid://d4arwf6nu8j8l" path="res://Scenes/yummy_spawner.tscn" id="4_vx3cr"]
@@ -35,6 +34,7 @@ offset_right = -160.0
 offset_bottom = -160.0
 
 [node name="OptionsMenu" parent="PlayerCharacter/Camera2D" unique_id=142809403 instance=ExtResource("3_87rxc")]
+visible = false
 offset_left = -120.0
 offset_top = -420.0
 offset_right = 120.0
@@ -46,11 +46,11 @@ collision_layer = 2
 collision_mask = 0
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Boundaries" unique_id=12296375]
-position = Vector2(259, 0)
+position = Vector2(338, 10)
 shape = SubResource("RectangleShape2D_q1q2r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries" unique_id=1239808858]
-position = Vector2(-1, -402)
+position = Vector2(4, -367)
 shape = SubResource("RectangleShape2D_1i6hu")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Boundaries" unique_id=850404265]
@@ -60,9 +60,6 @@ shape = SubResource("RectangleShape2D_3x2t2")
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Boundaries" unique_id=952687037]
 position = Vector2(-327, -7)
 shape = SubResource("RectangleShape2D_q1q2r")
-
-[node name="Yummy" parent="." unique_id=762481958 instance=ExtResource("2_1i6hu")]
-position = Vector2(94, 21)
 
 [node name="StatsViewer" type="StaticBody2D" parent="." unique_id=137115902]
 collision_layer = 6
