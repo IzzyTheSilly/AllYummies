@@ -86,12 +86,13 @@ animations = [{
 z_as_relative = false
 y_sort_enabled = true
 collision_layer = 4
-collision_mask = 0
+collision_mask = 2
 script = ExtResource("1_wsthx")
 sprite2d = NodePath("AnimatedSprite2D")
 timer = NodePath("Timer")
 animation_player = NodePath("AnimationPlayer")
 speed = 30
+wander_distance = 500
 
 [node name="Shadow" type="Sprite2D" parent="." unique_id=1871059682]
 z_index = -1
@@ -106,6 +107,7 @@ shape = SubResource("RectangleShape2D_ir5lp")
 metadata/_edit_lock_ = true
 
 [node name="Timer" type="Timer" parent="." unique_id=262312675]
+wait_time = 3.0
 autostart = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1377049254]
@@ -117,4 +119,5 @@ scale = Vector2(0.051282052, 0.051546387)
 sprite_frames = SubResource("SpriteFrames_ir5lp")
 frame = 1
 
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

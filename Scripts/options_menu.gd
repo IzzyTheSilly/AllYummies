@@ -20,6 +20,7 @@ func _ready() -> void:
 	dialogue_volume_slider.value = GlobalData.dialogue_volume
 	sfx_volume_slider.value = GlobalData.sfx_volume
 	music_volume_slider.value = GlobalData.music_volume
+	OptionsHandler.start_position_y = position.y
 	if GameManager.in_game:
 		main_menu_button.show()
 	else:
