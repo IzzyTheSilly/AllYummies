@@ -6,11 +6,14 @@ class_name Player
 @export var test_cutscene: CutsceneData
 
 @export var speed: int
+@export var sprint_speed: float = 1.5
 @export var interaction_raycast: RayCast2D
 @export var interaction_distance: int
 @export var interaction_cooldown: float
 ##How many yummies the player can collect with at once.
 @export var collection_stacking: int
+
+var collected_yummies: Array[Yummy]
 
 
 func _ready() -> void:
@@ -27,6 +30,8 @@ func _physics_process(delta: float) -> void:
 	if direction:
 		interaction_raycast.position = -direction * 9
 		interaction_raycast.target_position = direction * interaction_distance
+	if Input.is_action_pressed("cancel"):
+		delta = delta * 1.5
 	velocity = direction * speed * delta
 	
 	if Input.is_action_just_pressed("interact"):

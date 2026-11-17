@@ -3,6 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://c3w0t1m1fe2mj" path="res://Assets/Sprites/icon.svg" id="1_4xhlt"]
 [ext_resource type="Script" uid="uid://dtqhr2uiu1flh" path="res://Scripts/yummy.gd" id="1_wsthx"]
 [ext_resource type="Texture2D" uid="uid://46i3nqtioiuf" path="res://Assets/Sprites/yummy_test.png" id="3_osvtb"]
+[ext_resource type="Texture2D" uid="uid://boe0n28wym8if" path="res://Assets/Sprites/squadword.PNG" id="4_ex11a"]
+[ext_resource type="Texture2D" uid="uid://dehx21vg6a76g" path="res://Assets/Sprites/titlescreenbgplaceholder.jpg" id="4_ve61t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ir5lp"]
 
@@ -72,10 +74,16 @@ _data = {
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("3_osvtb")
+}, {
+"duration": 1.0,
 "texture": ExtResource("1_4xhlt")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_osvtb")
+"texture": ExtResource("4_ve61t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ex11a")
 }],
 "loop": 1,
 "name": &"default",
@@ -94,6 +102,7 @@ animation_player = NodePath("AnimationPlayer")
 speed = 30
 wander_distance = 500
 healthbar = NodePath("Control/Healthbar")
+sprites = Array[Texture2D]([ExtResource("3_osvtb"), ExtResource("1_4xhlt"), ExtResource("4_ex11a"), ExtResource("4_ve61t")])
 
 [node name="Shadow" type="Sprite2D" parent="." unique_id=1871059682]
 z_index = -1
@@ -118,7 +127,6 @@ libraries/ = SubResource("AnimationLibrary_ex11a")
 position = Vector2(0, -8)
 scale = Vector2(0.051282052, 0.051546387)
 sprite_frames = SubResource("SpriteFrames_ir5lp")
-frame = 1
 
 [node name="Control" type="Control" parent="." unique_id=1932939047]
 layout_mode = 3
