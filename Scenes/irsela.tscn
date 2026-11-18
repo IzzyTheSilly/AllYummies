@@ -12,11 +12,11 @@ size = Vector2(18, 11)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5ow5o"]
 size = Vector2(20, 30)
 
-[node name="Irsela" type="Area2D" unique_id=2047269392]
-collision_layer = 4
+[node name="Irsela" type="CharacterBody2D" unique_id=1712487231]
+collision_layer = 8
+input_pickable = true
 script = ExtResource("1_ksfs5")
 cutscenes = Array[ExtResource("3_qld7d")]([ExtResource("3_pm7kn"), ExtResource("4_rqkk3")])
-metadata/_custom_type_script = "uid://bs6wnpnyqscgq"
 
 [node name="Collision" type="StaticBody2D" parent="." unique_id=1328324927]
 collision_layer = 2

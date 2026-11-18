@@ -5,17 +5,17 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ir5lp"]
 size = Vector2(80, 40)
 
-[node name="StatsViewer" type="Area2D" unique_id=2133314408]
-collision_layer = 6
-collision_mask = 0
+[node name="StatsViewer" type="CharacterBody2D" unique_id=1150843877]
+collision_layer = 8
+input_pickable = true
 script = ExtResource("1_bd61m")
-metadata/_custom_type_script = "uid://bs6wnpnyqscgq"
 
 [node name="Interact" type="CollisionShape2D" parent="." unique_id=1197012743]
 shape = SubResource("RectangleShape2D_ir5lp")
 metadata/_edit_lock_ = true
 
 [node name="Collision" type="StaticBody2D" parent="." unique_id=684895679]
+collision_layer = 2
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Collision" unique_id=2095242276]

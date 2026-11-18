@@ -16,7 +16,7 @@ size = Vector2(38, 32)
 [node name="PlayerCharacter" type="CharacterBody2D" unique_id=1522660109 node_paths=PackedStringArray("interaction_raycast")]
 z_as_relative = false
 y_sort_enabled = true
-collision_mask = 6
+collision_mask = 2
 script = ExtResource("1_o0f8b")
 speed = 12000
 interaction_raycast = NodePath("RayCast2D")
@@ -33,7 +33,7 @@ shape = SubResource("RectangleShape2D_ir5lp")
 
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=122288240]
 target_position = Vector2(0, 0)
-collision_mask = 4
+collision_mask = 8
 hit_from_inside = true
 collide_with_areas = true
 
