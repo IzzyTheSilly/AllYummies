@@ -2,9 +2,7 @@ extends Control
 class_name OptionsMenu
 
 
-@export var page_one: Control
-@export var page_two: Control
-@export var page_three: Control
+@export var pages: Array[Control]
 var page: int = 1
 
 @export var back_button: Button
@@ -28,18 +26,11 @@ func _ready() -> void:
 
 
 func change_page(page: int):
-	if page == 1:
-		page_one.show()
-		page_two.hide()
-		page_three.hide()
-	elif page == 2:
-		page_one.hide()
-		page_two.show()
-		page_three.hide()
-	elif page == 3:
-		page_one.hide()
-		page_two.hide()
-		page_three.show()
+	for i in range(pages.size()):
+		if i == page - 1:
+			pages[i].show()
+		else:
+			pages[i].hide()
 
 
 func _on_back_button_pressed() -> void:
@@ -52,7 +43,7 @@ func _on_main_menu_button_pressed() -> void:
 
 
 func _on_next_page_button_pressed() -> void:
-	if page < 3:
+	if page < pages.size():
 		page = page + 1
 		change_page(page)
 

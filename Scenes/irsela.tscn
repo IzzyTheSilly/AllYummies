@@ -2,83 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://c38nihrqswwdp" path="res://Assets/Sprites/irsela_laceholder.jpg" id="1_7dy2a"]
 [ext_resource type="Script" uid="uid://cirn5aiyi64yg" path="res://Scripts/irsela.gd" id="1_ksfs5"]
-[ext_resource type="Script" uid="uid://dvl6mehpirn4w" path="res://Scripts/dialogue_data.gd" id="2_jinyc"]
-[ext_resource type="Script" uid="uid://rdgx4kdiqt45" path="res://Scripts/dialogue_choice_data.gd" id="2_pm7kn"]
-[ext_resource type="AudioStream" uid="uid://cilay0xwylgkn" path="res://Assets/Audio/soundshelfstudio-sci-fi-system-blip-525671.mp3" id="3_pm7kn"]
+[ext_resource type="Resource" uid="uid://bxnx1te4iu3vd" path="res://Resources/talk_to_irsela_0.tres" id="3_pm7kn"]
 [ext_resource type="Script" uid="uid://cprsdu68b8n21" path="res://Scripts/cutscene_data.gd" id="3_qld7d"]
-
-[sub_resource type="Resource" id="Resource_hmx0y"]
-script = ExtResource("2_pm7kn")
-options = Dictionary[String, int]({
-"Nope": 4,
-"Yeah": 3
-})
-metadata/_custom_type_script = "uid://rdgx4kdiqt45"
-
-[sub_resource type="Resource" id="Resource_rqkk3"]
-script = ExtResource("2_jinyc")
-text = "Wow, you're actually here."
-blip = ExtResource("3_pm7kn")
-portrait = ExtResource("1_7dy2a")
-next_dialogue_index = 1
-metadata/_custom_type_script = "uid://dvl6mehpirn4w"
-
-[sub_resource type="Resource" id="Resource_u83eq"]
-script = ExtResource("2_jinyc")
-text = "You know, you're the only person I hired who didn't chicken out."
-blip = ExtResource("3_pm7kn")
-portrait = ExtResource("1_7dy2a")
-next_dialogue_index = 2
-metadata/_custom_type_script = "uid://dvl6mehpirn4w"
-
-[sub_resource type="Resource" id="Resource_x5kaa"]
-script = ExtResource("2_jinyc")
-text = "Anyways, I assume you already know what to do, right?"
-blip = ExtResource("3_pm7kn")
-portrait = ExtResource("1_7dy2a")
-next_dialogue_choice_index = 0
-metadata/_custom_type_script = "uid://dvl6mehpirn4w"
-
-[sub_resource type="Resource" id="Resource_nai3r"]
-script = ExtResource("2_jinyc")
-text = "Sweet, now go."
-blip = ExtResource("3_pm7kn")
-portrait = ExtResource("1_7dy2a")
-metadata/_custom_type_script = "uid://dvl6mehpirn4w"
-
-[sub_resource type="Resource" id="Resource_fgar7"]
-script = ExtResource("2_jinyc")
-text = "Wow, what a fucking idiot."
-blip = ExtResource("3_pm7kn")
-portrait = ExtResource("1_7dy2a")
-metadata/_custom_type_script = "uid://dvl6mehpirn4w"
-
-[sub_resource type="Resource" id="Resource_pm7kn"]
-script = ExtResource("3_qld7d")
-dialogues = Array[ExtResource("2_jinyc")]([SubResource("Resource_rqkk3"), SubResource("Resource_u83eq"), SubResource("Resource_x5kaa"), SubResource("Resource_nai3r"), SubResource("Resource_fgar7")])
-dialogue_choices = Array[ExtResource("2_pm7kn")]([SubResource("Resource_hmx0y")])
-set_flags = Dictionary[String, int]({
-"talk_to_irsela": 1
-})
-flag_requirements = Dictionary[String, int]({
-"talk_to_irsela": 0
-})
-metadata/_custom_type_script = "uid://cprsdu68b8n21"
-
-[sub_resource type="Resource" id="Resource_xpwih"]
-script = ExtResource("2_jinyc")
-text = "The hell do you want?"
-blip = ExtResource("3_pm7kn")
-portrait = ExtResource("1_7dy2a")
-metadata/_custom_type_script = "uid://dvl6mehpirn4w"
-
-[sub_resource type="Resource" id="Resource_7ybrs"]
-script = ExtResource("3_qld7d")
-dialogues = Array[ExtResource("2_jinyc")]([SubResource("Resource_xpwih")])
-flag_requirements = Dictionary[String, int]({
-"talk_to_irsela": 1
-})
-metadata/_custom_type_script = "uid://cprsdu68b8n21"
+[ext_resource type="Resource" uid="uid://buyueat28p18f" path="res://Resources/talk_to_irsela_1.tres" id="4_rqkk3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vkdgo"]
 size = Vector2(18, 11)
@@ -89,7 +15,7 @@ size = Vector2(20, 30)
 [node name="Irsela" type="Area2D" unique_id=2047269392]
 collision_layer = 4
 script = ExtResource("1_ksfs5")
-cutscenes = Array[ExtResource("3_qld7d")]([SubResource("Resource_pm7kn"), SubResource("Resource_7ybrs")])
+cutscenes = Array[ExtResource("3_qld7d")]([ExtResource("3_pm7kn"), ExtResource("4_rqkk3")])
 metadata/_custom_type_script = "uid://bs6wnpnyqscgq"
 
 [node name="Collision" type="StaticBody2D" parent="." unique_id=1328324927]

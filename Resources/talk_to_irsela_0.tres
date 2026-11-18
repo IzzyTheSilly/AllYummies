@@ -1,0 +1,65 @@
+[gd_resource type="Resource" script_class="CutsceneData" format=3 uid="uid://bxnx1te4iu3vd"]
+
+[ext_resource type="Script" uid="uid://rdgx4kdiqt45" path="res://Scripts/dialogue_choice_data.gd" id="1_w8evn"]
+[ext_resource type="Script" uid="uid://dvl6mehpirn4w" path="res://Scripts/dialogue_data.gd" id="2_1tsjc"]
+[ext_resource type="AudioStream" uid="uid://cilay0xwylgkn" path="res://Assets/Audio/soundshelfstudio-sci-fi-system-blip-525671.mp3" id="3_jqmj5"]
+[ext_resource type="Texture2D" uid="uid://c38nihrqswwdp" path="res://Assets/Sprites/irsela_laceholder.jpg" id="4_q8vyr"]
+[ext_resource type="Script" uid="uid://cprsdu68b8n21" path="res://Scripts/cutscene_data.gd" id="5_x3ncl"]
+
+[sub_resource type="Resource" id="Resource_hmx0y"]
+script = ExtResource("1_w8evn")
+options = Dictionary[String, int]({
+"Nope": 4,
+"Yeah": 3
+})
+metadata/_custom_type_script = "uid://rdgx4kdiqt45"
+
+[sub_resource type="Resource" id="Resource_rqkk3"]
+script = ExtResource("2_1tsjc")
+text = "Wow, you're actually here."
+blip = ExtResource("3_jqmj5")
+portrait = ExtResource("4_q8vyr")
+next_dialogue_index = 1
+metadata/_custom_type_script = "uid://dvl6mehpirn4w"
+
+[sub_resource type="Resource" id="Resource_u83eq"]
+script = ExtResource("2_1tsjc")
+text = "You know, you're the only person I hired who didn't chicken out."
+blip = ExtResource("3_jqmj5")
+portrait = ExtResource("4_q8vyr")
+next_dialogue_index = 2
+metadata/_custom_type_script = "uid://dvl6mehpirn4w"
+
+[sub_resource type="Resource" id="Resource_x5kaa"]
+script = ExtResource("2_1tsjc")
+text = "Anyways, I assume you already know what to do, right?"
+blip = ExtResource("3_jqmj5")
+portrait = ExtResource("4_q8vyr")
+next_dialogue_choice_index = 0
+metadata/_custom_type_script = "uid://dvl6mehpirn4w"
+
+[sub_resource type="Resource" id="Resource_nai3r"]
+script = ExtResource("2_1tsjc")
+text = "Sweet, now go."
+blip = ExtResource("3_jqmj5")
+portrait = ExtResource("4_q8vyr")
+metadata/_custom_type_script = "uid://dvl6mehpirn4w"
+
+[sub_resource type="Resource" id="Resource_fgar7"]
+script = ExtResource("2_1tsjc")
+text = "Wow, what a fucking idiot."
+blip = ExtResource("3_jqmj5")
+portrait = ExtResource("4_q8vyr")
+metadata/_custom_type_script = "uid://dvl6mehpirn4w"
+
+[resource]
+script = ExtResource("5_x3ncl")
+dialogues = Array[ExtResource("2_1tsjc")]([SubResource("Resource_rqkk3"), SubResource("Resource_u83eq"), SubResource("Resource_x5kaa"), SubResource("Resource_nai3r"), SubResource("Resource_fgar7")])
+dialogue_choices = Array[ExtResource("1_w8evn")]([SubResource("Resource_hmx0y")])
+set_flags = Dictionary[String, int]({
+"talk_to_irsela": 1
+})
+flag_requirements = Dictionary[String, int]({
+"talk_to_irsela": 0
+})
+metadata/_custom_type_script = "uid://cprsdu68b8n21"

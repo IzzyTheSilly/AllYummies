@@ -4,19 +4,12 @@
 [ext_resource type="PackedScene" uid="uid://cb44ak8oqnwuy" path="res://Scenes/dialogue_box.tscn" id="3_3x2t2"]
 [ext_resource type="PackedScene" uid="uid://bfftyyryl7vdc" path="res://Scenes/options_menu.tscn" id="3_87rxc"]
 [ext_resource type="PackedScene" uid="uid://d4arwf6nu8j8l" path="res://Scenes/yummy_spawner.tscn" id="4_vx3cr"]
+[ext_resource type="PackedScene" uid="uid://mgvd43lurjel" path="res://Scenes/stats_viewer.tscn" id="4_yojay"]
+[ext_resource type="PackedScene" uid="uid://do413j065evhd" path="res://Scenes/trading_station.tscn" id="5_0rene"]
 [ext_resource type="PackedScene" uid="uid://b4uup8eh0hamk" path="res://Scenes/irsela.tscn" id="5_87rxc"]
 [ext_resource type="Script" uid="uid://d2q2fgy2c2n30" path="res://Scripts/cutscene_trigger.gd" id="6_0wpj4"]
-[ext_resource type="Script" uid="uid://dvl6mehpirn4w" path="res://Scripts/dialogue_data.gd" id="7_5lkcg"]
-[ext_resource type="Script" uid="uid://rdgx4kdiqt45" path="res://Scripts/dialogue_choice_data.gd" id="7_hmx0y"]
-[ext_resource type="Texture2D" uid="uid://boe0n28wym8if" path="res://Assets/Sprites/squadword.PNG" id="8_5lkcg"]
-[ext_resource type="AudioStream" uid="uid://cilay0xwylgkn" path="res://Assets/Audio/soundshelfstudio-sci-fi-system-blip-525671.mp3" id="8_hmx0y"]
-[ext_resource type="Script" uid="uid://cprsdu68b8n21" path="res://Scripts/cutscene_data.gd" id="8_kqlyn"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ir5lp"]
-size = Vector2(80, 40)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vx3cr"]
-size = Vector2(80, 40)
+[ext_resource type="Resource" uid="uid://dfud70qokrbqh" path="res://Resources/irsela_calls_you_over.tres" id="9_oxg1x"]
+[ext_resource type="Resource" uid="uid://bxjkclo6pwmw6" path="res://Resources/irsela_calls_you_back.tres" id="10_kqlyn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q1q2r"]
 size = Vector2(20, 320)
@@ -48,35 +41,8 @@ size = Vector2(140, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3x2t2"]
 size = Vector2(320, 20)
 
-[sub_resource type="Resource" id="Resource_hmx0y"]
-script = ExtResource("7_5lkcg")
-text = "Hey, get over here."
-blip = ExtResource("8_hmx0y")
-portrait = ExtResource("8_5lkcg")
-metadata/_custom_type_script = "uid://dvl6mehpirn4w"
-
-[sub_resource type="Resource" id="Resource_5ow5o"]
-script = ExtResource("8_kqlyn")
-dialogues = Array[ExtResource("7_5lkcg")]([SubResource("Resource_hmx0y")])
-metadata/_custom_type_script = "uid://cprsdu68b8n21"
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vkdgo"]
 size = Vector2(65, 41.5)
-
-[sub_resource type="Resource" id="Resource_0wpj4"]
-script = ExtResource("7_5lkcg")
-text = "Get the fuck back here."
-blip = ExtResource("8_hmx0y")
-portrait = ExtResource("8_5lkcg")
-metadata/_custom_type_script = "uid://dvl6mehpirn4w"
-
-[sub_resource type="Resource" id="Resource_kqlyn"]
-script = ExtResource("8_kqlyn")
-dialogues = Array[ExtResource("7_5lkcg")]([SubResource("Resource_0wpj4")])
-flag_requirements = Dictionary[String, int]({
-"talk_to_irsela": 0
-})
-metadata/_custom_type_script = "uid://cprsdu68b8n21"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kck4e"]
 size = Vector2(225.25, 47.75)
@@ -105,24 +71,11 @@ offset_right = 120.0
 offset_bottom = -180.0
 metadata/_edit_use_anchors_ = true
 
-[node name="StatsViewer" type="StaticBody2D" parent="." unique_id=137115902]
-position = Vector2(223, -1010)
-collision_layer = 6
-collision_mask = 0
+[node name="StatsViewer" parent="." unique_id=2133314408 instance=ExtResource("4_yojay")]
+position = Vector2(262, -986)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StatsViewer" unique_id=1154892065]
-position = Vector2(16, 20)
-shape = SubResource("RectangleShape2D_ir5lp")
-
-[node name="TradingStation" type="StaticBody2D" parent="." unique_id=865394039]
-position = Vector2(201, -1317)
-collision_layer = 6
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TradingStation" unique_id=1211124778]
-position = Vector2(-1, 1)
-shape = SubResource("RectangleShape2D_vx3cr")
-metadata/_edit_lock_ = true
+[node name="TradingStation" parent="." unique_id=86592641 instance=ExtResource("5_0rene")]
+position = Vector2(213, -1314)
 
 [node name="YummySpawner" parent="." unique_id=826669829 instance=ExtResource("4_vx3cr")]
 
@@ -202,7 +155,7 @@ shape = SubResource("RectangleShape2D_q1q2r")
 [node name="IrselaCallsYouOver" type="Area2D" parent="Triggers" unique_id=761040668]
 collision_layer = 4
 script = ExtResource("6_0wpj4")
-cutscene = SubResource("Resource_5ow5o")
+cutscene = ExtResource("9_oxg1x")
 metadata/_custom_type_script = "uid://d2q2fgy2c2n30"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/IrselaCallsYouOver" unique_id=898989838]
@@ -213,7 +166,7 @@ shape = SubResource("RectangleShape2D_vkdgo")
 collision_layer = 4
 script = ExtResource("6_0wpj4")
 multi_trigger = true
-cutscene = SubResource("Resource_kqlyn")
+cutscene = ExtResource("10_kqlyn")
 metadata/_custom_type_script = "uid://d2q2fgy2c2n30"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/IrselaCallsYouBack" unique_id=423818938]

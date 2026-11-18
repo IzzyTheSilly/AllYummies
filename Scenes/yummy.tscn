@@ -10,16 +10,16 @@
 [ext_resource type="AudioStream" uid="uid://cilay0xwylgkn" path="res://Assets/Audio/soundshelfstudio-sci-fi-system-blip-525671.mp3" id="7_um3do"]
 [ext_resource type="Script" uid="uid://cprsdu68b8n21" path="res://Scripts/cutscene_data.gd" id="8_rbvt0"]
 
-[sub_resource type="Resource" id="Resource_wmkog"]
+[sub_resource type="Resource" id="Resource_um3do"]
 script = ExtResource("6_uxyur")
-text = "Yippee!"
+text = "Yippe!!"
 blip = ExtResource("7_um3do")
 portrait = ExtResource("3_osvtb")
 metadata/_custom_type_script = "uid://dvl6mehpirn4w"
 
-[sub_resource type="Resource" id="Resource_ex11a"]
+[sub_resource type="Resource" id="Resource_rbvt0"]
 script = ExtResource("8_rbvt0")
-dialogues = Array[ExtResource("6_uxyur")]([SubResource("Resource_wmkog")])
+dialogues = Array[ExtResource("6_uxyur")]([SubResource("Resource_um3do")])
 metadata/_custom_type_script = "uid://cprsdu68b8n21"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ir5lp"]
@@ -119,7 +119,7 @@ speed = 30
 wander_distance = 500
 healthbar = NodePath("Control/Healthbar")
 sprites = Array[Texture2D]([ExtResource("3_osvtb"), ExtResource("1_4xhlt"), ExtResource("4_ex11a"), ExtResource("4_ve61t")])
-cutscene = SubResource("Resource_ex11a")
+cutscenes = Array[ExtResource("8_rbvt0")]([SubResource("Resource_rbvt0")])
 metadata/_custom_type_script = "uid://bs6wnpnyqscgq"
 
 [node name="Shadow" type="Sprite2D" parent="." unique_id=1871059682]

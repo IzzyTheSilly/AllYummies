@@ -38,10 +38,13 @@ func _physics_process(delta: float) -> void:
 
 func process_interaction() -> void:
 	if Input.is_action_just_pressed("interact"):
-		# test functions, delete later when implementing entity interaction
-		if interaction_raycast.get_collider() and !CutsceneHandler.in_cutscene and !OptionsHandler.showing_options:
-			if interaction_raycast.get_collider() is Entity:
-				interaction_raycast.get_collider()._on_interact()
+		if (
+				interaction_raycast.get_collider() and 
+				!CutsceneHandler.in_cutscene and 
+				!OptionsHandler.showing_options and 
+				interaction_raycast.get_collider() is Entity
+			):
+			interaction_raycast.get_collider()._on_interact()
 		elif CutsceneHandler.in_cutscene:
 			if !CutsceneHandler.in_dialogue_choice:
 				CutsceneHandler.hide_dialogue()

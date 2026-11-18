@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://mgvd43lurjel"]
+
+[ext_resource type="Script" uid="uid://bbq2yx6xon724" path="res://Scripts/stats_viewer.gd" id="1_bd61m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ir5lp"]
+size = Vector2(80, 40)
+
+[node name="StatsViewer" type="Area2D" unique_id=2133314408]
+collision_layer = 6
+collision_mask = 0
+script = ExtResource("1_bd61m")
+metadata/_custom_type_script = "uid://bs6wnpnyqscgq"
+
+[node name="Interact" type="CollisionShape2D" parent="." unique_id=1197012743]
+shape = SubResource("RectangleShape2D_ir5lp")
+metadata/_edit_lock_ = true
+
+[node name="Collision" type="StaticBody2D" parent="." unique_id=684895679]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision" unique_id=2095242276]
+shape = SubResource("RectangleShape2D_ir5lp")
+metadata/_edit_lock_ = true

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://myr57m6o6jrl" path="res://Scripts/options_menu.gd" id="1_plplt"]
 [ext_resource type="Texture2D" uid="uid://dehx21vg6a76g" path="res://Assets/Sprites/titlescreenbgplaceholder.jpg" id="2_uj0ok"]
 
-[node name="OptionsMenu" type="Control" unique_id=142809403 node_paths=PackedStringArray("page_one", "page_two", "page_three", "back_button", "main_menu_button", "dialogue_volume_slider", "sfx_volume_slider", "music_volume_slider")]
+[node name="OptionsMenu" type="Control" unique_id=142809403 node_paths=PackedStringArray("pages", "back_button", "main_menu_button", "dialogue_volume_slider", "sfx_volume_slider", "music_volume_slider")]
 z_index = 2
 layout_mode = 3
 anchors_preset = 15
@@ -14,9 +14,7 @@ offset_bottom = -80.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_plplt")
-page_one = NodePath("Page1")
-page_two = NodePath("Page2")
-page_three = NodePath("Page3")
+pages = [NodePath("Page1"), NodePath("Page2"), NodePath("Page3"), NodePath("Page4")]
 back_button = NodePath("BackButton")
 main_menu_button = NodePath("MainMenuButton")
 dialogue_volume_slider = NodePath("Page1/DialogueVolumeSlider")
@@ -130,6 +128,20 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Page3Label" type="RichTextLabel" parent="Page3" unique_id=2047042881]
+layout_mode = 0
+offset_left = 74.0
+offset_top = 3.0
+offset_right = 180.0
+offset_bottom = 43.0
+text = "GAMEPLAY"
+
+[node name="Page4" type="Control" parent="." unique_id=1058709108]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Page4Label" type="RichTextLabel" parent="Page4" unique_id=2072828231]
 layout_mode = 0
 offset_left = 74.0
 offset_top = 3.0
