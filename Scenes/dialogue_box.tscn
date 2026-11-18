@@ -14,7 +14,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_kyvu4")
 dialogue_text = NodePath("DialogueArea/DialogueText")
-dialogue_choice_texts = [NodePath("DialogueArea/ChoiceButton1"), NodePath("DialogueArea/ChoiceButton2")]
+dialogue_choice_texts = [NodePath("DialogueArea/ChoiceText1"), NodePath("DialogueArea/ChoiceText2")]
 portrait_image = NodePath("PortraitArea/PortraitImage")
 portrait_area = NodePath("PortraitArea")
 dialogue_timer = NodePath("DialogueTimer")
@@ -42,21 +42,38 @@ text = "Dialogue text"
 scroll_active = false
 visible_characters_behavior = 1
 
-[node name="ChoiceButton1" type="Button" parent="DialogueArea" unique_id=850950387]
+[node name="ChoiceText1" type="RichTextLabel" parent="DialogueArea" unique_id=975777817]
 layout_mode = 0
-offset_left = 19.0
-offset_top = 20.0
-offset_right = 100.0
-offset_bottom = 61.0
+offset_right = 140.0
+offset_bottom = 79.0
 text = "Option 1"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="ChoiceButton2" type="Button" parent="DialogueArea" unique_id=1322446522]
+[node name="Highlight" type="ColorRect" parent="DialogueArea/ChoiceText1" unique_id=1115262691]
 layout_mode = 0
-offset_left = 159.0
-offset_top = 18.0
-offset_right = 240.0
+offset_left = 39.0
+offset_top = 52.0
+offset_right = 102.0
 offset_bottom = 59.0
+
+[node name="ChoiceText2" type="RichTextLabel" parent="DialogueArea" unique_id=488109550]
+layout_mode = 0
+offset_left = 149.0
+offset_top = 1.0
+offset_right = 279.0
+offset_bottom = 80.0
 text = "Option 2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Highlight" type="ColorRect" parent="DialogueArea/ChoiceText2" unique_id=1028616307]
+visible = false
+layout_mode = 0
+offset_left = 34.0
+offset_top = 52.0
+offset_right = 97.0
+offset_bottom = 59.0
 
 [node name="PortraitArea" type="TextureRect" parent="." unique_id=1894745620]
 layout_mode = 0
@@ -76,6 +93,3 @@ texture = ExtResource("2_kyvu4")
 expand_mode = 1
 
 [node name="DialogueTimer" type="Timer" parent="." unique_id=1191380493]
-
-[connection signal="pressed" from="DialogueArea/ChoiceButton1" to="." method="_on_choice_button_1_pressed"]
-[connection signal="pressed" from="DialogueArea/ChoiceButton2" to="." method="_on_choice_button_2_pressed"]

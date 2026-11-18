@@ -73,6 +73,9 @@ metadata/_custom_type_script = "uid://dvl6mehpirn4w"
 [sub_resource type="Resource" id="Resource_kqlyn"]
 script = ExtResource("8_kqlyn")
 dialogues = Array[ExtResource("7_5lkcg")]([SubResource("Resource_0wpj4")])
+flag_requirements = Dictionary[String, int]({
+"talk_to_irsela": 0
+})
 metadata/_custom_type_script = "uid://cprsdu68b8n21"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kck4e"]
@@ -200,9 +203,6 @@ shape = SubResource("RectangleShape2D_q1q2r")
 collision_layer = 4
 script = ExtResource("6_0wpj4")
 cutscene = SubResource("Resource_5ow5o")
-requirements = Dictionary[int, bool]({
-0: false
-})
 metadata/_custom_type_script = "uid://d2q2fgy2c2n30"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/IrselaCallsYouOver" unique_id=898989838]
@@ -214,9 +214,6 @@ collision_layer = 4
 script = ExtResource("6_0wpj4")
 multi_trigger = true
 cutscene = SubResource("Resource_kqlyn")
-requirements = Dictionary[int, bool]({
-0: false
-})
 metadata/_custom_type_script = "uid://d2q2fgy2c2n30"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/IrselaCallsYouBack" unique_id=423818938]

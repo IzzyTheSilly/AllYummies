@@ -52,7 +52,7 @@ func update_gdy():
 	gross_domestic_yummy = yummies - bummies_lost - 2*bummies_goner - 5*bummies_damned
 
 
-func reset_values():
+func reset_game_stats():
 	yummies = start_yummies
 	bummies_lost = start_bummies_lost
 	bummies_goner = start_bummies_goner
@@ -67,10 +67,14 @@ func reset_values():
 	yummy_interest = yummy_interest_average
 
 
-"""Flags"""
-@export var flags: Array[bool]
+"""Local Flags"""
+@export var local_flags: Dictionary[String, int]
 
 
-func reset_flags():
-	for flag in flags:
-		flag = false
+func reset_local_flags():
+	for flag in local_flags:
+		local_flags[flag] = false
+
+
+"""Global Flags"""
+@export var global_flags: Dictionary[String, int]

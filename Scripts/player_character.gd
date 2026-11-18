@@ -31,13 +31,22 @@ func _physics_process(delta: float) -> void:
 		delta = delta * 1.5
 	velocity = direction * speed * delta
 	
+	process_interaction()
+	
+	move_and_slide()
+
+
+func process_interaction() -> void:
 	if Input.is_action_just_pressed("interact"):
 		# test functions, delete later when implementing entity interaction
 		if interaction_raycast.get_collider() and !CutsceneHandler.in_cutscene and !OptionsHandler.showing_options:
 			if interaction_raycast.get_collider() is Entity:
 				interaction_raycast.get_collider()._on_interact()
 		elif CutsceneHandler.in_cutscene:
-			CutsceneHandler.hide_dialogue()
+			if !CutsceneHandler.in_dialogue_choice:
+				CutsceneHandler.hide_dialogue()
+			else:
+				CutsceneHandler.select_current_choice()
 	
 	if Input.is_action_pressed("options"):
 		if CutsceneHandler.in_cutscene:
@@ -48,4 +57,7 @@ func _physics_process(delta: float) -> void:
 			else:
 				OptionsHandler.show_options()
 	
-	move_and_slide()
+	if Input.is_action_just_pressed("move_left") and CutsceneHandler.in_dialogue_choice:
+		CutsceneHandler.change_currently_selected_choice(-1)
+	if Input.is_action_just_pressed("move_right") and CutsceneHandler.in_dialogue_choice:
+		CutsceneHandler.change_currently_selected_choice(1)

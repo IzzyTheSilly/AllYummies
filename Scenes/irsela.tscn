@@ -57,8 +57,26 @@ metadata/_custom_type_script = "uid://dvl6mehpirn4w"
 script = ExtResource("3_qld7d")
 dialogues = Array[ExtResource("2_jinyc")]([SubResource("Resource_rqkk3"), SubResource("Resource_u83eq"), SubResource("Resource_x5kaa"), SubResource("Resource_nai3r"), SubResource("Resource_fgar7")])
 dialogue_choices = Array[ExtResource("2_pm7kn")]([SubResource("Resource_hmx0y")])
-set_flags = Dictionary[int, bool]({
-0: true
+set_flags = Dictionary[String, int]({
+"talk_to_irsela": 1
+})
+flag_requirements = Dictionary[String, int]({
+"talk_to_irsela": 0
+})
+metadata/_custom_type_script = "uid://cprsdu68b8n21"
+
+[sub_resource type="Resource" id="Resource_xpwih"]
+script = ExtResource("2_jinyc")
+text = "The hell do you want?"
+blip = ExtResource("3_pm7kn")
+portrait = ExtResource("1_7dy2a")
+metadata/_custom_type_script = "uid://dvl6mehpirn4w"
+
+[sub_resource type="Resource" id="Resource_7ybrs"]
+script = ExtResource("3_qld7d")
+dialogues = Array[ExtResource("2_jinyc")]([SubResource("Resource_xpwih")])
+flag_requirements = Dictionary[String, int]({
+"talk_to_irsela": 1
 })
 metadata/_custom_type_script = "uid://cprsdu68b8n21"
 
@@ -71,7 +89,7 @@ size = Vector2(20, 30)
 [node name="Irsela" type="Area2D" unique_id=2047269392]
 collision_layer = 4
 script = ExtResource("1_ksfs5")
-cutscene = SubResource("Resource_pm7kn")
+cutscenes = Array[ExtResource("3_qld7d")]([SubResource("Resource_pm7kn"), SubResource("Resource_7ybrs")])
 metadata/_custom_type_script = "uid://bs6wnpnyqscgq"
 
 [node name="Collision" type="StaticBody2D" parent="." unique_id=1328324927]

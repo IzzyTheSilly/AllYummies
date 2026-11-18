@@ -6,7 +6,7 @@ signal dialogue_accepted
 signal dialogue_choice_accepted
 
 @export var dialogue_text: RichTextLabel
-@export var dialogue_choice_texts: Array[Button]
+@export var dialogue_choice_texts: Array[RichTextLabel]
 @export var portrait_image: TextureRect
 @export var portrait_area: TextureRect
 @export var dialogue_timer: Timer
@@ -85,19 +85,14 @@ func finish_dialogue():
 	CutsceneHandler.finish_dialogue()
 
 
+func select_choice(choice: int):
+	selected_option = choice
+	dialogue_choice_accepted.emit()
+
+
 func change_portrait(image: Texture2D):
 	portrait_image.texture = image
 
 
 func change_blip(blip: AudioStream):
 	AudioManager.audio_stream_players[0].stream = blip
-
-
-func _on_choice_button_1_pressed() -> void:
-	selected_option = 1
-	dialogue_choice_accepted.emit()
-
-
-func _on_choice_button_2_pressed() -> void:
-	selected_option = 2
-	dialogue_choice_accepted.emit()
