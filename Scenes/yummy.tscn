@@ -5,6 +5,22 @@
 [ext_resource type="Texture2D" uid="uid://46i3nqtioiuf" path="res://Assets/Sprites/yummy_test.png" id="3_osvtb"]
 [ext_resource type="Texture2D" uid="uid://boe0n28wym8if" path="res://Assets/Sprites/squadword.PNG" id="4_ex11a"]
 [ext_resource type="Texture2D" uid="uid://dehx21vg6a76g" path="res://Assets/Sprites/titlescreenbgplaceholder.jpg" id="4_ve61t"]
+[ext_resource type="Script" uid="uid://rdgx4kdiqt45" path="res://Scripts/dialogue_choice_data.gd" id="6_um3do"]
+[ext_resource type="Script" uid="uid://dvl6mehpirn4w" path="res://Scripts/dialogue_data.gd" id="6_uxyur"]
+[ext_resource type="AudioStream" uid="uid://cilay0xwylgkn" path="res://Assets/Audio/soundshelfstudio-sci-fi-system-blip-525671.mp3" id="7_um3do"]
+[ext_resource type="Script" uid="uid://cprsdu68b8n21" path="res://Scripts/cutscene_data.gd" id="8_rbvt0"]
+
+[sub_resource type="Resource" id="Resource_wmkog"]
+script = ExtResource("6_uxyur")
+text = "Yippee!"
+blip = ExtResource("7_um3do")
+portrait = ExtResource("3_osvtb")
+metadata/_custom_type_script = "uid://dvl6mehpirn4w"
+
+[sub_resource type="Resource" id="Resource_ex11a"]
+script = ExtResource("8_rbvt0")
+dialogues = Array[ExtResource("6_uxyur")]([SubResource("Resource_wmkog")])
+metadata/_custom_type_script = "uid://cprsdu68b8n21"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ir5lp"]
 
@@ -90,7 +106,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Yummy" type="Area2D" unique_id=762481958 node_paths=PackedStringArray("sprite2d", "timer", "animation_player", "healthbar")]
+[node name="Yummy" type="Area2D" unique_id=1187216461 node_paths=PackedStringArray("sprite2d", "timer", "animation_player", "healthbar")]
 z_as_relative = false
 y_sort_enabled = true
 collision_layer = 4
@@ -103,6 +119,8 @@ speed = 30
 wander_distance = 500
 healthbar = NodePath("Control/Healthbar")
 sprites = Array[Texture2D]([ExtResource("3_osvtb"), ExtResource("1_4xhlt"), ExtResource("4_ex11a"), ExtResource("4_ve61t")])
+cutscene = SubResource("Resource_ex11a")
+metadata/_custom_type_script = "uid://bs6wnpnyqscgq"
 
 [node name="Shadow" type="Sprite2D" parent="." unique_id=1871059682]
 z_index = -1

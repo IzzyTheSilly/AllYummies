@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b4uup8eh0hamk" path="res://Scenes/irsela.tscn" id="5_87rxc"]
 [ext_resource type="Script" uid="uid://d2q2fgy2c2n30" path="res://Scripts/cutscene_trigger.gd" id="6_0wpj4"]
 [ext_resource type="Script" uid="uid://dvl6mehpirn4w" path="res://Scripts/dialogue_data.gd" id="7_5lkcg"]
+[ext_resource type="Script" uid="uid://rdgx4kdiqt45" path="res://Scripts/dialogue_choice_data.gd" id="7_hmx0y"]
 [ext_resource type="Texture2D" uid="uid://boe0n28wym8if" path="res://Assets/Sprites/squadword.PNG" id="8_5lkcg"]
 [ext_resource type="AudioStream" uid="uid://cilay0xwylgkn" path="res://Assets/Audio/soundshelfstudio-sci-fi-system-blip-525671.mp3" id="8_hmx0y"]
 [ext_resource type="Script" uid="uid://cprsdu68b8n21" path="res://Scripts/cutscene_data.gd" id="8_kqlyn"]

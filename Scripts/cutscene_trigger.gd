@@ -15,7 +15,6 @@ func _ready() -> void:
 
 
 func triggered(body: Node2D):
-	print(GlobalData.flags[0])
 	if !check_requirements():
 		return
 	

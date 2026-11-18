@@ -1,4 +1,4 @@
-extends Area2D
+extends Entity
 class_name Yummy
 
 
@@ -68,7 +68,6 @@ func health_zero():
 	match bummy_state:
 		BummyState.YUMMY:
 			bummy_state = BummyState.LOST
-			print("bummy")
 			set_health(3)
 		BummyState.LOST:
 			bummy_state = BummyState.GONER
