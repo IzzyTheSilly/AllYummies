@@ -3,12 +3,12 @@
 [ext_resource type="PackedScene" uid="uid://dcs7wggifh5by" path="res://Scenes/player_character.tscn" id="1_1i6hu"]
 [ext_resource type="PackedScene" uid="uid://cb44ak8oqnwuy" path="res://Scenes/dialogue_box.tscn" id="3_3x2t2"]
 [ext_resource type="PackedScene" uid="uid://bfftyyryl7vdc" path="res://Scenes/options_menu.tscn" id="3_87rxc"]
-[ext_resource type="PackedScene" uid="uid://d4arwf6nu8j8l" path="res://Scenes/yummy_spawner.tscn" id="4_vx3cr"]
 [ext_resource type="PackedScene" uid="uid://mgvd43lurjel" path="res://Scenes/stats_viewer.tscn" id="4_yojay"]
 [ext_resource type="PackedScene" uid="uid://do413j065evhd" path="res://Scenes/trading_station.tscn" id="5_0rene"]
 [ext_resource type="PackedScene" uid="uid://b4uup8eh0hamk" path="res://Scenes/irsela.tscn" id="5_87rxc"]
 [ext_resource type="Script" uid="uid://d2q2fgy2c2n30" path="res://Scripts/cutscene_trigger.gd" id="6_0wpj4"]
 [ext_resource type="Resource" uid="uid://dfud70qokrbqh" path="res://Resources/irsela_calls_you_over.tres" id="9_oxg1x"]
+[ext_resource type="PackedScene" uid="uid://clrjk2d7w4s10" path="res://Scenes/yummy.tscn" id="10_hmx0y"]
 [ext_resource type="Resource" uid="uid://bxjkclo6pwmw6" path="res://Resources/irsela_calls_you_back.tres" id="10_kqlyn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q1q2r"]
@@ -76,8 +76,6 @@ position = Vector2(262, -986)
 
 [node name="TradingStation" parent="." unique_id=86592641 instance=ExtResource("5_0rene")]
 position = Vector2(213, -1314)
-
-[node name="YummySpawner" parent="." unique_id=826669829 instance=ExtResource("4_vx3cr")]
 
 [node name="Irsela" parent="." unique_id=1623085982 instance=ExtResource("5_87rxc")]
 position = Vector2(36, -320)
@@ -180,3 +178,35 @@ shape = SubResource("RectangleShape2D_h5xn8")
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Triggers/IrselaCallsYouBack" unique_id=986022693]
 position = Vector2(128, -353)
 shape = SubResource("RectangleShape2D_h5xn8")
+
+[node name="Yummies" type="Node2D" parent="." unique_id=862100451]
+
+[node name="Yummy" parent="Yummies" unique_id=1187216461 instance=ExtResource("10_hmx0y")]
+position = Vector2(-91, -768)
+
+[node name="Yummy2" parent="Yummies" unique_id=217110011 instance=ExtResource("10_hmx0y")]
+position = Vector2(411, -883)
+
+[node name="Yummy3" parent="Yummies" unique_id=1045092920 instance=ExtResource("10_hmx0y")]
+position = Vector2(370, -452)
+
+[node name="Yummy4" parent="Yummies" unique_id=977913355 instance=ExtResource("10_hmx0y")]
+position = Vector2(-275, -438)
+
+[node name="Yummy5" parent="Yummies" unique_id=1127795386 instance=ExtResource("10_hmx0y")]
+position = Vector2(139, -877)
+
+[node name="Yummy6" parent="Yummies" unique_id=769286383 instance=ExtResource("10_hmx0y")]
+position = Vector2(-212, -598)
+
+[node name="Yummy7" parent="Yummies" unique_id=1990674354 instance=ExtResource("10_hmx0y")]
+position = Vector2(120, -619)
+
+[node name="Yummy8" parent="Yummies" unique_id=513885869 instance=ExtResource("10_hmx0y")]
+position = Vector2(-241, -958)
+
+[node name="Yummy9" parent="Yummies" unique_id=1437140520 instance=ExtResource("10_hmx0y")]
+position = Vector2(-333, -663)
+
+[node name="Yummy10" parent="Yummies" unique_id=559655900 instance=ExtResource("10_hmx0y")]
+position = Vector2(212, -716)

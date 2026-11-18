@@ -13,10 +13,11 @@ var target: Vector2 = Vector2.ZERO
 @export var healthbar: TextureProgressBar
 
 @export var sprites: Array[Texture2D]
+var player_position: Vector2
 
 var health: int = 5
 
-enum BehaviourState {IDLE, WANDER}
+enum BehaviourState {IDLE, WANDER, FLEE}
 enum BummyState {YUMMY, LOST, GONER, DAMNED}
 var behaviour_state = BehaviourState.WANDER
 var bummy_state = BummyState.YUMMY
@@ -29,30 +30,48 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	if behaviour_state == BehaviourState.IDLE:
-		pass
-	elif behaviour_state == BehaviourState.WANDER:
-		var move_direction = target - position
-		move_direction = move_direction.normalized()
-		position += move_direction * delta * speed
+	match behaviour_state:
+		BehaviourState.IDLE:
+			pass
+		BehaviourState.WANDER:
+			var move_direction = target - position
+			move_direction = move_direction.normalized()
+			position += move_direction * delta * speed
+		BehaviourState.FLEE:
+			var move_direction = position - player_position
+			move_direction = move_direction.normalized()
+			position += move_direction * delta * speed * 1.5
 
 
 func _on_timer_timeout() -> void:
-	if behaviour_state == BehaviourState.IDLE:
-		target.x = randf_range(-wander_distance, wander_distance) + position.x
-		target.y = randf_range(-wander_distance, wander_distance) + position.y
-		timer.wait_time = randf_range(timer_average - 0.1, timer_average + 0.1)
-		animation_player.play("bounce")
-		behaviour_state = BehaviourState.WANDER
-	else:
-		animation_player.stop()
-		behaviour_state = BehaviourState.IDLE
+	match behaviour_state:
+		BehaviourState.IDLE:
+			change_state(BehaviourState.WANDER)
+		BehaviourState.WANDER:
+			change_state(BehaviourState.IDLE)
+		BehaviourState.FLEE:
+			if randi_range(0, 1):
+				change_state(BehaviourState.WANDER)
+			else:
+				change_state(BehaviourState.IDLE)
 	if randi_range(1, 100) < 90:
 		set_health(health - 1, false)
 
 
-func _on_body_entered(body: Node2D) -> void: # Collide
-	target = 2*position - target
+func change_state(state: BehaviourState):
+	behaviour_state = state
+	match state:
+		BehaviourState.IDLE:
+			animation_player.play("idle")
+			timer.start(randf_range(timer_average - 0.1, timer_average + 0.1))
+		BehaviourState.WANDER:
+			target.x = randf_range(-wander_distance, wander_distance) + position.x
+			target.y = randf_range(-wander_distance, wander_distance) + position.y
+			animation_player.play("bounce")
+			timer.start(randf_range(timer_average - 0.1, timer_average + 0.1))
+		BehaviourState.FLEE:
+			animation_player.play("hurry")
+			timer.start(3.5)
 
 
 func set_health(health: int, set_healthbar: bool = true):
@@ -77,3 +96,15 @@ func health_zero():
 			set_health(50)
 		BummyState.DAMNED:
 			print("die")
+
+
+func _on_body_entered(body: Node2D) -> void: # Collide
+	target = 2*position - target
+	position = position - (target - position).normalized() * 10
+	change_state(BehaviourState.IDLE)
+
+
+func _on_player_detect_area_body_entered(body: Node2D) -> void:
+	if body is Player:
+		player_position = body.position
+		change_state(BehaviourState.FLEE)
