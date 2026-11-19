@@ -3,7 +3,7 @@ class_name CutsceneTrigger
 
 
 @export var multi_trigger: bool = false
-@export var cutscene: CutsceneData
+@export var cutscene_id: String
 var has_triggered: bool = false
 
 
@@ -15,5 +15,5 @@ func _ready() -> void:
 
 func triggered(body: Node2D):
 	if !has_triggered or multi_trigger:
-		CutsceneHandler.show_cutscene(cutscene)
+		CutsceneHandler.show_cutscene(cutscene_id)
 		has_triggered = true

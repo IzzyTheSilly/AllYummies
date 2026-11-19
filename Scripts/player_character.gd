@@ -28,8 +28,8 @@ func _physics_process(delta: float) -> void:
 		interaction_raycast.position = -direction * 9
 		interaction_raycast.target_position = direction * interaction_distance
 	if Input.is_action_pressed("cancel"):
-		delta = delta * 1.5
-	velocity = direction * speed * delta
+		direction = direction * 1.5
+	velocity = direction * speed
 	
 	process_interaction()
 	
@@ -38,13 +38,19 @@ func _physics_process(delta: float) -> void:
 
 func process_interaction() -> void:
 	if Input.is_action_just_pressed("interact"):
+		var collider
+		if interaction_raycast.get_collider():
+			collider = interaction_raycast.get_collider()
 		if (
-				interaction_raycast.get_collider() and 
+				collider and 
 				!CutsceneHandler.in_cutscene and 
 				!OptionsHandler.showing_options and 
-				interaction_raycast.get_collider() is Entity
+				collider is Entity
 			):
-			interaction_raycast.get_collider()._on_interact()
+			if collider is Yummy:
+				collect_yummy(collider)
+			else:
+				collider._on_interact()
 		elif CutsceneHandler.in_cutscene:
 			if !CutsceneHandler.in_dialogue_choice:
 				CutsceneHandler.hide_dialogue()
@@ -64,3 +70,7 @@ func process_interaction() -> void:
 		CutsceneHandler.change_currently_selected_choice(-1)
 	if Input.is_action_just_pressed("move_right") and CutsceneHandler.in_dialogue_choice:
 		CutsceneHandler.change_currently_selected_choice(1)
+
+
+func collect_yummy(yummy: Yummy):
+	pass

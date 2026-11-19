@@ -10,7 +10,8 @@ var in_dialogue_choice: bool = false
 var dialogue_has_finished: bool = true
 
 
-func show_cutscene(cutscene: CutsceneData) -> int:
+func show_cutscene(id: String) -> int:
+	var cutscene: CutsceneData = AssetDictionaries.cutscenes.get(id, AssetDictionaries.cutscenes["error"])
 	if cutscene.flag_requirements and !check_requirements(cutscene):
 		return 1
 	
@@ -31,7 +32,6 @@ func show_cutscene(cutscene: CutsceneData) -> int:
 
 
 func check_requirements(cutscene: CutsceneData) -> bool:
-	print("checking requirements")
 	for key in cutscene.flag_requirements:
 		if !GlobalData.local_flags.has(key):
 			continue

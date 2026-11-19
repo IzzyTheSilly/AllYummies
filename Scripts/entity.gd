@@ -2,12 +2,12 @@ extends CharacterBody2D
 class_name Entity
 
 
-@export var cutscenes: Array[CutsceneData]
+@export var cutscene_ids: Array[String]
 
 
 func _on_interact():
-	for cutscene: CutsceneData in cutscenes:
-		if await CutsceneHandler.show_cutscene(cutscene) == 1:
+	for cutscene_id: String in cutscene_ids:
+		if await CutsceneHandler.show_cutscene(cutscene_id) == 1:
 			continue
 		else:
 			break

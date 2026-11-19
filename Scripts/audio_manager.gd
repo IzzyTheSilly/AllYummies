@@ -11,7 +11,6 @@ extends Node
 
 func change_dialogue_volume(volume: float):
 	dialogue_audio.volume_db = linear_to_db(volume)
-	print(volume)
 
 
 func change_sfx_volume(volume: float):

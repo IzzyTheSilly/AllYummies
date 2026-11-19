@@ -2,9 +2,6 @@
 
 [ext_resource type="Texture2D" uid="uid://c38nihrqswwdp" path="res://Assets/Sprites/irsela_laceholder.jpg" id="1_7dy2a"]
 [ext_resource type="Script" uid="uid://cirn5aiyi64yg" path="res://Scripts/irsela.gd" id="1_ksfs5"]
-[ext_resource type="Resource" uid="uid://bxnx1te4iu3vd" path="res://Resources/talk_to_irsela_0.tres" id="3_pm7kn"]
-[ext_resource type="Script" uid="uid://cprsdu68b8n21" path="res://Scripts/cutscene_data.gd" id="3_qld7d"]
-[ext_resource type="Resource" uid="uid://buyueat28p18f" path="res://Resources/talk_to_irsela_1.tres" id="4_rqkk3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vkdgo"]
 size = Vector2(18, 11)
@@ -16,7 +13,7 @@ size = Vector2(20, 30)
 collision_layer = 8
 input_pickable = true
 script = ExtResource("1_ksfs5")
-cutscenes = Array[ExtResource("3_qld7d")]([ExtResource("3_pm7kn"), ExtResource("4_rqkk3")])
+cutscene_ids = Array[String](["talk_to_irsela_0", "talk_to_irsela_1"])
 
 [node name="Collision" type="StaticBody2D" parent="." unique_id=1328324927]
 collision_layer = 2

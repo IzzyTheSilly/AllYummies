@@ -1,6 +1,37 @@
 [gd_scene format=3 uid="uid://coe0u5somcs1a"]
 
 [ext_resource type="Script" uid="uid://sowdkubckq3" path="res://Scripts/asset_dictionaries.gd" id="1_c04i8"]
+[ext_resource type="Texture2D" uid="uid://b20lvjw4ajsm5" path="res://Assets/Sprites/error.webp" id="2_p6sd1"]
+[ext_resource type="Script" uid="uid://cprsdu68b8n21" path="res://Scripts/cutscene_data.gd" id="2_ypqau"]
+[ext_resource type="Resource" uid="uid://bxnx1te4iu3vd" path="res://Resources/Cutscenes/talk_to_irsela_0.tres" id="3_p6sd1"]
+[ext_resource type="Resource" uid="uid://buyueat28p18f" path="res://Resources/Cutscenes/talk_to_irsela_1.tres" id="4_a51it"]
+[ext_resource type="Resource" uid="uid://dfud70qokrbqh" path="res://Resources/Cutscenes/irsela_calls_you_over.tres" id="5_f68p6"]
+[ext_resource type="Resource" uid="uid://bxjkclo6pwmw6" path="res://Resources/Cutscenes/irsela_calls_you_back.tres" id="6_6n55v"]
+[ext_resource type="Script" uid="uid://rdgx4kdiqt45" path="res://Scripts/dialogue_choice_data.gd" id="8_6n55v"]
+[ext_resource type="Script" uid="uid://dvl6mehpirn4w" path="res://Scripts/dialogue_data.gd" id="9_51n6q"]
+[ext_resource type="AudioStream" uid="uid://cilay0xwylgkn" path="res://Assets/Audio/soundshelfstudio-sci-fi-system-blip-525671.mp3" id="10_ny6e3"]
+
+[sub_resource type="Resource" id="Resource_ipdxr"]
+script = ExtResource("9_51n6q")
+text = "greivous error"
+blip = ExtResource("10_ny6e3")
+portrait = ExtResource("2_p6sd1")
+metadata/_custom_type_script = "uid://dvl6mehpirn4w"
+
+[sub_resource type="Resource" id="Resource_ksfs5"]
+script = ExtResource("2_ypqau")
+dialogues = Array[ExtResource("9_51n6q")]([SubResource("Resource_ipdxr")])
+metadata/_custom_type_script = "uid://cprsdu68b8n21"
 
 [node name="AssetDictionaries" type="Node" unique_id=1004349810]
 script = ExtResource("1_c04i8")
+sprites = Dictionary[String, Texture]({
+"error": ExtResource("2_p6sd1")
+})
+cutscenes = Dictionary[String, ExtResource("2_ypqau")]({
+"error": SubResource("Resource_ksfs5"),
+"irsela_calls_you_back": ExtResource("6_6n55v"),
+"irsela_calls_you_over": ExtResource("5_f68p6"),
+"talk_to_irsela_0": ExtResource("3_p6sd1"),
+"talk_to_irsela_1": ExtResource("4_a51it")
+})

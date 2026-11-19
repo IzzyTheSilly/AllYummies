@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="CutsceneData" format=3 uid="uid://cs30l6nqb7n5k"]
+
+[ext_resource type="Script" uid="uid://rdgx4kdiqt45" path="res://Scripts/dialogue_choice_data.gd" id="1_6bn0w"]
+[ext_resource type="Script" uid="uid://dvl6mehpirn4w" path="res://Scripts/dialogue_data.gd" id="2_unoiu"]
+[ext_resource type="Script" uid="uid://cprsdu68b8n21" path="res://Scripts/cutscene_data.gd" id="3_n3ma4"]
+[ext_resource type="AudioStream" uid="uid://cilay0xwylgkn" path="res://Assets/Audio/soundshelfstudio-sci-fi-system-blip-525671.mp3" id="3_n3s7q"]
+[ext_resource type="Texture2D" uid="uid://b20lvjw4ajsm5" path="res://Assets/Sprites/error.webp" id="4_e0clm"]
+
+[sub_resource type="Resource" id="Resource_n3s7q"]
+script = ExtResource("2_unoiu")
+text = "grievous error"
+blip = ExtResource("3_n3s7q")
+portrait = ExtResource("4_e0clm")
+metadata/_custom_type_script = "uid://dvl6mehpirn4w"
+
+[resource]
+script = ExtResource("3_n3ma4")
+dialogues = Array[ExtResource("2_unoiu")]([SubResource("Resource_n3s7q")])
+metadata/_custom_type_script = "uid://cprsdu68b8n21"

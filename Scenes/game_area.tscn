@@ -7,9 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://do413j065evhd" path="res://Scenes/trading_station.tscn" id="5_0rene"]
 [ext_resource type="PackedScene" uid="uid://b4uup8eh0hamk" path="res://Scenes/irsela.tscn" id="5_87rxc"]
 [ext_resource type="Script" uid="uid://d2q2fgy2c2n30" path="res://Scripts/cutscene_trigger.gd" id="6_0wpj4"]
-[ext_resource type="Resource" uid="uid://dfud70qokrbqh" path="res://Resources/irsela_calls_you_over.tres" id="9_oxg1x"]
 [ext_resource type="PackedScene" uid="uid://clrjk2d7w4s10" path="res://Scenes/yummy.tscn" id="10_hmx0y"]
-[ext_resource type="Resource" uid="uid://bxjkclo6pwmw6" path="res://Resources/irsela_calls_you_back.tres" id="10_kqlyn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q1q2r"]
 size = Vector2(20, 320)
@@ -64,7 +62,6 @@ offset_right = -160.0
 offset_bottom = -160.0
 
 [node name="OptionsMenu" parent="PlayerCharacter/Camera2D" unique_id=142809403 instance=ExtResource("3_87rxc")]
-visible = false
 offset_left = -120.0
 offset_top = -420.0
 offset_right = 120.0
@@ -153,7 +150,7 @@ shape = SubResource("RectangleShape2D_q1q2r")
 [node name="IrselaCallsYouOver" type="Area2D" parent="Triggers" unique_id=761040668]
 collision_layer = 4
 script = ExtResource("6_0wpj4")
-cutscene = ExtResource("9_oxg1x")
+cutscene_id = "irsela_calls_you_over"
 metadata/_custom_type_script = "uid://d2q2fgy2c2n30"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/IrselaCallsYouOver" unique_id=898989838]
@@ -164,7 +161,7 @@ shape = SubResource("RectangleShape2D_vkdgo")
 collision_layer = 4
 script = ExtResource("6_0wpj4")
 multi_trigger = true
-cutscene = ExtResource("10_kqlyn")
+cutscene_id = "irsela_calls_you_back"
 metadata/_custom_type_script = "uid://d2q2fgy2c2n30"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/IrselaCallsYouBack" unique_id=423818938]

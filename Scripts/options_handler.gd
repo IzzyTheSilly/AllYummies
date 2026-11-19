@@ -35,4 +35,5 @@ func hide_options():
 	current_tween = hide_tween
 	var duration: float = 0.4 * (options_menu.position.y - start_position_y) / 300
 	hide_tween.tween_property(options_menu, "position:y", start_position_y, duration).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
+	get_viewport().gui_release_focus()
 	showing_options = false

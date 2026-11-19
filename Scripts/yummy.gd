@@ -15,6 +15,7 @@ var target: Vector2 = Vector2.ZERO
 
 @export var sprites: Array[Texture2D]
 var player_position: Vector2
+var collected: bool = false
 
 var health: int = 5
 
@@ -37,17 +38,16 @@ func _process(delta: float) -> void:
 		BehaviourState.WANDER:
 			var move_direction = target - position
 			move_direction = move_direction.normalized()
-			velocity = move_direction * delta * speed
+			velocity = move_direction * speed
 		BehaviourState.FLEE:
 			var move_direction = position - player_position
 			move_direction = move_direction.normalized()
-			velocity = move_direction * delta * speed * hurry_factor
+			velocity = move_direction * speed * hurry_factor
 	
 	move_and_slide()
 	
 	if get_slide_collision_count():
 		change_state(BehaviourState.WANDER)
-		print("collslide")
 
 
 func _on_timer_timeout() -> void:
@@ -79,6 +79,10 @@ func change_state(state: BehaviourState):
 		BehaviourState.FLEE:
 			animation_player.play("hurry")
 			timer.start(3.5)
+
+
+func _on_interact():
+	pass
 
 
 func set_health(health: int, set_healthbar: bool = true):
