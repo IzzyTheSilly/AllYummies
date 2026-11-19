@@ -10,6 +10,7 @@ class_name Player
 ##How many yummies the player can collect with at once.
 @export var collection_stacking: int
 
+var max_collected_yummies: int = 3
 var collected_yummies: Array[Yummy]
 
 
@@ -49,8 +50,6 @@ func process_interaction() -> void:
 			):
 			if collider is Yummy:
 				collect_yummy(collider)
-			else:
-				collider._on_interact()
 		elif CutsceneHandler.in_cutscene:
 			if !CutsceneHandler.in_dialogue_choice:
 				CutsceneHandler.hide_dialogue()
@@ -73,4 +72,7 @@ func process_interaction() -> void:
 
 
 func collect_yummy(yummy: Yummy):
-	pass
+	if !(yummy in collected_yummies) and (collected_yummies.size() < max_collected_yummies):
+		yummy.target = position
+		collected_yummies.append(yummy)
+		yummy._on_interact()

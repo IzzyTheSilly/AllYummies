@@ -30,7 +30,6 @@ func show_text(text: String, text_speed: float = 25.0, comma_delay: float = 2.5,
 		i.hide()
 	
 	dialogue_timer.start()
-	print(AudioManager.audio_stream_players[0].volume_db)
 	for i in range(text_length):
 		if CutsceneHandler.dialogue_has_finished:
 			dialogue_timer.stop()

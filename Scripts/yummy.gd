@@ -3,8 +3,8 @@ class_name Yummy
 
 
 @export_enum("Red", "Orange", "Yellow", "Green", "Cyan", "Blue", "Purple") var type: String = "Red"
-@export var sprite2d: AnimatedSprite2D
 @export var timer: Timer
+@export var update_timer: Timer
 @export var animation_player: AnimationPlayer
 var target: Vector2 = Vector2.ZERO
 @export var speed: int = 15
@@ -12,42 +12,38 @@ var target: Vector2 = Vector2.ZERO
 @export var wander_distance: int
 @export var timer_average: float = 3.0
 @export var healthbar: TextureProgressBar
-
-@export var sprites: Array[Texture2D]
-var player_position: Vector2
-var collected: bool = false
-
 var health: int = 5
 
-enum BehaviourState {IDLE, WANDER, FLEE}
+enum BehaviourState {IDLE, WANDER, FLEE, COLLECTED}
 enum BummyState {YUMMY, LOST, GONER, DAMNED}
 var behaviour_state = BehaviourState.WANDER
 var bummy_state = BummyState.YUMMY
 
 
 func _ready() -> void:
-	animation_player.play("bounce")
-	timer.wait_time = timer_average
 	healthbar.max_value = health
+	if randi_range(0, 1):
+		change_state(BehaviourState.IDLE)
+	else:
+		change_state(BehaviourState.WANDER)
 
 
 func _process(delta: float) -> void:
+	var move_direction = Vector2.ZERO
+	if (target - position).length() > 5:
+		move_direction = (target - position).normalized()
+	
 	match behaviour_state:
 		BehaviourState.IDLE:
-			velocity = Vector2.ZERO
-		BehaviourState.WANDER:
-			var move_direction = target - position
-			move_direction = move_direction.normalized()
-			velocity = move_direction * speed
+			move_direction = Vector2.ZERO
 		BehaviourState.FLEE:
-			var move_direction = position - player_position
-			move_direction = move_direction.normalized()
-			velocity = move_direction * speed * hurry_factor
+			move_direction = move_direction * hurry_factor
 	
+	velocity = move_direction * speed
 	move_and_slide()
 	
 	if get_slide_collision_count():
-		change_state(BehaviourState.WANDER)
+		change_state(BehaviourState.IDLE)
 
 
 func _on_timer_timeout() -> void:
@@ -57,18 +53,19 @@ func _on_timer_timeout() -> void:
 		BehaviourState.WANDER:
 			change_state(BehaviourState.IDLE)
 		BehaviourState.FLEE:
-			if randi_range(0, 1):
-				change_state(BehaviourState.WANDER)
-			else:
-				change_state(BehaviourState.IDLE)
+			change_state(BehaviourState.IDLE)
 	if randi_range(1, 100) < 90:
 		set_health(health - 1, false)
 
 
 func change_state(state: BehaviourState):
+	if behaviour_state == BehaviourState.COLLECTED:
+		return
+	
 	behaviour_state = state
 	match state:
 		BehaviourState.IDLE:
+			target = position
 			animation_player.play("idle")
 			timer.start(randf_range(timer_average - 0.7, timer_average - 0.5))
 		BehaviourState.WANDER:
@@ -79,10 +76,18 @@ func change_state(state: BehaviourState):
 		BehaviourState.FLEE:
 			animation_player.play("hurry")
 			timer.start(3.5)
+		BehaviourState.COLLECTED:
+			animation_player.play("collect")
+			timer.start(0.5)
 
 
 func _on_interact():
-	pass
+	if behaviour_state != BehaviourState.COLLECTED:
+		change_state(BehaviourState.COLLECTED)
+		print("state collect")
+		print(str(behaviour_state))
+		await animation_player.animation_finished
+		queue_free()
 
 
 func set_health(health: int, set_healthbar: bool = true):
@@ -111,5 +116,5 @@ func health_zero():
 
 func _on_player_detect_area_body_entered(body: Node2D) -> void:
 	if body is Player:
-		player_position = body.position
+		target = position + 7*(position - body.position)
 		change_state(BehaviourState.FLEE)
