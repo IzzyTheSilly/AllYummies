@@ -14,6 +14,8 @@ var target: Vector2 = Vector2.ZERO
 @export var healthbar: TextureProgressBar
 var health: int = 5
 
+@export var collect_sfx: AudioStream
+
 enum BehaviourState {IDLE, WANDER, FLEE, COLLECTED}
 enum BummyState {YUMMY, LOST, GONER, DAMNED}
 var behaviour_state = BehaviourState.WANDER
@@ -43,7 +45,7 @@ func _process(delta: float) -> void:
 	move_and_slide()
 	
 	if get_slide_collision_count():
-		change_state(BehaviourState.IDLE)
+		change_state(BehaviourState.WANDER)
 
 
 func _on_timer_timeout() -> void:
@@ -77,15 +79,15 @@ func change_state(state: BehaviourState):
 			animation_player.play("hurry")
 			timer.start(3.5)
 		BehaviourState.COLLECTED:
+			target = position
 			animation_player.play("collect")
 			timer.start(0.5)
 
 
 func _on_interact():
 	if behaviour_state != BehaviourState.COLLECTED:
+		AudioManager.try_change_sfx_audio(collect_sfx, true)
 		change_state(BehaviourState.COLLECTED)
-		print("state collect")
-		print(str(behaviour_state))
 		await animation_player.animation_finished
 		queue_free()
 

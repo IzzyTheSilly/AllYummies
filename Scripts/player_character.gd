@@ -50,6 +50,8 @@ func process_interaction() -> void:
 			):
 			if collider is Yummy:
 				collect_yummy(collider)
+			else:
+				collider._on_interact()
 		elif CutsceneHandler.in_cutscene:
 			if !CutsceneHandler.in_dialogue_choice:
 				CutsceneHandler.hide_dialogue()
@@ -73,6 +75,5 @@ func process_interaction() -> void:
 
 func collect_yummy(yummy: Yummy):
 	if !(yummy in collected_yummies) and (collected_yummies.size() < max_collected_yummies):
-		yummy.target = position
 		collected_yummies.append(yummy)
 		yummy._on_interact()

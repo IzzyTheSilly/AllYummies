@@ -57,3 +57,13 @@ func _on_previous_page_button_pressed() -> void:
 func _on_dialogue_volume_slider_value_changed(value: float) -> void:
 	AudioManager.change_dialogue_volume(value)
 	GlobalData.dialogue_volume = value
+
+
+func _on_sfx_volume_slider_value_changed(value: float) -> void:
+	AudioManager.change_sfx_volume(value)
+	GlobalData.sfx_volume = value
+
+
+func _on_music_volume_slider_value_changed(value: float) -> void:
+	AudioManager.change_music_volume(value)
+	GlobalData.music_volume = value

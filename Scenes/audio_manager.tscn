@@ -4,13 +4,21 @@
 
 [node name="AudioManager" type="Node" unique_id=123644192 node_paths=PackedStringArray("audio_stream_players", "dialogue_audio", "sfx_audio", "music_audio")]
 script = ExtResource("1_sm2tf")
-audio_stream_players = [NodePath("DialogueBlips"), NodePath("SoundEffects"), NodePath("Music")]
+audio_stream_players = [NodePath("DialogueBlips"), NodePath("SoundEffects1"), NodePath("SoundEffects2"), NodePath("SoundEffects3"), NodePath("SoundEffects4"), NodePath("SoundEffects5"), NodePath("Music")]
 dialogue_audio = NodePath("DialogueBlips")
-sfx_audio = NodePath("SoundEffects")
+sfx_audio = NodePath("SoundEffects1")
 music_audio = NodePath("Music")
 
 [node name="DialogueBlips" type="AudioStreamPlayer" parent="." unique_id=569689949]
 
-[node name="SoundEffects" type="AudioStreamPlayer" parent="." unique_id=992467667]
+[node name="SoundEffects1" type="AudioStreamPlayer" parent="." unique_id=992467667]
+
+[node name="SoundEffects2" type="AudioStreamPlayer" parent="." unique_id=1425369545]
+
+[node name="SoundEffects3" type="AudioStreamPlayer" parent="." unique_id=148001320]
+
+[node name="SoundEffects4" type="AudioStreamPlayer" parent="." unique_id=656564627]
+
+[node name="SoundEffects5" type="AudioStreamPlayer" parent="." unique_id=974121014]
 
 [node name="Music" type="AudioStreamPlayer" parent="." unique_id=352932335]

@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dgi0lk0hxv78q"]
+
+[ext_resource type="Script" uid="uid://ctn7pd226ktcn" path="res://Scripts/investing_station.gd" id="1_1bwtl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ir5lp"]
+size = Vector2(60, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q1q2r"]
+size = Vector2(60, 40)
+
+[node name="InvestingStation" type="CharacterBody2D" unique_id=1606015159]
+collision_layer = 8
+script = ExtResource("1_1bwtl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1123657313]
+shape = SubResource("RectangleShape2D_ir5lp")
+
+[node name="Collision" type="StaticBody2D" parent="." unique_id=15706615]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision" unique_id=1989735268]
+shape = SubResource("RectangleShape2D_q1q2r")

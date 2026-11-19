@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://done4h7682hoh"]
+
+[ext_resource type="Script" uid="uid://b4eqcsuwxw1ks" path="res://Scripts/stats_viewer_menu.gd" id="1_0yfca"]
+
+[node name="StatsViewerMenu" type="Control" unique_id=439564388]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0yfca")
+
+[node name="GDYLabel" type="RichTextLabel" parent="." unique_id=946370708]
+layout_mode = 0
+offset_right = 113.0
+offset_bottom = 40.0
+text = "GDY: 10000"
+scroll_active = false
+
+[node name="YummiesCountLabel" type="RichTextLabel" parent="." unique_id=1091461205]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 47.0
+offset_right = 116.0
+offset_bottom = 87.0
+text = "Yummies: 3"
+scroll_active = false
+
+[node name="BummiesCountLabel" type="RichTextLabel" parent="." unique_id=154710346]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 97.0
+offset_right = 119.0
+offset_bottom = 137.0
+text = "Bummies: poo"
+scroll_active = false
+
+[node name="DaysLeft" type="RichTextLabel" parent="." unique_id=1096231812]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 138.0
+offset_right = 119.0
+offset_bottom = 178.0
+text = "Days Left:"
+scroll_active = false
