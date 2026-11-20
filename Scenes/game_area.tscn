@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dav8e1x0l87ke" path="res://Scenes/yummy_inventory.tscn" id="5_hmx0y"]
 [ext_resource type="Script" uid="uid://d2q2fgy2c2n30" path="res://Scripts/cutscene_trigger.gd" id="6_0wpj4"]
 [ext_resource type="PackedScene" uid="uid://dgi0lk0hxv78q" path="res://Scenes/investing_station.tscn" id="6_5lkcg"]
+[ext_resource type="PackedScene" uid="uid://done4h7682hoh" path="res://Scenes/stats_viewer_menu.tscn" id="6_kck4e"]
 [ext_resource type="PackedScene" uid="uid://clrjk2d7w4s10" path="res://Scenes/yummy.tscn" id="10_hmx0y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q1q2r"]
@@ -141,6 +142,13 @@ offset_left = -30.0
 offset_top = -245.0
 offset_right = -30.0
 offset_bottom = -245.0
+
+[node name="StatsViewerMenu" parent="PlayerCharacter/Camera2D" unique_id=439564388 instance=ExtResource("6_kck4e")]
+visible = false
+offset_left = -157.0
+offset_top = -165.0
+offset_right = -157.0
+offset_bottom = -165.0
 
 [node name="StatsViewer" parent="." unique_id=2133314408 instance=ExtResource("4_yojay")]
 position = Vector2(262, -986)

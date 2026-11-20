@@ -10,3 +10,7 @@ class_name StatsViewerMenu
 
 func _ready() -> void:
 	UIHandler.stats_viewer_menu = self
+
+
+func update_stats():
+	gdy_label.text = "GDY: " + str(GlobalData.update_gdy())

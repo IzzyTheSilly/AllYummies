@@ -2,8 +2,6 @@ extends Entity
 class_name StatsViewer
 
 
-@export var stats_viewer_menu: Control
-
-
 func _on_interact():
-	stats_viewer_menu.show()
+	UIHandler.stats_viewer_menu.update_stats()
+	UIHandler.set_menu_showing(UIHandler.Menu.STATS_VIEWER, true)

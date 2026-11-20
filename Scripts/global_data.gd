@@ -59,8 +59,17 @@ func update_collected_yummies(yummy_color_index: int, amount: int, add: bool = f
 	total_yummies_collected = total
 
 
-func update_gdy():
+func update_bummy_amount(amount: int, type: int, add: bool = false):
+	match type:
+		0: bummies_lost = bummies_lost + amount if add else amount
+		1: bummies_goner = bummies_goner + amount if add else amount
+		2: bummies_damned = bummies_damned + amount if add else amount
+
+
+func update_gdy() -> int:
+	print("update gdy")
 	gross_domestic_yummy = yummies - bummies_lost - 2*bummies_goner - 5*bummies_damned
+	return gross_domestic_yummy
 
 
 func reset_game_stats():
@@ -89,7 +98,6 @@ func reset_local_flags():
 
 """Global Flags"""
 @export var global_flags: Dictionary[String, int]
-
 
 
 func _ready() -> void:

@@ -73,11 +73,13 @@ func hide_options():
 func show_stats_viewer():
 	if showing_menu():
 		return
+	stats_viewer_menu.show()
 
 
 func hide_stats_viewer():
 	if menu_showing != Menu.STATS_VIEWER:
 		return
+	stats_viewer_menu.hide()
 
 
 func show_investing_station():

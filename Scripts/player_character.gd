@@ -40,6 +40,11 @@ func process_interaction() -> void:
 		if interaction_raycast.get_collider():
 			collider = interaction_raycast.get_collider()
 		if (
+				UIHandler.menu_showing != UIHandler.Menu.NONE and 
+				UIHandler.menu_showing != UIHandler.Menu.OPTIONS
+			):
+			UIHandler.set_menu_showing(UIHandler.menu_showing, false)
+		elif (
 				collider and 
 				!CutsceneHandler.in_cutscene and 
 				!UIHandler.showing_menu() and 

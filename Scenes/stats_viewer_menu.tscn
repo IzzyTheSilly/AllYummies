@@ -16,36 +16,46 @@ yummies_count_label = NodePath("YummiesCountLabel")
 bummies_count_label = NodePath("YummiesCountLabel")
 days_left_label = NodePath("BummiesCountLabel")
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1731392967]
+layout_mode = 0
+offset_left = 42.0
+offset_top = 61.0
+offset_right = 274.0
+offset_bottom = 263.0
+color = Color(0, 0, 0, 1)
+
 [node name="GDYLabel" type="RichTextLabel" parent="." unique_id=946370708]
 layout_mode = 0
-offset_right = 113.0
-offset_bottom = 40.0
+offset_left = 96.0
+offset_top = 71.0
+offset_right = 209.0
+offset_bottom = 111.0
 text = "GDY: 10000"
 scroll_active = false
 
 [node name="YummiesCountLabel" type="RichTextLabel" parent="." unique_id=1091461205]
 layout_mode = 0
-offset_left = 3.0
-offset_top = 47.0
-offset_right = 116.0
-offset_bottom = 87.0
+offset_left = 99.0
+offset_top = 118.0
+offset_right = 212.0
+offset_bottom = 158.0
 text = "Yummies: 3"
 scroll_active = false
 
 [node name="BummiesCountLabel" type="RichTextLabel" parent="." unique_id=154710346]
 layout_mode = 0
-offset_left = 6.0
-offset_top = 97.0
-offset_right = 119.0
-offset_bottom = 137.0
+offset_left = 102.0
+offset_top = 168.0
+offset_right = 215.0
+offset_bottom = 208.0
 text = "Bummies: poo"
 scroll_active = false
 
 [node name="DaysLeft" type="RichTextLabel" parent="." unique_id=1096231812]
 layout_mode = 0
-offset_left = 6.0
-offset_top = 138.0
-offset_right = 119.0
-offset_bottom = 178.0
+offset_left = 102.0
+offset_top = 209.0
+offset_right = 215.0
+offset_bottom = 249.0
 text = "Days Left:"
 scroll_active = false
