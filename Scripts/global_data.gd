@@ -44,6 +44,20 @@ var max_yummy_pull: int = 5
 ##How many extra yummies you get in the stock market per minute.
 var yummy_interest: float = yummy_interest_average
 
+var max_collected_yummies: int = 3
+var collected_yummies_amounts: Array[int]
+var total_yummies_collected: int = 0
+
+func update_collected_yummies(yummy_color_index: int, amount: int, add: bool = false):
+	if add:
+		collected_yummies_amounts[yummy_color_index] = collected_yummies_amounts[yummy_color_index] + amount
+	else:
+		collected_yummies_amounts[yummy_color_index] = amount
+	var total: int
+	for i in range(7):
+		total = total + collected_yummies_amounts[i]
+	total_yummies_collected = total
+
 
 func update_gdy():
 	gross_domestic_yummy = yummies - bummies_lost - 2*bummies_goner - 5*bummies_damned
@@ -75,3 +89,8 @@ func reset_local_flags():
 
 """Global Flags"""
 @export var global_flags: Dictionary[String, int]
+
+
+
+func _ready() -> void:
+	collected_yummies_amounts.resize(7)

@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://mgvd43lurjel" path="res://Scenes/stats_viewer.tscn" id="4_yojay"]
 [ext_resource type="PackedScene" uid="uid://do413j065evhd" path="res://Scenes/trading_station.tscn" id="5_0rene"]
 [ext_resource type="PackedScene" uid="uid://b4uup8eh0hamk" path="res://Scenes/irsela.tscn" id="5_87rxc"]
+[ext_resource type="PackedScene" uid="uid://dav8e1x0l87ke" path="res://Scenes/yummy_inventory.tscn" id="5_hmx0y"]
 [ext_resource type="Script" uid="uid://d2q2fgy2c2n30" path="res://Scripts/cutscene_trigger.gd" id="6_0wpj4"]
 [ext_resource type="PackedScene" uid="uid://dgi0lk0hxv78q" path="res://Scenes/investing_station.tscn" id="6_5lkcg"]
 [ext_resource type="PackedScene" uid="uid://clrjk2d7w4s10" path="res://Scenes/yummy.tscn" id="10_hmx0y"]
@@ -108,6 +109,8 @@ size = Vector2(225.25, 47.75)
 size = Vector2(42.25, 154.71875)
 
 [node name="GameArea" type="Node2D" unique_id=1160759184]
+z_as_relative = false
+y_sort_enabled = true
 
 [node name="PlayerCharacter" parent="." unique_id=1522660109 instance=ExtResource("1_1i6hu")]
 
@@ -121,7 +124,6 @@ offset_right = -160.0
 offset_bottom = -160.0
 
 [node name="OptionsMenu" parent="PlayerCharacter/Camera2D" unique_id=142809403 instance=ExtResource("3_87rxc")]
-visible = false
 offset_left = -120.0
 offset_top = -420.0
 offset_right = 120.0
@@ -129,10 +131,16 @@ offset_bottom = -180.0
 metadata/_edit_use_anchors_ = true
 
 [node name="DayTimeLeft" parent="PlayerCharacter/Camera2D" unique_id=2020280063 instance=ExtResource("4_kqlyn")]
-offset_left = 195.0
-offset_top = -160.0
-offset_right = 195.0
-offset_bottom = -160.0
+offset_left = -153.0
+offset_top = -151.0
+offset_right = -153.0
+offset_bottom = -151.0
+
+[node name="YummyInventory" parent="PlayerCharacter/Camera2D" unique_id=1270145067 instance=ExtResource("5_hmx0y")]
+offset_left = -30.0
+offset_top = -245.0
+offset_right = -30.0
+offset_bottom = -245.0
 
 [node name="StatsViewer" parent="." unique_id=2133314408 instance=ExtResource("4_yojay")]
 position = Vector2(262, -986)
@@ -328,6 +336,8 @@ position = Vector2(128, -353)
 shape = SubResource("RectangleShape2D_h5xn8")
 
 [node name="Yummies" type="Node2D" parent="." unique_id=862100451]
+z_as_relative = false
+y_sort_enabled = true
 
 [node name="Yummy" parent="Yummies" unique_id=1187216461 instance=ExtResource("10_hmx0y")]
 position = Vector2(-91, -768)

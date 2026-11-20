@@ -14,11 +14,11 @@ var page: int = 1
 
 
 func _ready() -> void:
-	OptionsHandler.options_menu = self
+	UIHandler.options_menu = self
 	dialogue_volume_slider.value = GlobalData.dialogue_volume
 	sfx_volume_slider.value = GlobalData.sfx_volume
 	music_volume_slider.value = GlobalData.music_volume
-	OptionsHandler.start_position_y = position.y
+	UIHandler.start_position_y = position.y
 	if GameManager.in_game:
 		main_menu_button.show()
 	else:
@@ -34,11 +34,12 @@ func change_page(page: int):
 
 
 func _on_back_button_pressed() -> void:
-	OptionsHandler.hide_options()
+	UIHandler.set_menu_showing(UIHandler.Menu.OPTIONS, false)
 
 
 func _on_main_menu_button_pressed() -> void:
 	GameManager.in_game = false
+	UIHandler.set_menu_showing(UIHandler.Menu.NONE, false)
 	get_tree().change_scene_to_file("res://Scenes/title_screen.tscn")
 
 

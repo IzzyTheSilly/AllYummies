@@ -72,7 +72,7 @@ value = 1.0
 scrollable = false
 
 [node name="MusicVolumeSlider" type="HSlider" parent="Page1" unique_id=1414490530]
-z_index = 1
+z_index = 3
 layout_mode = 0
 offset_left = 20.0
 offset_top = 119.0

@@ -2,7 +2,7 @@ extends Entity
 class_name Yummy
 
 
-@export_enum("Red", "Orange", "Yellow", "Green", "Cyan", "Blue", "Purple") var type: String = "Red"
+@export_enum("Red", "Orange", "Yellow", "Green", "Cyan", "Blue", "Purple") var type: int = 0
 @export var timer: Timer
 @export var update_timer: Timer
 @export var animation_player: AnimationPlayer
@@ -86,8 +86,14 @@ func change_state(state: BehaviourState):
 
 func _on_interact():
 	if behaviour_state != BehaviourState.COLLECTED:
+		if GlobalData.total_yummies_collected >= GlobalData.max_collected_yummies:
+			return
+		GlobalData.update_collected_yummies(type, 1, true)
+		
 		AudioManager.try_change_sfx_audio(collect_sfx, true)
 		change_state(BehaviourState.COLLECTED)
+		UIHandler.update_inventory(type)
+		UIHandler.popup_inventory()
 		await animation_player.animation_finished
 		queue_free()
 

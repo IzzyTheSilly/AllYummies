@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://dav8e1x0l87ke"]
+
+[ext_resource type="Script" uid="uid://dao2mp1a31do3" path="res://Scripts/yummy_inventory.gd" id="1_0o82a"]
+[ext_resource type="Texture2D" uid="uid://dehx21vg6a76g" path="res://Assets/Sprites/titlescreenbgplaceholder.jpg" id="2_2cb7f"]
+[ext_resource type="PackedScene" uid="uid://dr7urh6o8xg2l" path="res://Scenes/yummy_inventory_slot.tscn" id="3_u5bpb"]
+[ext_resource type="Texture2D" uid="uid://46i3nqtioiuf" path="res://Assets/Sprites/yummy_test.png" id="4_niay2"]
+[ext_resource type="Texture2D" uid="uid://c3w0t1m1fe2mj" path="res://Assets/Sprites/icon.svg" id="5_laixy"]
+[ext_resource type="Texture2D" uid="uid://c38nihrqswwdp" path="res://Assets/Sprites/irsela_laceholder.jpg" id="6_ut3cy"]
+[ext_resource type="Texture2D" uid="uid://boe0n28wym8if" path="res://Assets/Sprites/squadword.PNG" id="7_4swf6"]
+
+[node name="YummyInventory" type="Control" unique_id=1270145067 node_paths=PackedStringArray("slots")]
+z_index = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0o82a")
+slots = [NodePath("TextureRect/HBoxContainer/YummyInventorySlot"), NodePath("TextureRect/HBoxContainer/YummyInventorySlot2"), NodePath("TextureRect/HBoxContainer/YummyInventorySlot3"), NodePath("TextureRect/HBoxContainer/YummyInventorySlot4"), NodePath("TextureRect/HBoxContainer/YummyInventorySlot5"), NodePath("TextureRect/HBoxContainer/YummyInventorySlot6"), NodePath("TextureRect/HBoxContainer/YummyInventorySlot7")]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1501558698]
+modulate = Color(0.6588064, 0.6255009, 0.8743566, 1)
+layout_mode = 0
+offset_left = 11.0
+offset_top = 12.0
+offset_right = 183.0
+offset_bottom = 42.0
+texture = ExtResource("2_2cb7f")
+expand_mode = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect" unique_id=226559354]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -10.0
+offset_right = 20.0
+offset_bottom = 10.0
+grow_vertical = 2
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="TextureRect/HBoxContainer" unique_id=517626732]
+layout_mode = 2
+
+[node name="YummyInventorySlot" parent="TextureRect/HBoxContainer" unique_id=653935523 instance=ExtResource("3_u5bpb")]
+layout_mode = 2
+item_image = ExtResource("4_niay2")
+
+[node name="YummyInventorySlot2" parent="TextureRect/HBoxContainer" unique_id=957188225 instance=ExtResource("3_u5bpb")]
+layout_mode = 2
+item_image = ExtResource("5_laixy")
+
+[node name="YummyInventorySlot3" parent="TextureRect/HBoxContainer" unique_id=1708000271 instance=ExtResource("3_u5bpb")]
+layout_mode = 2
+item_image = ExtResource("6_ut3cy")
+
+[node name="YummyInventorySlot4" parent="TextureRect/HBoxContainer" unique_id=1510189879 instance=ExtResource("3_u5bpb")]
+layout_mode = 2
+item_image = ExtResource("7_4swf6")
+
+[node name="YummyInventorySlot5" parent="TextureRect/HBoxContainer" unique_id=335439142 instance=ExtResource("3_u5bpb")]
+layout_mode = 2
+item_image = ExtResource("2_2cb7f")
+
+[node name="YummyInventorySlot6" parent="TextureRect/HBoxContainer" unique_id=923477787 instance=ExtResource("3_u5bpb")]
+layout_mode = 2
+item_image = ExtResource("4_niay2")
+
+[node name="YummyInventorySlot7" parent="TextureRect/HBoxContainer" unique_id=971087919 instance=ExtResource("3_u5bpb")]
+layout_mode = 2
+item_image = ExtResource("5_laixy")

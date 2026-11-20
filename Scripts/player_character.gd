@@ -10,9 +10,6 @@ class_name Player
 ##How many yummies the player can collect with at once.
 @export var collection_stacking: int
 
-var max_collected_yummies: int = 3
-var collected_yummies: Array[Yummy]
-
 
 func _ready() -> void:
 	pass
@@ -20,7 +17,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	var direction: Vector2 = Vector2.ZERO
-	if !CutsceneHandler.in_cutscene and !OptionsHandler.showing_options:
+	if !CutsceneHandler.in_cutscene and !UIHandler.showing_menu():
 		direction.x = int(Input.is_action_pressed("move_right")) - int(Input.is_action_pressed("move_left"))
 		direction.y = int(Input.is_action_pressed("move_down")) - int(Input.is_action_pressed("move_up"))
 		direction = direction.normalized()
@@ -45,13 +42,10 @@ func process_interaction() -> void:
 		if (
 				collider and 
 				!CutsceneHandler.in_cutscene and 
-				!OptionsHandler.showing_options and 
+				!UIHandler.showing_menu() and 
 				collider is Entity
 			):
-			if collider is Yummy:
-				collect_yummy(collider)
-			else:
-				collider._on_interact()
+			collider._on_interact()
 		elif CutsceneHandler.in_cutscene:
 			if !CutsceneHandler.in_dialogue_choice:
 				CutsceneHandler.hide_dialogue()
@@ -62,18 +56,12 @@ func process_interaction() -> void:
 		if CutsceneHandler.in_cutscene:
 			CutsceneHandler.hide_dialogue()
 		elif Input.is_action_just_pressed("options"):
-			if OptionsHandler.showing_options:
-				OptionsHandler.hide_options()
+			if UIHandler.menu_showing == UIHandler.Menu.OPTIONS:
+				UIHandler.set_menu_showing(UIHandler.Menu.OPTIONS, false)
 			else:
-				OptionsHandler.show_options()
+				UIHandler.set_menu_showing(UIHandler.Menu.OPTIONS, true)
 	
 	if Input.is_action_just_pressed("move_left") and CutsceneHandler.in_dialogue_choice:
 		CutsceneHandler.change_currently_selected_choice(-1)
 	if Input.is_action_just_pressed("move_right") and CutsceneHandler.in_dialogue_choice:
 		CutsceneHandler.change_currently_selected_choice(1)
-
-
-func collect_yummy(yummy: Yummy):
-	if !(yummy in collected_yummies) and (collected_yummies.size() < max_collected_yummies):
-		collected_yummies.append(yummy)
-		yummy._on_interact()

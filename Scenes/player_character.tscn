@@ -23,6 +23,8 @@ interaction_raycast = NodePath("RayCast2D")
 interaction_distance = 45
 
 [node name="Squadword" type="Sprite2D" parent="." unique_id=1722447921]
+z_as_relative = false
+y_sort_enabled = true
 material = SubResource("ShaderMaterial_ak2if")
 position = Vector2(0, -9.000001)
 scale = Vector2(0.09950249, 0.15075377)

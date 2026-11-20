@@ -274,6 +274,8 @@ wait_time = 0.2
 libraries/ = SubResource("AnimationLibrary_ex11a")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1808961550]
+z_as_relative = false
+y_sort_enabled = true
 position = Vector2(0, -8)
 scale = Vector2(0.051282052, 0.051546387)
 sprite_frames = SubResource("SpriteFrames_ir5lp")

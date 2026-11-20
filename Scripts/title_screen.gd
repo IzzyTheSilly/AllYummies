@@ -8,7 +8,7 @@ func _on_play_button_pressed() -> void:
 
 
 func _on_options_button_pressed() -> void:
-	OptionsHandler.show_options()
+	UIHandler.set_menu_showing(UIHandler.Menu.OPTIONS, true)
 
 
 func _on_quit_button_pressed() -> void:

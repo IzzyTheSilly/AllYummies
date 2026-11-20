@@ -2,7 +2,8 @@
 
 [ext_resource type="Script" uid="uid://b4eqcsuwxw1ks" path="res://Scripts/stats_viewer_menu.gd" id="1_0yfca"]
 
-[node name="StatsViewerMenu" type="Control" unique_id=439564388]
+[node name="StatsViewerMenu" type="Control" unique_id=439564388 node_paths=PackedStringArray("gdy_label", "yummies_count_label", "bummies_count_label", "days_left_label")]
+z_index = 2
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -10,6 +11,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_0yfca")
+gdy_label = NodePath("GDYLabel")
+yummies_count_label = NodePath("YummiesCountLabel")
+bummies_count_label = NodePath("YummiesCountLabel")
+days_left_label = NodePath("BummiesCountLabel")
 
 [node name="GDYLabel" type="RichTextLabel" parent="." unique_id=946370708]
 layout_mode = 0
