@@ -7,6 +7,8 @@ class_name YummyInventory
 
 func _ready() -> void:
 	UIHandler.inventory_panel = self
+	for i in range(slots.size()):
+		update_inventory_slot(i)
 
 
 func update_inventory_slot(yummy_color_index):

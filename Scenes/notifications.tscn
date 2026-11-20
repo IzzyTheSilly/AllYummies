@@ -1,0 +1,104 @@
+[gd_scene format=3 uid="uid://clvmordcdxpug"]
+
+[ext_resource type="Script" uid="uid://bc10yk0td7ar7" path="res://Scripts/notifications.gd" id="1_l0gdx"]
+
+[node name="Notifications" type="Control" unique_id=1314199842 node_paths=PackedStringArray("labels", "timers")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l0gdx")
+labels = [NodePath("VBoxContainer/NotificationsLabel1"), NodePath("VBoxContainer/NotificationsLabel2"), NodePath("VBoxContainer/NotificationsLabel3"), NodePath("VBoxContainer/NotificationsLabel4"), NodePath("VBoxContainer/NotificationsLabel5"), NodePath("VBoxContainer/NotificationsLabel6"), NodePath("VBoxContainer/NotificationsLabel7")]
+timers = [NodePath("Timer1"), NodePath("Timer2"), NodePath("Timer3"), NodePath("Timer4"), NodePath("Timer5"), NodePath("Timer6"), NodePath("Timer7")]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=548973680]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = -163.0
+offset_right = 202.0
+offset_bottom = -3.0
+grow_vertical = 0
+alignment = 2
+
+[node name="NotificationsLabel1" type="RichTextLabel" parent="VBoxContainer" unique_id=687722453]
+custom_minimum_size = Vector2(0.23, 20)
+layout_mode = 2
+text = "aebqab"
+scroll_active = false
+vertical_alignment = 2
+
+[node name="NotificationsLabel2" type="RichTextLabel" parent="VBoxContainer" unique_id=494206238]
+custom_minimum_size = Vector2(0.23, 20)
+layout_mode = 2
+text = "abedb"
+scroll_active = false
+vertical_alignment = 2
+
+[node name="NotificationsLabel3" type="RichTextLabel" parent="VBoxContainer" unique_id=1213175970]
+custom_minimum_size = Vector2(0.23, 20)
+layout_mode = 2
+text = "aaa"
+scroll_active = false
+vertical_alignment = 2
+
+[node name="NotificationsLabel4" type="RichTextLabel" parent="VBoxContainer" unique_id=1906315385]
+custom_minimum_size = Vector2(0.23, 20)
+layout_mode = 2
+text = "aaa"
+scroll_active = false
+vertical_alignment = 2
+
+[node name="NotificationsLabel5" type="RichTextLabel" parent="VBoxContainer" unique_id=1302476888]
+custom_minimum_size = Vector2(0.23, 20)
+layout_mode = 2
+text = "aaa"
+scroll_active = false
+vertical_alignment = 2
+
+[node name="NotificationsLabel6" type="RichTextLabel" parent="VBoxContainer" unique_id=1490378191]
+custom_minimum_size = Vector2(0.23, 20)
+layout_mode = 2
+text = "aaa"
+scroll_active = false
+vertical_alignment = 2
+
+[node name="NotificationsLabel7" type="RichTextLabel" parent="VBoxContainer" unique_id=541796145]
+custom_minimum_size = Vector2(0.23, 20)
+layout_mode = 2
+text = "aaa"
+scroll_active = false
+vertical_alignment = 2
+
+[node name="Timer1" type="Timer" parent="." unique_id=1321147775]
+one_shot = true
+
+[node name="Timer2" type="Timer" parent="." unique_id=127032010]
+one_shot = true
+
+[node name="Timer3" type="Timer" parent="." unique_id=1270892033]
+one_shot = true
+
+[node name="Timer4" type="Timer" parent="." unique_id=648748537]
+one_shot = true
+
+[node name="Timer5" type="Timer" parent="." unique_id=608020954]
+one_shot = true
+
+[node name="Timer6" type="Timer" parent="." unique_id=962930979]
+one_shot = true
+
+[node name="Timer7" type="Timer" parent="." unique_id=1653186805]
+one_shot = true
+
+[connection signal="timeout" from="Timer1" to="." method="_on_timer_1_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
+[connection signal="timeout" from="Timer3" to="." method="_on_timer_3_timeout"]
+[connection signal="timeout" from="Timer4" to="." method="_on_timer_4_timeout"]
+[connection signal="timeout" from="Timer5" to="." method="_on_timer_5_timeout"]
+[connection signal="timeout" from="Timer6" to="." method="_on_timer_6_timeout"]
+[connection signal="timeout" from="Timer7" to="." method="_on_timer_7_timeout"]

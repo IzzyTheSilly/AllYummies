@@ -86,9 +86,9 @@ func change_state(state: BehaviourState):
 
 func _on_interact():
 	if behaviour_state != BehaviourState.COLLECTED:
-		if GlobalData.total_yummies_collected >= GlobalData.max_collected_yummies:
+		if GlobalData.try_collect_yummy(self):
+			UIHandler.notify("Inventory full!")
 			return
-		GlobalData.update_collected_yummies(type, 1, true)
 		
 		AudioManager.try_change_sfx_audio(collect_sfx, true)
 		change_state(BehaviourState.COLLECTED)
@@ -113,9 +113,15 @@ func health_zero():
 			bummy_state = BummyState.LOST
 			set_health(3)
 		BummyState.LOST:
+			GlobalData.update_yummy_amount(-1, 0, true)
+			GlobalData.update_yummy_amount(1, 1, true)
 			bummy_state = BummyState.GONER
+			GlobalData.update_yummy_amount(-1, 1, true)
+			GlobalData.update_yummy_amount(1, 2, true)
 			set_health(3)
 		BummyState.GONER:
+			GlobalData.update_yummy_amount(-1, 2, true)
+			GlobalData.update_yummy_amount(1, 3, true)
 			bummy_state = BummyState.DAMNED
 			set_health(50)
 		BummyState.DAMNED:

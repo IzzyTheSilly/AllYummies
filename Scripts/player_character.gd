@@ -65,6 +65,7 @@ func process_interaction() -> void:
 				UIHandler.set_menu_showing(UIHandler.Menu.OPTIONS, false)
 			else:
 				UIHandler.set_menu_showing(UIHandler.Menu.OPTIONS, true)
+				UIHandler.notify("poo")
 	
 	if Input.is_action_just_pressed("move_left") and CutsceneHandler.in_dialogue_choice:
 		CutsceneHandler.change_currently_selected_choice(-1)

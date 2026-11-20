@@ -48,6 +48,8 @@ var max_collected_yummies: int = 3
 var collected_yummies_amounts: Array[int]
 var total_yummies_collected: int = 0
 
+var days_left: int = day_amount
+
 func update_collected_yummies(yummy_color_index: int, amount: int, add: bool = false):
 	if add:
 		collected_yummies_amounts[yummy_color_index] = collected_yummies_amounts[yummy_color_index] + amount
@@ -59,11 +61,23 @@ func update_collected_yummies(yummy_color_index: int, amount: int, add: bool = f
 	total_yummies_collected = total
 
 
-func update_bummy_amount(amount: int, type: int, add: bool = false):
+func try_collect_yummy(yummy: Yummy) -> int:
+	if total_yummies_collected >= max_collected_yummies:
+			return 1
+	update_collected_yummies(yummy.type, 1, true)
+	return 0
+
+
+func update_yummy_amount(amount: int, type: int, add: bool = false):
 	match type:
-		0: bummies_lost = bummies_lost + amount if add else amount
-		1: bummies_goner = bummies_goner + amount if add else amount
-		2: bummies_damned = bummies_damned + amount if add else amount
+		0: yummies = yummies + amount if add else amount
+		1: bummies_lost = bummies_lost + amount if add else amount
+		2: bummies_goner = bummies_goner + amount if add else amount
+		3: bummies_damned = bummies_damned + amount if add else amount
+
+
+func total_bummies() -> int:
+	return bummies_lost + bummies_goner + bummies_damned
 
 
 func update_gdy() -> int:

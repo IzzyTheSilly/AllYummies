@@ -12,6 +12,7 @@ var trading_station_menu: TradingStationMenu
 
 var daytime_left_panel: DayTimeLeft
 var inventory_panel: YummyInventory
+var notifications: Notifications
 
 
 var start_position_y: float # starts hidden
@@ -113,3 +114,7 @@ func popup_inventory():
 	await get_tree().create_timer(0.7).timeout
 	var hide_tween: Tween = get_tree().create_tween()
 	hide_tween.tween_property(inventory_panel, "position:y", -245, 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
+
+
+func notify(text: String):
+	notifications.set_next_label(text)

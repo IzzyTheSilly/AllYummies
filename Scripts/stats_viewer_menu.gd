@@ -14,3 +14,6 @@ func _ready() -> void:
 
 func update_stats():
 	gdy_label.text = "GDY: " + str(GlobalData.update_gdy())
+	yummies_count_label.text = "Yummies: " + str(GlobalData.yummies)
+	bummies_count_label.text = "Bummies: " + str(GlobalData.total_bummies())
+	days_left_label.text = "Days Left: " + str(GlobalData.days_left)
