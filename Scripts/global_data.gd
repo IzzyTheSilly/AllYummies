@@ -89,6 +89,10 @@ func remove_yummy(yummy: Yummy):
 			yummies_list.pop_at(i)
 			yummies_list_updated.emit()
 			break
+	for i in range(collected_yummies_list.size()):
+		if collected_yummies_list[i] == yummy:
+			collected_yummies_list.pop_at(i)
+			update_collected_yummies(yummy.type, -1, true)
 
 
 func update_yummy_amount(amount: int, type: int, add: bool = false):

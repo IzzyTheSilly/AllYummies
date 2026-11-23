@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://00fgrhqqgfld"]
+
+[ext_resource type="Script" uid="uid://vnta2nbfgjas" path="res://Scripts/exterminator.gd" id="1_p8cni"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ir5lp"]
+size = Vector2(60, 60)
+
+[node name="Exterminator" type="CharacterBody2D" unique_id=403435086]
+collision_layer = 8
+script = ExtResource("1_p8cni")
+metadata/_custom_type_script = "uid://bs6wnpnyqscgq"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=548675369]
+shape = SubResource("RectangleShape2D_ir5lp")

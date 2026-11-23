@@ -172,3 +172,4 @@ func exterminate():
 	if chummy:
 		chummy.remove_yummy(self)
 	GlobalData.remove_yummy(self)
+	queue_free()
