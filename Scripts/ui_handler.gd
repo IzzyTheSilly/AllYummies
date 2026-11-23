@@ -103,8 +103,9 @@ func hide_trading_station():
 		return
 
 
-func update_inventory(yummy_color_index: int):
-	inventory_panel.update_inventory_slot(yummy_color_index)
+func update_inventory(type: int):
+	inventory_panel.update_inventory_slot(type)
+	popup_inventory()
 
 
 func popup_inventory():

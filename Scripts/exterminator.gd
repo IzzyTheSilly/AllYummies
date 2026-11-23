@@ -6,6 +6,7 @@ func _on_interact():
 	for i in range(GlobalData.collected_yummies_list.size()):
 		if GlobalData.collected_yummies_list[i]:
 			exterminate_yummy(GlobalData.collected_yummies_list[i])
+			break
 
 
 func exterminate_yummy(yummy: Yummy):

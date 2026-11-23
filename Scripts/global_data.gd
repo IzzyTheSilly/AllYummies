@@ -49,50 +49,42 @@ var yummy_interest: float = yummy_interest_average
 
 var yummies_list: Array[Yummy]
 var max_collected_yummies: int = 5
-var collected_yummies_amounts: Array[int]
 var collected_yummies_list: Array[Yummy]
-var total_yummies_collected: int = 0
 
 var days_left: int = day_amount
 
-func update_collected_yummies(yummy_color_index: int, amount: int, add: bool = false):
-	if add:
-		collected_yummies_amounts[yummy_color_index] = collected_yummies_amounts[yummy_color_index] + amount
-	else:
-		collected_yummies_amounts[yummy_color_index] = amount
-	var total: int
-	for i in range(7):
-		total = total + collected_yummies_amounts[i]
-	total_yummies_collected = total
-	UIHandler.update_inventory(yummy_color_index)
-	UIHandler.popup_inventory()
+
+func add_collected_yummy(yummy: Yummy) -> int:
+	if collected_yummies_list.size() < max_collected_yummies:
+		collected_yummies_list.append(yummy)
+		UIHandler.update_inventory(int(yummy.bummy_state))
+		return 0
+	UIHandler.notify("Inventory full!")
+	return 1
 
 
-func try_collect_yummy(yummy: Yummy) -> int:
-	if total_yummies_collected >= max_collected_yummies:
-		UIHandler.notify("Inventory full!")
-		return 1
-	update_collected_yummies(yummy.type, 1, true)
-	collected_yummies_list.append(yummy)
-	return 0
+func remove_collected_yummy(yummy: Yummy) -> int:
+	for i in range(collected_yummies_list.size()):
+		if collected_yummies_list[i] == yummy:
+			collected_yummies_list.pop_at(i)
+			UIHandler.update_inventory(int(yummy.bummy_state))
+			return 0
+	return 1
 
 
 func add_yummy(yummy: Yummy):
 	yummies_list.append(yummy)
 	yummies_list_updated.emit()
-	update_yummy_amount(1, 0, true)
 
 
-func remove_yummy(yummy: Yummy):
+func remove_yummy(yummy: Yummy) -> int:
+	remove_collected_yummy(yummy)
 	for i in range(yummies_list.size()):
 		if yummies_list[i] == yummy:
 			yummies_list.pop_at(i)
 			yummies_list_updated.emit()
-			break
-	for i in range(collected_yummies_list.size()):
-		if collected_yummies_list[i] == yummy:
-			collected_yummies_list.pop_at(i)
-			update_collected_yummies(yummy.type, -1, true)
+			return 0
+	return 1
 
 
 func update_yummy_amount(amount: int, type: int, add: bool = false):
@@ -139,7 +131,3 @@ func reset_local_flags():
 
 """Global Flags"""
 @export var global_flags: Dictionary[String, int]
-
-
-func _ready() -> void:
-	collected_yummies_amounts.resize(7)

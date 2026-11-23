@@ -11,5 +11,11 @@ func _ready() -> void:
 		update_inventory_slot(i)
 
 
-func update_inventory_slot(yummy_color_index):
-	slots[yummy_color_index].update_slot(GlobalData.collected_yummies_amounts[yummy_color_index])
+func update_inventory_slot(type: int):
+	var collected_yummies_list: Array[Yummy] = GlobalData.collected_yummies_list
+	var amount: int = 0
+	for i in range(collected_yummies_list.size()):
+		if int(collected_yummies_list[i].bummy_state) == type:
+			amount = amount + 1
+	slots[type].update_slot(amount)
+	

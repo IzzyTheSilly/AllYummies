@@ -99,12 +99,12 @@ func change_state(state: BehaviourState):
 		BehaviourState.DROPPING:
 			show()
 			animation_player.play("drop")
-			GlobalData.update_collected_yummies(type, -1, true)
+			GlobalData.remove_collected_yummy(self)
 
 
 func _on_interact():
 	if behaviour_state != BehaviourState.COLLECTING:
-		if GlobalData.try_collect_yummy(self):
+		if GlobalData.add_collected_yummy(self):
 			return
 		
 		AudioManager.try_change_sfx_audio(collect_sfx, true)
