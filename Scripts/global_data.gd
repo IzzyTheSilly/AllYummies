@@ -1,6 +1,9 @@
 extends Node
 
 
+signal yummies_list_updated
+
+
 """Settings"""
 # Audio
 var dialogue_volume: float = 1.0
@@ -72,6 +75,20 @@ func try_collect_yummy(yummy: Yummy) -> int:
 	update_collected_yummies(yummy.type, 1, true)
 	collected_yummies_list.append(yummy)
 	return 0
+
+
+func add_yummy(yummy: Yummy):
+	yummies_list.append(yummy)
+	yummies_list_updated.emit()
+	update_yummy_amount(1, 0, true)
+
+
+func remove_yummy(yummy: Yummy):
+	for i in range(yummies_list.size()):
+		if yummies_list[i] == yummy:
+			yummies_list.pop_at(i)
+			yummies_list_updated.emit()
+			break
 
 
 func update_yummy_amount(amount: int, type: int, add: bool = false):

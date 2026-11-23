@@ -4,6 +4,7 @@ class_name StatsViewerMenu
 
 @export var gdy_label: RichTextLabel
 @export var yummies_count_label: RichTextLabel
+@export var yummies_rate_label: RichTextLabel
 @export var bummies_count_label: RichTextLabel
 @export var days_left_label: RichTextLabel
 
@@ -17,3 +18,4 @@ func update_stats():
 	yummies_count_label.text = "Yummies: " + str(GlobalData.yummies)
 	bummies_count_label.text = "Bummies: " + str(GlobalData.total_bummies())
 	days_left_label.text = "Days Left: " + str(GlobalData.days_left)
+	yummies_rate_label.text = "Yummies/Min: " + str(GlobalData.yummies_rate)

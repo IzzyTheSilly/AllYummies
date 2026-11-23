@@ -4,7 +4,6 @@ class_name Yummy
 
 @export_enum("Red", "Orange", "Yellow", "Green", "Cyan", "Blue", "Purple") var type: int = 0
 @export var timer: Timer
-@export var update_timer: Timer
 @export var animation_player: AnimationPlayer
 var target: Vector2 = Vector2.ZERO
 @export var speed: int = 15
@@ -15,6 +14,7 @@ var target: Vector2 = Vector2.ZERO
 @export var protected_healthbar_texture: Texture
 @export var unprotected_healthbar_texture: Texture
 var health: int = 5
+@export var health_loss_chance: int = 50
 
 @export var collect_sfx: AudioStream
 
@@ -26,7 +26,7 @@ var chummy: Chummy
 
 
 func _ready() -> void:
-	GlobalData.yummies_list.append(self)
+	GlobalData.add_yummy(self)
 	healthbar.max_value = health
 	if randi_range(0, 1):
 		change_state(BehaviourState.IDLE)
@@ -63,7 +63,7 @@ func _on_timer_timeout() -> void:
 			change_state(BehaviourState.IDLE)
 		BehaviourState.FLEE:
 			change_state(BehaviourState.IDLE)
-	if randi_range(1, 100) < 90 and !chummy:
+	if randi_range(1, 100) < health_loss_chance and !chummy:
 		set_health(health - 1, false)
 
 
@@ -166,3 +166,9 @@ func drop(position: Vector2):
 	change_state(BehaviourState.DROPPING)
 	await animation_player.animation_finished
 	change_state(BehaviourState.IDLE)
+
+
+func exterminate():
+	if chummy:
+		chummy.remove_yummy(self)
+	GlobalData.remove_yummy(self)

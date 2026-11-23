@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b4eqcsuwxw1ks" path="res://Scripts/stats_viewer_menu.gd" id="1_0yfca"]
 
-[node name="StatsViewerMenu" type="Control" unique_id=439564388 node_paths=PackedStringArray("gdy_label", "yummies_count_label", "bummies_count_label", "days_left_label")]
+[node name="StatsViewerMenu" type="Control" unique_id=439564388 node_paths=PackedStringArray("gdy_label", "yummies_count_label", "yummies_rate_label", "bummies_count_label", "days_left_label")]
 z_index = 2
 layout_mode = 3
 anchors_preset = 15
@@ -13,6 +13,7 @@ grow_vertical = 2
 script = ExtResource("1_0yfca")
 gdy_label = NodePath("GDYLabel")
 yummies_count_label = NodePath("YummiesCountLabel")
+yummies_rate_label = NodePath("YummiesRateLabel")
 bummies_count_label = NodePath("BummiesCountLabel")
 days_left_label = NodePath("DaysLeft")
 
@@ -26,36 +27,45 @@ color = Color(0, 0, 0, 1)
 
 [node name="GDYLabel" type="RichTextLabel" parent="." unique_id=946370708]
 layout_mode = 0
-offset_left = 57.0
-offset_top = 73.0
-offset_right = 170.0
-offset_bottom = 113.0
+offset_left = 47.0
+offset_top = 64.0
+offset_right = 160.0
+offset_bottom = 104.0
 text = "GDY: 10000"
 scroll_active = false
 
 [node name="YummiesCountLabel" type="RichTextLabel" parent="." unique_id=1091461205]
 layout_mode = 0
-offset_left = 60.0
-offset_top = 120.0
-offset_right = 173.0
-offset_bottom = 160.0
+offset_left = 49.0
+offset_top = 99.0
+offset_right = 162.0
+offset_bottom = 139.0
 text = "Yummies: 3"
+scroll_active = false
+
+[node name="YummiesRateLabel" type="RichTextLabel" parent="." unique_id=1373323609]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 140.0
+offset_right = 263.0
+offset_bottom = 180.0
+text = "Yummies/Min: "
 scroll_active = false
 
 [node name="BummiesCountLabel" type="RichTextLabel" parent="." unique_id=154710346]
 layout_mode = 0
-offset_left = 63.0
-offset_top = 170.0
-offset_right = 176.0
-offset_bottom = 210.0
+offset_left = 47.0
+offset_top = 197.0
+offset_right = 160.0
+offset_bottom = 237.0
 text = "Bummies: poo"
 scroll_active = false
 
 [node name="DaysLeft" type="RichTextLabel" parent="." unique_id=1096231812]
 layout_mode = 0
-offset_left = 63.0
-offset_top = 211.0
-offset_right = 176.0
-offset_bottom = 251.0
+offset_left = 47.0
+offset_top = 237.0
+offset_right = 160.0
+offset_bottom = 277.0
 text = "Days Left:"
 scroll_active = false

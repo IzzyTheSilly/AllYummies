@@ -2,7 +2,7 @@ extends Node2D
 class_name YummySpawner
 
 
-@export var spawn_rate: float = 0.02
+var spawn_rate: float
 @export var yummy_scene: PackedScene
 @export var yummy_spawn_node: Node2D
 @export var timer: Timer
@@ -10,7 +10,7 @@ class_name YummySpawner
 
 
 func _ready() -> void:
-	timer.wait_time = 1/spawn_rate
+	update_spawn_rate()
 
 
 func _on_timer_timeout() -> void:
@@ -28,3 +28,7 @@ func spawn_yummy():
 	pos.y = randf_range(-range, range) + position.y
 	yummy.position = pos
 	yummy_spawn_node.add_child(yummy)
+
+
+func update_spawn_rate():
+	timer.wait_time = 120/GlobalData.yummies_rate
