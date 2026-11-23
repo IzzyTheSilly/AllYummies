@@ -247,6 +247,7 @@ speed = 65
 hurry_factor = 2.5
 wander_distance = 500
 healthbar = NodePath("Control/Healthbar")
+protected_healthbar_texture = ExtResource("1_4xhlt")
 collect_sfx = ExtResource("2_wmkog")
 
 [node name="Shadow" type="Sprite2D" parent="." unique_id=1871059682]

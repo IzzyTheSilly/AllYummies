@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://done4h7682hoh" path="res://Scenes/stats_viewer_menu.tscn" id="6_kck4e"]
 [ext_resource type="PackedScene" uid="uid://clvmordcdxpug" path="res://Scenes/notifications.tscn" id="7_h5xn8"]
 [ext_resource type="PackedScene" uid="uid://clrjk2d7w4s10" path="res://Scenes/yummy.tscn" id="10_hmx0y"]
+[ext_resource type="PackedScene" uid="uid://bvtvc516nes6d" path="res://Scenes/chummy.tscn" id="13_yojay"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q1q2r"]
 size = Vector2(20, 320)
@@ -26,8 +27,8 @@ size = Vector2(480, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yojay"]
 size = Vector2(390, 20)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0wpj4"]
-size = Vector2(480, 20)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4jnwq"]
+size = Vector2(523, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j20kr"]
 size = Vector2(480, 20)
@@ -37,6 +38,9 @@ size = Vector2(480, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ajwcb"]
 size = Vector2(326, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0wpj4"]
+size = Vector2(480, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0rene"]
 size = Vector2(484, 20)
@@ -69,7 +73,7 @@ size = Vector2(20, 201)
 size = Vector2(20, 201)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s7x60"]
-size = Vector2(20, 201)
+size = Vector2(20, 366)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mhwbh"]
 size = Vector2(20, 187.625)
@@ -81,7 +85,7 @@ size = Vector2(20, 210.8125)
 size = Vector2(20, 300)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f5v12"]
-size = Vector2(20, 322)
+size = Vector2(20, 449)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x6fr2"]
 size = Vector2(20, 1146)
@@ -158,13 +162,13 @@ offset_right = 10.0
 offset_bottom = 130.0
 
 [node name="StatsViewer" parent="." unique_id=2133314408 instance=ExtResource("4_yojay")]
-position = Vector2(262, -986)
+position = Vector2(-2, -979)
 
 [node name="TradingStation" parent="." unique_id=86592641 instance=ExtResource("5_0rene")]
-position = Vector2(104, -1312)
+position = Vector2(-307, -982)
 
 [node name="InvestingStation" parent="." unique_id=1606015159 instance=ExtResource("6_5lkcg")]
-position = Vector2(292, -1090)
+position = Vector2(330, -984)
 
 [node name="Irsela" parent="." unique_id=1623085982 instance=ExtResource("5_87rxc")]
 position = Vector2(36, -320)
@@ -194,8 +198,8 @@ position = Vector2(945, -13)
 shape = SubResource("RectangleShape2D_yojay")
 
 [node name="CollisionShape2D12" type="CollisionShape2D" parent="Boundaries" unique_id=2038044576]
-position = Vector2(-260, -1040)
-shape = SubResource("RectangleShape2D_0wpj4")
+position = Vector2(-238.5, -1040)
+shape = SubResource("RectangleShape2D_4jnwq")
 
 [node name="CollisionShape2D30" type="CollisionShape2D" parent="Boundaries" unique_id=1250859746]
 position = Vector2(-760, -941)
@@ -258,7 +262,7 @@ position = Vector2(-510, -381)
 shape = SubResource("RectangleShape2D_3vc5i")
 
 [node name="CollisionShape2D29" type="CollisionShape2D" parent="Boundaries" unique_id=1185060347]
-position = Vector2(-509, -655)
+position = Vector2(-509, -654)
 shape = SubResource("RectangleShape2D_s7x60")
 
 [node name="CollisionShape2D32" type="CollisionShape2D" parent="Boundaries" unique_id=286507007]
@@ -282,7 +286,7 @@ position = Vector2(360, -1200)
 shape = SubResource("RectangleShape2D_hmx0y")
 
 [node name="CollisionShape2D11" type="CollisionShape2D" parent="Boundaries" unique_id=1315884514]
-position = Vector2(510, -869)
+position = Vector2(510, -805.5)
 shape = SubResource("RectangleShape2D_f5v12")
 
 [node name="CollisionShape2D22" type="CollisionShape2D" parent="Boundaries" unique_id=165663431]
@@ -376,10 +380,15 @@ position = Vector2(-212, -598)
 position = Vector2(120, -619)
 
 [node name="Yummy8" parent="Yummies" unique_id=513885869 instance=ExtResource("10_hmx0y")]
-position = Vector2(-241, -958)
+position = Vector2(-251, -904)
 
 [node name="Yummy9" parent="Yummies" unique_id=1437140520 instance=ExtResource("10_hmx0y")]
 position = Vector2(-333, -663)
 
 [node name="Yummy10" parent="Yummies" unique_id=559655900 instance=ExtResource("10_hmx0y")]
 position = Vector2(212, -716)
+
+[node name="Chummies" type="Node2D" parent="." unique_id=1491520800]
+
+[node name="Chummy" parent="Chummies" unique_id=486724092 instance=ExtResource("13_yojay")]
+position = Vector2(-50, -606)

@@ -11,7 +11,7 @@ var music_volume: float = 1.0
 var less_vfx: bool = false
 
 # Gameplay
-var day_amount: int = 5
+var day_amount: int = 1
 var day_length: float = 10
 var start_yummies: int = 25
 var start_chummies: int = 10
@@ -44,7 +44,8 @@ var max_yummy_pull: int = 5
 ##How many extra yummies you get in the stock market per minute.
 var yummy_interest: float = yummy_interest_average
 
-var max_collected_yummies: int = 3
+var yummies_list: Array[Yummy]
+var max_collected_yummies: int = 5
 var collected_yummies_amounts: Array[int]
 var total_yummies_collected: int = 0
 
@@ -59,11 +60,14 @@ func update_collected_yummies(yummy_color_index: int, amount: int, add: bool = f
 	for i in range(7):
 		total = total + collected_yummies_amounts[i]
 	total_yummies_collected = total
+	UIHandler.update_inventory(yummy_color_index)
+	UIHandler.popup_inventory()
 
 
 func try_collect_yummy(yummy: Yummy) -> int:
 	if total_yummies_collected >= max_collected_yummies:
-			return 1
+		UIHandler.notify("Inventory full!")
+		return 1
 	update_collected_yummies(yummy.type, 1, true)
 	return 0
 

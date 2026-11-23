@@ -71,3 +71,8 @@ func process_interaction() -> void:
 		CutsceneHandler.change_currently_selected_choice(-1)
 	if Input.is_action_just_pressed("move_right") and CutsceneHandler.in_dialogue_choice:
 		CutsceneHandler.change_currently_selected_choice(1)
+
+
+func drop_yummy():
+	for i in range(7):
+		pass

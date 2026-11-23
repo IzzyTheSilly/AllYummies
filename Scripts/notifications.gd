@@ -4,6 +4,7 @@ class_name Notifications
 
 @export var labels: Array[RichTextLabel]
 @export var timers: Array[Timer]
+@export var disappear_time: float = 2
 
 
 func _ready() -> void:
@@ -21,7 +22,7 @@ func set_next_label(text: String):
 				labels[i-1].text = labels[i].text
 				timers[i-1].start(timers[i].time_left)
 	labels[6].text = text
-	timers[6].start(4)
+	timers[6].start(disappear_time)
 
 
 func _on_timer_1_timeout() -> void:

@@ -12,17 +12,21 @@ var target: Vector2 = Vector2.ZERO
 @export var wander_distance: int
 @export var timer_average: float = 3.0
 @export var healthbar: TextureProgressBar
+@export var protected_healthbar_texture: Texture
+@export var unprotected_healthbar_texture: Texture
 var health: int = 5
 
 @export var collect_sfx: AudioStream
 
-enum BehaviourState {IDLE, WANDER, FLEE, COLLECTED}
+enum BehaviourState {IDLE, WANDER, FLEE, COLLECTING, COLLECTED}
 enum BummyState {YUMMY, LOST, GONER, DAMNED}
 var behaviour_state = BehaviourState.WANDER
 var bummy_state = BummyState.YUMMY
+var chummy: Chummy
 
 
 func _ready() -> void:
+	GlobalData.yummies_list.append(self)
 	healthbar.max_value = health
 	if randi_range(0, 1):
 		change_state(BehaviourState.IDLE)
@@ -31,6 +35,9 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
+	if behaviour_state == BehaviourState.COLLECTED:
+		return
+	
 	var move_direction = Vector2.ZERO
 	if (target - position).length() > 5:
 		move_direction = (target - position).normalized()
@@ -56,12 +63,12 @@ func _on_timer_timeout() -> void:
 			change_state(BehaviourState.IDLE)
 		BehaviourState.FLEE:
 			change_state(BehaviourState.IDLE)
-	if randi_range(1, 100) < 90:
+	if randi_range(1, 100) < 90 and !chummy:
 		set_health(health - 1, false)
 
 
 func change_state(state: BehaviourState):
-	if behaviour_state == BehaviourState.COLLECTED:
+	if behaviour_state == BehaviourState.COLLECTING:
 		return
 	
 	behaviour_state = state
@@ -78,24 +85,24 @@ func change_state(state: BehaviourState):
 		BehaviourState.FLEE:
 			animation_player.play("hurry")
 			timer.start(3.5)
-		BehaviourState.COLLECTED:
+		BehaviourState.COLLECTING:
 			target = position
 			animation_player.play("collect")
 			timer.start(0.5)
+		BehaviourState.COLLECTED:
+			timer.stop()
 
 
 func _on_interact():
-	if behaviour_state != BehaviourState.COLLECTED:
+	if behaviour_state != BehaviourState.COLLECTING:
 		if GlobalData.try_collect_yummy(self):
-			UIHandler.notify("Inventory full!")
 			return
 		
 		AudioManager.try_change_sfx_audio(collect_sfx, true)
-		change_state(BehaviourState.COLLECTED)
-		UIHandler.update_inventory(type)
-		UIHandler.popup_inventory()
+		change_state(BehaviourState.COLLECTING)
 		await animation_player.animation_finished
-		queue_free()
+		hide()
+		change_state(BehaviourState.COLLECTED)
 
 
 func set_health(health: int, set_healthbar: bool = true):
@@ -132,3 +139,20 @@ func _on_player_detect_area_body_entered(body: Node2D) -> void:
 	if body is Player:
 		target = position + 7*(position - body.position)
 		change_state(BehaviourState.FLEE)
+
+
+func set_chummy(chummy: Chummy):
+	self.chummy = chummy
+	healthbar.texture_progress = protected_healthbar_texture
+	health = 5
+
+
+func unset_chummy():
+	chummy = null
+	healthbar.texture_progress = unprotected_healthbar_texture
+
+
+func drop(position: Vector2):
+	self.position = position
+	show()
+	change_state(BehaviourState.IDLE)

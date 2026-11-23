@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bvtvc516nes6d"]
+
+[ext_resource type="Script" uid="uid://d3jo3tw1hqwrk" path="res://Scripts/chummy.gd" id="1_onbqb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ir5lp"]
+size = Vector2(20, 40)
+
+[node name="Chummy" type="CharacterBody2D" unique_id=486724092]
+collision_layer = 8
+script = ExtResource("1_onbqb")
+metadata/_custom_type_script = "uid://bs6wnpnyqscgq"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1147615130]
+position = Vector2(0, -10)
+shape = SubResource("RectangleShape2D_ir5lp")
