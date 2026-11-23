@@ -5,7 +5,6 @@
 
 [node name="YummySpawner" type="Node2D" unique_id=826669829 node_paths=PackedStringArray("timer")]
 script = ExtResource("1_tr18q")
-spawn_rate = 0.1
 yummy_scene = ExtResource("2_b4q61")
 timer = NodePath("Timer")
 

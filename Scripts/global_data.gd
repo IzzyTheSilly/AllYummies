@@ -47,6 +47,7 @@ var yummy_interest: float = yummy_interest_average
 var yummies_list: Array[Yummy]
 var max_collected_yummies: int = 5
 var collected_yummies_amounts: Array[int]
+var collected_yummies_list: Array[Yummy]
 var total_yummies_collected: int = 0
 
 var days_left: int = day_amount
@@ -69,6 +70,7 @@ func try_collect_yummy(yummy: Yummy) -> int:
 		UIHandler.notify("Inventory full!")
 		return 1
 	update_collected_yummies(yummy.type, 1, true)
+	collected_yummies_list.append(yummy)
 	return 0
 
 

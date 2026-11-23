@@ -118,6 +118,34 @@ tracks/1/keys = {
 "values": [Vector2(0.051282052, 0.051546387), Vector2(-0.051, 0.052), Vector2(0.051, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_wmkog"]
+resource_name = "drop"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 0.5),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(0.051282052, 0.051546387)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 0.5),
+"update": 0,
+"values": [Vector2(0, -0.25), Vector2(0, -8)]
+}
+
 [sub_resource type="Animation" id="Animation_rbvt0"]
 resource_name = "hurry"
 length = 0.25
@@ -204,6 +232,7 @@ _data = {
 &"RESET": SubResource("Animation_osvtb"),
 &"bounce": SubResource("Animation_ve61t"),
 &"collect": SubResource("Animation_ex11a"),
+&"drop": SubResource("Animation_wmkog"),
 &"hurry": SubResource("Animation_rbvt0"),
 &"idle": SubResource("Animation_um3do")
 }
@@ -248,13 +277,14 @@ hurry_factor = 2.5
 wander_distance = 500
 healthbar = NodePath("Control/Healthbar")
 protected_healthbar_texture = ExtResource("1_4xhlt")
+unprotected_healthbar_texture = ExtResource("3_osvtb")
 collect_sfx = ExtResource("2_wmkog")
 
 [node name="Shadow" type="Sprite2D" parent="." unique_id=1871059682]
 z_index = -1
 z_as_relative = false
 y_sort_enabled = true
-position = Vector2(0, 0.4999997)
+position = Vector2(0, -1)
 scale = Vector2(0.101562515, 0.0546875)
 texture = ExtResource("1_4xhlt")
 

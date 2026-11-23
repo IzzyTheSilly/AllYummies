@@ -18,7 +18,7 @@ var health: int = 5
 
 @export var collect_sfx: AudioStream
 
-enum BehaviourState {IDLE, WANDER, FLEE, COLLECTING, COLLECTED}
+enum BehaviourState {IDLE, WANDER, FLEE, COLLECTING, COLLECTED, DROPPING}
 enum BummyState {YUMMY, LOST, GONER, DAMNED}
 var behaviour_state = BehaviourState.WANDER
 var bummy_state = BummyState.YUMMY
@@ -68,7 +68,11 @@ func _on_timer_timeout() -> void:
 
 
 func change_state(state: BehaviourState):
-	if behaviour_state == BehaviourState.COLLECTING:
+	if (
+		behaviour_state == BehaviourState.COLLECTING and 
+		state != BehaviourState.COLLECTED and 
+		state != BehaviourState.DROPPING
+		):
 		return
 	
 	behaviour_state = state
@@ -90,7 +94,12 @@ func change_state(state: BehaviourState):
 			animation_player.play("collect")
 			timer.start(0.5)
 		BehaviourState.COLLECTED:
+			hide()
 			timer.stop()
+		BehaviourState.DROPPING:
+			show()
+			animation_player.play("drop")
+			GlobalData.update_collected_yummies(type, -1, true)
 
 
 func _on_interact():
@@ -101,8 +110,8 @@ func _on_interact():
 		AudioManager.try_change_sfx_audio(collect_sfx, true)
 		change_state(BehaviourState.COLLECTING)
 		await animation_player.animation_finished
-		hide()
-		change_state(BehaviourState.COLLECTED)
+		if behaviour_state != BehaviourState.DROPPING:
+			change_state(BehaviourState.COLLECTED)
 
 
 func set_health(health: int, set_healthbar: bool = true):
@@ -136,7 +145,7 @@ func health_zero():
 
 
 func _on_player_detect_area_body_entered(body: Node2D) -> void:
-	if body is Player:
+	if body is Player and behaviour_state != BehaviourState.DROPPING:
 		target = position + 7*(position - body.position)
 		change_state(BehaviourState.FLEE)
 
@@ -154,5 +163,6 @@ func unset_chummy():
 
 func drop(position: Vector2):
 	self.position = position
-	show()
+	change_state(BehaviourState.DROPPING)
+	await animation_player.animation_finished
 	change_state(BehaviourState.IDLE)

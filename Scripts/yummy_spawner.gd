@@ -2,10 +2,11 @@ extends Node2D
 class_name YummySpawner
 
 
-@export var spawn_rate: float = 1
-@export var spawn_areas: Array[Area2D]
+@export var spawn_rate: float = 0.02
 @export var yummy_scene: PackedScene
+@export var yummy_spawn_node: Node2D
 @export var timer: Timer
+@export var range: int = 50
 
 
 func _ready() -> void:
@@ -22,8 +23,8 @@ func _on_timer_timeout() -> void:
 func spawn_yummy():
 	var yummy: Yummy = yummy_scene.instantiate()
 	# do other stuff
-	var pos = Vector2()
-	pos.x = randf_range(-150, 150)
-	pos.y = randf_range(-150, 150)
+	var pos: Vector2 = Vector2()
+	pos.x = randf_range(-range, range) + position.x
+	pos.y = randf_range(-range, range) + position.y
 	yummy.position = pos
-	add_child(yummy)
+	yummy_spawn_node.add_child(yummy)

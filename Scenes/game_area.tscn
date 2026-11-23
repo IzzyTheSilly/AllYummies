@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://done4h7682hoh" path="res://Scenes/stats_viewer_menu.tscn" id="6_kck4e"]
 [ext_resource type="PackedScene" uid="uid://clvmordcdxpug" path="res://Scenes/notifications.tscn" id="7_h5xn8"]
 [ext_resource type="PackedScene" uid="uid://clrjk2d7w4s10" path="res://Scenes/yummy.tscn" id="10_hmx0y"]
+[ext_resource type="PackedScene" uid="uid://d4arwf6nu8j8l" path="res://Scenes/yummy_spawner.tscn" id="13_0rene"]
 [ext_resource type="PackedScene" uid="uid://bvtvc516nes6d" path="res://Scenes/chummy.tscn" id="13_yojay"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q1q2r"]
@@ -353,6 +354,14 @@ shape = SubResource("RectangleShape2D_h5xn8")
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Triggers/IrselaCallsYouBack" unique_id=986022693]
 position = Vector2(128, -353)
 shape = SubResource("RectangleShape2D_h5xn8")
+
+[node name="YummySpawner" parent="." unique_id=826669829 node_paths=PackedStringArray("yummy_spawn_node") instance=ExtResource("13_0rene")]
+position = Vector2(-396, -892)
+yummy_spawn_node = NodePath("../Yummies")
+
+[node name="YummySpawner2" parent="." unique_id=1729103958 node_paths=PackedStringArray("yummy_spawn_node") instance=ExtResource("13_0rene")]
+position = Vector2(364, -888)
+yummy_spawn_node = NodePath("../Yummies")
 
 [node name="Yummies" type="Node2D" parent="." unique_id=862100451]
 z_as_relative = false
