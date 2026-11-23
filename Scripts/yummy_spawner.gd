@@ -14,8 +14,6 @@ func _ready() -> void:
 
 
 func _on_timer_timeout() -> void:
-	print("timeout")
-	print(timer.wait_time)
 	spawn_yummy()
 	timer.wait_time = randf_range(1/spawn_rate - 0.3, 1/spawn_rate + 0.3)
 

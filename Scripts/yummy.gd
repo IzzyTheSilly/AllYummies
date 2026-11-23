@@ -4,6 +4,7 @@ class_name Yummy
 
 @export_enum("Red", "Orange", "Yellow", "Green", "Cyan", "Blue", "Purple") var type: int = 0
 @export var timer: Timer
+@export var collision_shape: CollisionShape2D
 @export var animation_player: AnimationPlayer
 var target: Vector2 = Vector2.ZERO
 @export var speed: int = 15
@@ -92,7 +93,8 @@ func change_state(state: BehaviourState):
 		BehaviourState.COLLECTING:
 			target = position
 			animation_player.play("collect")
-			timer.start(0.5)
+			timer.stop()
+			collision_shape.disabled = true
 		BehaviourState.COLLECTED:
 			hide()
 			timer.stop()
@@ -100,6 +102,7 @@ func change_state(state: BehaviourState):
 			show()
 			animation_player.play("drop")
 			GlobalData.remove_collected_yummy(self)
+			collision_shape.disabled = false
 
 
 func _on_interact():
@@ -124,21 +127,22 @@ func set_health(health: int, set_healthbar: bool = true):
 
 
 func health_zero():
+	print("health zero")
 	match bummy_state:
 		BummyState.YUMMY:
 			bummy_state = BummyState.LOST
-			set_health(3)
-		BummyState.LOST:
 			GlobalData.update_yummy_amount(-1, 0, true)
 			GlobalData.update_yummy_amount(1, 1, true)
+			set_health(3)
+		BummyState.LOST:
 			bummy_state = BummyState.GONER
 			GlobalData.update_yummy_amount(-1, 1, true)
 			GlobalData.update_yummy_amount(1, 2, true)
 			set_health(3)
 		BummyState.GONER:
+			bummy_state = BummyState.DAMNED
 			GlobalData.update_yummy_amount(-1, 2, true)
 			GlobalData.update_yummy_amount(1, 3, true)
-			bummy_state = BummyState.DAMNED
 			set_health(50)
 		BummyState.DAMNED:
 			print("die")

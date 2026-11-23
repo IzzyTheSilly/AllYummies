@@ -51,7 +51,6 @@ func show_text(text: String, text_speed: float = 25.0, comma_delay: float = 2.5,
 
 
 func show_choices(choice_1: String = "", choice_2: String = "") -> String:
-	print("show choices")
 	show()
 	dialogue_text.hide()
 	for i in dialogue_choice_texts:

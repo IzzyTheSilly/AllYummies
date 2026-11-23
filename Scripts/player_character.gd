@@ -36,6 +36,8 @@ func _physics_process(delta: float) -> void:
 
 func process_interaction() -> void:
 	if Input.is_action_just_pressed("interact"):
+		interaction_raycast.force_raycast_update()
+		print("interact")
 		var collider
 		if interaction_raycast.get_collider():
 			collider = interaction_raycast.get_collider()
@@ -80,4 +82,3 @@ func process_interaction() -> void:
 func drop_yummy():
 	if GlobalData.collected_yummies_list.size() > 0:
 		GlobalData.collected_yummies_list[0].drop(position)
-		GlobalData.collected_yummies_list.pop_at(0)

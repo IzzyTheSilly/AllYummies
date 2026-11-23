@@ -87,13 +87,11 @@ func hide_dialogue():
 
 
 func select_current_choice():
-	print(currently_selected_choice)
 	dialogue_box.select_choice(currently_selected_choice)
 
 
 func change_currently_selected_choice(direction: int):
 	currently_selected_choice = clamp(currently_selected_choice + direction, 1, 2)
-	print(currently_selected_choice)
 	match currently_selected_choice:
 		1: 
 			dialogue_box.dialogue_choice_texts[0].get_child(0).show()

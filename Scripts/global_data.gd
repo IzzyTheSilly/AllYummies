@@ -83,7 +83,9 @@ func remove_yummy(yummy: Yummy) -> int:
 		if yummies_list[i] == yummy:
 			yummies_list.pop_at(i)
 			yummies_list_updated.emit()
+			print("remove yummy, success")
 			return 0
+	print("remove yummy, failed")
 	return 1
 
 
@@ -100,7 +102,6 @@ func total_bummies() -> int:
 
 
 func update_gdy() -> int:
-	print("update gdy")
 	gross_domestic_yummy = yummies - bummies_lost - 2*bummies_goner - 5*bummies_damned
 	return gross_domestic_yummy
 
