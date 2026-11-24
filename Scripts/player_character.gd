@@ -10,17 +10,22 @@ class_name Player
 ##How many yummies the player can collect with at once.
 @export var collection_stacking: int
 
+var auto_moving: bool = false
+var auto_moving_direction: Vector2
+
 
 func _ready() -> void:
-	pass
+	CutsceneHandler.player = self
 
 
 func _physics_process(delta: float) -> void:
 	var direction: Vector2 = Vector2.ZERO
-	if !CutsceneHandler.in_cutscene and !UIHandler.showing_menu():
+	if !CutsceneHandler.in_cutscene and !UIHandler.showing_menu() and !auto_moving:
 		direction.x = int(Input.is_action_pressed("move_right")) - int(Input.is_action_pressed("move_left"))
 		direction.y = int(Input.is_action_pressed("move_down")) - int(Input.is_action_pressed("move_up"))
 		direction = direction.normalized()
+	elif auto_moving:
+		direction = auto_moving_direction
 	
 	if direction:
 		interaction_raycast.position = -direction * 9
@@ -81,3 +86,10 @@ func process_interaction() -> void:
 func drop_yummy():
 	if GlobalData.collected_yummies_list.size() > 0:
 		GlobalData.collected_yummies_list[0].drop(position)
+
+
+func auto_move(direction: Vector2, time: float):
+	auto_moving_direction = direction
+	auto_moving = true
+	await get_tree().create_timer(time).timeout
+	auto_moving = false

@@ -19,6 +19,21 @@ var start_position_y: float # starts hidden
 var current_tween: Tween
 
 
+func _ready() -> void:
+	GameManager.game_start.connect(start)
+	GameManager.game_end.connect(end)
+
+
+func start():
+	daytime_left_panel.show()
+	notifications.show()
+
+
+func end():
+	daytime_left_panel.hide()
+	notifications.hide()
+
+
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("move_left") and showing_menu:
 		options_menu._on_previous_page_button_pressed()

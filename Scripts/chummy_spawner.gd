@@ -9,10 +9,27 @@ class_name ChummySpawner
 
 
 func _ready() -> void:
+	GameManager.game_start.connect(start)
+	GameManager.game_end.connect(end)
+	timer.stop()
 	timer.wait_time = 60/GlobalData.chummies_rate
+	for i in range(GlobalData.start_chummies):
+		spawn_chummy()
+
+
+func start():
+	timer.start()
+
+
+func end():
+	timer.stop()
 
 
 func _on_timer_timeout() -> void:
+	spawn_chummy()
+
+
+func spawn_chummy():
 	var chummy: Chummy = chummy_scene.instantiate()
 	chummy.position = Vector2(randi_range(-range, range), randi_range(-range, range)) + position
 	chummy_parent_node.add_child(chummy)

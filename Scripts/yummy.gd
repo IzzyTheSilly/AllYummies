@@ -3,7 +3,7 @@ class_name Yummy
 
 
 @export_enum("Red", "Orange", "Yellow", "Green", "Cyan", "Blue", "Purple") var type: int = 0
-@export var timer: Timer
+@export var behaviour_timer: Timer
 @export var collision_shape: CollisionShape2D
 @export var animation_player: AnimationPlayer
 var target: Vector2 = Vector2.ZERO
@@ -19,25 +19,35 @@ var health_loss_chance: int
 
 @export var collect_sfx: AudioStream
 
-enum BehaviourState {IDLE, WANDER, FLEE, COLLECTING, COLLECTED, DROPPING}
+enum BehaviourState {STOP, IDLE, WANDER, FLEE, COLLECTING, COLLECTED, DROPPING}
 enum BummyState {YUMMY, LOST, GONER, DAMNED}
-var behaviour_state = BehaviourState.WANDER
+var behaviour_state = BehaviourState.STOP
 var bummy_state = BummyState.YUMMY
 var chummy: Chummy
 
 
 func _ready() -> void:
+	GameManager.game_start.connect(start)
+	GameManager.game_end.connect(end)
 	GlobalData.add_yummy(self)
 	healthbar.max_value = health
 	health_loss_chance = GlobalData.bummies_chance
+
+
+func start():
+	behaviour_timer.start()
 	if randi_range(0, 1):
 		change_state(BehaviourState.IDLE)
 	else:
 		change_state(BehaviourState.WANDER)
 
 
+func end():
+	change_state(BehaviourState.STOP)
+
+
 func _process(delta: float) -> void:
-	if behaviour_state == BehaviourState.COLLECTED:
+	if behaviour_state == BehaviourState.COLLECTED or behaviour_state == BehaviourState.STOP:
 		return
 	
 	var move_direction = Vector2.ZERO
@@ -79,26 +89,28 @@ func change_state(state: BehaviourState):
 	
 	behaviour_state = state
 	match state:
+		BehaviourState.STOP:
+			behaviour_timer.stop()
 		BehaviourState.IDLE:
 			target = position
 			animation_player.play("idle")
-			timer.start(randf_range(timer_average - 0.7, timer_average - 0.5))
+			behaviour_timer.start(randf_range(timer_average - 0.7, timer_average - 0.5))
 		BehaviourState.WANDER:
 			target.x = randf_range(-wander_distance, wander_distance) + position.x
 			target.y = randf_range(-wander_distance, wander_distance) + position.y
 			animation_player.play("bounce")
-			timer.start(randf_range(timer_average - 0.1, timer_average + 0.1))
+			behaviour_timer.start(randf_range(timer_average - 0.1, timer_average + 0.1))
 		BehaviourState.FLEE:
 			animation_player.play("hurry")
-			timer.start(3.5)
+			behaviour_timer.start(3.5)
 		BehaviourState.COLLECTING:
 			target = position
 			animation_player.play("collect")
-			timer.stop()
+			behaviour_timer.stop()
 			collision_shape.disabled = true
 		BehaviourState.COLLECTED:
 			hide()
-			timer.stop()
+			behaviour_timer.stop()
 		BehaviourState.DROPPING:
 			show()
 			animation_player.play("drop")
@@ -150,7 +162,7 @@ func health_zero():
 
 
 func _on_player_detect_area_body_entered(body: Node2D) -> void:
-	if body is Player and behaviour_state != BehaviourState.DROPPING:
+	if body is Player and behaviour_state != BehaviourState.DROPPING and behaviour_state != BehaviourState.STOP:
 		target = position + 7*(position - body.position)
 		change_state(BehaviourState.FLEE)
 

@@ -134,6 +134,7 @@ offset_right = -160.0
 offset_bottom = -160.0
 
 [node name="OptionsMenu" parent="PlayerCharacter/Camera2D" unique_id=142809403 instance=ExtResource("3_87rxc")]
+visible = false
 offset_left = -120.0
 offset_top = -420.0
 offset_right = 120.0
@@ -141,15 +142,16 @@ offset_bottom = -180.0
 metadata/_edit_use_anchors_ = true
 
 [node name="DayTimeLeft" parent="PlayerCharacter/Camera2D" unique_id=2020280063 instance=ExtResource("4_kqlyn")]
+visible = false
 offset_left = -153.0
 offset_top = -151.0
 offset_right = -153.0
 offset_bottom = -151.0
 
 [node name="YummyInventory" parent="PlayerCharacter/Camera2D" unique_id=1270145067 instance=ExtResource("5_hmx0y")]
-offset_left = -40.0
+offset_left = -60.0
 offset_top = -245.0
-offset_right = -40.0
+offset_right = -60.0
 offset_bottom = -245.0
 
 [node name="StatsViewerMenu" parent="PlayerCharacter/Camera2D" unique_id=439564388 instance=ExtResource("6_kck4e")]
@@ -160,6 +162,7 @@ offset_right = -157.0
 offset_bottom = -165.0
 
 [node name="Notifications" parent="PlayerCharacter/Camera2D" unique_id=1314199842 instance=ExtResource("7_h5xn8")]
+visible = false
 offset_left = -149.0
 offset_top = -39.0
 offset_right = 10.0
@@ -338,7 +341,6 @@ shape = SubResource("RectangleShape2D_q1q2r")
 [node name="Triggers" type="Node2D" parent="." unique_id=831916937]
 
 [node name="IrselaCallsYouOver" type="Area2D" parent="Triggers" unique_id=761040668]
-visible = false
 collision_layer = 4
 script = ExtResource("6_0wpj4")
 cutscene_id = "irsela_calls_you_over"
@@ -349,7 +351,6 @@ position = Vector2(-1, -138.25)
 shape = SubResource("RectangleShape2D_vkdgo")
 
 [node name="IrselaCallsYouBack" type="Area2D" parent="Triggers" unique_id=1368853468]
-visible = false
 collision_layer = 4
 script = ExtResource("6_0wpj4")
 multi_trigger = true
@@ -360,24 +361,36 @@ metadata/_custom_type_script = "uid://d2q2fgy2c2n30"
 position = Vector2(4.375, -451)
 shape = SubResource("RectangleShape2D_kck4e")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Triggers/IrselaCallsYouBack" unique_id=767649850]
-position = Vector2(-125, -351.35938)
-shape = SubResource("RectangleShape2D_h5xn8")
+[node name="IrselaCallsYouBackLeft" type="Area2D" parent="Triggers" unique_id=20734319]
+collision_layer = 4
+script = ExtResource("6_0wpj4")
+multi_trigger = true
+cutscene_id = "irsela_calls_you_back_left"
+metadata/_custom_type_script = "uid://d2q2fgy2c2n30"
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Triggers/IrselaCallsYouBack" unique_id=986022693]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Triggers/IrselaCallsYouBackLeft" unique_id=907579114]
 position = Vector2(128, -353)
 shape = SubResource("RectangleShape2D_h5xn8")
 
-[node name="YummySpawner" parent="." unique_id=826669829 node_paths=PackedStringArray("yummy_spawn_node") instance=ExtResource("13_0rene")]
-position = Vector2(-396, -892)
-yummy_spawn_node = NodePath("../Yummies")
+[node name="IrselaCallsYouBackRight" type="Area2D" parent="Triggers" unique_id=125990945]
+collision_layer = 4
+script = ExtResource("6_0wpj4")
+multi_trigger = true
+cutscene_id = "irsela_calls_you_back_right"
+metadata/_custom_type_script = "uid://d2q2fgy2c2n30"
 
-[node name="YummySpawner2" parent="." unique_id=1729103958 node_paths=PackedStringArray("yummy_spawn_node") instance=ExtResource("13_0rene")]
-position = Vector2(364, -888)
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Triggers/IrselaCallsYouBackRight" unique_id=1066016718]
+position = Vector2(-125, -351.35938)
+shape = SubResource("RectangleShape2D_h5xn8")
+
+[node name="YummySpawner" parent="." unique_id=826669829 node_paths=PackedStringArray("yummy_spawn_node") instance=ExtResource("13_0rene")]
+position = Vector2(-1, -689)
 yummy_spawn_node = NodePath("../Yummies")
+range = 300
 
 [node name="ChummySpawner" parent="." unique_id=1435509692 node_paths=PackedStringArray("chummy_parent_node") instance=ExtResource("16_f5v12")]
-position = Vector2(3, -635)
+position = Vector2(0, -706)
+range = 300
 chummy_parent_node = NodePath("../Chummies")
 
 [node name="Yummies" type="Node2D" parent="." unique_id=862100451]

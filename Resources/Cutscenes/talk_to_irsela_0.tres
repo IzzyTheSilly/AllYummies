@@ -57,6 +57,7 @@ script = ExtResource("5_ayip7")
 dialogues = Array[ExtResource("2_kp1jj")]([SubResource("Resource_rqkk3"), SubResource("Resource_u83eq"), SubResource("Resource_x5kaa"), SubResource("Resource_nai3r"), SubResource("Resource_fgar7")])
 dialogue_choices = Array[ExtResource("1_8rl01")]([SubResource("Resource_hmx0y")])
 set_flags = Dictionary[String, int]({
+"game_start": 1,
 "talk_to_irsela": 1
 })
 flag_requirements = Dictionary[String, int]({

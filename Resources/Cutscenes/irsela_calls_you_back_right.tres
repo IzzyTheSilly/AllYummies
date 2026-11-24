@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="CutsceneData" format=3 uid="uid://cm8qy0jrsygfv"]
+
+[ext_resource type="Script" uid="uid://rdgx4kdiqt45" path="res://Scripts/dialogue_choice_data.gd" id="1_2wa61"]
+[ext_resource type="Script" uid="uid://dvl6mehpirn4w" path="res://Scripts/dialogue_data.gd" id="2_bkn6f"]
+[ext_resource type="AudioStream" uid="uid://cilay0xwylgkn" path="res://Assets/Audio/soundshelfstudio-sci-fi-system-blip-525671.mp3" id="3_13xot"]
+[ext_resource type="Texture2D" uid="uid://boe0n28wym8if" path="res://Assets/Sprites/squadword.PNG" id="4_vepvd"]
+[ext_resource type="Script" uid="uid://cprsdu68b8n21" path="res://Scripts/cutscene_data.gd" id="5_hdnek"]
+
+[sub_resource type="Resource" id="Resource_0wpj4"]
+script = ExtResource("2_bkn6f")
+text = "Get the fuck back here."
+blip = ExtResource("3_13xot")
+portrait = ExtResource("4_vepvd")
+metadata/_custom_type_script = "uid://dvl6mehpirn4w"
+
+[resource]
+script = ExtResource("5_hdnek")
+dialogues = Array[ExtResource("2_bkn6f")]([SubResource("Resource_0wpj4")])
+set_flags = Dictionary[String, int]({
+"move_player_right": 1
+})
+flag_requirements = Dictionary[String, int]({
+"talk_to_irsela": 0
+})
+metadata/_custom_type_script = "uid://cprsdu68b8n21"

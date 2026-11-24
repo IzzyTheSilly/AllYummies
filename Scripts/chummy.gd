@@ -2,19 +2,44 @@ extends Entity
 class_name Chummy
 
 
-enum BehaviourState {IDLE, WANDER}
+enum BehaviourState {STOP, IDLE, WANDER}
 var behaviour_state: BehaviourState
 
 var yummy_protection_count: int = 0
+@export var behaviour_timer: Timer
+var target: Vector2
 
 
 func _ready() -> void:
+	GameManager.game_start.connect(start)
+	GameManager.game_end.connect(end)
 	try_protect_yummies()
 	GlobalData.yummies_list_updated.connect(_on_yummies_list_updated)
+	behaviour_timer.stop()
+
+
+func start():
+	behaviour_timer.start()
+	change_state(BehaviourState.IDLE)
+
+
+func end():
+	change_state(BehaviourState.STOP)
 
 
 func _physics_process(delta: float) -> void:
 	match behaviour_state:
+		BehaviourState.IDLE:
+			pass
+		BehaviourState.WANDER:
+			pass
+
+
+func change_state(state: BehaviourState):
+	behaviour_state = state
+	match state:
+		BehaviourState.STOP:
+			behaviour_timer.stop()
 		BehaviourState.IDLE:
 			pass
 		BehaviourState.WANDER:

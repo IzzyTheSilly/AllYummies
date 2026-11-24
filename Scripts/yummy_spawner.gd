@@ -10,7 +10,20 @@ var spawn_rate: float
 
 
 func _ready() -> void:
+	GameManager.game_start.connect(start)
+	GameManager.game_end.connect(end)
 	update_spawn_rate()
+	timer.stop()
+	for i in range(GlobalData.start_yummies):
+		spawn_yummy()
+
+
+func start():
+	timer.start()
+
+
+func end():
+	timer.stop()
 
 
 func _on_timer_timeout() -> void:
@@ -20,7 +33,6 @@ func _on_timer_timeout() -> void:
 
 func spawn_yummy():
 	var yummy: Yummy = yummy_scene.instantiate()
-	# do other stuff
 	var pos: Vector2 = Vector2()
 	pos.x = randf_range(-range, range) + position.x
 	pos.y = randf_range(-range, range) + position.y
@@ -29,4 +41,4 @@ func spawn_yummy():
 
 
 func update_spawn_rate():
-	timer.wait_time = 120/GlobalData.yummies_rate
+	timer.wait_time = 60/GlobalData.yummies_rate

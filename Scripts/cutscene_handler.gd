@@ -9,6 +9,8 @@ var in_cutscene: bool = false
 var in_dialogue_choice: bool = false
 var dialogue_has_finished: bool = true
 
+var player: Player
+
 
 func show_cutscene(id: String) -> int:
 	var cutscene: CutsceneData = AssetDictionaries.cutscenes.get(id, AssetDictionaries.cutscenes["error"])
@@ -26,9 +28,22 @@ func show_cutscene(id: String) -> int:
 			if !GlobalData.local_flags.has(key):
 				continue
 			GlobalData.local_flags[key] = cutscene.set_flags[key]
+			check_special_flags(key, cutscene)
 	
 	in_cutscene = false
 	return 0
+
+
+func check_special_flags(key: String, cutscene: CutsceneData):
+	if key == "game_start" and cutscene.set_flags[key] == 1:
+		GameManager.start_game()
+		UIHandler.notify("Day Start!")
+	if key == "move_player_left" and cutscene.set_flags[key] == 1:
+		player.auto_move(Vector2.LEFT, 0.2)
+	if key == "move_player_right" and cutscene.set_flags[key] == 1:
+		player.auto_move(Vector2.RIGHT, 0.2)
+	if key == "move_player_down" and cutscene.set_flags[key] == 1:
+		player.auto_move(Vector2.DOWN, 0.2)
 
 
 func check_requirements(cutscene: CutsceneData) -> bool:

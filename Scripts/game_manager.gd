@@ -1,6 +1,9 @@
 extends Node
 
 
+signal game_start
+signal game_end
+
 @export var day_timer: Timer
 
 
@@ -13,6 +16,17 @@ var days_left: int
 
 func _ready() -> void:
 	days_left = GlobalData.day_amount
+	stop_day_timer()
+
+
+func start_game():
+	game_start.emit()
+	reset_day_timer()
+
+
+func end_game():
+	game_end.emit()
+	stop_day_timer()
 
 
 func reset_day_timer():
@@ -29,8 +43,10 @@ func get_day_time_left() -> float:
 
 
 func _on_day_timer_timeout() -> void:
+	end_game()
+	UIHandler.notify("Day End!")
 	if days_left == 1:
-		print("END GAME")
+		pass
 	else:
 		days_left = days_left - 1
 		stop_day_timer()

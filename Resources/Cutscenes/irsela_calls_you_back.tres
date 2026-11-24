@@ -16,6 +16,9 @@ metadata/_custom_type_script = "uid://dvl6mehpirn4w"
 [resource]
 script = ExtResource("5_juv63")
 dialogues = Array[ExtResource("2_seqkh")]([SubResource("Resource_0wpj4")])
+set_flags = Dictionary[String, int]({
+"move_player_down": 1
+})
 flag_requirements = Dictionary[String, int]({
 "talk_to_irsela": 0
 })

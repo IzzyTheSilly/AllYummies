@@ -17,9 +17,10 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Chummy" type="CharacterBody2D" unique_id=486724092]
+[node name="Chummy" type="CharacterBody2D" unique_id=486724092 node_paths=PackedStringArray("behaviour_timer")]
 collision_layer = 8
 script = ExtResource("1_onbqb")
+behaviour_timer = NodePath("BehaviourTimer")
 cutscene_ids = Array[String](["chummy_1"])
 metadata/_custom_type_script = "uid://bs6wnpnyqscgq"
 
@@ -31,3 +32,5 @@ shape = SubResource("RectangleShape2D_ir5lp")
 position = Vector2(-1.1920929e-07, -10)
 scale = Vector2(0.09950248, 0.20100504)
 sprite_frames = SubResource("SpriteFrames_ir5lp")
+
+[node name="BehaviourTimer" type="Timer" parent="." unique_id=1326895815]

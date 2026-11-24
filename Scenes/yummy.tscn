@@ -262,14 +262,14 @@ radius = 58.137768
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q1q2r"]
 
-[node name="Yummy" type="CharacterBody2D" unique_id=743098894 node_paths=PackedStringArray("timer", "collision_shape", "animation_player", "healthbar")]
+[node name="Yummy" type="CharacterBody2D" unique_id=743098894 node_paths=PackedStringArray("behaviour_timer", "collision_shape", "animation_player", "healthbar")]
 z_as_relative = false
 y_sort_enabled = true
 collision_layer = 8
 collision_mask = 2
 input_pickable = true
 script = ExtResource("1_wsthx")
-timer = NodePath("Timer")
+behaviour_timer = NodePath("BehaviourTimer")
 collision_shape = NodePath("CollisionShape2D")
 animation_player = NodePath("AnimationPlayer")
 speed = 65
@@ -294,7 +294,7 @@ position = Vector2(0, -1.5)
 shape = SubResource("RectangleShape2D_ir5lp")
 metadata/_edit_lock_ = true
 
-[node name="Timer" type="Timer" parent="." unique_id=262312675]
+[node name="BehaviourTimer" type="Timer" parent="." unique_id=262312675]
 wait_time = 3.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1377049254]
@@ -348,6 +348,6 @@ collision_mask = 2
 visible = false
 shape = SubResource("RectangleShape2D_q1q2r")
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="BehaviourTimer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="PlayerDetectArea" to="." method="_on_player_detect_area_body_entered"]
 [connection signal="body_exited" from="PlayerDetectArea" to="." method="_on_player_detect_area_body_exited"]
