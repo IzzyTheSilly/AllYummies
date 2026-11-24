@@ -19,8 +19,12 @@ animations = [{
 
 [node name="Chummy" type="CharacterBody2D" unique_id=486724092 node_paths=PackedStringArray("behaviour_timer")]
 collision_layer = 8
+collision_mask = 3
+motion_mode = 1
 script = ExtResource("1_onbqb")
 behaviour_timer = NodePath("BehaviourTimer")
+wander_range = 200
+speed = 30
 cutscene_ids = Array[String](["chummy_1"])
 metadata/_custom_type_script = "uid://bs6wnpnyqscgq"
 
@@ -34,3 +38,5 @@ scale = Vector2(0.09950248, 0.20100504)
 sprite_frames = SubResource("SpriteFrames_ir5lp")
 
 [node name="BehaviourTimer" type="Timer" parent="." unique_id=1326895815]
+
+[connection signal="timeout" from="BehaviourTimer" to="." method="_on_behaviour_timer_timeout"]

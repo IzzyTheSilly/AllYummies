@@ -2,6 +2,7 @@ extends Node
 
 
 signal yummies_list_updated
+signal chummies_added(amount: int)
 
 
 """Settings"""
@@ -105,7 +106,8 @@ func update_gdy() -> int:
 
 
 func add_chummy(amount: int):
-	pass
+	chummies = chummies + amount
+	chummies_added.emit(amount)
 
 
 func reset_game_stats():

@@ -6,7 +6,8 @@ var spawn_rate: float
 @export var yummy_scene: PackedScene
 @export var yummy_spawn_node: Node2D
 @export var timer: Timer
-@export var range: int = 50
+@export var range_x: int = 500
+@export var range_y: int = 200
 
 
 func _ready() -> void:
@@ -34,8 +35,8 @@ func _on_timer_timeout() -> void:
 func spawn_yummy():
 	var yummy: Yummy = yummy_scene.instantiate()
 	var pos: Vector2 = Vector2()
-	pos.x = randf_range(-range, range) + position.x
-	pos.y = randf_range(-range, range) + position.y
+	pos.x = randf_range(-range_x, range_x) + position.x
+	pos.y = randf_range(-range_y, range_y) + position.y
 	yummy.position = pos
 	yummy_spawn_node.add_child(yummy)
 

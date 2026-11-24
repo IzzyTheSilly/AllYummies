@@ -17,6 +17,7 @@ size = Vector2(38, 32)
 z_as_relative = false
 y_sort_enabled = true
 collision_mask = 2
+motion_mode = 1
 script = ExtResource("1_o0f8b")
 speed = 200
 interaction_raycast = NodePath("RayCast2D")

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://b8342erdc375e" path="res://Scripts/trading_station_menu.gd" id="1_5ef75"]
 [ext_resource type="Texture2D" uid="uid://c3w0t1m1fe2mj" path="res://Assets/Sprites/icon.svg" id="2_uv6nq"]
 
-[node name="TradingStationMenu" type="Control" unique_id=115795911]
+[node name="TradingStationMenu" type="Control" unique_id=115795911 node_paths=PackedStringArray("selection_highlights", "tip_label")]
 z_index = 2
 layout_mode = 3
 anchors_preset = 15
@@ -12,6 +12,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_5ef75")
+selection_highlights = [NodePath("Background/Option1/SelectionHighlight"), NodePath("Background/Option2/SelectionHighlight"), NodePath("Background/Option3/SelectionHighlight")]
+tip_label = NodePath("Background/TipLabel")
 
 [node name="Background" type="TextureRect" parent="." unique_id=1567363770]
 layout_mode = 0
@@ -22,29 +24,76 @@ offset_bottom = 286.0
 texture = ExtResource("2_uv6nq")
 expand_mode = 1
 
+[node name="TitleLabel" type="RichTextLabel" parent="Background" unique_id=1801920594]
+layout_mode = 0
+offset_left = 51.0
+offset_top = 11.0
+offset_right = 201.0
+offset_bottom = 51.0
+text = "TRADING STATION"
+
 [node name="Option1" type="RichTextLabel" parent="Background" unique_id=1703336132]
 layout_mode = 0
-offset_left = 10.0
-offset_top = 18.0
-offset_right = 229.0
-offset_bottom = 69.0
+offset_left = 12.0
+offset_top = 44.0
+offset_right = 231.0
+offset_bottom = 95.0
 text = "Employ 1 Chummy
 (Cost: 2 Yummies)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SelectionHighlight" type="ColorRect" parent="Background/Option1" unique_id=1157760928]
+layout_mode = 0
+offset_right = 223.0
+offset_bottom = 72.0
+color = Color(0, 0, 1, 0.3882353)
+metadata/_edit_lock_ = true
 
 [node name="Option2" type="RichTextLabel" parent="Background" unique_id=1727019851]
 layout_mode = 0
-offset_left = 8.0
-offset_top = 97.0
-offset_right = 227.0
-offset_bottom = 148.0
+offset_left = 11.0
+offset_top = 94.0
+offset_right = 230.0
+offset_bottom = 145.0
 text = "Basket (+3 Inventory Space)
 (Cost: 3 Yummies)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SelectionHighlight" type="ColorRect" parent="Background/Option2" unique_id=299896036]
+visible = false
+layout_mode = 0
+offset_right = 223.0
+offset_bottom = 72.0
+color = Color(0, 0, 1, 0.3882353)
+metadata/_edit_lock_ = true
 
 [node name="Option3" type="RichTextLabel" parent="Background" unique_id=126594676]
 layout_mode = 0
-offset_left = 10.0
-offset_top = 170.0
-offset_right = 248.0
-offset_bottom = 221.0
-text = "Net (Increase Collection Range
+offset_left = 9.0
+offset_top = 144.0
+offset_right = 235.0
+offset_bottom = 195.0
+text = "Net (Increase Pickup Range)
 (Cost: 3 Yummies)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SelectionHighlight" type="ColorRect" parent="Background/Option3" unique_id=755725125]
+visible = false
+layout_mode = 0
+offset_left = 2.0
+offset_right = 225.0
+offset_bottom = 72.0
+color = Color(0, 0, 1, 0.3882353)
+metadata/_edit_lock_ = true
+
+[node name="TipLabel" type="RichTextLabel" parent="Background" unique_id=126652169]
+layout_mode = 0
+offset_top = 197.0
+offset_right = 247.0
+offset_bottom = 237.0
+text = "Press X to buy!"
+horizontal_alignment = 1
+vertical_alignment = 1

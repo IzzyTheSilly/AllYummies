@@ -134,7 +134,6 @@ offset_right = -160.0
 offset_bottom = -160.0
 
 [node name="OptionsMenu" parent="PlayerCharacter/Camera2D" unique_id=142809403 instance=ExtResource("3_87rxc")]
-visible = false
 offset_left = -120.0
 offset_top = -420.0
 offset_right = 120.0
@@ -384,13 +383,11 @@ position = Vector2(-125, -351.35938)
 shape = SubResource("RectangleShape2D_h5xn8")
 
 [node name="YummySpawner" parent="." unique_id=826669829 node_paths=PackedStringArray("yummy_spawn_node") instance=ExtResource("13_0rene")]
-position = Vector2(-1, -689)
+position = Vector2(10, -729)
 yummy_spawn_node = NodePath("../Yummies")
-range = 300
 
 [node name="ChummySpawner" parent="." unique_id=1435509692 node_paths=PackedStringArray("chummy_parent_node") instance=ExtResource("16_f5v12")]
-position = Vector2(0, -706)
-range = 300
+position = Vector2(-5, -730)
 chummy_parent_node = NodePath("../Chummies")
 
 [node name="Yummies" type="Node2D" parent="." unique_id=862100451]

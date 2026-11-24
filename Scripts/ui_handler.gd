@@ -139,4 +139,9 @@ func notify(text: String):
 
 
 func do_trade():
-	trading_station_menu.trade()
+	if menu_showing == Menu.TRADING_STATION:
+		trading_station_menu.trade()
+
+
+func change_select_trading_station(direction: int):
+	trading_station_menu.change_select(direction)

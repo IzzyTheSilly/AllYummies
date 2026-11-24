@@ -7,7 +7,10 @@ var behaviour_state: BehaviourState
 
 var yummy_protection_count: int = 0
 @export var behaviour_timer: Timer
+@export var behaviour_timer_average: float = 3.5
 var target: Vector2
+@export var wander_range: int
+@export var speed: int
 
 
 func _ready() -> void:
@@ -16,6 +19,13 @@ func _ready() -> void:
 	try_protect_yummies()
 	GlobalData.yummies_list_updated.connect(_on_yummies_list_updated)
 	behaviour_timer.stop()
+	
+	var random_cutscene: int = randi_range(0, 2)
+	print(random_cutscene)
+	match random_cutscene:
+		0: cutscene_ids[0] = "chummy_1"
+		1: cutscene_ids[0] = "chummy_2"
+		2: cutscene_ids[0] = "chummy_3"
 
 
 func start():
@@ -28,11 +38,19 @@ func end():
 
 
 func _physics_process(delta: float) -> void:
+	if behaviour_state == BehaviourState.STOP:
+		return
+	
+	var move_direction = Vector2.ZERO
+	if (target - position).length() > 5:
+		move_direction = (target - position).normalized()
+	
 	match behaviour_state:
 		BehaviourState.IDLE:
-			pass
-		BehaviourState.WANDER:
-			pass
+			move_direction = Vector2.ZERO
+	
+	velocity = move_direction * speed
+	move_and_slide()
 
 
 func change_state(state: BehaviourState):
@@ -41,9 +59,11 @@ func change_state(state: BehaviourState):
 		BehaviourState.STOP:
 			behaviour_timer.stop()
 		BehaviourState.IDLE:
-			pass
+			target = position
+			behaviour_timer.start(behaviour_timer_average + randf_range(-0.5, 0.5))
 		BehaviourState.WANDER:
-			pass
+			target = Vector2(randf_range(-wander_range, wander_range), randf_range(-wander_range, wander_range)) + position
+			behaviour_timer.start(behaviour_timer_average + randf_range(-0.5, 0.5))
 
 
 func try_protect_yummies():
@@ -64,3 +84,11 @@ func _on_yummies_list_updated():
 func remove_yummy(yummy: Yummy):
 	yummy.chummy = null
 	yummy_protection_count = yummy_protection_count - 1
+
+
+func _on_behaviour_timer_timeout() -> void:
+	match behaviour_state:
+		BehaviourState.IDLE:
+			change_state(BehaviourState.WANDER)
+		BehaviourState.WANDER:
+			change_state(BehaviourState.IDLE)

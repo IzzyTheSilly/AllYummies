@@ -26,6 +26,8 @@ func _ready() -> void:
 
 
 func change_page(page: int):
+	if UIHandler.menu_showing != UIHandler.Menu.OPTIONS:
+		return
 	for i in range(pages.size()):
 		if i == page - 1:
 			pages[i].show()

@@ -42,7 +42,6 @@ func _physics_process(delta: float) -> void:
 func process_interaction() -> void:
 	if Input.is_action_just_pressed("interact"):
 		interaction_raycast.force_raycast_update()
-		print("interact")
 		var collider
 		if interaction_raycast.get_collider():
 			collider = interaction_raycast.get_collider()
@@ -68,19 +67,29 @@ func process_interaction() -> void:
 		if CutsceneHandler.in_cutscene:
 			CutsceneHandler.hide_dialogue()
 		elif Input.is_action_just_pressed("options"):
-			if UIHandler.menu_showing == UIHandler.Menu.OPTIONS:
-				UIHandler.set_menu_showing(UIHandler.Menu.OPTIONS, false)
+			if UIHandler.menu_showing != UIHandler.Menu.NONE:
+				if UIHandler.menu_showing == UIHandler.Menu.OPTIONS:
+					UIHandler.set_menu_showing(UIHandler.Menu.OPTIONS, false)
 			else:
 				UIHandler.set_menu_showing(UIHandler.Menu.OPTIONS, true)
 	
 	if Input.is_action_just_pressed("cancel"):
-		if !UIHandler.showing_menu() and !CutsceneHandler.in_cutscene:
-			drop_yummy()
+		if !CutsceneHandler.in_cutscene:
+			if !UIHandler.showing_menu():
+				drop_yummy()
+			else:
+				UIHandler.do_trade()
 	
-	if Input.is_action_just_pressed("move_left") and CutsceneHandler.in_dialogue_choice:
-		CutsceneHandler.change_currently_selected_choice(-1)
-	if Input.is_action_just_pressed("move_right") and CutsceneHandler.in_dialogue_choice:
-		CutsceneHandler.change_currently_selected_choice(1)
+	if CutsceneHandler.in_dialogue_choice:
+		if Input.is_action_just_pressed("move_left"):
+			CutsceneHandler.change_currently_selected_choice(-1)
+		if Input.is_action_just_pressed("move_right"):
+			CutsceneHandler.change_currently_selected_choice(1)
+	if UIHandler.menu_showing == UIHandler.Menu.TRADING_STATION:
+		if Input.is_action_just_pressed("move_up"):
+			UIHandler.change_select_trading_station(-1)
+		if Input.is_action_just_pressed("move_down"):
+			UIHandler.change_select_trading_station(1)
 
 
 func drop_yummy():
