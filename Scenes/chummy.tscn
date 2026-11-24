@@ -1,15 +1,33 @@
 [gd_scene format=3 uid="uid://bvtvc516nes6d"]
 
 [ext_resource type="Script" uid="uid://d3jo3tw1hqwrk" path="res://Scripts/chummy.gd" id="1_onbqb"]
+[ext_resource type="Texture2D" uid="uid://boe0n28wym8if" path="res://Assets/Sprites/squadword.PNG" id="2_6aenh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ir5lp"]
 size = Vector2(20, 40)
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_ir5lp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_6aenh")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Chummy" type="CharacterBody2D" unique_id=486724092]
 collision_layer = 8
 script = ExtResource("1_onbqb")
+cutscene_ids = Array[String](["chummy_1"])
 metadata/_custom_type_script = "uid://bs6wnpnyqscgq"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1147615130]
 position = Vector2(0, -10)
 shape = SubResource("RectangleShape2D_ir5lp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=157699484]
+position = Vector2(-1.1920929e-07, -10)
+scale = Vector2(0.09950248, 0.20100504)
+sprite_frames = SubResource("SpriteFrames_ir5lp")

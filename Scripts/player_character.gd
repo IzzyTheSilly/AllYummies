@@ -67,7 +67,6 @@ func process_interaction() -> void:
 				UIHandler.set_menu_showing(UIHandler.Menu.OPTIONS, false)
 			else:
 				UIHandler.set_menu_showing(UIHandler.Menu.OPTIONS, true)
-				UIHandler.notify("poo")
 	
 	if Input.is_action_just_pressed("cancel"):
 		if !UIHandler.showing_menu() and !CutsceneHandler.in_cutscene:

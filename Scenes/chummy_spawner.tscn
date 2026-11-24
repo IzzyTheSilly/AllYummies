@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://mdyshypq7i2r"]
+
+[ext_resource type="Script" uid="uid://faxst3hr7fgx" path="res://Scripts/chummy_spawner.gd" id="1_j8t5w"]
+[ext_resource type="PackedScene" uid="uid://bvtvc516nes6d" path="res://Scenes/chummy.tscn" id="2_dlbgk"]
+
+[node name="ChummySpawner" type="Node2D" unique_id=1435509692 node_paths=PackedStringArray("timer")]
+script = ExtResource("1_j8t5w")
+chummy_scene = ExtResource("2_dlbgk")
+timer = NodePath("Timer")
+
+[node name="Timer" type="Timer" parent="." unique_id=1464596463]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

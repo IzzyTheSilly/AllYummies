@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://00fgrhqqgfld"]
 
 [ext_resource type="Script" uid="uid://vnta2nbfgjas" path="res://Scripts/exterminator.gd" id="1_p8cni"]
+[ext_resource type="AudioStream" uid="uid://chtj2ppenf0ev" path="res://Assets/Audio/VOXScrm_Wilhelm scream (ID 0477)_BigSoundBank.com.wav" id="2_opgdk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ir5lp"]
 size = Vector2(60, 60)
@@ -8,6 +9,7 @@ size = Vector2(60, 60)
 [node name="Exterminator" type="CharacterBody2D" unique_id=403435086]
 collision_layer = 8
 script = ExtResource("1_p8cni")
+exterminate_audio = ExtResource("2_opgdk")
 metadata/_custom_type_script = "uid://bs6wnpnyqscgq"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=548675369]

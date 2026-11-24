@@ -15,7 +15,7 @@ var target: Vector2 = Vector2.ZERO
 @export var protected_healthbar_texture: Texture
 @export var unprotected_healthbar_texture: Texture
 var health: int = 5
-@export var health_loss_chance: int = 50
+var health_loss_chance: int
 
 @export var collect_sfx: AudioStream
 
@@ -29,6 +29,7 @@ var chummy: Chummy
 func _ready() -> void:
 	GlobalData.add_yummy(self)
 	healthbar.max_value = health
+	health_loss_chance = GlobalData.bummies_chance
 	if randi_range(0, 1):
 		change_state(BehaviourState.IDLE)
 	else:

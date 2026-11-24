@@ -15,13 +15,13 @@ var less_vfx: bool = false
 
 # Gameplay
 var day_amount: int = 1
-var day_length: float = 10
+var day_length: float = 20
 var start_yummies: int = 25
-var start_chummies: int = 10
+var start_chummies: int = 5
 var start_yummies_rate: int = 30
 var start_chummies_rate: int = 1
 var start_chummy_efficiency: int = 2
-var bummies_chance: float = 0.1
+var bummies_chance: int = 30
 var yummy_interest_average: float = 1.1
 
 
@@ -83,9 +83,7 @@ func remove_yummy(yummy: Yummy) -> int:
 		if yummies_list[i] == yummy:
 			yummies_list.pop_at(i)
 			yummies_list_updated.emit()
-			print("remove yummy, success")
 			return 0
-	print("remove yummy, failed")
 	return 1
 
 
@@ -104,6 +102,10 @@ func total_bummies() -> int:
 func update_gdy() -> int:
 	gross_domestic_yummy = yummies - bummies_lost - 2*bummies_goner - 5*bummies_damned
 	return gross_domestic_yummy
+
+
+func add_chummy(amount: int):
+	pass
 
 
 func reset_game_stats():

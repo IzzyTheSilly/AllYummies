@@ -12,10 +12,12 @@
 [ext_resource type="PackedScene" uid="uid://dgi0lk0hxv78q" path="res://Scenes/investing_station.tscn" id="6_5lkcg"]
 [ext_resource type="PackedScene" uid="uid://done4h7682hoh" path="res://Scenes/stats_viewer_menu.tscn" id="6_kck4e"]
 [ext_resource type="PackedScene" uid="uid://clvmordcdxpug" path="res://Scenes/notifications.tscn" id="7_h5xn8"]
+[ext_resource type="PackedScene" uid="uid://c7tbpm1j5yyue" path="res://Scenes/trading_station_menu.tscn" id="8_1q60n"]
 [ext_resource type="PackedScene" uid="uid://clrjk2d7w4s10" path="res://Scenes/yummy.tscn" id="10_hmx0y"]
 [ext_resource type="PackedScene" uid="uid://00fgrhqqgfld" path="res://Scenes/exterminator.tscn" id="12_oxg1x"]
 [ext_resource type="PackedScene" uid="uid://d4arwf6nu8j8l" path="res://Scenes/yummy_spawner.tscn" id="13_0rene"]
 [ext_resource type="PackedScene" uid="uid://bvtvc516nes6d" path="res://Scenes/chummy.tscn" id="13_yojay"]
+[ext_resource type="PackedScene" uid="uid://mdyshypq7i2r" path="res://Scenes/chummy_spawner.tscn" id="16_f5v12"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q1q2r"]
 size = Vector2(20, 320)
@@ -162,6 +164,13 @@ offset_left = -149.0
 offset_top = -39.0
 offset_right = 10.0
 offset_bottom = 130.0
+
+[node name="TradingStationMenu" parent="PlayerCharacter/Camera2D" unique_id=115795911 instance=ExtResource("8_1q60n")]
+visible = false
+offset_left = -164.0
+offset_top = -179.0
+offset_right = -164.0
+offset_bottom = -179.0
 
 [node name="StatsViewer" parent="." unique_id=2133314408 instance=ExtResource("4_yojay")]
 position = Vector2(-2, -979)
@@ -367,6 +376,10 @@ yummy_spawn_node = NodePath("../Yummies")
 position = Vector2(364, -888)
 yummy_spawn_node = NodePath("../Yummies")
 
+[node name="ChummySpawner" parent="." unique_id=1435509692 node_paths=PackedStringArray("chummy_parent_node") instance=ExtResource("16_f5v12")]
+position = Vector2(3, -635)
+chummy_parent_node = NodePath("../Chummies")
+
 [node name="Yummies" type="Node2D" parent="." unique_id=862100451]
 z_as_relative = false
 y_sort_enabled = true
@@ -377,4 +390,4 @@ position = Vector2(-91, -768)
 [node name="Chummies" type="Node2D" parent="." unique_id=1491520800]
 
 [node name="Chummy" parent="Chummies" unique_id=486724092 instance=ExtResource("13_yojay")]
-position = Vector2(-50, -606)
+position = Vector2(231, -800)

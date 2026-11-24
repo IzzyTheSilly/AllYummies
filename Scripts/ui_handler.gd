@@ -96,11 +96,13 @@ func hide_investing_station():
 func show_trading_station():
 	if showing_menu():
 		return
+	trading_station_menu.show()
 
 
 func hide_trading_station():
 	if menu_showing != Menu.TRADING_STATION:
 		return
+	trading_station_menu.hide()
 
 
 func update_inventory(type: int):
@@ -119,3 +121,7 @@ func popup_inventory():
 
 func notify(text: String):
 	notifications.set_next_label(text)
+
+
+func do_trade():
+	trading_station_menu.trade()

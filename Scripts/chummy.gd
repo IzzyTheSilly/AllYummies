@@ -2,12 +2,23 @@ extends Entity
 class_name Chummy
 
 
+enum BehaviourState {IDLE, WANDER}
+var behaviour_state: BehaviourState
+
 var yummy_protection_count: int = 0
 
 
 func _ready() -> void:
 	try_protect_yummies()
 	GlobalData.yummies_list_updated.connect(_on_yummies_list_updated)
+
+
+func _physics_process(delta: float) -> void:
+	match behaviour_state:
+		BehaviourState.IDLE:
+			pass
+		BehaviourState.WANDER:
+			pass
 
 
 func try_protect_yummies():

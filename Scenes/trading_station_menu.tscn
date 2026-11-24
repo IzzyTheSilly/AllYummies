@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c7tbpm1j5yyue"]
 
 [ext_resource type="Script" uid="uid://b8342erdc375e" path="res://Scripts/trading_station_menu.gd" id="1_5ef75"]
+[ext_resource type="Texture2D" uid="uid://c3w0t1m1fe2mj" path="res://Assets/Sprites/icon.svg" id="2_uv6nq"]
 
 [node name="TradingStationMenu" type="Control" unique_id=115795911]
 z_index = 2
@@ -11,3 +12,39 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_5ef75")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1567363770]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 46.0
+offset_right = 281.0
+offset_bottom = 286.0
+texture = ExtResource("2_uv6nq")
+expand_mode = 1
+
+[node name="Option1" type="RichTextLabel" parent="Background" unique_id=1703336132]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 18.0
+offset_right = 229.0
+offset_bottom = 69.0
+text = "Employ 1 Chummy
+(Cost: 2 Yummies)"
+
+[node name="Option2" type="RichTextLabel" parent="Background" unique_id=1727019851]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 97.0
+offset_right = 227.0
+offset_bottom = 148.0
+text = "Basket (+3 Inventory Space)
+(Cost: 3 Yummies)"
+
+[node name="Option3" type="RichTextLabel" parent="Background" unique_id=126594676]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 170.0
+offset_right = 248.0
+offset_bottom = 221.0
+text = "Net (Increase Collection Range
+(Cost: 3 Yummies)"

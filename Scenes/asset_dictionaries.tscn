@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://rdgx4kdiqt45" path="res://Scripts/dialogue_choice_data.gd" id="8_6n55v"]
 [ext_resource type="Script" uid="uid://dvl6mehpirn4w" path="res://Scripts/dialogue_data.gd" id="9_51n6q"]
 [ext_resource type="AudioStream" uid="uid://cilay0xwylgkn" path="res://Assets/Audio/soundshelfstudio-sci-fi-system-blip-525671.mp3" id="10_ny6e3"]
+[ext_resource type="Texture2D" uid="uid://c3w0t1m1fe2mj" path="res://Assets/Sprites/icon.svg" id="11_51n6q"]
 
 [sub_resource type="Resource" id="Resource_ipdxr"]
 script = ExtResource("9_51n6q")
@@ -23,12 +24,25 @@ script = ExtResource("2_ypqau")
 dialogues = Array[ExtResource("9_51n6q")]([SubResource("Resource_ipdxr")])
 metadata/_custom_type_script = "uid://cprsdu68b8n21"
 
+[sub_resource type="Resource" id="Resource_c4yto"]
+script = ExtResource("9_51n6q")
+text = "Good day today, isn't it?"
+blip = ExtResource("10_ny6e3")
+portrait = ExtResource("11_51n6q")
+metadata/_custom_type_script = "uid://dvl6mehpirn4w"
+
+[sub_resource type="Resource" id="Resource_6aenh"]
+script = ExtResource("2_ypqau")
+dialogues = Array[ExtResource("9_51n6q")]([SubResource("Resource_c4yto")])
+metadata/_custom_type_script = "uid://cprsdu68b8n21"
+
 [node name="AssetDictionaries" type="Node" unique_id=1004349810]
 script = ExtResource("1_c04i8")
 sprites = Dictionary[String, Texture]({
 "error": ExtResource("2_p6sd1")
 })
 cutscenes = Dictionary[String, ExtResource("2_ypqau")]({
+"chummy_1": SubResource("Resource_6aenh"),
 "error": SubResource("Resource_ksfs5"),
 "irsela_calls_you_back": ExtResource("6_6n55v"),
 "irsela_calls_you_over": ExtResource("5_f68p6"),
