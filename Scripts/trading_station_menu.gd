@@ -32,7 +32,7 @@ func trade():
 
 func change_tip_text(text: String, time: float = 1.5):
 		tip_label.text = text
-		timer.start(1.5)
+		timer.start(time)
 		await timer.timeout
 		tip_label.text = "Press X to buy!"
 
@@ -133,12 +133,11 @@ func set_option_labels(option: int):
 func option_1(stage: int):
 	match stage:
 		1: GlobalData.add_chummy(1)
-		2: GlobalData.chummies_rate = GlobalData.chummies_rate + 1
+		2: GlobalData.add_chummies_rate(1)
 		3: GlobalData.add_chummy(2)
-		4: 
-			GlobalData.add_chummy_efficiency(1)
+		4: GlobalData.add_chummy_efficiency(1)
 		5: GlobalData.add_chummy(3)
-		6: GlobalData.chummies_rate = GlobalData.chummies_rate + 1
+		6: GlobalData.add_chummies_rate(1)
 
 
 func option_2(stage: int):

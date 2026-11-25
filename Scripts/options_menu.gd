@@ -42,6 +42,8 @@ func _on_back_button_pressed() -> void:
 func _on_main_menu_button_pressed() -> void:
 	GameManager.in_game = false
 	UIHandler.set_menu_showing(UIHandler.Menu.NONE, false)
+	GlobalData.reset_local_flags()
+	GlobalData.reset_game_stats()
 	get_tree().change_scene_to_file("res://Scenes/title_screen.tscn")
 
 

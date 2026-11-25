@@ -51,7 +51,7 @@ func set_menu_showing(menu: Menu, showing: bool):
 			Menu.TRADING_STATION: show_trading_station()
 		menu_showing = menu
 	else:
-		match menu:
+		match menu_showing:
 			Menu.OPTIONS: hide_options()
 			Menu.STATS_VIEWER: hide_stats_viewer()
 			Menu.INVESTING_STATION: hide_investing_station()
@@ -101,11 +101,13 @@ func hide_stats_viewer():
 func show_investing_station():
 	if showing_menu():
 		return
+	investing_station_menu.show()
 
 
 func hide_investing_station():
 	if menu_showing != Menu.INVESTING_STATION:
 		return
+	investing_station_menu.hide()
 
 
 func show_trading_station():
@@ -145,3 +147,11 @@ func do_trade():
 
 func change_select_trading_station(direction: int):
 	trading_station_menu.change_select(direction)
+
+
+func invest_yummy():
+	investing_station_menu.handle_invest()
+
+
+func change_select_investing_station(direction: int):
+	investing_station_menu.change_select(direction)

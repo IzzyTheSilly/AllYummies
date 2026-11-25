@@ -2,4 +2,5 @@ extends Entity
 class_name InvestingStation
 
 
-var yummies_invested: Array[Yummy]
+func _on_interact():
+	UIHandler.set_menu_showing(UIHandler.Menu.INVESTING_STATION, true)

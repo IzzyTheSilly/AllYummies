@@ -12,6 +12,7 @@ class_name ChummySpawner
 func _ready() -> void:
 	GameManager.game_start.connect(start)
 	GameManager.game_end.connect(end)
+	GlobalData.chummies_rate_changed.connect(_on_chummies_rate_changed)
 	timer.stop()
 	timer.wait_time = 60/GlobalData.chummies_rate
 	GlobalData.chummies_added.connect(_on_chummies_added)
@@ -37,8 +38,11 @@ func _on_chummies_added(amount: int):
 		spawn_chummy().start()
 
 
-func _on_chummies_rate_changed(chummies_rate: int):
-	pass
+func _on_chummies_rate_changed(amount: int):
+	var old_wait_time: float = timer.wait_time
+	var new_wait_time: float = 60/GlobalData.chummies_rate
+	
+	timer.start(max(timer.time_left - (old_wait_time - new_wait_time), 0.1))
 
 
 func spawn_chummy() -> Chummy:

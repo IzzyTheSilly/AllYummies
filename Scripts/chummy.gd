@@ -69,13 +69,10 @@ func change_state(state: BehaviourState):
 
 
 func try_protect_yummies():
-	print(GlobalData.yummies_list.size())
 	for i in range(GlobalData.yummies_list.size()):
 		if yummy_protection_count >= GlobalData.chummy_efficiency:
-			print("full")
 			break
 		if GlobalData.yummies_list[i].chummy or GlobalData.yummies_list[i].bummy_state != Yummy.BummyState.YUMMY:
-			print("unqualified")
 			continue
 		GlobalData.yummies_list[i].set_chummy(self)
 		yummy_protection_count = yummy_protection_count + 1

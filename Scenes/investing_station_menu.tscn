@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://c11ltdgyvx2rq" path="res://Scripts/investing_station_menu.gd" id="1_5kjof"]
 [ext_resource type="Texture2D" uid="uid://c3w0t1m1fe2mj" path="res://Assets/Sprites/icon.svg" id="2_uo7s5"]
 
-[node name="InvestingStationMenu" type="Control" unique_id=599790385]
+[node name="InvestingStationMenu" type="Control" unique_id=599790385 node_paths=PackedStringArray("stock_value_label", "option_highlights", "tip_label", "yummies_in_stock_label", "stock_value_update_timer", "tip_label_timer")]
 z_index = 2
 layout_mode = 3
 anchors_preset = 15
@@ -12,6 +12,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_5kjof")
+stock_value_label = NodePath("StockValueLabel")
+option_highlights = [NodePath("InvestLabel/ColorRect"), NodePath("PullLabel/ColorRect")]
+tip_label = NodePath("TipLabel")
+yummies_in_stock_label = NodePath("YummiesInStockLabel")
+stock_value_update_timer = NodePath("StockValueUpdateTimer")
+tip_label_timer = NodePath("TipLabelTimer")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1291871872]
 layout_mode = 0
@@ -21,3 +27,76 @@ offset_right = 285.0
 offset_bottom = 281.0
 texture = ExtResource("2_uo7s5")
 expand_mode = 1
+
+[node name="StockValueLabel" type="RichTextLabel" parent="." unique_id=1770078465]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 39.0
+offset_right = 276.0
+offset_bottom = 78.0
+theme_override_font_sizes/normal_font_size = 19
+text = "Stock Value Rate:"
+
+[node name="YummiesInStockLabel" type="RichTextLabel" parent="." unique_id=342181094]
+layout_mode = 0
+offset_left = 46.0
+offset_top = 89.0
+offset_right = 275.0
+offset_bottom = 128.0
+theme_override_font_sizes/normal_font_size = 19
+text = "Yummies In Stock:"
+
+[node name="InvestLabel" type="RichTextLabel" parent="." unique_id=1802441231]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 142.0
+offset_right = 154.0
+offset_bottom = 237.0
+theme_override_font_sizes/normal_font_size = 19
+text = "INVEST"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="InvestLabel" unique_id=236729440]
+layout_mode = 0
+offset_right = 95.0
+offset_bottom = 91.0
+color = Color(0, 0, 1, 0.42352942)
+metadata/_edit_lock_ = true
+
+[node name="PullLabel" type="RichTextLabel" parent="." unique_id=318657289]
+layout_mode = 0
+offset_left = 166.0
+offset_top = 143.0
+offset_right = 270.0
+offset_bottom = 238.0
+theme_override_font_sizes/normal_font_size = 19
+text = "PULL"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="PullLabel" unique_id=1686161627]
+visible = false
+layout_mode = 0
+offset_right = 95.0
+offset_bottom = 91.0
+color = Color(0, 0, 1, 0.42352942)
+metadata/_edit_lock_ = true
+
+[node name="TipLabel" type="RichTextLabel" parent="." unique_id=967718133]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 238.0
+offset_right = 273.0
+offset_bottom = 277.0
+theme_override_font_sizes/normal_font_size = 16
+text = "Press X to invest or pull!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StockValueUpdateTimer" type="Timer" parent="." unique_id=922902381]
+
+[node name="TipLabelTimer" type="Timer" parent="." unique_id=188058200]
+one_shot = true
+
+[connection signal="timeout" from="StockValueUpdateTimer" to="." method="_on_stock_value_update_timer_timeout"]

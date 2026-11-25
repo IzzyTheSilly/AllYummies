@@ -4,6 +4,8 @@ extends Node
 signal yummies_list_updated
 signal chummies_added(amount: int)
 signal chummy_efficiency_changed
+signal chummies_rate_changed(amount: int)
+signal yummies_invested_changed(amount: int)
 
 
 """Settings"""
@@ -17,10 +19,10 @@ var less_vfx: bool = false
 
 # Gameplay
 var day_amount: int = 1
-var day_length: float = 0.3
-var start_yummies: int = 20
+var day_length: float = 20
+var start_yummies: int = 25
 var start_chummies: int = 3
-var start_yummies_rate: int = 10
+var start_yummies_rate: int = 15
 var start_chummies_rate: int = 1
 var start_chummy_efficiency: int = 1
 var bummies_chance: int = 25
@@ -45,7 +47,7 @@ var chummy_efficiency: int = start_chummy_efficiency
 ##Amount of yummies in the stock market, will not count towards total GDY.
 var yummies_in_stock_market: int = 0
 ##Maximum amount of yummies you can pull from the stock market.
-var max_yummy_pull: int = 5
+var max_yummy_invest: int = 5
 ##How many extra yummies you get in the stock market per minute.
 var yummy_interest: float = yummy_interest_average
 
@@ -63,6 +65,10 @@ func add_collected_yummy(yummy: Yummy) -> int:
 		return 0
 	UIHandler.notify("Inventory full!")
 	return 1
+
+
+func can_add_collected_yummies(amount: int) -> bool:
+	return collected_yummies_list.size() + amount <= max_collected_yummies
 
 
 func remove_collected_yummy(yummy: Yummy) -> int:
@@ -118,6 +124,16 @@ func add_chummy_efficiency(amount: int):
 	chummy_efficiency_changed
 
 
+func add_chummies_rate(amount: int):
+	chummies_rate = chummies_rate + amount
+	chummies_rate_changed.emit(amount)
+
+
+func add_yummies_invested(amount: int):
+	yummies_in_stock_market = yummies_in_stock_market + amount
+	yummies_invested_changed.emit(amount)
+
+
 func reset_game_stats():
 	yummies_list.clear()
 	collected_yummies_list.clear()
@@ -130,7 +146,7 @@ func reset_game_stats():
 	chummies_rate =  start_chummies_rate
 	chummy_efficiency = start_chummy_efficiency
 	yummies_in_stock_market = 0
-	max_yummy_pull = 5
+	max_yummy_invest = 5
 	yummy_interest = yummy_interest_average
 	max_collected_yummies = 5
 	update_gdy()

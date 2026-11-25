@@ -20,7 +20,7 @@ var health_loss_chance: int
 
 @export var collect_sfx: AudioStream
 
-enum BehaviourState {STOP, IDLE, WANDER, FLEE, COLLECTING, COLLECTED, DROPPING}
+enum BehaviourState {STOP, IDLE, WANDER, FLEE, COLLECTING, COLLECTED, DROPPING, INVESTED}
 enum BummyState {YUMMY, LOST, GONER, DAMNED}
 var behaviour_state = BehaviourState.STOP
 var bummy_state = BummyState.YUMMY
@@ -140,7 +140,6 @@ func set_health(health: int, set_healthbar: bool = true):
 
 
 func health_zero():
-	print("health zero")
 	match bummy_state:
 		BummyState.YUMMY:
 			bummy_state = BummyState.LOST
@@ -163,8 +162,6 @@ func health_zero():
 			GlobalData.update_yummy_amount(-1, 2, true)
 			GlobalData.update_yummy_amount(1, 3, true)
 			set_health(50)
-		BummyState.DAMNED:
-			print("die")
 
 
 func _on_player_detect_area_body_entered(body: Node2D) -> void:
@@ -200,3 +197,7 @@ func exterminate():
 
 func add_speed(amount: int):
 	speed = speed + amount
+
+
+func invest():
+	pass

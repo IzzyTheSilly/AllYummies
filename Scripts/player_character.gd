@@ -13,15 +13,18 @@ class_name Player
 var auto_moving: bool = false
 var auto_moving_direction: Vector2
 
+var game_end: bool = false
+
 
 func _ready() -> void:
 	CutsceneHandler.player = self
 	UIHandler.trading_station_menu.player = self
+	GameManager.game_end.connect(_on_game_end)
 
 
 func _physics_process(delta: float) -> void:
 	var direction: Vector2 = Vector2.ZERO
-	if !CutsceneHandler.in_cutscene and !UIHandler.showing_menu() and !auto_moving:
+	if !CutsceneHandler.in_cutscene and !UIHandler.showing_menu() and !auto_moving and !game_end:
 		direction.x = int(Input.is_action_pressed("move_right")) - int(Input.is_action_pressed("move_left"))
 		direction.y = int(Input.is_action_pressed("move_down")) - int(Input.is_action_pressed("move_up"))
 		direction = direction.normalized()
@@ -78,8 +81,10 @@ func process_interaction() -> void:
 		if !CutsceneHandler.in_cutscene:
 			if !UIHandler.showing_menu():
 				drop_yummy()
-			else:
+			elif UIHandler.menu_showing == UIHandler.Menu.TRADING_STATION:
 				UIHandler.do_trade()
+			elif UIHandler.menu_showing == UIHandler.Menu.INVESTING_STATION:
+				UIHandler.invest_yummy()
 	
 	if CutsceneHandler.in_dialogue_choice:
 		if Input.is_action_just_pressed("move_left"):
@@ -91,6 +96,11 @@ func process_interaction() -> void:
 			UIHandler.change_select_trading_station(-1)
 		if Input.is_action_just_pressed("move_down"):
 			UIHandler.change_select_trading_station(1)
+	if UIHandler.menu_showing == UIHandler.Menu.INVESTING_STATION:
+		if Input.is_action_just_pressed("move_left"):
+			UIHandler.change_select_investing_station(-1)
+		if Input.is_action_just_pressed("move_right"):
+			UIHandler.change_select_investing_station(1)
 
 
 func drop_yummy():
@@ -103,3 +113,7 @@ func auto_move(direction: Vector2, time: float):
 	auto_moving = true
 	await get_tree().create_timer(time).timeout
 	auto_moving = false
+
+
+func _on_game_end():
+	game_end = true

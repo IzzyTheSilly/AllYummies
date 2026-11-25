@@ -8,6 +8,8 @@ signal game_end
 var ending_screen: EndingScreen
 @export var ending_cutscenes_ids: Array[String]
 
+var yummy_spawner: YummySpawner
+
 
 ##Not in the title screen.
 var in_game: bool = false
@@ -24,11 +26,16 @@ func _ready() -> void:
 func start_game():
 	game_start.emit()
 	reset_day_timer()
+	in_game = true
+	ending_screen.hide()
 
 
 func end_game():
 	game_end.emit()
 	stop_day_timer()
+	in_game = false
+	ending_screen.show()
+	UIHandler.set_menu_showing(UIHandler.Menu.NONE, false)
 	var end_screen_tween: Tween = get_tree().create_tween()
 	end_screen_tween.tween_property(ending_screen, "modulate", Color(255, 255, 255), 3)
 	await end_screen_tween.finished
@@ -76,3 +83,8 @@ func _on_day_timer_timeout() -> void:
 	else:
 		days_left = days_left - 1
 		stop_day_timer()
+
+
+func spawn_yummy_in_inventory(amount: int):
+	for i in range(amount):
+		yummy_spawner.spawn_yummy_in_inventory()

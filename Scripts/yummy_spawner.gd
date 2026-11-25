@@ -13,6 +13,7 @@ var spawn_rate: float
 func _ready() -> void:
 	GameManager.game_start.connect(start)
 	GameManager.game_end.connect(end)
+	GameManager.yummy_spawner = self
 	update_spawn_rate()
 	timer.stop()
 	for i in range(GlobalData.start_yummies):
@@ -30,7 +31,6 @@ func end():
 func _on_timer_timeout() -> void:
 	var yummy: Yummy = spawn_yummy()
 	yummy.start()
-	print("add yummy")
 	update_spawn_rate()
 	timer.start(randf_range(1/spawn_rate - 0.3, 1/spawn_rate + 0.3))
 
@@ -44,6 +44,13 @@ func spawn_yummy() -> Yummy:
 	yummy_spawn_node.add_child(yummy)
 	GlobalData.add_yummy(yummy)
 	return yummy
+
+
+func spawn_yummy_in_inventory():
+	print("spawn yummy in inventory")
+	var yummy: Yummy = spawn_yummy()
+	yummy.change_state(Yummy.BehaviourState.COLLECTED)
+	GlobalData.add_collected_yummy(yummy)
 
 
 func update_spawn_rate():

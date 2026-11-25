@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://c7tbpm1j5yyue" path="res://Scenes/trading_station_menu.tscn" id="8_1q60n"]
 [ext_resource type="PackedScene" uid="uid://bhbgcr6qc1q8h" path="res://Scenes/ending_screen.tscn" id="9_x6fr2"]
 [ext_resource type="PackedScene" uid="uid://clrjk2d7w4s10" path="res://Scenes/yummy.tscn" id="10_hmx0y"]
+[ext_resource type="PackedScene" uid="uid://c8hhfg3on3ylr" path="res://Scenes/investing_station_menu.tscn" id="10_s4h4n"]
 [ext_resource type="PackedScene" uid="uid://00fgrhqqgfld" path="res://Scenes/exterminator.tscn" id="12_oxg1x"]
 [ext_resource type="PackedScene" uid="uid://d4arwf6nu8j8l" path="res://Scenes/yummy_spawner.tscn" id="13_0rene"]
 [ext_resource type="PackedScene" uid="uid://bvtvc516nes6d" path="res://Scenes/chummy.tscn" id="13_yojay"]
@@ -139,7 +140,6 @@ offset_right = -160.0
 offset_bottom = -160.0
 
 [node name="OptionsMenu" parent="PlayerCharacter/Camera2D" unique_id=142809403 instance=ExtResource("3_87rxc")]
-visible = false
 offset_left = -120.0
 offset_top = -420.0
 offset_right = 120.0
@@ -186,6 +186,13 @@ offset_left = -160.0
 offset_top = -176.0
 offset_right = -160.0
 offset_bottom = -176.0
+
+[node name="InvestingStationMenu" parent="PlayerCharacter/Camera2D" unique_id=599790385 instance=ExtResource("10_s4h4n")]
+visible = false
+offset_left = -165.0
+offset_top = -170.0
+offset_right = -165.0
+offset_bottom = -170.0
 
 [node name="StatsViewer" parent="." unique_id=2133314408 instance=ExtResource("4_yojay")]
 position = Vector2(-2, -979)
