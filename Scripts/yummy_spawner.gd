@@ -28,17 +28,22 @@ func end():
 
 
 func _on_timer_timeout() -> void:
-	spawn_yummy()
-	timer.wait_time = randf_range(1/spawn_rate - 0.3, 1/spawn_rate + 0.3)
+	var yummy: Yummy = spawn_yummy()
+	GlobalData.add_yummy(yummy)
+	yummy.start()
+	print("add yummy")
+	update_spawn_rate()
+	timer.start(randf_range(1/spawn_rate - 0.3, 1/spawn_rate + 0.3))
 
 
-func spawn_yummy():
+func spawn_yummy() -> Yummy:
 	var yummy: Yummy = yummy_scene.instantiate()
 	var pos: Vector2 = Vector2()
 	pos.x = randf_range(-range_x, range_x) + position.x
 	pos.y = randf_range(-range_y, range_y) + position.y
 	yummy.position = pos
 	yummy_spawn_node.add_child(yummy)
+	return yummy
 
 
 func update_spawn_rate():

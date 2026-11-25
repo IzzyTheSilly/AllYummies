@@ -6,19 +6,34 @@ var selected_option: int = 1
 @export var selection_highlights: Array[ColorRect]
 @export var tip_label: RichTextLabel
 
+@export var option_labels: Array[RichTextLabel]
+@export var option_1_options: Array[TradingOption]
+@export var option_2_options: Array[TradingOption]
+@export var option_3_options: Array[TradingOption]
+var option_1_stage: int = 1
+var option_2_stage: int = 1
+var option_3_stage: int = 1
+
+@export var timer: Timer
+@export var player: Player
+
 
 func _ready() -> void:
 	UIHandler.trading_station_menu = self
+	set_option_labels(1)
+	set_option_labels(2)
+	set_option_labels(3)
 
 
 func trade():
 	if try_select(selected_option) == 1:
-		change_tip_text("Not enough yummies!")
+		pass
 
 
 func change_tip_text(text: String, time: float = 1.5):
 		tip_label.text = text
-		await get_tree().create_timer(2).timeout
+		timer.start(1.5)
+		await timer.timeout
 		tip_label.text = "Press X to buy!"
 
 
@@ -48,18 +63,37 @@ func set_selection_highlights(option: int):
 func try_select(option: int) -> int:
 	match option:
 		1: 
-			if take_yummy(2) == 0:
-				GlobalData.add_chummy(1)
-				change_tip_text("Employed two chummies!")
+			if (option_1_stage - 1) >= option_1_options.size():
+				change_tip_text("No more options here!")
+				return 1
+			if take_yummy(option_1_options[option_1_stage - 1].cost) == 0:
+				change_tip_text(option_1_options[option_1_stage - 1].purchase_message)
+				option_1(option_1_stage)
+				option_1_stage = option_1_stage + 1
+				set_option_labels(1)
 				return 0
 		2: 
-			if take_yummy(3) == 0:
-				GlobalData.max_collected_yummies = GlobalData.max_collected_yummies + 3
-				change_tip_text("Increased inventory storage!")
+			if (option_2_stage - 1) >= option_2_options.size():
+				change_tip_text("No more options here!")
+				return 1
+			if take_yummy(option_2_options[option_2_stage - 1].cost) == 0:
+				change_tip_text(option_2_options[option_2_stage - 1].purchase_message)
+				option_2(option_2_stage)
+				option_2_stage = option_2_stage + 1
+				set_option_labels(2)
 				return 0
 		3: 
-			if take_yummy(3) == 0:
+			if (option_3_stage - 1) >= option_3_options.size():
+				change_tip_text("No more options here!")
+				return 1
+			if take_yummy(option_3_options[option_3_stage - 1].cost) == 0:
+				change_tip_text(option_3_options[option_3_stage - 1].purchase_message)
+				option_3(option_3_stage)
+				option_3_stage = option_3_stage + 1
+				set_option_labels(3)
 				return 0
+	
+	change_tip_text("Not enough yummies!")
 	return 1
 
 
@@ -75,3 +109,59 @@ func take_yummy(cost: int) -> int:
 					GlobalData.collected_yummies_list[index_array[j] - j].exterminate()
 				return 0
 	return 1
+
+
+func set_option_labels(option: int):
+	match option:
+		1: 
+			if (option_1_stage - 1) >= option_1_options.size():
+				option_labels[0].text = ""
+			else:
+				option_labels[0].text = option_1_options[option_1_stage - 1].description
+		2: 
+			if (option_2_stage - 1) >= option_2_options.size():
+				option_labels[1].text = ""
+			else:
+				option_labels[1].text = option_2_options[option_2_stage - 1].description
+		3: 
+			if (option_3_stage - 1) >= option_3_options.size():
+				option_labels[2].text = ""
+			else:
+				option_labels[2].text = option_3_options[option_3_stage - 1].description
+
+
+func option_1(stage: int):
+	match stage:
+		1: GlobalData.add_chummy(1)
+		2: GlobalData.chummies_rate = GlobalData.chummies_rate + 1
+		3: GlobalData.add_chummy(2)
+		4: 
+			GlobalData.add_chummy_efficiency(1)
+		5: GlobalData.add_chummy(3)
+		6: GlobalData.chummies_rate = GlobalData.chummies_rate + 1
+
+
+func option_2(stage: int):
+	match stage:
+		1: GlobalData.max_collected_yummies = GlobalData.max_collected_yummies + 3
+		2: 
+			for i in range(GlobalData.yummies_list.size()):
+				GlobalData.yummies_list[i].add_speed(-10)
+		3: GlobalData.max_collected_yummies = GlobalData.max_collected_yummies + 5
+		4: GlobalData.yummies_rate = GlobalData.yummies_rate + 15
+		5: GlobalData.max_collected_yummies = GlobalData.max_collected_yummies + 8
+		6: 
+			var count: int = 0
+			for i in range(GlobalData.yummies_list.size()):
+				if GlobalData.yummies_list[i - count].bummy_state != Yummy.BummyState.YUMMY:
+					GlobalData.yummies_list[i - count].exterminate()
+					count = count + 1
+				if count >= 5:
+					break
+
+
+func option_3(stage: int):
+	match stage:
+		1: player.speed = player.speed + 25
+		2: player.interaction_distance = player.interaction_distance + 18
+		3: GameManager.add_time(60)

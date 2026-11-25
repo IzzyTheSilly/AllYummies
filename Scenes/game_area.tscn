@@ -112,6 +112,9 @@ size = Vector2(320, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vkdgo"]
 size = Vector2(65, 41.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ikch"]
+size = Vector2(225.25, 47.75)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kck4e"]
 size = Vector2(225.25, 47.75)
 
@@ -134,6 +137,7 @@ offset_right = -160.0
 offset_bottom = -160.0
 
 [node name="OptionsMenu" parent="PlayerCharacter/Camera2D" unique_id=142809403 instance=ExtResource("3_87rxc")]
+visible = false
 offset_left = -120.0
 offset_top = -420.0
 offset_right = 120.0
@@ -357,7 +361,13 @@ cutscene_id = "irsela_calls_you_back"
 metadata/_custom_type_script = "uid://d2q2fgy2c2n30"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/IrselaCallsYouBack" unique_id=423818938]
-position = Vector2(4.375, -451)
+position = Vector2(-63, -454)
+rotation = -0.40430573
+shape = SubResource("RectangleShape2D_4ikch")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Triggers/IrselaCallsYouBack" unique_id=1410575406]
+position = Vector2(55.999992, -454)
+rotation = 0.39106113
 shape = SubResource("RectangleShape2D_kck4e")
 
 [node name="IrselaCallsYouBackLeft" type="Area2D" parent="Triggers" unique_id=20734319]
@@ -368,7 +378,8 @@ cutscene_id = "irsela_calls_you_back_left"
 metadata/_custom_type_script = "uid://d2q2fgy2c2n30"
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Triggers/IrselaCallsYouBackLeft" unique_id=907579114]
-position = Vector2(128, -353)
+position = Vector2(155, -350)
+rotation = -0.38667515
 shape = SubResource("RectangleShape2D_h5xn8")
 
 [node name="IrselaCallsYouBackRight" type="Area2D" parent="Triggers" unique_id=125990945]
@@ -379,7 +390,8 @@ cutscene_id = "irsela_calls_you_back_right"
 metadata/_custom_type_script = "uid://d2q2fgy2c2n30"
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Triggers/IrselaCallsYouBackRight" unique_id=1066016718]
-position = Vector2(-125, -351.35938)
+position = Vector2(-141, -350)
+rotation = 0.31962672
 shape = SubResource("RectangleShape2D_h5xn8")
 
 [node name="YummySpawner" parent="." unique_id=826669829 node_paths=PackedStringArray("yummy_spawn_node") instance=ExtResource("13_0rene")]

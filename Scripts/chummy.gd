@@ -18,6 +18,7 @@ func _ready() -> void:
 	GameManager.game_end.connect(end)
 	try_protect_yummies()
 	GlobalData.yummies_list_updated.connect(_on_yummies_list_updated)
+	GlobalData.chummy_efficiency_changed.connect(_on_chummy_efficiency_changed)
 	behaviour_timer.stop()
 	
 	var random_cutscene: int = randi_range(0, 2)
@@ -70,7 +71,7 @@ func try_protect_yummies():
 	for i in range(GlobalData.yummies_list.size()):
 		if yummy_protection_count >= GlobalData.chummy_efficiency:
 			break
-		if GlobalData.yummies_list[i].chummy != null:
+		if GlobalData.yummies_list[i].chummy != null or GlobalData.yummies_list[i].bummy_state != Yummy.BummyState.YUMMY:
 			continue
 		GlobalData.yummies_list[i].set_chummy(self)
 		yummy_protection_count = yummy_protection_count + 1
@@ -79,6 +80,10 @@ func try_protect_yummies():
 func _on_yummies_list_updated():
 	if yummy_protection_count < GlobalData.chummy_efficiency:
 		try_protect_yummies()
+
+
+func _on_chummy_efficiency_changed():
+	try_protect_yummies()
 
 
 func remove_yummy(yummy: Yummy):

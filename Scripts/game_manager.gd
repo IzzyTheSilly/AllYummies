@@ -42,6 +42,10 @@ func get_day_time_left() -> float:
 	return floor(day_timer.time_left)
 
 
+func add_time(time: int):
+	day_timer.start(day_timer.time_left + 30)
+
+
 func _on_day_timer_timeout() -> void:
 	end_game()
 	UIHandler.notify("Day End!")

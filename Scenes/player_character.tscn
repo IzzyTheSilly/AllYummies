@@ -21,7 +21,7 @@ motion_mode = 1
 script = ExtResource("1_o0f8b")
 speed = 200
 interaction_raycast = NodePath("RayCast2D")
-interaction_distance = 45
+interaction_distance = 30
 
 [node name="Squadword" type="Sprite2D" parent="." unique_id=1722447921]
 z_as_relative = false

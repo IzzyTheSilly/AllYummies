@@ -3,6 +3,7 @@ extends Node
 
 signal yummies_list_updated
 signal chummies_added(amount: int)
+signal chummy_efficiency_changed
 
 
 """Settings"""
@@ -17,12 +18,12 @@ var less_vfx: bool = false
 # Gameplay
 var day_amount: int = 1
 var day_length: float = 20
-var start_yummies: int = 25
-var start_chummies: int = 5
-var start_yummies_rate: int = 30
+var start_yummies: int = 20
+var start_chummies: int = 3
+var start_yummies_rate: int = 10
 var start_chummies_rate: int = 1
-var start_chummy_efficiency: int = 2
-var bummies_chance: int = 30
+var start_chummy_efficiency: int = 1
+var bummies_chance: int = 25
 var yummy_interest_average: float = 1.1
 
 
@@ -76,6 +77,7 @@ func remove_collected_yummy(yummy: Yummy) -> int:
 func add_yummy(yummy: Yummy):
 	yummies_list.append(yummy)
 	yummies_list_updated.emit()
+	update_yummy_amount(1, int(yummy.bummy_state), true)
 
 
 func remove_yummy(yummy: Yummy) -> int:
@@ -84,6 +86,7 @@ func remove_yummy(yummy: Yummy) -> int:
 		if yummies_list[i] == yummy:
 			yummies_list.pop_at(i)
 			yummies_list_updated.emit()
+			update_yummy_amount(-1, int(yummy.bummy_state), true)
 			return 0
 	return 1
 
@@ -108,6 +111,11 @@ func update_gdy() -> int:
 func add_chummy(amount: int):
 	chummies = chummies + amount
 	chummies_added.emit(amount)
+
+
+func add_chummy_efficiency(amount: int):
+	chummy_efficiency = chummy_efficiency + amount
+	chummy_efficiency_changed
 
 
 func reset_game_stats():

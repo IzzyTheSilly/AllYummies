@@ -29,7 +29,6 @@ var chummy: Chummy
 func _ready() -> void:
 	GameManager.game_start.connect(start)
 	GameManager.game_end.connect(end)
-	GlobalData.add_yummy(self)
 	healthbar.max_value = health
 	health_loss_chance = GlobalData.bummies_chance
 
@@ -190,3 +189,7 @@ func exterminate():
 		chummy.remove_yummy(self)
 	GlobalData.remove_yummy(self)
 	queue_free()
+
+
+func add_speed(amount: int):
+	speed = speed + amount

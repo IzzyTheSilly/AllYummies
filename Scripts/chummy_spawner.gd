@@ -28,15 +28,17 @@ func end():
 
 
 func _on_timer_timeout() -> void:
-	spawn_chummy()
+	timer.wait_time = 60/GlobalData.chummies_rate
+	GlobalData.add_chummy(1)
 
 
 func _on_chummies_added(amount: int):
 	for i in range(amount):
-		spawn_chummy()
+		spawn_chummy().start()
 
 
-func spawn_chummy():
+func spawn_chummy() -> Chummy:
 	var chummy: Chummy = chummy_scene.instantiate()
 	chummy.position = Vector2(randi_range(-range_x, range_x), randi_range(-range_y, range_y)) + position
 	chummy_parent_node.add_child(chummy)
+	return chummy

@@ -1,9 +1,129 @@
 [gd_scene format=3 uid="uid://c7tbpm1j5yyue"]
 
 [ext_resource type="Script" uid="uid://b8342erdc375e" path="res://Scripts/trading_station_menu.gd" id="1_5ef75"]
+[ext_resource type="Script" uid="uid://rdds2cotks3s" path="res://trading_option.gd" id="2_8q8ky"]
 [ext_resource type="Texture2D" uid="uid://c3w0t1m1fe2mj" path="res://Assets/Sprites/icon.svg" id="2_uv6nq"]
 
-[node name="TradingStationMenu" type="Control" unique_id=115795911 node_paths=PackedStringArray("selection_highlights", "tip_label")]
+[sub_resource type="Resource" id="Resource_uv6nq"]
+script = ExtResource("2_8q8ky")
+description = "Employ 1 Chummy
+(Cost: 2 Yummies)"
+cost = 2
+purchase_message = "Chummy employed!"
+metadata/_custom_type_script = "uid://rdds2cotks3s"
+
+[sub_resource type="Resource" id="Resource_vsa4v"]
+script = ExtResource("2_8q8ky")
+description = "+1 Chummy/Min
+(Cost: 2 Yummies)"
+cost = 2
+purchase_message = "Chummies enticed!"
+metadata/_custom_type_script = "uid://rdds2cotks3s"
+
+[sub_resource type="Resource" id="Resource_hmxx2"]
+script = ExtResource("2_8q8ky")
+description = "Employ 2 Chummies
+(Cost: 3 Yummies)"
+cost = 3
+purchase_message = "Chummies employed!"
+metadata/_custom_type_script = "uid://rdds2cotks3s"
+
+[sub_resource type="Resource" id="Resource_wmkog"]
+script = ExtResource("2_8q8ky")
+description = "+1 Chummy Protection
+(Cost: 3 Yummies)"
+cost = 3
+purchase_message = "Chummies enticed!"
+metadata/_custom_type_script = "uid://rdds2cotks3s"
+
+[sub_resource type="Resource" id="Resource_tnr8x"]
+script = ExtResource("2_8q8ky")
+description = "Employ 3 Chummies
+(Cost: 4 Yummies)"
+cost = 4
+purchase_message = "Chummies employed!"
+metadata/_custom_type_script = "uid://rdds2cotks3s"
+
+[sub_resource type="Resource" id="Resource_uxyur"]
+script = ExtResource("2_8q8ky")
+description = "+1 Chummy/Min
+(Cost: 3 Yummies)"
+cost = 3
+metadata/_custom_type_script = "uid://rdds2cotks3s"
+
+[sub_resource type="Resource" id="Resource_ik3a3"]
+script = ExtResource("2_8q8ky")
+description = "Basket (+3 Inventory Space)
+(Cost: 3 Yummies)"
+cost = 3
+purchase_message = "Inventory increased!"
+metadata/_custom_type_script = "uid://rdds2cotks3s"
+
+[sub_resource type="Resource" id="Resource_hf5wb"]
+script = ExtResource("2_8q8ky")
+description = "Slower Yummies
+(Cost: 2 Yummies)"
+cost = 2
+purchase_message = "Yummies slowed!"
+metadata/_custom_type_script = "uid://rdds2cotks3s"
+
+[sub_resource type="Resource" id="Resource_qs0o3"]
+script = ExtResource("2_8q8ky")
+description = "Net (+5 Inventory Space)
+(Cost: 4 Yummies)"
+cost = 4
+purchase_message = "Inventory increased!"
+metadata/_custom_type_script = "uid://rdds2cotks3s"
+
+[sub_resource type="Resource" id="Resource_t81le"]
+script = ExtResource("2_8q8ky")
+description = "+15 Yummies/Min
+(Cost: 3 Yummies)"
+cost = 3
+purchase_message = "More yummies!"
+metadata/_custom_type_script = "uid://rdds2cotks3s"
+
+[sub_resource type="Resource" id="Resource_pua1g"]
+script = ExtResource("2_8q8ky")
+description = "Chest (+8 Inventory Space)
+(Cost: 5 Yummies)"
+cost = 5
+purchase_message = "Inventory increased!"
+metadata/_custom_type_script = "uid://rdds2cotks3s"
+
+[sub_resource type="Resource" id="Resource_xxy53"]
+script = ExtResource("2_8q8ky")
+description = "Remove 5 Bummies
+(Cost: 5 Yummies)"
+cost = 5
+purchase_message = "Bummies removed!"
+metadata/_custom_type_script = "uid://rdds2cotks3s"
+
+[sub_resource type="Resource" id="Resource_8q8ky"]
+script = ExtResource("2_8q8ky")
+description = "Speed Boost
+(Cost: 2 Yummies)"
+cost = 2
+purchase_message = "Speed boosted!"
+metadata/_custom_type_script = "uid://rdds2cotks3s"
+
+[sub_resource type="Resource" id="Resource_y2mke"]
+script = ExtResource("2_8q8ky")
+description = "Further Reach
+(Cost: 2 Yummies)"
+cost = 2
+purchase_message = "Arms elongated!"
+metadata/_custom_type_script = "uid://rdds2cotks3s"
+
+[sub_resource type="Resource" id="Resource_675w7"]
+script = ExtResource("2_8q8ky")
+description = "Add 1 Minute
+(Cost: 5 Yummies)"
+cost = 5
+purchase_message = "Time travelled!"
+metadata/_custom_type_script = "uid://rdds2cotks3s"
+
+[node name="TradingStationMenu" type="Control" unique_id=115795911 node_paths=PackedStringArray("selection_highlights", "tip_label", "option_labels", "timer")]
 z_index = 2
 layout_mode = 3
 anchors_preset = 15
@@ -14,6 +134,11 @@ grow_vertical = 2
 script = ExtResource("1_5ef75")
 selection_highlights = [NodePath("Background/Option1/SelectionHighlight"), NodePath("Background/Option2/SelectionHighlight"), NodePath("Background/Option3/SelectionHighlight")]
 tip_label = NodePath("Background/TipLabel")
+option_labels = [NodePath("Background/Option1"), NodePath("Background/Option2"), NodePath("Background/Option3")]
+option_1_options = Array[ExtResource("2_8q8ky")]([SubResource("Resource_uv6nq"), SubResource("Resource_vsa4v"), SubResource("Resource_hmxx2"), SubResource("Resource_wmkog"), SubResource("Resource_tnr8x"), SubResource("Resource_uxyur")])
+option_2_options = Array[ExtResource("2_8q8ky")]([SubResource("Resource_ik3a3"), SubResource("Resource_hf5wb"), SubResource("Resource_qs0o3"), SubResource("Resource_t81le"), SubResource("Resource_pua1g"), SubResource("Resource_xxy53")])
+option_3_options = Array[ExtResource("2_8q8ky")]([SubResource("Resource_8q8ky"), SubResource("Resource_y2mke"), SubResource("Resource_675w7")])
+timer = NodePath("Timer")
 
 [node name="Background" type="TextureRect" parent="." unique_id=1567363770]
 layout_mode = 0
@@ -75,8 +200,7 @@ offset_left = 9.0
 offset_top = 144.0
 offset_right = 235.0
 offset_bottom = 195.0
-text = "Net (Increase Pickup Range)
-(Cost: 3 Yummies)"
+text = "poo"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -97,3 +221,5 @@ offset_bottom = 237.0
 text = "Press X to buy!"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="." unique_id=1608504343]

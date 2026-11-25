@@ -7,7 +7,6 @@
 script = ExtResource("1_tr18q")
 yummy_scene = ExtResource("2_b4q61")
 timer = NodePath("Timer")
-range = 500
 
 [node name="Timer" type="Timer" parent="." unique_id=1624624336]
 autostart = true

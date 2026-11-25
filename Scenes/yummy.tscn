@@ -4,228 +4,39 @@
 [ext_resource type="Script" uid="uid://dtqhr2uiu1flh" path="res://Scripts/yummy.gd" id="1_wsthx"]
 [ext_resource type="AudioStream" uid="uid://bert5gh3oxnal" path="res://Assets/Audio/koiroylers-get-coin-351945.mp3" id="2_wmkog"]
 [ext_resource type="Texture2D" uid="uid://46i3nqtioiuf" path="res://Assets/Sprites/yummy_test.png" id="3_osvtb"]
-[ext_resource type="Texture2D" uid="uid://boe0n28wym8if" path="res://Assets/Sprites/squadword.PNG" id="4_ex11a"]
-[ext_resource type="Texture2D" uid="uid://dehx21vg6a76g" path="res://Assets/Sprites/titlescreenbgplaceholder.jpg" id="4_ve61t"]
+[ext_resource type="Texture2D" uid="uid://cx2lp6xcmxo6f" path="res://Assets/Sprites/yummy_spritesheet.png" id="5_ex11a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ex11a"]
+atlas = ExtResource("5_ex11a")
+region = Rect2(20, 20, 20, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ir5lp"]
 size = Vector2(24, 27)
 
 [sub_resource type="Animation" id="Animation_osvtb"]
 length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, -8)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0.051282052, 0.051546387)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("AnimatedSprite2D:position:x")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0.0]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("AnimatedSprite2D:position:y")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [-8.0]
-}
 
 [sub_resource type="Animation" id="Animation_ve61t"]
 resource_name = "bounce"
 length = 0.5
 loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:scale")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(0.051282052, 0.051546387), Vector2(0.03076923, 0.051546387), Vector2(0.06666667, 0.023195881), Vector2(0.05128205, 0.050257728)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:position")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(0, -8), Vector2(-2.842171e-14, -23), Vector2(0, -3), Vector2(0, -8.249998)]
-}
 
 [sub_resource type="Animation" id="Animation_ex11a"]
 resource_name = "collect"
 length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.5),
-"transitions": PackedFloat32Array(0.5, 2, 1),
-"update": 0,
-"values": [Vector2(0, -8), Vector2(0, -22), Vector2(0, -8)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.5),
-"transitions": PackedFloat32Array(0.51763237, -2, 1),
-"update": 0,
-"values": [Vector2(0.051282052, 0.051546387), Vector2(-0.051, 0.052), Vector2(0.051, 0)]
-}
 
 [sub_resource type="Animation" id="Animation_wmkog"]
 resource_name = "drop"
 length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 0.5),
-"update": 0,
-"values": [Vector2(1e-05, 1e-05), Vector2(0.051282052, 0.051546387)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 0.5),
-"update": 0,
-"values": [Vector2(0, -0.25), Vector2(0, -8)]
-}
 
 [sub_resource type="Animation" id="Animation_rbvt0"]
 resource_name = "hurry"
 length = 0.25
 loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:position:y")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.125, 0.23333333),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [-8.0, -12.0, -8.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:position:x")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("AnimatedSprite2D:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0.051282052, 0.051546387)]
-}
 
 [sub_resource type="Animation" id="Animation_um3do"]
 resource_name = "idle"
 loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:position:x")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.75, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [0.0, -4.0, 4.0, 0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:position:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [-8.249998]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("AnimatedSprite2D:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0.051282052, 0.051546387)]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ex11a"]
 _data = {
@@ -237,22 +48,38 @@ _data = {
 &"idle": SubResource("Animation_um3do")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_wmkog"]
+atlas = ExtResource("5_ex11a")
+region = Rect2(0, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tnr8x"]
+atlas = ExtResource("5_ex11a")
+region = Rect2(0, 20, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uxyur"]
+atlas = ExtResource("5_ex11a")
+region = Rect2(0, 40, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_um3do"]
+atlas = ExtResource("5_ex11a")
+region = Rect2(0, 60, 20, 20)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_ir5lp"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_osvtb")
+"texture": SubResource("AtlasTexture_wmkog")
 }, {
 "duration": 1.0,
-"texture": ExtResource("1_4xhlt")
+"texture": SubResource("AtlasTexture_tnr8x")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_ve61t")
+"texture": SubResource("AtlasTexture_uxyur")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_ex11a")
+"texture": SubResource("AtlasTexture_um3do")
 }],
-"loop": 1,
+"loop": 2,
 "name": &"default",
 "speed": 5.0
 }]
@@ -285,9 +112,9 @@ collect_sfx = ExtResource("2_wmkog")
 z_index = -1
 z_as_relative = false
 y_sort_enabled = true
-position = Vector2(0, -1)
-scale = Vector2(0.101562515, 0.0546875)
-texture = ExtResource("1_4xhlt")
+position = Vector2(2.2737368e-13, -6)
+scale = Vector2(1.0000001, 0.99453115)
+texture = SubResource("AtlasTexture_ex11a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1739644351]
 visible = false
@@ -305,7 +132,7 @@ libraries/ = SubResource("AnimationLibrary_ex11a")
 z_as_relative = false
 y_sort_enabled = true
 position = Vector2(0, -8)
-scale = Vector2(0.051282052, 0.051546387)
+scale = Vector2(0.99999994, 0.99999994)
 sprite_frames = SubResource("SpriteFrames_ir5lp")
 
 [node name="Control" type="Control" parent="." unique_id=1932939047]

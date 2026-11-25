@@ -16,6 +16,7 @@ var auto_moving_direction: Vector2
 
 func _ready() -> void:
 	CutsceneHandler.player = self
+	UIHandler.trading_station_menu.player = self
 
 
 func _physics_process(delta: float) -> void:
