@@ -16,7 +16,7 @@ func _ready() -> void:
 	timer.wait_time = 60/GlobalData.chummies_rate
 	GlobalData.chummies_added.connect(_on_chummies_added)
 	for i in range(GlobalData.start_chummies):
-		spawn_chummy()
+		GlobalData.add_chummy(1)
 
 
 func start():
@@ -35,6 +35,10 @@ func _on_timer_timeout() -> void:
 func _on_chummies_added(amount: int):
 	for i in range(amount):
 		spawn_chummy().start()
+
+
+func _on_chummies_rate_changed(chummies_rate: int):
+	pass
 
 
 func spawn_chummy() -> Chummy:

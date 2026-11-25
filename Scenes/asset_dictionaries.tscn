@@ -7,26 +7,16 @@
 [ext_resource type="Resource" uid="uid://buyueat28p18f" path="res://Resources/Cutscenes/talk_to_irsela_1.tres" id="4_a51it"]
 [ext_resource type="Resource" uid="uid://dfud70qokrbqh" path="res://Resources/Cutscenes/irsela_calls_you_over.tres" id="5_f68p6"]
 [ext_resource type="Resource" uid="uid://bxjkclo6pwmw6" path="res://Resources/Cutscenes/irsela_calls_you_back.tres" id="6_6n55v"]
-[ext_resource type="Script" uid="uid://rdgx4kdiqt45" path="res://Scripts/dialogue_choice_data.gd" id="8_6n55v"]
-[ext_resource type="Script" uid="uid://dvl6mehpirn4w" path="res://Scripts/dialogue_data.gd" id="9_51n6q"]
-[ext_resource type="AudioStream" uid="uid://cilay0xwylgkn" path="res://Assets/Audio/soundshelfstudio-sci-fi-system-blip-525671.mp3" id="10_ny6e3"]
+[ext_resource type="Resource" uid="uid://cs30l6nqb7n5k" path="res://Resources/Cutscenes/error.tres" id="7_x1ssq"]
 [ext_resource type="Resource" uid="uid://bk1yhfjeu2iak" path="res://Resources/Cutscenes/chummy_1.tres" id="11_2jmbe"]
 [ext_resource type="Resource" uid="uid://eh20ocyjwdtq" path="res://Resources/Cutscenes/chummy_2.tres" id="12_l6qb4"]
 [ext_resource type="Resource" uid="uid://ddv1rgxvjrsq6" path="res://Resources/Cutscenes/chummy_3.tres" id="13_x1ssq"]
+[ext_resource type="Resource" uid="uid://cl0bha2jxxxq5" path="res://Resources/Cutscenes/great_ending.tres" id="14_l6qb4"]
 [ext_resource type="Resource" uid="uid://b0uccesq0gfng" path="res://Resources/Cutscenes/irsela_calls_you_back_left.tres" id="14_x1ssq"]
 [ext_resource type="Resource" uid="uid://cm8qy0jrsygfv" path="res://Resources/Cutscenes/irsela_calls_you_back_right.tres" id="15_5tqf6"]
-
-[sub_resource type="Resource" id="Resource_ipdxr"]
-script = ExtResource("9_51n6q")
-text = "greivous error"
-blip = ExtResource("10_ny6e3")
-portrait = ExtResource("2_p6sd1")
-metadata/_custom_type_script = "uid://dvl6mehpirn4w"
-
-[sub_resource type="Resource" id="Resource_ksfs5"]
-script = ExtResource("2_ypqau")
-dialogues = Array[ExtResource("9_51n6q")]([SubResource("Resource_ipdxr")])
-metadata/_custom_type_script = "uid://cprsdu68b8n21"
+[ext_resource type="Resource" uid="uid://h3ejbbxw37wb" path="res://Resources/Cutscenes/good_ending.tres" id="15_yqvb2"]
+[ext_resource type="Resource" uid="uid://dskye6h0jllve" path="res://Resources/Cutscenes/mid_ending.tres" id="16_v7d14"]
+[ext_resource type="Resource" uid="uid://br2n6bynourbn" path="res://Resources/Cutscenes/bad_ending.tres" id="17_yqvb2"]
 
 [node name="AssetDictionaries" type="Node" unique_id=1004349810]
 script = ExtResource("1_c04i8")
@@ -34,14 +24,18 @@ sprites = Dictionary[String, Texture]({
 "error": ExtResource("2_p6sd1")
 })
 cutscenes = Dictionary[String, ExtResource("2_ypqau")]({
+"bad_ending": ExtResource("17_yqvb2"),
 "chummy_1": ExtResource("11_2jmbe"),
 "chummy_2": ExtResource("12_l6qb4"),
 "chummy_3": ExtResource("13_x1ssq"),
-"error": SubResource("Resource_ksfs5"),
+"error": ExtResource("7_x1ssq"),
+"good_ending": ExtResource("15_yqvb2"),
+"great_ending": ExtResource("14_l6qb4"),
 "irsela_calls_you_back": ExtResource("6_6n55v"),
 "irsela_calls_you_back_left": ExtResource("14_x1ssq"),
 "irsela_calls_you_back_right": ExtResource("15_5tqf6"),
 "irsela_calls_you_over": ExtResource("5_f68p6"),
+"mid_ending": ExtResource("16_v7d14"),
 "talk_to_irsela_0": ExtResource("3_p6sd1"),
 "talk_to_irsela_1": ExtResource("4_a51it")
 })

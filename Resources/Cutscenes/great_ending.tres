@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="CutsceneData" format=3 uid="uid://cl0bha2jxxxq5"]
+
+[ext_resource type="Script" uid="uid://rdgx4kdiqt45" path="res://Scripts/dialogue_choice_data.gd" id="1_hou35"]
+[ext_resource type="Script" uid="uid://dvl6mehpirn4w" path="res://Scripts/dialogue_data.gd" id="2_an3lh"]
+[ext_resource type="AudioStream" uid="uid://cilay0xwylgkn" path="res://Assets/Audio/soundshelfstudio-sci-fi-system-blip-525671.mp3" id="3_m7j0f"]
+[ext_resource type="Texture2D" uid="uid://c38nihrqswwdp" path="res://Assets/Sprites/irsela_laceholder.jpg" id="4_lkpqo"]
+[ext_resource type="Script" uid="uid://cprsdu68b8n21" path="res://Scripts/cutscene_data.gd" id="5_3u171"]
+
+[sub_resource type="Resource" id="Resource_n3ma4"]
+script = ExtResource("2_an3lh")
+text = "Wow, you did better than I thought."
+blip = ExtResource("3_m7j0f")
+portrait = ExtResource("4_lkpqo")
+next_dialogue_index = 1
+metadata/_custom_type_script = "uid://dvl6mehpirn4w"
+
+[sub_resource type="Resource" id="Resource_i4nr5"]
+script = ExtResource("2_an3lh")
+text = "Guess I gotta pay you then."
+blip = ExtResource("3_m7j0f")
+portrait = ExtResource("4_lkpqo")
+next_dialogue_index = 2
+metadata/_custom_type_script = "uid://dvl6mehpirn4w"
+
+[sub_resource type="Resource" id="Resource_yqvb2"]
+script = ExtResource("2_an3lh")
+text = "Actually, I'm kinda broke, how about we have some cake instead?"
+blip = ExtResource("3_m7j0f")
+portrait = ExtResource("4_lkpqo")
+metadata/_custom_type_script = "uid://dvl6mehpirn4w"
+
+[resource]
+script = ExtResource("5_3u171")
+dialogues = Array[ExtResource("2_an3lh")]([SubResource("Resource_n3ma4"), SubResource("Resource_i4nr5"), SubResource("Resource_yqvb2")])
+metadata/_custom_type_script = "uid://cprsdu68b8n21"

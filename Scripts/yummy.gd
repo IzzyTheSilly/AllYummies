@@ -6,10 +6,11 @@ class_name Yummy
 @export var behaviour_timer: Timer
 @export var collision_shape: CollisionShape2D
 @export var animation_player: AnimationPlayer
+@export var animated_sprite: AnimatedSprite2D
 var target: Vector2 = Vector2.ZERO
-@export var speed: int = 15
-@export var hurry_factor: float = 1.8
-@export var wander_distance: int
+@export var speed: int = 65
+@export var hurry_factor: float = 2.5
+@export var wander_distance: int = 500
 @export var timer_average: float = 3.0
 @export var healthbar: TextureProgressBar
 @export var protected_healthbar_texture: Texture
@@ -92,19 +93,19 @@ func change_state(state: BehaviourState):
 			behaviour_timer.stop()
 		BehaviourState.IDLE:
 			target = position
-			animation_player.play("idle")
+			animation_player.play("idle", 0.1)
 			behaviour_timer.start(randf_range(timer_average - 0.7, timer_average - 0.5))
 		BehaviourState.WANDER:
 			target.x = randf_range(-wander_distance, wander_distance) + position.x
 			target.y = randf_range(-wander_distance, wander_distance) + position.y
-			animation_player.play("bounce")
+			animation_player.play("bounce", 0.1)
 			behaviour_timer.start(randf_range(timer_average - 0.1, timer_average + 0.1))
 		BehaviourState.FLEE:
-			animation_player.play("hurry")
+			animation_player.play("hurry", 0.05)
 			behaviour_timer.start(3.5)
 		BehaviourState.COLLECTING:
 			target = position
-			animation_player.play("collect")
+			animation_player.play("collect", 0.075)
 			behaviour_timer.stop()
 			collision_shape.disabled = true
 		BehaviourState.COLLECTED:
@@ -112,7 +113,7 @@ func change_state(state: BehaviourState):
 			behaviour_timer.stop()
 		BehaviourState.DROPPING:
 			show()
-			animation_player.play("drop")
+			animation_player.play("drop", 0.075)
 			GlobalData.remove_collected_yummy(self)
 			collision_shape.disabled = false
 
@@ -143,16 +144,22 @@ func health_zero():
 	match bummy_state:
 		BummyState.YUMMY:
 			bummy_state = BummyState.LOST
+			animated_sprite.frame = 1
+			add_speed(-10)
 			GlobalData.update_yummy_amount(-1, 0, true)
 			GlobalData.update_yummy_amount(1, 1, true)
 			set_health(3)
 		BummyState.LOST:
 			bummy_state = BummyState.GONER
+			animated_sprite.frame = 2
+			add_speed(-10)
 			GlobalData.update_yummy_amount(-1, 1, true)
 			GlobalData.update_yummy_amount(1, 2, true)
 			set_health(3)
 		BummyState.GONER:
 			bummy_state = BummyState.DAMNED
+			animated_sprite.frame = 3
+			add_speed(-10)
 			GlobalData.update_yummy_amount(-1, 2, true)
 			GlobalData.update_yummy_amount(1, 3, true)
 			set_health(50)

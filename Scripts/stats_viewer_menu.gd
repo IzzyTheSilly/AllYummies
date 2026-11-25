@@ -21,5 +21,5 @@ func update_stats():
 	bummies_count_label.text = "Bummies: " + str(GlobalData.total_bummies())
 	days_left_label.text = "Days Left: " + str(GlobalData.days_left)
 	yummies_rate_label.text = "Yummies/Min: " + str(GlobalData.yummies_rate)
-	chummies_count_label.text = "Chummies " + str(GlobalData.chummies)
+	chummies_count_label.text = "Chummies: " + str(GlobalData.chummies)
 	chummy_rate_label.text = "Chummies/Min: " + str(GlobalData.chummies_rate)

@@ -5,6 +5,7 @@
 [node name="GameManager" type="Node" unique_id=1903299399 node_paths=PackedStringArray("day_timer")]
 script = ExtResource("1_oj352")
 day_timer = NodePath("DayTimer")
+ending_cutscenes_ids = Array[String](["great_ending", "good_ending", "mid_ending", "bad_ending"])
 
 [node name="DayTimer" type="Timer" parent="." unique_id=676841427]
 one_shot = true

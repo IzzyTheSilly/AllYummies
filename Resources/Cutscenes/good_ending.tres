@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="CutsceneData" format=3 uid="uid://h3ejbbxw37wb"]
+
+[ext_resource type="Script" uid="uid://rdgx4kdiqt45" path="res://Scripts/dialogue_choice_data.gd" id="1_imnl6"]
+[ext_resource type="Script" uid="uid://dvl6mehpirn4w" path="res://Scripts/dialogue_data.gd" id="2_3loo8"]
+[ext_resource type="AudioStream" uid="uid://cilay0xwylgkn" path="res://Assets/Audio/soundshelfstudio-sci-fi-system-blip-525671.mp3" id="3_yhm1o"]
+[ext_resource type="Texture2D" uid="uid://c38nihrqswwdp" path="res://Assets/Sprites/irsela_laceholder.jpg" id="4_2gvke"]
+[ext_resource type="Script" uid="uid://cprsdu68b8n21" path="res://Scripts/cutscene_data.gd" id="5_1gm77"]
+
+[sub_resource type="Resource" id="Resource_q2vmv"]
+script = ExtResource("2_3loo8")
+text = "Not bad. Keep it up, I guess."
+blip = ExtResource("3_yhm1o")
+portrait = ExtResource("4_2gvke")
+next_dialogue_index = 1
+metadata/_custom_type_script = "uid://dvl6mehpirn4w"
+
+[sub_resource type="Resource" id="Resource_x1ssq"]
+script = ExtResource("2_3loo8")
+text = "I'm gonna take a breather, see ya."
+blip = ExtResource("3_yhm1o")
+portrait = ExtResource("4_2gvke")
+metadata/_custom_type_script = "uid://dvl6mehpirn4w"
+
+[resource]
+script = ExtResource("5_1gm77")
+dialogues = Array[ExtResource("2_3loo8")]([SubResource("Resource_q2vmv"), SubResource("Resource_x1ssq")])
+metadata/_custom_type_script = "uid://cprsdu68b8n21"

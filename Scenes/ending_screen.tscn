@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://bhbgcr6qc1q8h"]
+
+[ext_resource type="Script" uid="uid://sx1n1i3x6a82" path="res://Scripts/ending_screen.gd" id="1_uyldc"]
+
+[node name="EndingScreen" type="Control" unique_id=1118644805 node_paths=PackedStringArray("final_gdy_label", "score_label")]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uyldc")
+final_gdy_label = NodePath("FinalGDYLabel")
+score_label = NodePath("ScoreLabel")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1479445722]
+layout_mode = 0
+offset_left = -51.0
+offset_top = -30.0
+offset_right = 374.0
+offset_bottom = 372.0
+color = Color(0, 0, 0, 1)
+
+[node name="FinalGDYLabel" type="RichTextLabel" parent="." unique_id=750932442]
+visible = false
+layout_mode = 0
+offset_left = 28.0
+offset_top = 10.0
+offset_right = 298.0
+offset_bottom = 111.0
+theme_override_font_sizes/normal_font_size = 25
+text = "Final Gross Domestic Yummy (GDY):"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreLabel" type="RichTextLabel" parent="." unique_id=1142828538]
+visible = false
+layout_mode = 0
+offset_top = 109.0
+offset_right = 319.0
+offset_bottom = 301.0
+theme_override_font_sizes/normal_font_size = 84
+text = "124"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,10 +1,22 @@
 [gd_scene format=3 uid="uid://clrjk2d7w4s10"]
 
-[ext_resource type="Texture2D" uid="uid://c3w0t1m1fe2mj" path="res://Assets/Sprites/icon.svg" id="1_4xhlt"]
 [ext_resource type="Script" uid="uid://dtqhr2uiu1flh" path="res://Scripts/yummy.gd" id="1_wsthx"]
 [ext_resource type="AudioStream" uid="uid://bert5gh3oxnal" path="res://Assets/Audio/koiroylers-get-coin-351945.mp3" id="2_wmkog"]
-[ext_resource type="Texture2D" uid="uid://46i3nqtioiuf" path="res://Assets/Sprites/yummy_test.png" id="3_osvtb"]
 [ext_resource type="Texture2D" uid="uid://cx2lp6xcmxo6f" path="res://Assets/Sprites/yummy_spritesheet.png" id="5_ex11a"]
+
+[sub_resource type="Gradient" id="Gradient_ve61t"]
+offsets = PackedFloat32Array(0.009259259)
+colors = PackedColorArray(0, 0, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ve61t"]
+gradient = SubResource("Gradient_ve61t")
+
+[sub_resource type="Gradient" id="Gradient_osvtb"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_wmkog"]
+gradient = SubResource("Gradient_osvtb")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ex11a"]
 atlas = ExtResource("5_ex11a")
@@ -15,28 +27,172 @@ size = Vector2(24, 27)
 
 [sub_resource type="Animation" id="Animation_osvtb"]
 length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -8)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.99999994, 0.99999994)]
+}
 
 [sub_resource type="Animation" id="Animation_ve61t"]
 resource_name = "bounce"
 length = 0.5
 loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -8), Vector2(2.9802322e-07, -2.5000005), Vector2(0, -14.999999), Vector2(3.5762787e-07, -22), Vector2(0, -13), Vector2(0, -8)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.99999994, 0.99999994), Vector2(1.3, 0.44999996), Vector2(0.4, 1.4000001), Vector2(0.9, 1), Vector2(0.59999996, 1.075), Vector2(0.9999999, 0.99999994)]
+}
 
 [sub_resource type="Animation" id="Animation_ex11a"]
 resource_name = "collect"
 length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -8), Vector2(-1.0430813e-06, -15.5), Vector2(0, -16), Vector2(-5.364418e-07, -16.75), Vector2(-5.9604645e-07, -16.75), Vector2(0.16642451, -16.75)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.99999994, 0.99999994), Vector2(1.0999999, 0.9499999), Vector2(-1.1, 0.95), Vector2(0.99999994, 1.025), Vector2(-0.8, 1.025), Vector2(-0.017807676, 1.025)]
+}
 
 [sub_resource type="Animation" id="Animation_wmkog"]
 resource_name = "drop"
 length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.35, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -21), Vector2(0, -8), Vector2(-2.842171e-14, -11.75), Vector2(0, -8)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.35, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.99999994, 0.99999994), Vector2(1.4999999, 0.7499999), Vector2(1, 1.025), Vector2(1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_rbvt0"]
 resource_name = "hurry"
 length = 0.25
 loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -8), Vector2(5.9604645e-08, -5.5), Vector2(0, -8)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.99999994, 0.99999994), Vector2(1.1999999, 0.74999994), Vector2(0.99999994, 0.99999994)]
+}
 
 [sub_resource type="Animation" id="Animation_um3do"]
 resource_name = "idle"
 loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.75, 1),
+"transitions": PackedFloat32Array(0.5, -2, 2, 2),
+"update": 0,
+"values": [Vector2(0, -8), Vector2(3, -8), Vector2(-3, -8), Vector2(0, -8)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.75, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.99999994, 0.99999994), Vector2(0.99999994, 0.99999994), Vector2(0.99999994, 0.99999994), Vector2(0.99999994, 0.99999994)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ex11a"]
 _data = {
@@ -84,12 +240,19 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_ex11a"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(1, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ex11a"]
+gradient = SubResource("Gradient_ex11a")
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_ir5lp"]
 radius = 58.137768
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q1q2r"]
 
-[node name="Yummy" type="CharacterBody2D" unique_id=743098894 node_paths=PackedStringArray("behaviour_timer", "collision_shape", "animation_player", "healthbar")]
+[node name="Yummy" type="CharacterBody2D" unique_id=743098894 node_paths=PackedStringArray("behaviour_timer", "collision_shape", "animation_player", "animated_sprite", "healthbar")]
 z_as_relative = false
 y_sort_enabled = true
 collision_layer = 8
@@ -100,12 +263,10 @@ script = ExtResource("1_wsthx")
 behaviour_timer = NodePath("BehaviourTimer")
 collision_shape = NodePath("CollisionShape2D")
 animation_player = NodePath("AnimationPlayer")
-speed = 65
-hurry_factor = 2.5
-wander_distance = 500
+animated_sprite = NodePath("AnimatedSprite2D")
 healthbar = NodePath("Control/Healthbar")
-protected_healthbar_texture = ExtResource("1_4xhlt")
-unprotected_healthbar_texture = ExtResource("3_osvtb")
+protected_healthbar_texture = SubResource("GradientTexture1D_ve61t")
+unprotected_healthbar_texture = SubResource("GradientTexture1D_wmkog")
 collect_sfx = ExtResource("2_wmkog")
 
 [node name="Shadow" type="Sprite2D" parent="." unique_id=1871059682]
@@ -149,7 +310,7 @@ anchor_bottom = 1.0
 offset_left = -14.0
 offset_top = -37.0
 offset_right = -26.0
-offset_bottom = -71.0
+offset_bottom = -73.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
@@ -157,7 +318,7 @@ size_flags_vertical = 3
 max_value = 5.0
 value = 5.0
 nine_patch_stretch = true
-texture_progress = ExtResource("3_osvtb")
+texture_progress = SubResource("GradientTexture1D_ex11a")
 
 [node name="PlayerDetectArea" type="Area2D" parent="." unique_id=1254467078]
 collision_layer = 0

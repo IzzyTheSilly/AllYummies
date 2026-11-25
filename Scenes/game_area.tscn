@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://done4h7682hoh" path="res://Scenes/stats_viewer_menu.tscn" id="6_kck4e"]
 [ext_resource type="PackedScene" uid="uid://clvmordcdxpug" path="res://Scenes/notifications.tscn" id="7_h5xn8"]
 [ext_resource type="PackedScene" uid="uid://c7tbpm1j5yyue" path="res://Scenes/trading_station_menu.tscn" id="8_1q60n"]
+[ext_resource type="PackedScene" uid="uid://bhbgcr6qc1q8h" path="res://Scenes/ending_screen.tscn" id="9_x6fr2"]
 [ext_resource type="PackedScene" uid="uid://clrjk2d7w4s10" path="res://Scenes/yummy.tscn" id="10_hmx0y"]
 [ext_resource type="PackedScene" uid="uid://00fgrhqqgfld" path="res://Scenes/exterminator.tscn" id="12_oxg1x"]
 [ext_resource type="PackedScene" uid="uid://d4arwf6nu8j8l" path="res://Scenes/yummy_spawner.tscn" id="13_0rene"]
@@ -131,6 +132,7 @@ y_sort_enabled = true
 
 [node name="DialogueBox" parent="PlayerCharacter/Camera2D" unique_id=572266800 instance=ExtResource("3_3x2t2")]
 visible = false
+z_index = 5
 offset_left = -160.0
 offset_top = -160.0
 offset_right = -160.0
@@ -177,6 +179,13 @@ offset_left = -164.0
 offset_top = -179.0
 offset_right = -164.0
 offset_bottom = -179.0
+
+[node name="EndingScreen" parent="PlayerCharacter/Camera2D" unique_id=1118644805 instance=ExtResource("9_x6fr2")]
+z_index = 4
+offset_left = -160.0
+offset_top = -176.0
+offset_right = -160.0
+offset_bottom = -176.0
 
 [node name="StatsViewer" parent="." unique_id=2133314408 instance=ExtResource("4_yojay")]
 position = Vector2(-2, -979)

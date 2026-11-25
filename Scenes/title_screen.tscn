@@ -242,7 +242,7 @@ border_width_top = 4
 border_width_right = 4
 border_width_bottom = 4
 
-[node name="TitleScreen" type="Control" unique_id=760275859]
+[node name="TitleScreen" type="Control" unique_id=760275859 node_paths=PackedStringArray("black_screen")]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -256,6 +256,7 @@ offset_bottom = -160.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ak2if")
+black_screen = NodePath("BlackScreen")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=995333620]
 modulate = Color(1, 1, 1, 0.19607843)
@@ -322,6 +323,12 @@ offset_left = 40.0
 offset_top = -260.0
 offset_right = 280.0
 offset_bottom = -20.0
+
+[node name="BlackScreen" type="ColorRect" parent="." unique_id=164489390]
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 321.0
+color = Color(0, 0, 0, 1)
 
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="OptionsButton" to="." method="_on_options_button_pressed"]

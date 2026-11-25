@@ -17,7 +17,7 @@ var less_vfx: bool = false
 
 # Gameplay
 var day_amount: int = 1
-var day_length: float = 20
+var day_length: float = 0.3
 var start_yummies: int = 20
 var start_chummies: int = 3
 var start_yummies_rate: int = 10
@@ -28,11 +28,11 @@ var yummy_interest_average: float = 1.1
 
 
 """Game Stats"""
-var yummies: int = start_yummies
+var yummies: int = 0
 var bummies_lost: int = 0
 var bummies_goner: int = 0
 var bummies_damned: int = 0
-var chummies: int = start_chummies
+var chummies: int = 0
 var gross_domestic_yummy: int = yummies - bummies_lost - 2*bummies_goner - 5*bummies_damned
 
 ##New yummy production rate per minute.
@@ -119,17 +119,20 @@ func add_chummy_efficiency(amount: int):
 
 
 func reset_game_stats():
-	yummies = start_yummies
+	yummies_list.clear()
+	collected_yummies_list.clear()
+	yummies = 0
 	bummies_lost = 0
 	bummies_goner = 0
 	bummies_damned = 0
-	chummies = start_chummies
+	chummies = 0
 	yummies_rate = start_yummies_rate
 	chummies_rate =  start_chummies_rate
 	chummy_efficiency = start_chummy_efficiency
 	yummies_in_stock_market = 0
 	max_yummy_pull = 5
 	yummy_interest = yummy_interest_average
+	max_collected_yummies = 5
 	update_gdy()
 
 
@@ -139,7 +142,7 @@ func reset_game_stats():
 
 func reset_local_flags():
 	for flag in local_flags:
-		local_flags[flag] = false
+		local_flags[flag] = 0
 
 
 """Global Flags"""

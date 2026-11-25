@@ -5,6 +5,8 @@ signal game_start
 signal game_end
 
 @export var day_timer: Timer
+var ending_screen: EndingScreen
+@export var ending_cutscenes_ids: Array[String]
 
 
 ##Not in the title screen.
@@ -27,6 +29,26 @@ func start_game():
 func end_game():
 	game_end.emit()
 	stop_day_timer()
+	var end_screen_tween: Tween = get_tree().create_tween()
+	end_screen_tween.tween_property(ending_screen, "modulate", Color(255, 255, 255), 3)
+	await end_screen_tween.finished
+	var score: int = GlobalData.update_gdy()
+	await ending_screen.show_score(score)
+	
+	if score > 100:
+		await CutsceneHandler.show_cutscene(ending_cutscenes_ids[0])
+	elif score > 50:
+		await CutsceneHandler.show_cutscene(ending_cutscenes_ids[1])
+	elif score > 20:
+		await CutsceneHandler.show_cutscene(ending_cutscenes_ids[2])
+	elif score < 0:
+		await CutsceneHandler.show_cutscene(ending_cutscenes_ids[3])
+	
+	ending_screen.hide_score()
+	await get_tree().create_timer(2).timeout
+	GlobalData.reset_game_stats()
+	GlobalData.reset_local_flags()
+	get_tree().change_scene_to_file("res://Scenes/title_screen.tscn")
 
 
 func reset_day_timer():

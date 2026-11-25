@@ -29,7 +29,6 @@ func end():
 
 func _on_timer_timeout() -> void:
 	var yummy: Yummy = spawn_yummy()
-	GlobalData.add_yummy(yummy)
 	yummy.start()
 	print("add yummy")
 	update_spawn_rate()
@@ -43,6 +42,7 @@ func spawn_yummy() -> Yummy:
 	pos.y = randf_range(-range_y, range_y) + position.y
 	yummy.position = pos
 	yummy_spawn_node.add_child(yummy)
+	GlobalData.add_yummy(yummy)
 	return yummy
 
 

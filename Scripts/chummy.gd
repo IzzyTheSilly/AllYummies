@@ -16,17 +16,18 @@ var target: Vector2
 func _ready() -> void:
 	GameManager.game_start.connect(start)
 	GameManager.game_end.connect(end)
-	try_protect_yummies()
 	GlobalData.yummies_list_updated.connect(_on_yummies_list_updated)
 	GlobalData.chummy_efficiency_changed.connect(_on_chummy_efficiency_changed)
 	behaviour_timer.stop()
 	
 	var random_cutscene: int = randi_range(0, 2)
-	print(random_cutscene)
 	match random_cutscene:
 		0: cutscene_ids[0] = "chummy_1"
 		1: cutscene_ids[0] = "chummy_2"
 		2: cutscene_ids[0] = "chummy_3"
+	
+	await get_tree().create_timer(0.5).timeout
+	try_protect_yummies()
 
 
 func start():
@@ -68,10 +69,13 @@ func change_state(state: BehaviourState):
 
 
 func try_protect_yummies():
+	print(GlobalData.yummies_list.size())
 	for i in range(GlobalData.yummies_list.size()):
 		if yummy_protection_count >= GlobalData.chummy_efficiency:
+			print("full")
 			break
-		if GlobalData.yummies_list[i].chummy != null or GlobalData.yummies_list[i].bummy_state != Yummy.BummyState.YUMMY:
+		if GlobalData.yummies_list[i].chummy or GlobalData.yummies_list[i].bummy_state != Yummy.BummyState.YUMMY:
+			print("unqualified")
 			continue
 		GlobalData.yummies_list[i].set_chummy(self)
 		yummy_protection_count = yummy_protection_count + 1
