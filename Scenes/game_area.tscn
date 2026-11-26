@@ -14,11 +14,9 @@
 [ext_resource type="PackedScene" uid="uid://clvmordcdxpug" path="res://Scenes/notifications.tscn" id="7_h5xn8"]
 [ext_resource type="PackedScene" uid="uid://c7tbpm1j5yyue" path="res://Scenes/trading_station_menu.tscn" id="8_1q60n"]
 [ext_resource type="PackedScene" uid="uid://bhbgcr6qc1q8h" path="res://Scenes/ending_screen.tscn" id="9_x6fr2"]
-[ext_resource type="PackedScene" uid="uid://clrjk2d7w4s10" path="res://Scenes/yummy.tscn" id="10_hmx0y"]
 [ext_resource type="PackedScene" uid="uid://c8hhfg3on3ylr" path="res://Scenes/investing_station_menu.tscn" id="10_s4h4n"]
 [ext_resource type="PackedScene" uid="uid://00fgrhqqgfld" path="res://Scenes/exterminator.tscn" id="12_oxg1x"]
 [ext_resource type="PackedScene" uid="uid://d4arwf6nu8j8l" path="res://Scenes/yummy_spawner.tscn" id="13_0rene"]
-[ext_resource type="PackedScene" uid="uid://bvtvc516nes6d" path="res://Scenes/chummy.tscn" id="13_yojay"]
 [ext_resource type="PackedScene" uid="uid://mdyshypq7i2r" path="res://Scenes/chummy_spawner.tscn" id="16_f5v12"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q1q2r"]
@@ -138,12 +136,13 @@ offset_left = -160.0
 offset_top = -160.0
 offset_right = -160.0
 offset_bottom = -160.0
+mouse_filter = 2
 
 [node name="OptionsMenu" parent="PlayerCharacter/Camera2D" unique_id=142809403 instance=ExtResource("3_87rxc")]
-offset_left = -120.0
-offset_top = -420.0
-offset_right = 120.0
-offset_bottom = -180.0
+offset_left = -164.0
+offset_top = -466.0
+offset_right = 76.0
+offset_bottom = -226.0
 metadata/_edit_use_anchors_ = true
 
 [node name="DayTimeLeft" parent="PlayerCharacter/Camera2D" unique_id=2020280063 instance=ExtResource("4_kqlyn")]
@@ -158,6 +157,7 @@ offset_left = -60.0
 offset_top = -245.0
 offset_right = -60.0
 offset_bottom = -245.0
+mouse_filter = 2
 
 [node name="StatsViewerMenu" parent="PlayerCharacter/Camera2D" unique_id=439564388 instance=ExtResource("6_kck4e")]
 visible = false
@@ -167,11 +167,10 @@ offset_right = -157.0
 offset_bottom = -165.0
 
 [node name="Notifications" parent="PlayerCharacter/Camera2D" unique_id=1314199842 instance=ExtResource("7_h5xn8")]
-visible = false
 offset_left = -149.0
-offset_top = -39.0
+offset_top = -18.0
 offset_right = 10.0
-offset_bottom = 130.0
+offset_bottom = 151.0
 
 [node name="TradingStationMenu" parent="PlayerCharacter/Camera2D" unique_id=115795911 instance=ExtResource("8_1q60n")]
 visible = false
@@ -186,6 +185,9 @@ offset_left = -160.0
 offset_top = -176.0
 offset_right = -160.0
 offset_bottom = -176.0
+mouse_filter = 2
+mouse_behavior_recursive = 1
+metadata/_edit_lock_ = true
 
 [node name="InvestingStationMenu" parent="PlayerCharacter/Camera2D" unique_id=599790385 instance=ExtResource("10_s4h4n")]
 visible = false
@@ -203,8 +205,9 @@ position = Vector2(-307, -982)
 [node name="InvestingStation" parent="." unique_id=1606015159 instance=ExtResource("6_5lkcg")]
 position = Vector2(330, -984)
 
-[node name="Irsela" parent="." unique_id=1623085982 instance=ExtResource("5_87rxc")]
+[node name="Irsela" parent="." unique_id=1623085982 node_paths=PackedStringArray("player") instance=ExtResource("5_87rxc")]
 position = Vector2(36, -320)
+player = NodePath("../PlayerCharacter")
 
 [node name="Exterminator" parent="." unique_id=403435086 instance=ExtResource("12_oxg1x")]
 position = Vector2(437, -345)
@@ -422,10 +425,6 @@ chummy_parent_node = NodePath("../Chummies")
 z_as_relative = false
 y_sort_enabled = true
 
-[node name="Yummy" parent="Yummies" unique_id=1187216461 instance=ExtResource("10_hmx0y")]
-position = Vector2(-91, -768)
-
 [node name="Chummies" type="Node2D" parent="." unique_id=1491520800]
-
-[node name="Chummy" parent="Chummies" unique_id=486724092 instance=ExtResource("13_yojay")]
-position = Vector2(231, -800)
+z_as_relative = false
+y_sort_enabled = true

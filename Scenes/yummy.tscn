@@ -22,6 +22,10 @@ gradient = SubResource("Gradient_osvtb")
 atlas = ExtResource("5_ex11a")
 region = Rect2(20, 20, 20, 20)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ir5lp"]
+atlas = ExtResource("5_ex11a")
+region = Rect2(40, 20, 20, 20)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ir5lp"]
 size = Vector2(24, 27)
 
@@ -252,7 +256,7 @@ radius = 58.137768
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q1q2r"]
 
-[node name="Yummy" type="CharacterBody2D" unique_id=743098894 node_paths=PackedStringArray("behaviour_timer", "collision_shape", "animation_player", "animated_sprite", "healthbar")]
+[node name="Yummy" type="CharacterBody2D" unique_id=743098894 node_paths=PackedStringArray("behaviour_timer", "collision_shape", "animation_player", "animated_sprite", "healthbar", "protection_sprite")]
 z_as_relative = false
 y_sort_enabled = true
 collision_layer = 8
@@ -267,6 +271,7 @@ animated_sprite = NodePath("AnimatedSprite2D")
 healthbar = NodePath("Control/Healthbar")
 protected_healthbar_texture = SubResource("GradientTexture1D_ve61t")
 unprotected_healthbar_texture = SubResource("GradientTexture1D_wmkog")
+protection_sprite = NodePath("Protection")
 collect_sfx = ExtResource("2_wmkog")
 
 [node name="Shadow" type="Sprite2D" parent="." unique_id=1871059682]
@@ -276,6 +281,11 @@ y_sort_enabled = true
 position = Vector2(2.2737368e-13, -6)
 scale = Vector2(1.0000001, 0.99453115)
 texture = SubResource("AtlasTexture_ex11a")
+
+[node name="Protection" type="Sprite2D" parent="." unique_id=464563885]
+visible = false
+position = Vector2(0, -8)
+texture = SubResource("AtlasTexture_ir5lp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1739644351]
 visible = false
@@ -303,6 +313,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Healthbar" type="TextureProgressBar" parent="Control" unique_id=920276548]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

@@ -43,7 +43,7 @@ func invest_yummy():
 	if collected_yummies_list.size() == 0:
 		change_tip_text("No yummies in inventory!")
 		return
-	elif GlobalData.yummies_in_stock_market >= GlobalData.max_collected_yummies:
+	elif GlobalData.yummies_in_stock_market >= GlobalData.max_yummy_invest:
 		change_tip_text("Investing station is full!")
 		return
 	for i in range(collected_yummies_list.size()):
@@ -53,7 +53,8 @@ func invest_yummy():
 			stock_values.append(stock_value)
 			change_tip_text("Yummy invested!")
 			update_yummies_in_stock()
-			break
+			return
+	change_tip_text("No yummies in inventory!")
 
 
 func pull_yummy():
@@ -87,7 +88,7 @@ func change_tip_text(text: String, time: float = 1.5):
 
 func _on_stock_value_update_timer_timeout() -> void:
 	stock_value = stock_value * GlobalData.yummy_interest_average
-	stock_value_label.text = "Stock Value: " + str(stock_value)
+	stock_value_label.text = "Stock Value: %.3f" % stock_value
 
 
 func update_yummies_in_stock():

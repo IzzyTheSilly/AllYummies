@@ -14,14 +14,13 @@ func _ready() -> void:
 	GameManager.game_end.connect(end)
 	GlobalData.chummies_rate_changed.connect(_on_chummies_rate_changed)
 	timer.stop()
-	timer.wait_time = 60/GlobalData.chummies_rate
 	GlobalData.chummies_added.connect(_on_chummies_added)
 	for i in range(GlobalData.start_chummies):
 		GlobalData.add_chummy(1)
 
 
 func start():
-	timer.start()
+	update_timer_wait_time()
 
 
 func end():
@@ -29,8 +28,16 @@ func end():
 
 
 func _on_timer_timeout() -> void:
-	timer.wait_time = 60/GlobalData.chummies_rate
+	update_timer_wait_time()
 	GlobalData.add_chummy(1)
+
+
+func update_timer_wait_time():
+	if GlobalData.chummies_rate:
+		timer.wait_time = 60/GlobalData.chummies_rate
+		timer.start()
+	else:
+		timer.stop()
 
 
 func _on_chummies_added(amount: int):

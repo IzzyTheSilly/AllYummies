@@ -1,246 +1,54 @@
 [gd_scene format=3 uid="uid://dtdhh2c0iid0k"]
 
 [ext_resource type="Script" uid="uid://cbwu61n2n4bhm" path="res://Scripts/title_screen.gd" id="1_ak2if"]
-[ext_resource type="Texture2D" uid="uid://dehx21vg6a76g" path="res://Assets/Sprites/titlescreenbgplaceholder.jpg" id="1_v6p8y"]
+[ext_resource type="Texture2D" uid="uid://c265pofy7r4dv" path="res://Assets/Sprites/title_screen_bg.png" id="2_twnyg"]
 [ext_resource type="PackedScene" uid="uid://bfftyyryl7vdc" path="res://Scenes/options_menu.tscn" id="3_4gxqj"]
-
-[sub_resource type="FontFile" id="FontFile_q1q2r"]
-cache/0/variation_coordinates = {}
-cache/0/face_index = 0
-cache/0/embolden = 0.0
-cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
-cache/0/spacing_top = 0
-cache/0/spacing_bottom = 0
-cache/0/spacing_space = 0
-cache/0/spacing_glyph = 0
-cache/0/baseline_offset = 0.0
-cache/0/16/0/ascent = 0.0
-cache/0/16/0/descent = 0.0
-cache/0/16/0/underline_position = 0.0
-cache/0/16/0/underline_thickness = 0.0
-cache/0/16/0/scale = 1.0
-cache/0/56/0/ascent = 0.0
-cache/0/56/0/descent = 0.0
-cache/0/56/0/underline_position = 0.0
-cache/0/56/0/underline_thickness = 0.0
-cache/0/56/0/scale = 1.0
-cache/0/57/0/ascent = 0.0
-cache/0/57/0/descent = 0.0
-cache/0/57/0/underline_position = 0.0
-cache/0/57/0/underline_thickness = 0.0
-cache/0/57/0/scale = 1.0
-cache/0/58/0/ascent = 0.0
-cache/0/58/0/descent = 0.0
-cache/0/58/0/underline_position = 0.0
-cache/0/58/0/underline_thickness = 0.0
-cache/0/58/0/scale = 1.0
-cache/0/59/0/ascent = 0.0
-cache/0/59/0/descent = 0.0
-cache/0/59/0/underline_position = 0.0
-cache/0/59/0/underline_thickness = 0.0
-cache/0/59/0/scale = 1.0
-cache/0/60/0/ascent = 0.0
-cache/0/60/0/descent = 0.0
-cache/0/60/0/underline_position = 0.0
-cache/0/60/0/underline_thickness = 0.0
-cache/0/60/0/scale = 1.0
-cache/0/61/0/ascent = 0.0
-cache/0/61/0/descent = 0.0
-cache/0/61/0/underline_position = 0.0
-cache/0/61/0/underline_thickness = 0.0
-cache/0/61/0/scale = 1.0
-cache/0/62/0/ascent = 0.0
-cache/0/62/0/descent = 0.0
-cache/0/62/0/underline_position = 0.0
-cache/0/62/0/underline_thickness = 0.0
-cache/0/62/0/scale = 1.0
-cache/0/63/0/ascent = 0.0
-cache/0/63/0/descent = 0.0
-cache/0/63/0/underline_position = 0.0
-cache/0/63/0/underline_thickness = 0.0
-cache/0/63/0/scale = 1.0
-cache/0/64/0/ascent = 0.0
-cache/0/64/0/descent = 0.0
-cache/0/64/0/underline_position = 0.0
-cache/0/64/0/underline_thickness = 0.0
-cache/0/64/0/scale = 1.0
-cache/0/65/0/ascent = 0.0
-cache/0/65/0/descent = 0.0
-cache/0/65/0/underline_position = 0.0
-cache/0/65/0/underline_thickness = 0.0
-cache/0/65/0/scale = 1.0
-cache/0/66/0/ascent = 0.0
-cache/0/66/0/descent = 0.0
-cache/0/66/0/underline_position = 0.0
-cache/0/66/0/underline_thickness = 0.0
-cache/0/66/0/scale = 1.0
-cache/0/67/0/ascent = 0.0
-cache/0/67/0/descent = 0.0
-cache/0/67/0/underline_position = 0.0
-cache/0/67/0/underline_thickness = 0.0
-cache/0/67/0/scale = 1.0
-cache/0/68/0/ascent = 0.0
-cache/0/68/0/descent = 0.0
-cache/0/68/0/underline_position = 0.0
-cache/0/68/0/underline_thickness = 0.0
-cache/0/68/0/scale = 1.0
-cache/0/69/0/ascent = 0.0
-cache/0/69/0/descent = 0.0
-cache/0/69/0/underline_position = 0.0
-cache/0/69/0/underline_thickness = 0.0
-cache/0/69/0/scale = 1.0
-cache/0/70/0/ascent = 0.0
-cache/0/70/0/descent = 0.0
-cache/0/70/0/underline_position = 0.0
-cache/0/70/0/underline_thickness = 0.0
-cache/0/70/0/scale = 1.0
-cache/0/71/0/ascent = 0.0
-cache/0/71/0/descent = 0.0
-cache/0/71/0/underline_position = 0.0
-cache/0/71/0/underline_thickness = 0.0
-cache/0/71/0/scale = 1.0
-cache/0/72/0/ascent = 0.0
-cache/0/72/0/descent = 0.0
-cache/0/72/0/underline_position = 0.0
-cache/0/72/0/underline_thickness = 0.0
-cache/0/72/0/scale = 1.0
-cache/0/73/0/ascent = 0.0
-cache/0/73/0/descent = 0.0
-cache/0/73/0/underline_position = 0.0
-cache/0/73/0/underline_thickness = 0.0
-cache/0/73/0/scale = 1.0
-cache/0/74/0/ascent = 0.0
-cache/0/74/0/descent = 0.0
-cache/0/74/0/underline_position = 0.0
-cache/0/74/0/underline_thickness = 0.0
-cache/0/74/0/scale = 1.0
-cache/0/75/0/ascent = 0.0
-cache/0/75/0/descent = 0.0
-cache/0/75/0/underline_position = 0.0
-cache/0/75/0/underline_thickness = 0.0
-cache/0/75/0/scale = 1.0
-cache/0/76/0/ascent = 0.0
-cache/0/76/0/descent = 0.0
-cache/0/76/0/underline_position = 0.0
-cache/0/76/0/underline_thickness = 0.0
-cache/0/76/0/scale = 1.0
-cache/0/77/0/ascent = 0.0
-cache/0/77/0/descent = 0.0
-cache/0/77/0/underline_position = 0.0
-cache/0/77/0/underline_thickness = 0.0
-cache/0/77/0/scale = 1.0
-cache/0/78/0/ascent = 0.0
-cache/0/78/0/descent = 0.0
-cache/0/78/0/underline_position = 0.0
-cache/0/78/0/underline_thickness = 0.0
-cache/0/78/0/scale = 1.0
-cache/0/79/0/ascent = 0.0
-cache/0/79/0/descent = 0.0
-cache/0/79/0/underline_position = 0.0
-cache/0/79/0/underline_thickness = 0.0
-cache/0/79/0/scale = 1.0
-cache/0/80/0/ascent = 0.0
-cache/0/80/0/descent = 0.0
-cache/0/80/0/underline_position = 0.0
-cache/0/80/0/underline_thickness = 0.0
-cache/0/80/0/scale = 1.0
-cache/0/81/0/ascent = 0.0
-cache/0/81/0/descent = 0.0
-cache/0/81/0/underline_position = 0.0
-cache/0/81/0/underline_thickness = 0.0
-cache/0/81/0/scale = 1.0
-cache/0/82/0/ascent = 0.0
-cache/0/82/0/descent = 0.0
-cache/0/82/0/underline_position = 0.0
-cache/0/82/0/underline_thickness = 0.0
-cache/0/82/0/scale = 1.0
-cache/0/83/0/ascent = 0.0
-cache/0/83/0/descent = 0.0
-cache/0/83/0/underline_position = 0.0
-cache/0/83/0/underline_thickness = 0.0
-cache/0/83/0/scale = 1.0
-cache/0/84/0/ascent = 0.0
-cache/0/84/0/descent = 0.0
-cache/0/84/0/underline_position = 0.0
-cache/0/84/0/underline_thickness = 0.0
-cache/0/84/0/scale = 1.0
-cache/0/85/0/ascent = 0.0
-cache/0/85/0/descent = 0.0
-cache/0/85/0/underline_position = 0.0
-cache/0/85/0/underline_thickness = 0.0
-cache/0/85/0/scale = 1.0
-cache/0/86/0/ascent = 0.0
-cache/0/86/0/descent = 0.0
-cache/0/86/0/underline_position = 0.0
-cache/0/86/0/underline_thickness = 0.0
-cache/0/86/0/scale = 1.0
-cache/0/87/0/ascent = 0.0
-cache/0/87/0/descent = 0.0
-cache/0/87/0/underline_position = 0.0
-cache/0/87/0/underline_thickness = 0.0
-cache/0/87/0/scale = 1.0
-cache/0/55/0/ascent = 0.0
-cache/0/55/0/descent = 0.0
-cache/0/55/0/underline_position = 0.0
-cache/0/55/0/underline_thickness = 0.0
-cache/0/55/0/scale = 1.0
-cache/0/54/0/ascent = 0.0
-cache/0/54/0/descent = 0.0
-cache/0/54/0/underline_position = 0.0
-cache/0/54/0/underline_thickness = 0.0
-cache/0/54/0/scale = 1.0
-cache/0/53/0/ascent = 0.0
-cache/0/53/0/descent = 0.0
-cache/0/53/0/underline_position = 0.0
-cache/0/53/0/underline_thickness = 0.0
-cache/0/53/0/scale = 1.0
-cache/0/52/0/ascent = 0.0
-cache/0/52/0/descent = 0.0
-cache/0/52/0/underline_position = 0.0
-cache/0/52/0/underline_thickness = 0.0
-cache/0/52/0/scale = 1.0
-cache/0/51/0/ascent = 0.0
-cache/0/51/0/descent = 0.0
-cache/0/51/0/underline_position = 0.0
-cache/0/51/0/underline_thickness = 0.0
-cache/0/51/0/scale = 1.0
-cache/0/50/0/ascent = 0.0
-cache/0/50/0/descent = 0.0
-cache/0/50/0/underline_position = 0.0
-cache/0/50/0/underline_thickness = 0.0
-cache/0/50/0/scale = 1.0
-cache/0/49/0/ascent = 0.0
-cache/0/49/0/descent = 0.0
-cache/0/49/0/underline_position = 0.0
-cache/0/49/0/underline_thickness = 0.0
-cache/0/49/0/scale = 1.0
-cache/0/48/0/ascent = 0.0
-cache/0/48/0/descent = 0.0
-cache/0/48/0/underline_position = 0.0
-cache/0/48/0/underline_thickness = 0.0
-cache/0/48/0/scale = 1.0
-cache/0/47/0/ascent = 0.0
-cache/0/47/0/descent = 0.0
-cache/0/47/0/underline_position = 0.0
-cache/0/47/0/underline_thickness = 0.0
-cache/0/47/0/scale = 1.0
-cache/0/46/0/ascent = 0.0
-cache/0/46/0/descent = 0.0
-cache/0/46/0/underline_position = 0.0
-cache/0/46/0/underline_thickness = 0.0
-cache/0/46/0/scale = 1.0
-
-[sub_resource type="LabelSettings" id="LabelSettings_ir5lp"]
-line_spacing = -20.0
-font = SubResource("FontFile_q1q2r")
-font_size = 46
+[ext_resource type="FontFile" uid="uid://cdi5mwn3e6k61" path="res://Assets/Fonts/yoster.ttf" id="3_55kwv"]
+[ext_resource type="Texture2D" uid="uid://cfjexhoxs0ead" path="res://Assets/Sprites/title_sprite.png" id="4_twnyg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o0f8b"]
-bg_color = Color(0, 0, 0, 1)
+bg_color = Color(0.8267661, 0.5772089, 1, 1)
 border_width_left = 4
 border_width_top = 4
 border_width_right = 4
 border_width_bottom = 4
+border_color = Color(0.91050386, 0.8163334, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_twnyg"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.5924076, 0.0023495508, 0.8297139, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.7488047, 0.4110782, 0.9999965, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_55kwv"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.7765097, 0.4117934, 1, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.84579843, 0.6729353, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [node name="TitleScreen" type="Control" unique_id=760275859 node_paths=PackedStringArray("black_screen")]
 layout_mode = 3
@@ -258,77 +66,86 @@ grow_vertical = 2
 script = ExtResource("1_ak2if")
 black_screen = NodePath("BlackScreen")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=995333620]
-modulate = Color(1, 1, 1, 0.19607843)
+[node name="TItleScreenBG" type="TextureRect" parent="." unique_id=995333620]
+modulate = Color(1, 1, 1, 0.4627451)
 z_index = -1
 layout_mode = 0
 offset_right = 318.0
 offset_bottom = 322.0
-texture = ExtResource("1_v6p8y")
+mouse_filter = 2
+texture = ExtResource("2_twnyg")
 expand_mode = 1
-
-[node name="TitlePlaceholder" type="Label" parent="." unique_id=1508573590]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = 57.0
-offset_top = 4.0
-offset_right = 435.0
-offset_bottom = 186.0
-grow_horizontal = 2
-text = "100% ALL
-YUMMIES"
-label_settings = SubResource("LabelSettings_ir5lp")
 
 [node name="PlayButton" type="Button" parent="." unique_id=1255124297]
 layout_mode = 0
-offset_left = 24.0
-offset_top = 121.0
-offset_right = 276.0
-offset_bottom = 196.0
-theme_override_font_sizes/font_size = 48
+offset_left = 36.0
+offset_top = 146.0
+offset_right = 288.0
+offset_bottom = 221.0
+theme_override_fonts/font = ExtResource("3_55kwv")
+theme_override_font_sizes/font_size = 34
 theme_override_styles/normal = SubResource("StyleBoxFlat_o0f8b")
-text = "poo"
+theme_override_styles/pressed = SubResource("StyleBoxFlat_twnyg")
+theme_override_styles/hover = SubResource("StyleBoxFlat_55kwv")
+text = "Get Yummies!"
 
 [node name="OptionsButton" type="Button" parent="." unique_id=1682335153]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = 20.0
-offset_top = 227.0
-offset_right = 136.0
-offset_bottom = 289.0
+offset_left = 18.0
+offset_top = 237.0
+offset_right = 152.0
+offset_bottom = 299.0
 grow_horizontal = 0
-theme_override_font_sizes/font_size = 30
-text = "poo"
+theme_override_fonts/font = ExtResource("3_55kwv")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_o0f8b")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_twnyg")
+theme_override_styles/hover = SubResource("StyleBoxFlat_55kwv")
+text = "Options"
 
 [node name="QuitButton" type="Button" parent="." unique_id=928748344]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = 157.0
-offset_top = 227.0
-offset_right = 297.0
-offset_bottom = 288.0
+offset_left = 165.0
+offset_top = 236.0
+offset_right = 305.0
+offset_bottom = 297.0
 grow_horizontal = 0
-theme_override_font_sizes/font_size = 30
-text = "BIG poo"
+theme_override_fonts/font = ExtResource("3_55kwv")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_o0f8b")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_twnyg")
+theme_override_styles/hover = SubResource("StyleBoxFlat_55kwv")
+text = "Quit"
 
 [node name="OptionsMenu" parent="." unique_id=142809403 instance=ExtResource("3_4gxqj")]
 layout_mode = 1
-offset_left = 40.0
-offset_top = -260.0
-offset_right = 280.0
-offset_bottom = -20.0
+offset_left = -5.0
+offset_top = -313.0
+offset_right = 235.0
+offset_bottom = -73.0
 
 [node name="BlackScreen" type="ColorRect" parent="." unique_id=164489390]
+visible = false
 layout_mode = 0
 offset_right = 320.0
 offset_bottom = 321.0
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
+
+[node name="Title" type="TextureRect" parent="." unique_id=852011611]
+layout_mode = 0
+offset_left = -1.0
+offset_right = 319.0
+offset_bottom = 320.0
+mouse_filter = 2
+texture = ExtResource("4_twnyg")
+metadata/_edit_lock_ = true
 
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="OptionsButton" to="." method="_on_options_button_pressed"]

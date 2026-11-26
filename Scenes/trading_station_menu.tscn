@@ -2,53 +2,89 @@
 
 [ext_resource type="Script" uid="uid://b8342erdc375e" path="res://Scripts/trading_station_menu.gd" id="1_5ef75"]
 [ext_resource type="Script" uid="uid://rdds2cotks3s" path="res://trading_option.gd" id="2_8q8ky"]
-[ext_resource type="Texture2D" uid="uid://c3w0t1m1fe2mj" path="res://Assets/Sprites/icon.svg" id="2_uv6nq"]
+[ext_resource type="AudioStream" uid="uid://8mmtkfthwcs2" path="res://Assets/Audio/soundshelfstudio-ui-error-pop-515668.mp3" id="3_hmxx2"]
+[ext_resource type="AudioStream" uid="uid://m84370qi5tk3" path="res://Assets/Audio/freesound_community-cash-register-purchase-87313.mp3" id="4_ik3a3"]
+[ext_resource type="Texture2D" uid="uid://cmxhno0sjhg16" path="res://Assets/Sprites/menu_sprite.png" id="5_ik3a3"]
+[ext_resource type="FontFile" uid="uid://cdi5mwn3e6k61" path="res://Assets/Fonts/yoster.ttf" id="6_ik3a3"]
 
 [sub_resource type="Resource" id="Resource_uv6nq"]
 script = ExtResource("2_8q8ky")
 description = "Employ 1 Chummy
-(Cost: 2 Yummies)"
-cost = 2
+(Cost: 3 Yummies)"
+cost = 3
 purchase_message = "Chummy employed!"
 metadata/_custom_type_script = "uid://rdds2cotks3s"
 
 [sub_resource type="Resource" id="Resource_vsa4v"]
 script = ExtResource("2_8q8ky")
 description = "+1 Chummy/Min
-(Cost: 2 Yummies)"
-cost = 2
+(Cost: 4 Yummies)"
+cost = 4
 purchase_message = "Chummies enticed!"
 metadata/_custom_type_script = "uid://rdds2cotks3s"
 
 [sub_resource type="Resource" id="Resource_hmxx2"]
 script = ExtResource("2_8q8ky")
-description = "Employ 2 Chummies
-(Cost: 3 Yummies)"
-cost = 3
+description = "Employ 1 Chummies
+(Cost: 6 Yummies)"
+cost = 6
 purchase_message = "Chummies employed!"
 metadata/_custom_type_script = "uid://rdds2cotks3s"
 
 [sub_resource type="Resource" id="Resource_wmkog"]
 script = ExtResource("2_8q8ky")
 description = "+1 Chummy Protection
-(Cost: 3 Yummies)"
-cost = 3
-purchase_message = "Chummies enticed!"
+(Cost: 7 Yummies)"
+cost = 7
+purchase_message = "Chummies empowered!"
 metadata/_custom_type_script = "uid://rdds2cotks3s"
 
 [sub_resource type="Resource" id="Resource_tnr8x"]
 script = ExtResource("2_8q8ky")
-description = "Employ 3 Chummies
-(Cost: 4 Yummies)"
-cost = 4
+description = "Employ 2 Chummies
+(Cost: 10 Yummies)"
+cost = 10
 purchase_message = "Chummies employed!"
 metadata/_custom_type_script = "uid://rdds2cotks3s"
 
 [sub_resource type="Resource" id="Resource_uxyur"]
 script = ExtResource("2_8q8ky")
 description = "+1 Chummy/Min
-(Cost: 3 Yummies)"
-cost = 3
+(Cost: 5 Yummies)"
+cost = 5
+purchase_message = "Chummies enticed!"
+metadata/_custom_type_script = "uid://rdds2cotks3s"
+
+[sub_resource type="Resource" id="Resource_8q8ky"]
+script = ExtResource("2_8q8ky")
+description = "Employ 2 Chummies
+(Cost: 12 Yummies)"
+cost = 12
+purchase_message = "Chummies employed!"
+metadata/_custom_type_script = "uid://rdds2cotks3s"
+
+[sub_resource type="Resource" id="Resource_7sho8"]
+script = ExtResource("2_8q8ky")
+description = "+1 Chummy Protection
+(Cost: 7 Yummies)"
+cost = 7
+purchase_message = "Chummies empowered!"
+metadata/_custom_type_script = "uid://rdds2cotks3s"
+
+[sub_resource type="Resource" id="Resource_4t1w4"]
+script = ExtResource("2_8q8ky")
+description = "Employ 3 Chummies
+(Cost: 15 Yummies)"
+cost = 15
+purchase_message = "Chummies employed!"
+metadata/_custom_type_script = "uid://rdds2cotks3s"
+
+[sub_resource type="Resource" id="Resource_em7s0"]
+script = ExtResource("2_8q8ky")
+description = "+1 Chummy/Min
+(Cost: 5 Yummies)"
+cost = 5
+purchase_message = "Chummies enticed!"
 metadata/_custom_type_script = "uid://rdds2cotks3s"
 
 [sub_resource type="Resource" id="Resource_ik3a3"]
@@ -99,28 +135,116 @@ cost = 5
 purchase_message = "Bummies removed!"
 metadata/_custom_type_script = "uid://rdds2cotks3s"
 
-[sub_resource type="Resource" id="Resource_8q8ky"]
+[sub_resource type="Resource" id="Resource_akw3x"]
+script = ExtResource("2_8q8ky")
+description = "More Investings
+(Cost: 4 Yummies)"
+cost = 4
+purchase_message = "Max invest increased!"
+metadata/_custom_type_script = "uid://rdds2cotks3s"
+
+[sub_resource type="Resource" id="Resource_wt1dg"]
+script = ExtResource("2_8q8ky")
+description = "Increase Interest
+(Cost: 5 Yummies)"
+cost = 5
+purchase_message = "Interest incresed!"
+metadata/_custom_type_script = "uid://rdds2cotks3s"
+
+[sub_resource type="Resource" id="Resource_on2bs"]
+script = ExtResource("2_8q8ky")
+description = "More Investings
+(Cost: 6 Yummies)"
+cost = 6
+purchase_message = "Max invest increased!"
+metadata/_custom_type_script = "uid://rdds2cotks3s"
+
+[sub_resource type="Resource" id="Resource_idudr"]
+script = ExtResource("2_8q8ky")
+description = "Increase Interest
+(Cost: 10 Yummies)"
+cost = 10
+purchase_message = "Interet increased!"
+metadata/_custom_type_script = "uid://rdds2cotks3s"
+
+[sub_resource type="Resource" id="Resource_ijg33"]
 script = ExtResource("2_8q8ky")
 description = "Speed Boost
-(Cost: 2 Yummies)"
-cost = 2
+(Cost: 3 Yummies)"
+cost = 3
 purchase_message = "Speed boosted!"
 metadata/_custom_type_script = "uid://rdds2cotks3s"
 
 [sub_resource type="Resource" id="Resource_y2mke"]
 script = ExtResource("2_8q8ky")
 description = "Further Reach
-(Cost: 2 Yummies)"
-cost = 2
+(Cost: 4 Yummies)"
+cost = 4
 purchase_message = "Arms elongated!"
 metadata/_custom_type_script = "uid://rdds2cotks3s"
 
 [sub_resource type="Resource" id="Resource_675w7"]
 script = ExtResource("2_8q8ky")
-description = "Add 1 Minute
+description = "Add 30 Seconds
 (Cost: 5 Yummies)"
 cost = 5
 purchase_message = "Time travelled!"
+metadata/_custom_type_script = "uid://rdds2cotks3s"
+
+[sub_resource type="Resource" id="Resource_6iham"]
+script = ExtResource("2_8q8ky")
+description = "Decrease Bummification
+(Cost: 8 Yummies)"
+cost = 8
+purchase_message = "Bummifyinglessed!"
+metadata/_custom_type_script = "uid://rdds2cotks3s"
+
+[sub_resource type="Resource" id="Resource_jso5b"]
+script = ExtResource("2_8q8ky")
+description = "Speed Boost
+(Cost: 5 Yummies)"
+cost = 5
+purchase_message = "Speed boosted!"
+metadata/_custom_type_script = "uid://rdds2cotks3s"
+
+[sub_resource type="Resource" id="Resource_7vivi"]
+script = ExtResource("2_8q8ky")
+description = "Heal Yummies
+(Cost: 3 Yummies)"
+cost = 3
+purchase_message = "Yummies healed!"
+metadata/_custom_type_script = "uid://rdds2cotks3s"
+
+[sub_resource type="Resource" id="Resource_1xydm"]
+script = ExtResource("2_8q8ky")
+description = "Increase Reach
+(Cost: 6 Yummies)"
+cost = 6
+purchase_message = "Arms elongated!"
+metadata/_custom_type_script = "uid://rdds2cotks3s"
+
+[sub_resource type="Resource" id="Resource_1u7px"]
+script = ExtResource("2_8q8ky")
+description = "Decrease Bummification
+(Cost: 8 Yummies)"
+cost = 8
+purchase_message = "Bummifyinglessed!"
+metadata/_custom_type_script = "uid://rdds2cotks3s"
+
+[sub_resource type="Resource" id="Resource_bd4xr"]
+script = ExtResource("2_8q8ky")
+description = "Add 1 Minute
+(Cost: 10 Yummies)"
+cost = 10
+purchase_message = "Time travelled!"
+metadata/_custom_type_script = "uid://rdds2cotks3s"
+
+[sub_resource type="Resource" id="Resource_tahtb"]
+script = ExtResource("2_8q8ky")
+description = "Heal Yummies
+(Cost: 5 Yummies)"
+cost = 5
+purchase_message = "Yummies healed!"
 metadata/_custom_type_script = "uid://rdds2cotks3s"
 
 [node name="TradingStationMenu" type="Control" unique_id=115795911 node_paths=PackedStringArray("selection_highlights", "tip_label", "option_labels", "timer")]
@@ -135,36 +259,40 @@ script = ExtResource("1_5ef75")
 selection_highlights = [NodePath("Background/Option1/SelectionHighlight"), NodePath("Background/Option2/SelectionHighlight"), NodePath("Background/Option3/SelectionHighlight")]
 tip_label = NodePath("Background/TipLabel")
 option_labels = [NodePath("Background/Option1"), NodePath("Background/Option2"), NodePath("Background/Option3")]
-option_1_options = Array[ExtResource("2_8q8ky")]([SubResource("Resource_uv6nq"), SubResource("Resource_vsa4v"), SubResource("Resource_hmxx2"), SubResource("Resource_wmkog"), SubResource("Resource_tnr8x"), SubResource("Resource_uxyur")])
-option_2_options = Array[ExtResource("2_8q8ky")]([SubResource("Resource_ik3a3"), SubResource("Resource_hf5wb"), SubResource("Resource_qs0o3"), SubResource("Resource_t81le"), SubResource("Resource_pua1g"), SubResource("Resource_xxy53")])
-option_3_options = Array[ExtResource("2_8q8ky")]([SubResource("Resource_8q8ky"), SubResource("Resource_y2mke"), SubResource("Resource_675w7")])
+option_1_options = Array[ExtResource("2_8q8ky")]([SubResource("Resource_uv6nq"), SubResource("Resource_vsa4v"), SubResource("Resource_hmxx2"), SubResource("Resource_wmkog"), SubResource("Resource_tnr8x"), SubResource("Resource_uxyur"), SubResource("Resource_8q8ky"), SubResource("Resource_7sho8"), SubResource("Resource_4t1w4"), SubResource("Resource_em7s0")])
+option_2_options = Array[ExtResource("2_8q8ky")]([SubResource("Resource_ik3a3"), SubResource("Resource_hf5wb"), SubResource("Resource_qs0o3"), SubResource("Resource_t81le"), SubResource("Resource_pua1g"), SubResource("Resource_xxy53"), SubResource("Resource_akw3x"), SubResource("Resource_wt1dg"), SubResource("Resource_on2bs"), SubResource("Resource_idudr")])
+option_3_options = Array[ExtResource("2_8q8ky")]([SubResource("Resource_ijg33"), SubResource("Resource_y2mke"), SubResource("Resource_675w7"), SubResource("Resource_6iham"), SubResource("Resource_jso5b"), SubResource("Resource_7vivi"), SubResource("Resource_1xydm"), SubResource("Resource_1u7px"), SubResource("Resource_bd4xr"), SubResource("Resource_tahtb")])
 timer = NodePath("Timer")
+error_sfx = ExtResource("3_hmxx2")
+purchase_sfx = ExtResource("4_ik3a3")
 
 [node name="Background" type="TextureRect" parent="." unique_id=1567363770]
 layout_mode = 0
-offset_left = 41.0
-offset_top = 46.0
-offset_right = 281.0
-offset_bottom = 286.0
-texture = ExtResource("2_uv6nq")
+offset_right = 320.0
+offset_bottom = 319.0
+texture = ExtResource("5_ik3a3")
 expand_mode = 1
 
 [node name="TitleLabel" type="RichTextLabel" parent="Background" unique_id=1801920594]
 layout_mode = 0
-offset_left = 51.0
-offset_top = 11.0
-offset_right = 201.0
-offset_bottom = 51.0
+offset_left = 91.0
+offset_top = 56.0
+offset_right = 241.0
+offset_bottom = 96.0
+theme_override_fonts/normal_font = ExtResource("6_ik3a3")
 text = "TRADING STATION"
 
 [node name="Option1" type="RichTextLabel" parent="Background" unique_id=1703336132]
 layout_mode = 0
-offset_left = 12.0
-offset_top = 44.0
-offset_right = 231.0
-offset_bottom = 95.0
+offset_left = 50.0
+offset_top = 94.0
+offset_right = 269.0
+offset_bottom = 145.0
+theme_override_fonts/normal_font = ExtResource("6_ik3a3")
+theme_override_font_sizes/normal_font_size = 12
 text = "Employ 1 Chummy
 (Cost: 2 Yummies)"
+scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -177,12 +305,15 @@ metadata/_edit_lock_ = true
 
 [node name="Option2" type="RichTextLabel" parent="Background" unique_id=1727019851]
 layout_mode = 0
-offset_left = 11.0
-offset_top = 94.0
-offset_right = 230.0
-offset_bottom = 145.0
+offset_left = 53.0
+offset_top = 129.0
+offset_right = 272.0
+offset_bottom = 207.0
+theme_override_fonts/normal_font = ExtResource("6_ik3a3")
+theme_override_font_sizes/normal_font_size = 12
 text = "Basket (+3 Inventory Space)
 (Cost: 3 Yummies)"
+scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -196,11 +327,15 @@ metadata/_edit_lock_ = true
 
 [node name="Option3" type="RichTextLabel" parent="Background" unique_id=126594676]
 layout_mode = 0
-offset_left = 9.0
-offset_top = 144.0
-offset_right = 235.0
-offset_bottom = 195.0
-text = "poo"
+offset_left = 49.0
+offset_top = 194.0
+offset_right = 275.0
+offset_bottom = 245.0
+theme_override_fonts/normal_font = ExtResource("6_ik3a3")
+theme_override_font_sizes/normal_font_size = 12
+text = "Speed Boost
+(Cost: 3 Yummies)"
+scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -215,9 +350,11 @@ metadata/_edit_lock_ = true
 
 [node name="TipLabel" type="RichTextLabel" parent="Background" unique_id=126652169]
 layout_mode = 0
-offset_top = 197.0
-offset_right = 247.0
-offset_bottom = 237.0
+offset_left = 38.0
+offset_top = 235.0
+offset_right = 285.0
+offset_bottom = 275.0
+theme_override_fonts/normal_font = ExtResource("6_ik3a3")
 text = "Press X to buy!"
 horizontal_alignment = 1
 vertical_alignment = 1

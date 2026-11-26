@@ -7,7 +7,7 @@
 size = Vector2(60, 60)
 
 [node name="Exterminator" type="CharacterBody2D" unique_id=403435086]
-collision_layer = 8
+collision_layer = 10
 script = ExtResource("1_p8cni")
 exterminate_audio = ExtResource("2_opgdk")
 metadata/_custom_type_script = "uid://bs6wnpnyqscgq"

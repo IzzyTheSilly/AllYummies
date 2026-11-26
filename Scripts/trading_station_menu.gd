@@ -17,6 +17,9 @@ var option_3_stage: int = 1
 @export var timer: Timer
 @export var player: Player
 
+@export var error_sfx: AudioStream
+@export var purchase_sfx: AudioStream
+
 
 func _ready() -> void:
 	UIHandler.trading_station_menu = self
@@ -64,6 +67,7 @@ func try_select(option: int) -> int:
 	match option:
 		1: 
 			if (option_1_stage - 1) >= option_1_options.size():
+				error()
 				change_tip_text("No more options here!")
 				return 1
 			if take_yummy(option_1_options[option_1_stage - 1].cost) == 0:
@@ -71,29 +75,35 @@ func try_select(option: int) -> int:
 				option_1(option_1_stage)
 				option_1_stage = option_1_stage + 1
 				set_option_labels(1)
+				purchase()
 				return 0
 		2: 
 			if (option_2_stage - 1) >= option_2_options.size():
 				change_tip_text("No more options here!")
+				error()
 				return 1
 			if take_yummy(option_2_options[option_2_stage - 1].cost) == 0:
 				change_tip_text(option_2_options[option_2_stage - 1].purchase_message)
 				option_2(option_2_stage)
 				option_2_stage = option_2_stage + 1
 				set_option_labels(2)
+				purchase()
 				return 0
 		3: 
 			if (option_3_stage - 1) >= option_3_options.size():
 				change_tip_text("No more options here!")
+				error()
 				return 1
 			if take_yummy(option_3_options[option_3_stage - 1].cost) == 0:
 				change_tip_text(option_3_options[option_3_stage - 1].purchase_message)
 				option_3(option_3_stage)
 				option_3_stage = option_3_stage + 1
 				set_option_labels(3)
+				purchase()
 				return 0
 	
 	change_tip_text("Not enough yummies!")
+	error()
 	return 1
 
 
@@ -134,10 +144,14 @@ func option_1(stage: int):
 	match stage:
 		1: GlobalData.add_chummy(1)
 		2: GlobalData.add_chummies_rate(1)
-		3: GlobalData.add_chummy(2)
+		3: GlobalData.add_chummy(1)
 		4: GlobalData.add_chummy_efficiency(1)
-		5: GlobalData.add_chummy(3)
+		5: GlobalData.add_chummy(2)
 		6: GlobalData.add_chummies_rate(1)
+		7: GlobalData.add_chummy(2)
+		8: GlobalData.add_chummy_efficiency(1)
+		9: GlobalData.add_chummy(3)
+		10: GlobalData.add_chummies_rate(1)
 
 
 func option_2(stage: int):
@@ -157,10 +171,31 @@ func option_2(stage: int):
 					count = count + 1
 				if count >= 5:
 					break
+		7: GlobalData.max_yummy_invest = GlobalData.max_yummy_invest + 3
+		8: GlobalData.yummy_interest = GlobalData.yummy_interest + 0.05
+		9: GlobalData.max_yummy_invest = GlobalData.max_yummy_invest + 5
+		10: GlobalData.yummy_interest = GlobalData.yummy_interest + 0.05
 
 
 func option_3(stage: int):
 	match stage:
-		1: player.speed = player.speed + 25
-		2: player.interaction_distance = player.interaction_distance + 18
-		3: GameManager.add_time(60)
+		1: player.speed = player.speed + 15
+		2: player.interaction_distance = player.interaction_distance + 10
+		3: GameManager.add_time(30)
+		4: GlobalData.bummies_chance = GlobalData.bummies_chance - 2
+		5: player.speed = player.speed + 15
+		6: for yummy: Yummy in GlobalData.yummies_list:
+			yummy.set_health(yummy.health + 2)
+		7: player.interaction_distance = player.interaction_distance + 10
+		8: GlobalData.bummies_chance = GlobalData.bummies_chance - 4
+		9: GameManager.add_time(60)
+		10: for yummy: Yummy in GlobalData.yummies_list:
+				yummy.set_health(yummy.health + 3)
+
+
+func error():
+	AudioManager.try_change_sfx_audio(error_sfx, true)
+
+
+func purchase():
+	AudioManager.try_change_sfx_audio(purchase_sfx, true)

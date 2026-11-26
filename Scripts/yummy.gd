@@ -15,8 +15,8 @@ var target: Vector2 = Vector2.ZERO
 @export var healthbar: TextureProgressBar
 @export var protected_healthbar_texture: Texture
 @export var unprotected_healthbar_texture: Texture
+@export var protection_sprite: Sprite2D
 var health: int = 5
-var health_loss_chance: int
 
 @export var collect_sfx: AudioStream
 
@@ -31,7 +31,6 @@ func _ready() -> void:
 	GameManager.game_start.connect(start)
 	GameManager.game_end.connect(end)
 	healthbar.max_value = health
-	health_loss_chance = GlobalData.bummies_chance
 
 
 func start():
@@ -75,7 +74,7 @@ func _on_timer_timeout() -> void:
 			change_state(BehaviourState.IDLE)
 		BehaviourState.FLEE:
 			change_state(BehaviourState.IDLE)
-	if randi_range(1, 100) < health_loss_chance and !chummy:
+	if randi_range(1, 100) < GlobalData.bummies_chance and !chummy:
 		set_health(health - 1, false)
 
 
@@ -91,6 +90,7 @@ func change_state(state: BehaviourState):
 	match state:
 		BehaviourState.STOP:
 			behaviour_timer.stop()
+			animation_player.play("RESET", 0.1)
 		BehaviourState.IDLE:
 			target = position
 			animation_player.play("idle", 0.1)
@@ -131,10 +131,17 @@ func _on_interact():
 
 
 func set_health(health: int, set_healthbar: bool = true):
-	self.health = health
-	healthbar.value = health
 	if set_healthbar:
-		healthbar.max_value = health
+		#healthbar.max_value = health
+		self.health = health
+	else:
+		if health > healthbar.max_value:
+			self.health = healthbar.max_value
+			#healthbar.value = healthbar.max_value
+		else:
+			self.health = health
+			#healthbar.value = health
+	
 	if health == 0:
 		health_zero()
 
@@ -172,13 +179,15 @@ func _on_player_detect_area_body_entered(body: Node2D) -> void:
 
 func set_chummy(chummy: Chummy):
 	self.chummy = chummy
-	healthbar.texture_progress = protected_healthbar_texture
+	#healthbar.texture_progress = protected_healthbar_texture
+	protection_sprite.show()
 	health = 5
 
 
 func unset_chummy():
 	chummy = null
-	healthbar.texture_progress = unprotected_healthbar_texture
+	#healthbar.texture_progress = unprotected_healthbar_texture
+	protection_sprite.hide()
 
 
 func drop(position: Vector2):

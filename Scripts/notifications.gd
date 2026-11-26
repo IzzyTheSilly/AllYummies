@@ -14,6 +14,8 @@ func _ready() -> void:
 
 
 func set_next_label(text: String):
+	if text == labels[6].text:
+		return
 	for i in range(labels.size()):
 		if labels[i].text != "":
 			if i == 0:

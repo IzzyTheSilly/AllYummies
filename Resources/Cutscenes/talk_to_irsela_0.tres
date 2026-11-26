@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://dvl6mehpirn4w" path="res://Scripts/dialogue_data.gd" id="2_kp1jj"]
 [ext_resource type="AudioStream" uid="uid://cilay0xwylgkn" path="res://Assets/Audio/soundshelfstudio-sci-fi-system-blip-525671.mp3" id="3_jt7dd"]
 [ext_resource type="Texture2D" uid="uid://c38nihrqswwdp" path="res://Assets/Sprites/irsela_laceholder.jpg" id="4_ii5i1"]
+[ext_resource type="Texture2D" uid="uid://cxyk4kqbaypfj" path="res://Assets/Sprites/irsela_spritesheet.png" id="4_ovqws"]
 [ext_resource type="Script" uid="uid://cprsdu68b8n21" path="res://Scripts/cutscene_data.gd" id="5_ayip7"]
 
 [sub_resource type="Resource" id="Resource_hmx0y"]
@@ -14,19 +15,27 @@ options = Dictionary[String, int]({
 })
 metadata/_custom_type_script = "uid://rdgx4kdiqt45"
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_c65s7"]
+atlas = ExtResource("4_ovqws")
+region = Rect2(260, 260, 60, 60)
+
 [sub_resource type="Resource" id="Resource_rqkk3"]
 script = ExtResource("2_kp1jj")
 text = "Wow, you're actually here."
 blip = ExtResource("3_jt7dd")
-portrait = ExtResource("4_ii5i1")
+portrait = SubResource("AtlasTexture_c65s7")
 next_dialogue_index = 1
 metadata/_custom_type_script = "uid://dvl6mehpirn4w"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_63nfq"]
+atlas = ExtResource("4_ovqws")
+region = Rect2(140, 260, 60, 60)
 
 [sub_resource type="Resource" id="Resource_u83eq"]
 script = ExtResource("2_kp1jj")
 text = "You know, you're the only person I hired who didn't chicken out."
 blip = ExtResource("3_jt7dd")
-portrait = ExtResource("4_ii5i1")
+portrait = SubResource("AtlasTexture_63nfq")
 next_dialogue_index = 2
 metadata/_custom_type_script = "uid://dvl6mehpirn4w"
 

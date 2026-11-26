@@ -1,9 +1,29 @@
 [gd_scene format=3 uid="uid://dav8e1x0l87ke"]
 
 [ext_resource type="Script" uid="uid://dao2mp1a31do3" path="res://Scripts/yummy_inventory.gd" id="1_0o82a"]
-[ext_resource type="Texture2D" uid="uid://dehx21vg6a76g" path="res://Assets/Sprites/titlescreenbgplaceholder.jpg" id="2_2cb7f"]
+[ext_resource type="Texture2D" uid="uid://uwf1wlr70d2x" path="res://Assets/Sprites/inventory_sprites.png" id="2_2n08s"]
 [ext_resource type="PackedScene" uid="uid://dr7urh6o8xg2l" path="res://Scenes/yummy_inventory_slot.tscn" id="3_u5bpb"]
-[ext_resource type="Texture2D" uid="uid://46i3nqtioiuf" path="res://Assets/Sprites/yummy_test.png" id="4_niay2"]
+[ext_resource type="Texture2D" uid="uid://cx2lp6xcmxo6f" path="res://Assets/Sprites/yummy_spritesheet.png" id="4_2n08s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7qxa8"]
+atlas = ExtResource("2_2n08s")
+region = Rect2(80, 20, 100, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wj5qa"]
+atlas = ExtResource("4_2n08s")
+region = Rect2(0, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l5b1m"]
+atlas = ExtResource("4_2n08s")
+region = Rect2(0, 20, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bbyru"]
+atlas = ExtResource("4_2n08s")
+region = Rect2(0, 40, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0meqk"]
+atlas = ExtResource("4_2n08s")
+region = Rect2(0, 60, 20, 20)
 
 [node name="YummyInventory" type="Control" unique_id=1270145067 node_paths=PackedStringArray("slots")]
 z_index = 1
@@ -23,7 +43,7 @@ offset_left = 9.0
 offset_top = 8.0
 offset_right = 109.0
 offset_bottom = 48.0
-texture = ExtResource("2_2cb7f")
+texture = SubResource("AtlasTexture_7qxa8")
 expand_mode = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="TextureRect" unique_id=226559354]
@@ -43,16 +63,16 @@ alignment = 1
 
 [node name="YummyInventorySlot" parent="TextureRect/HBoxContainer" unique_id=653935523 instance=ExtResource("3_u5bpb")]
 layout_mode = 2
-item_image = ExtResource("4_niay2")
+item_image = SubResource("AtlasTexture_wj5qa")
 
 [node name="YummyInventorySlot2" parent="TextureRect/HBoxContainer" unique_id=957188225 instance=ExtResource("3_u5bpb")]
 layout_mode = 2
-item_image = ExtResource("4_niay2")
+item_image = SubResource("AtlasTexture_l5b1m")
 
 [node name="YummyInventorySlot3" parent="TextureRect/HBoxContainer" unique_id=1708000271 instance=ExtResource("3_u5bpb")]
 layout_mode = 2
-item_image = ExtResource("4_niay2")
+item_image = SubResource("AtlasTexture_bbyru")
 
 [node name="YummyInventorySlot4" parent="TextureRect/HBoxContainer" unique_id=778223044 instance=ExtResource("3_u5bpb")]
 layout_mode = 2
-item_image = ExtResource("4_niay2")
+item_image = SubResource("AtlasTexture_0meqk")

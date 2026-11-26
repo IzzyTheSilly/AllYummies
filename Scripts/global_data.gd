@@ -19,14 +19,14 @@ var less_vfx: bool = false
 
 # Gameplay
 var day_amount: int = 1
-var day_length: float = 20
-var start_yummies: int = 25
+var day_length: float = 10
+var start_yummies: int = 30
 var start_chummies: int = 3
-var start_yummies_rate: int = 15
-var start_chummies_rate: int = 1
+var start_yummies_rate: int = 18
+var start_chummies_rate: int = 0
 var start_chummy_efficiency: int = 1
-var bummies_chance: int = 25
-var yummy_interest_average: float = 1.1
+var start_bummies_chance: int = 20
+var yummy_interest_average: float = 1.05
 
 
 """Game Stats"""
@@ -34,6 +34,7 @@ var yummies: int = 0
 var bummies_lost: int = 0
 var bummies_goner: int = 0
 var bummies_damned: int = 0
+var bummies_chance: int = start_bummies_chance
 var chummies: int = 0
 var gross_domestic_yummy: int = yummies - bummies_lost - 2*bummies_goner - 5*bummies_damned
 

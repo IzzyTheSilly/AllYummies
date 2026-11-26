@@ -32,7 +32,6 @@ func _on_timer_timeout() -> void:
 	var yummy: Yummy = spawn_yummy()
 	yummy.start()
 	update_spawn_rate()
-	timer.start(randf_range(1/spawn_rate - 0.3, 1/spawn_rate + 0.3))
 
 
 func spawn_yummy() -> Yummy:
@@ -54,4 +53,8 @@ func spawn_yummy_in_inventory():
 
 
 func update_spawn_rate():
-	timer.wait_time = 60/GlobalData.yummies_rate
+	if GlobalData.yummies_rate:
+		timer.wait_time = 60/GlobalData.yummies_rate
+		timer.start()
+	else:
+		timer.stop()

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b4uup8eh0hamk"]
 
-[ext_resource type="Texture2D" uid="uid://c38nihrqswwdp" path="res://Assets/Sprites/irsela_laceholder.jpg" id="1_7dy2a"]
 [ext_resource type="Script" uid="uid://cirn5aiyi64yg" path="res://Scripts/irsela.gd" id="1_ksfs5"]
+[ext_resource type="Texture2D" uid="uid://cxyk4kqbaypfj" path="res://Assets/Sprites/irsela_spritesheet.png" id="3_ipdxr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vkdgo"]
 size = Vector2(18, 11)
@@ -9,10 +9,47 @@ size = Vector2(18, 11)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5ow5o"]
 size = Vector2(20, 30)
 
-[node name="Irsela" type="CharacterBody2D" unique_id=1712487231]
+[sub_resource type="AtlasTexture" id="AtlasTexture_jinyc"]
+atlas = ExtResource("3_ipdxr")
+region = Rect2(0, 280, 20, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qld7d"]
+atlas = ExtResource("3_ipdxr")
+region = Rect2(20, 280, 20, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rqkk3"]
+atlas = ExtResource("3_ipdxr")
+region = Rect2(60, 280, 20, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pm7kn"]
+atlas = ExtResource("3_ipdxr")
+region = Rect2(40, 280, 20, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ir5lp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jinyc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qld7d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rqkk3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pm7kn")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Irsela" type="CharacterBody2D" unique_id=1712487231 node_paths=PackedStringArray("animated_sprite")]
 collision_layer = 8
 input_pickable = true
 script = ExtResource("1_ksfs5")
+animated_sprite = NodePath("AnimatedSprite2D")
 cutscene_ids = Array[String](["talk_to_irsela_0", "talk_to_irsela_1"])
 
 [node name="Collision" type="StaticBody2D" parent="." unique_id=1328324927]
@@ -22,11 +59,10 @@ collision_layer = 2
 position = Vector2(-1, 14.5)
 shape = SubResource("RectangleShape2D_vkdgo")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=38786044]
-position = Vector2(-0.99999714, 2.861023e-06)
-scale = Vector2(0.09259261, 0.09259264)
-texture = ExtResource("1_7dy2a")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1186446353]
 position = Vector2(-1, 5)
 shape = SubResource("RectangleShape2D_5ow5o")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=481971660]
+position = Vector2(-1, 1)
+sprite_frames = SubResource("SpriteFrames_ir5lp")
