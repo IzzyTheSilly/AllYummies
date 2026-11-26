@@ -3,7 +3,7 @@ class_name TradingStationMenu
 
 
 var selected_option: int = 1
-@export var selection_highlights: Array[ColorRect]
+@export var selection_highlights: Array[Control]
 @export var tip_label: RichTextLabel
 
 @export var option_labels: Array[RichTextLabel]

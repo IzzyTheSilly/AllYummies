@@ -4,10 +4,15 @@
 [ext_resource type="Texture2D" uid="uid://boe0n28wym8if" path="res://Assets/Sprites/squadword.PNG" id="2_kyvu4"]
 [ext_resource type="Texture2D" uid="uid://bowe0t4cy61e7" path="res://Assets/Sprites/dialogue_box_sprites.png" id="2_tlprh"]
 [ext_resource type="FontFile" uid="uid://cdi5mwn3e6k61" path="res://Assets/Fonts/yoster.ttf" id="3_hg80k"]
+[ext_resource type="Texture2D" uid="uid://dnykjr1oapjd7" path="res://Assets/Sprites/staion_sprites.png" id="4_hg80k"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ik3a3"]
 atlas = ExtResource("2_tlprh")
 region = Rect2(0, 200, 320, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ir5lp"]
+atlas = ExtResource("4_hg80k")
+region = Rect2(260, 20, 20, 20)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c65s7"]
 atlas = ExtResource("2_tlprh")
@@ -44,14 +49,15 @@ anchor_bottom = 1.0
 offset_left = 26.0
 offset_top = 25.0
 offset_right = -27.0
-offset_bottom = -27.0
+offset_bottom = -25.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = 2
 theme_override_fonts/normal_font = ExtResource("3_hg80k")
 theme_override_font_sizes/normal_font_size = 12
 bbcode_enabled = true
-text = "Dialogue text"
+text = "lorem ipsum dolor sit amet consectetur adipiscing elit laborum ipsum elit imperdiet accusamus pariatur laborum labore id et nostrud atque in expedita cupiditate esse"
 scroll_active = false
 visible_characters_behavior = 1
 
@@ -67,12 +73,19 @@ text = "Option 1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Highlight" type="ColorRect" parent="DialogueArea/ChoiceText1" unique_id=1115262691]
+[node name="NinePatchRect" type="NinePatchRect" parent="DialogueArea/ChoiceText1" unique_id=2004348250]
+visible = false
 layout_mode = 0
-offset_left = 39.0
-offset_top = 52.0
-offset_right = 102.0
-offset_bottom = 59.0
+offset_left = 25.0
+offset_top = 25.0
+offset_right = 113.0
+offset_bottom = 57.0
+texture = SubResource("AtlasTexture_ir5lp")
+region_rect = Rect2(0, 0, 20, 20)
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
 
 [node name="ChoiceText2" type="RichTextLabel" parent="DialogueArea" unique_id=488109550]
 layout_mode = 0
@@ -86,13 +99,18 @@ text = "Option 2"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Highlight" type="ColorRect" parent="DialogueArea/ChoiceText2" unique_id=1028616307]
-visible = false
+[node name="NinePatchRect" type="NinePatchRect" parent="DialogueArea/ChoiceText2" unique_id=978242371]
 layout_mode = 0
-offset_left = 34.0
-offset_top = 52.0
-offset_right = 97.0
-offset_bottom = 59.0
+offset_left = 20.0
+offset_top = 25.0
+offset_right = 108.0
+offset_bottom = 57.0
+texture = SubResource("AtlasTexture_ir5lp")
+region_rect = Rect2(0, 0, 20, 20)
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
 
 [node name="PortraitArea" type="TextureRect" parent="." unique_id=1894745620]
 z_index = -1

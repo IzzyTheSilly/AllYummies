@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dtdhh2c0iid0k"]
 
 [ext_resource type="Script" uid="uid://cbwu61n2n4bhm" path="res://Scripts/title_screen.gd" id="1_ak2if"]
+[ext_resource type="AudioStream" uid="uid://kv4sqb5e8onp" path="res://Assets/Audio/Aetheric - Happy Feet (freetouse.com).mp3" id="2_12m1t"]
 [ext_resource type="Texture2D" uid="uid://c265pofy7r4dv" path="res://Assets/Sprites/title_screen_bg.png" id="2_twnyg"]
 [ext_resource type="PackedScene" uid="uid://bfftyyryl7vdc" path="res://Scenes/options_menu.tscn" id="3_4gxqj"]
 [ext_resource type="FontFile" uid="uid://cdi5mwn3e6k61" path="res://Assets/Fonts/yoster.ttf" id="3_55kwv"]
@@ -103,6 +104,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ak2if")
 black_screen = NodePath("BlackScreen")
+title_music = ExtResource("2_12m1t")
 
 [node name="TItleScreenBG" type="TextureRect" parent="." unique_id=995333620]
 modulate = Color(1, 1, 1, 0.4627451)
@@ -177,7 +179,6 @@ mouse_filter = 2
 texture = ExtResource("4_twnyg")
 
 [node name="BlackScreen" type="ColorRect" parent="." unique_id=164489390]
-visible = false
 layout_mode = 0
 offset_right = 320.0
 offset_bottom = 321.0

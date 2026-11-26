@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://6kbaj1qgt6rp"
+path="res://.godot/imported/Zambolino - Toddler Party (freetouse.com).mp3-dc4e753fb2884c35b3678007e6750feb.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/Zambolino - Toddler Party (freetouse.com).mp3"
+dest_files=["res://.godot/imported/Zambolino - Toddler Party (freetouse.com).mp3-dc4e753fb2884c35b3678007e6750feb.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

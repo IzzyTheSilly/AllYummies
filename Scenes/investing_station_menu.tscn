@@ -5,6 +5,11 @@
 [ext_resource type="Texture2D" uid="uid://cmxhno0sjhg16" path="res://Assets/Sprites/menu_sprite.png" id="2_uo7s5"]
 [ext_resource type="FontFile" uid="uid://cdi5mwn3e6k61" path="res://Assets/Fonts/yoster.ttf" id="3_0apr1"]
 [ext_resource type="AudioStream" uid="uid://m84370qi5tk3" path="res://Assets/Audio/freesound_community-cash-register-purchase-87313.mp3" id="3_2vldg"]
+[ext_resource type="Texture2D" uid="uid://dnykjr1oapjd7" path="res://Assets/Sprites/staion_sprites.png" id="6_2vldg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ir5lp"]
+atlas = ExtResource("6_2vldg")
+region = Rect2(260, 20, 20, 20)
 
 [node name="InvestingStationMenu" type="Control" unique_id=599790385 node_paths=PackedStringArray("stock_value_label", "option_highlights", "tip_label", "yummies_in_stock_label", "stock_value_update_timer", "tip_label_timer")]
 z_index = 2
@@ -16,7 +21,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_5kjof")
 stock_value_label = NodePath("StockValueLabel")
-option_highlights = [NodePath("InvestLabel/ColorRect"), NodePath("PullLabel/ColorRect")]
+option_highlights = [NodePath("InvestLabel/NinePatchRect"), NodePath("PullLabel/NinePatchRect")]
 tip_label = NodePath("TipLabel")
 yummies_in_stock_label = NodePath("YummiesInStockLabel")
 stock_value_update_timer = NodePath("StockValueUpdateTimer")
@@ -76,12 +81,17 @@ text = "INVEST"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ColorRect" type="ColorRect" parent="InvestLabel" unique_id=236729440]
+[node name="NinePatchRect" type="NinePatchRect" parent="InvestLabel" unique_id=992359351]
 layout_mode = 0
-offset_right = 95.0
-offset_bottom = 91.0
-color = Color(0, 0, 1, 0.42352942)
-metadata/_edit_lock_ = true
+offset_left = 13.0
+offset_top = 32.0
+offset_right = 90.0
+offset_bottom = 62.0
+texture = SubResource("AtlasTexture_ir5lp")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
 
 [node name="PullLabel" type="RichTextLabel" parent="." unique_id=318657289]
 layout_mode = 0
@@ -95,13 +105,18 @@ text = "PULL"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ColorRect" type="ColorRect" parent="PullLabel" unique_id=1686161627]
+[node name="NinePatchRect" type="NinePatchRect" parent="PullLabel" unique_id=50388344]
 visible = false
 layout_mode = 0
-offset_right = 95.0
-offset_bottom = 91.0
-color = Color(0, 0, 1, 0.42352942)
-metadata/_edit_lock_ = true
+offset_left = 24.0
+offset_top = 34.0
+offset_right = 81.0
+offset_bottom = 62.0
+texture = SubResource("AtlasTexture_ir5lp")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
 
 [node name="TipLabel" type="RichTextLabel" parent="." unique_id=967718133]
 layout_mode = 0

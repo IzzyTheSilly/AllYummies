@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://kv4sqb5e8onp"
+path="res://.godot/imported/Aetheric - Happy Feet (freetouse.com).mp3-973409fc370fbc1f92f3ea3b9912c3d2.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/Aetheric - Happy Feet (freetouse.com).mp3"
+dest_files=["res://.godot/imported/Aetheric - Happy Feet (freetouse.com).mp3-973409fc370fbc1f92f3ea3b9912c3d2.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

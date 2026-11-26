@@ -23,6 +23,7 @@ func _ready() -> void:
 	CutsceneHandler.player = self
 	UIHandler.trading_station_menu.player = self
 	GameManager.game_end.connect(_on_game_end)
+	GameManager.stop_day_timer()
 
 
 func _physics_process(delta: float) -> void:
@@ -43,7 +44,8 @@ func _physics_process(delta: float) -> void:
 	
 	process_animation(direction)
 	
-	process_interaction()
+	if !GameManager.ending:
+		process_interaction()
 	
 	move_and_slide()
 

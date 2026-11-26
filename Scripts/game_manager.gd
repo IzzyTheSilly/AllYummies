@@ -8,6 +8,11 @@ signal game_end
 var ending_screen: EndingScreen
 @export var ending_cutscenes_ids: Array[String]
 
+@export var bg_music: AudioStream
+
+@export var cheer_sfx: AudioStream
+@export var bwomp_sfx: AudioStream
+
 var yummy_spawner: YummySpawner
 
 
@@ -15,6 +20,7 @@ var yummy_spawner: YummySpawner
 var in_game: bool = false
 ##Currently collecting yummies, not in cutscene.
 var in_gameplay: bool = false
+var ending: bool = false
 var days_left: int
 
 
@@ -26,14 +32,18 @@ func _ready() -> void:
 func start_game():
 	game_start.emit()
 	reset_day_timer()
-	in_game = true
+	in_gameplay = true
 	ending_screen.hide()
+	AudioManager.change_music_audio(bg_music, true, true)
 
 
 func end_game():
+	ending = true
+	AudioManager.stop_music_audio()
+	CutsceneHandler.dialogue_box.hide()
 	game_end.emit()
 	stop_day_timer()
-	in_game = false
+	in_gameplay = false
 	ending_screen.show()
 	UIHandler.set_menu_showing(UIHandler.Menu.NONE, false)
 	var end_screen_tween: Tween = get_tree().create_tween()
@@ -41,6 +51,12 @@ func end_game():
 	await end_screen_tween.finished
 	var score: int = GlobalData.update_gdy()
 	await ending_screen.show_score(score)
+	
+	if score > 100:
+		AudioManager.try_change_sfx_audio(cheer_sfx, true)
+	elif score < 0:
+		AudioManager.try_change_sfx_audio(bwomp_sfx, true)
+	await get_tree().create_timer(2).timeout
 	
 	if score > 100:
 		await CutsceneHandler.show_cutscene(ending_cutscenes_ids[0])
@@ -53,16 +69,16 @@ func end_game():
 	
 	ending_screen.hide_score()
 	await get_tree().create_timer(2).timeout
-	ending_screen.show_game_end()
-	await get_tree().create_timer(2).timeout
+	await ending_screen.show_game_end()
+	await get_tree().create_timer(3.5).timeout
 	GlobalData.reset_game_stats()
 	GlobalData.reset_local_flags()
+	ending = false
 	get_tree().change_scene_to_file("res://Scenes/title_screen.tscn")
 
 
 func reset_day_timer():
-	day_timer.wait_time = GlobalData.day_length * 60
-	day_timer.start()
+	day_timer.start(GlobalData.day_length * 60)
 
 
 func stop_day_timer():
@@ -78,6 +94,7 @@ func add_time(time: int):
 
 
 func _on_day_timer_timeout() -> void:
+	print("timeot")
 	end_game()
 	UIHandler.notify("Day End!")
 	if days_left == 1:

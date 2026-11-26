@@ -7,7 +7,6 @@ class_name DayTimeLeft
 
 func _ready() -> void:
 	UIHandler.daytime_left_panel = self
-	day_time_left_label.text = "Daytime Left: " + str(int(GlobalData.day_length)) + "min 0sec"
 
 
 func _on_timer_timeout() -> void:

@@ -1,11 +1,17 @@
 [gd_scene format=3 uid="uid://bkve41je0enm2"]
 
 [ext_resource type="Script" uid="uid://5xbmoeentvnr" path="res://Scripts/game_manager.gd" id="1_oj352"]
+[ext_resource type="AudioStream" uid="uid://6kbaj1qgt6rp" path="res://Assets/Audio/Zambolino - Toddler Party (freetouse.com).mp3" id="2_e5fcp"]
+[ext_resource type="AudioStream" uid="uid://dfp1upkh4t71s" path="res://Assets/Audio/Children Yay! Sound Effect.mp3" id="4_yqty0"]
+[ext_resource type="AudioStream" uid="uid://u1gqp8gae6hw" path="res://Assets/Audio/Boo-womp - Sound Effect.mp3" id="5_71d4j"]
 
 [node name="GameManager" type="Node" unique_id=1903299399 node_paths=PackedStringArray("day_timer")]
 script = ExtResource("1_oj352")
 day_timer = NodePath("DayTimer")
 ending_cutscenes_ids = Array[String](["great_ending", "good_ending", "mid_ending", "bad_ending"])
+bg_music = ExtResource("2_e5fcp")
+cheer_sfx = ExtResource("4_yqty0")
+bwomp_sfx = ExtResource("5_71d4j")
 
 [node name="DayTimer" type="Timer" parent="." unique_id=676841427]
 one_shot = true

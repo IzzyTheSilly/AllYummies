@@ -131,14 +131,16 @@ y_sort_enabled = true
 
 [node name="DialogueBox" parent="PlayerCharacter/Camera2D" unique_id=572266800 instance=ExtResource("3_3x2t2")]
 visible = false
-z_index = 5
+z_index = 7
 offset_left = -160.0
 offset_top = -160.0
 offset_right = -160.0
 offset_bottom = -160.0
 mouse_filter = 2
+mouse_behavior_recursive = 1
 
 [node name="OptionsMenu" parent="PlayerCharacter/Camera2D" unique_id=142809403 instance=ExtResource("3_87rxc")]
+visible = false
 offset_left = -164.0
 offset_top = -466.0
 offset_right = 76.0
@@ -159,6 +161,7 @@ offset_top = -245.0
 offset_right = -60.0
 offset_bottom = -245.0
 mouse_filter = 2
+mouse_behavior_recursive = 1
 
 [node name="StatsViewerMenu" parent="PlayerCharacter/Camera2D" unique_id=439564388 instance=ExtResource("6_kck4e")]
 visible = false
@@ -166,6 +169,8 @@ offset_left = -157.0
 offset_top = -165.0
 offset_right = -157.0
 offset_bottom = -165.0
+mouse_filter = 2
+mouse_behavior_recursive = 1
 
 [node name="Notifications" parent="PlayerCharacter/Camera2D" unique_id=1314199842 instance=ExtResource("7_h5xn8")]
 z_index = 1
@@ -173,6 +178,8 @@ offset_left = -149.0
 offset_top = -18.0
 offset_right = 10.0
 offset_bottom = 151.0
+mouse_filter = 2
+mouse_behavior_recursive = 1
 
 [node name="TradingStationMenu" parent="PlayerCharacter/Camera2D" unique_id=115795911 instance=ExtResource("8_1q60n")]
 visible = false
@@ -182,7 +189,7 @@ offset_right = -164.0
 offset_bottom = -179.0
 
 [node name="EndingScreen" parent="PlayerCharacter/Camera2D" unique_id=1118644805 instance=ExtResource("9_x6fr2")]
-z_index = 6
+z_index = 5
 offset_left = -160.0
 offset_top = -176.0
 offset_right = -160.0
@@ -208,6 +215,8 @@ position = Vector2(-307, -982)
 position = Vector2(330, -984)
 
 [node name="Irsela" parent="." unique_id=1623085982 node_paths=PackedStringArray("player") instance=ExtResource("5_87rxc")]
+z_as_relative = false
+y_sort_enabled = true
 position = Vector2(36, -320)
 player = NodePath("../PlayerCharacter")
 

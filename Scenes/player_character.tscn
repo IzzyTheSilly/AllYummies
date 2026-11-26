@@ -6,9 +6,6 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ir5lp"]
 size = Vector2(20, 12)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_q1q2r"]
-size = Vector2(38, 32)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_o0f8b"]
 atlas = ExtResource("2_cmdk4")
 region = Rect2(0, 280, 20, 40)
@@ -219,14 +216,11 @@ collision_mask = 8
 hit_from_inside = true
 collide_with_areas = true
 
-[node name="YummyCollectionArea" type="Area2D" parent="." unique_id=522557549]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="YummyCollectionArea" unique_id=1322058254]
-shape = SubResource("RectangleShape2D_q1q2r")
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=899425427]
+position = Vector2(0, -15)
 sprite_frames = SubResource("SpriteFrames_ir5lp")
 animation = &"down"
+frame_progress = 1.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1410060468]
 libraries/ = SubResource("AnimationLibrary_pb3n0")
