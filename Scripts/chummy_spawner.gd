@@ -45,9 +45,11 @@ func _on_chummies_added(amount: int):
 		spawn_chummy().start()
 
 
-func _on_chummies_rate_changed(amount: int):
+func _on_chummies_rate_changed(amount: float):
 	var old_wait_time: float = timer.wait_time
-	var new_wait_time: float = 60/GlobalData.chummies_rate
+	var new_wait_time: float = old_wait_time
+	if GlobalData.chummies_rate:
+		new_wait_time = 60/GlobalData.chummies_rate
 	
 	timer.start(max(timer.time_left - (old_wait_time - new_wait_time), 0.1))
 

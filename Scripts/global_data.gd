@@ -4,7 +4,7 @@ extends Node
 signal yummies_list_updated
 signal chummies_added(amount: int)
 signal chummy_efficiency_changed
-signal chummies_rate_changed(amount: int)
+signal chummies_rate_changed(amount: float)
 signal yummies_invested_changed(amount: int)
 
 
@@ -23,7 +23,7 @@ var day_length: float = 10
 var start_yummies: int = 30
 var start_chummies: int = 3
 var start_yummies_rate: int = 18
-var start_chummies_rate: int = 0
+var start_chummies_rate: float = 0
 var start_chummy_efficiency: int = 1
 var start_bummies_chance: int = 20
 var yummy_interest_average: float = 1.05
@@ -41,7 +41,7 @@ var gross_domestic_yummy: int = yummies - bummies_lost - 2*bummies_goner - 5*bum
 ##New yummy production rate per minute.
 var yummies_rate: int = start_yummies_rate
 ##Chummies coming into the kingdom per minute.
-var chummies_rate: int = start_chummies_rate
+var chummies_rate: float = start_chummies_rate
 ##How many yummies are secured by one chummy.
 var chummy_efficiency: int = start_chummy_efficiency
 
@@ -125,7 +125,7 @@ func add_chummy_efficiency(amount: int):
 	chummy_efficiency_changed
 
 
-func add_chummies_rate(amount: int):
+func add_chummies_rate(amount: float):
 	chummies_rate = chummies_rate + amount
 	chummies_rate_changed.emit(amount)
 

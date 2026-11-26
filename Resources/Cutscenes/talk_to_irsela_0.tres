@@ -306,7 +306,7 @@ script = ExtResource("2_kp1jj")
 text = "Also, yummies protected by chummies have a yellow thingamajig around them, and cannot turn into bummies, so yeah."
 blip = ExtResource("3_jt7dd")
 portrait = SubResource("AtlasTexture_f252t")
-next_dialogue_index = 24
+next_dialogue_index = 28
 metadata/_custom_type_script = "uid://dvl6mehpirn4w"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vr0po"]
@@ -358,9 +358,21 @@ portrait = SubResource("AtlasTexture_vv6i0")
 next_dialogue_index = 6
 metadata/_custom_type_script = "uid://dvl6mehpirn4w"
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ge8g"]
+atlas = ExtResource("4_ovqws")
+region = Rect2(140, 200, 60, 60)
+
+[sub_resource type="Resource" id="Resource_l4mnv"]
+script = ExtResource("2_kp1jj")
+text = "And you can see your current statistics in the STATS VIEWER."
+blip = ExtResource("3_jt7dd")
+portrait = SubResource("AtlasTexture_8ge8g")
+next_dialogue_index = 24
+metadata/_custom_type_script = "uid://dvl6mehpirn4w"
+
 [resource]
 script = ExtResource("5_ayip7")
-dialogues = Array[ExtResource("2_kp1jj")]([SubResource("Resource_rqkk3"), SubResource("Resource_u83eq"), SubResource("Resource_x5kaa"), SubResource("Resource_nai3r"), SubResource("Resource_fgar7"), SubResource("Resource_vr0po"), SubResource("Resource_ovqws"), SubResource("Resource_tprht"), SubResource("Resource_6gjy8"), SubResource("Resource_euayq"), SubResource("Resource_e3ktp"), SubResource("Resource_5y25w"), SubResource("Resource_1x3nf"), SubResource("Resource_urcjv"), SubResource("Resource_8ilvl"), SubResource("Resource_82fj4"), SubResource("Resource_pvu54"), SubResource("Resource_dsupt"), SubResource("Resource_o532w"), SubResource("Resource_msjiy"), SubResource("Resource_gt80a"), SubResource("Resource_55kwv"), SubResource("Resource_ethgu"), SubResource("Resource_ugcvy"), SubResource("Resource_f252t"), SubResource("Resource_kpy2w"), SubResource("Resource_vv6i0"), SubResource("Resource_tl7kr")])
+dialogues = Array[ExtResource("2_kp1jj")]([SubResource("Resource_rqkk3"), SubResource("Resource_u83eq"), SubResource("Resource_x5kaa"), SubResource("Resource_nai3r"), SubResource("Resource_fgar7"), SubResource("Resource_vr0po"), SubResource("Resource_ovqws"), SubResource("Resource_tprht"), SubResource("Resource_6gjy8"), SubResource("Resource_euayq"), SubResource("Resource_e3ktp"), SubResource("Resource_5y25w"), SubResource("Resource_1x3nf"), SubResource("Resource_urcjv"), SubResource("Resource_8ilvl"), SubResource("Resource_82fj4"), SubResource("Resource_pvu54"), SubResource("Resource_dsupt"), SubResource("Resource_o532w"), SubResource("Resource_msjiy"), SubResource("Resource_gt80a"), SubResource("Resource_55kwv"), SubResource("Resource_ethgu"), SubResource("Resource_ugcvy"), SubResource("Resource_f252t"), SubResource("Resource_kpy2w"), SubResource("Resource_vv6i0"), SubResource("Resource_tl7kr"), SubResource("Resource_l4mnv")])
 dialogue_choices = Array[ExtResource("1_8rl01")]([SubResource("Resource_hmx0y"), SubResource("Resource_fekvv")])
 set_flags = Dictionary[String, int]({
 "game_start": 1,

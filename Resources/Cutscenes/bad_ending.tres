@@ -3,38 +3,54 @@
 [ext_resource type="Script" uid="uid://rdgx4kdiqt45" path="res://Scripts/dialogue_choice_data.gd" id="1_dewb3"]
 [ext_resource type="Script" uid="uid://dvl6mehpirn4w" path="res://Scripts/dialogue_data.gd" id="2_je2mv"]
 [ext_resource type="AudioStream" uid="uid://cilay0xwylgkn" path="res://Assets/Audio/soundshelfstudio-sci-fi-system-blip-525671.mp3" id="3_ostdn"]
-[ext_resource type="Texture2D" uid="uid://c38nihrqswwdp" path="res://Assets/Sprites/irsela_laceholder.jpg" id="4_dsquy"]
+[ext_resource type="Texture2D" uid="uid://cxyk4kqbaypfj" path="res://Assets/Sprites/irsela_spritesheet.png" id="4_je2mv"]
 [ext_resource type="Script" uid="uid://cprsdu68b8n21" path="res://Scripts/cutscene_data.gd" id="5_xd751"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x6fr2"]
+atlas = ExtResource("4_je2mv")
+region = Rect2(80, 200, 60, 60)
 
 [sub_resource type="Resource" id="Resource_6wp7a"]
 script = ExtResource("2_je2mv")
 text = "Terrible. Absolutely horrific."
 blip = ExtResource("3_ostdn")
-portrait = ExtResource("4_dsquy")
+portrait = SubResource("AtlasTexture_x6fr2")
 next_dialogue_index = 1
 metadata/_custom_type_script = "uid://dvl6mehpirn4w"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_je2mv"]
+atlas = ExtResource("4_je2mv")
+region = Rect2(80, 200, 60, 60)
 
 [sub_resource type="Resource" id="Resource_gb6ry"]
 script = ExtResource("2_je2mv")
 text = "The entire kingdom is in debt because of you."
 blip = ExtResource("3_ostdn")
-portrait = ExtResource("4_dsquy")
+portrait = SubResource("AtlasTexture_je2mv")
 next_dialogue_index = 2
 metadata/_custom_type_script = "uid://dvl6mehpirn4w"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ostdn"]
+atlas = ExtResource("4_je2mv")
+region = Rect2(200, 200, 60, 60)
 
 [sub_resource type="Resource" id="Resource_v7d14"]
 script = ExtResource("2_je2mv")
 text = "For your crimes, I declare a public execution this afternoon."
 blip = ExtResource("3_ostdn")
-portrait = ExtResource("4_dsquy")
+portrait = SubResource("AtlasTexture_ostdn")
 next_dialogue_index = 3
 metadata/_custom_type_script = "uid://dvl6mehpirn4w"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dewb3"]
+atlas = ExtResource("4_je2mv")
+region = Rect2(140, 260, 60, 60)
 
 [sub_resource type="Resource" id="Resource_e57ll"]
 script = ExtResource("2_je2mv")
 text = "Goodbye, bozo."
 blip = ExtResource("3_ostdn")
-portrait = ExtResource("4_dsquy")
+portrait = SubResource("AtlasTexture_dewb3")
 metadata/_custom_type_script = "uid://dvl6mehpirn4w"
 
 [resource]

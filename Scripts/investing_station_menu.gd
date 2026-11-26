@@ -13,6 +13,9 @@ var stock_value: float = 1.0
 @export var stock_value_update_timer: Timer
 @export var tip_label_timer: Timer
 
+@export var error_sfx: AudioStream
+@export var purchase_sfx: AudioStream
+
 var stock_values: Array[int]
 
 
@@ -42,9 +45,11 @@ func invest_yummy():
 	var collected_yummies_list: Array[Yummy] = GlobalData.collected_yummies_list
 	if collected_yummies_list.size() == 0:
 		change_tip_text("No yummies in inventory!")
+		error()
 		return
 	elif GlobalData.yummies_in_stock_market >= GlobalData.max_yummy_invest:
 		change_tip_text("Investing station is full!")
+		error()
 		return
 	for i in range(collected_yummies_list.size()):
 		if collected_yummies_list[i].bummy_state == Yummy.BummyState.YUMMY:
@@ -53,8 +58,11 @@ func invest_yummy():
 			stock_values.append(stock_value)
 			change_tip_text("Yummy invested!")
 			update_yummies_in_stock()
+			GlobalData.add_chummies_rate(0.15)
+			purchase()
 			return
 	change_tip_text("No yummies in inventory!")
+	error()
 
 
 func pull_yummy():
@@ -70,13 +78,17 @@ func pull_yummy():
 			for i in range(guaranteed_yummies):
 				GameManager.spawn_yummy_in_inventory(1)
 			GlobalData.add_yummies_invested(-1)
+			GlobalData.add_chummies_rate(-0.15)
 			stock_values.pop_at(0)
 			change_tip_text(str(guaranteed_yummies) + " yummies pulled!")
 			update_yummies_in_stock()
+			purchase()
 		else:
 			change_tip_text("Inventory full!")
+			error()
 	else:
 		change_tip_text("No yummies invested yet!")
+		error()
 
 
 func change_tip_text(text: String, time: float = 1.5):
@@ -110,3 +122,11 @@ func change_option_highlights(option: int):
 	elif option == 2:
 		option_highlights[0].hide()
 		option_highlights[1].show()
+
+
+func error():
+	AudioManager.try_change_sfx_audio(error_sfx, true)
+
+
+func purchase():
+	AudioManager.try_change_sfx_audio(purchase_sfx, true)

@@ -1,9 +1,17 @@
 [gd_scene format=3 uid="uid://mgvd43lurjel"]
 
 [ext_resource type="Script" uid="uid://bbq2yx6xon724" path="res://Scripts/stats_viewer.gd" id="1_bd61m"]
+[ext_resource type="Texture2D" uid="uid://dnykjr1oapjd7" path="res://Assets/Sprites/staion_sprites.png" id="2_xymda"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_61n23"]
+size = Vector2(65, 48)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ir5lp"]
-size = Vector2(80, 40)
+size = Vector2(48, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q1q2r"]
+atlas = ExtResource("2_xymda")
+region = Rect2(40, 140, 60, 40)
 
 [node name="StatsViewer" type="CharacterBody2D" unique_id=1150843877]
 collision_layer = 8
@@ -11,7 +19,8 @@ input_pickable = true
 script = ExtResource("1_bd61m")
 
 [node name="Interact" type="CollisionShape2D" parent="." unique_id=1197012743]
-shape = SubResource("RectangleShape2D_ir5lp")
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_61n23")
 metadata/_edit_lock_ = true
 
 [node name="Collision" type="StaticBody2D" parent="." unique_id=684895679]
@@ -19,5 +28,9 @@ collision_layer = 2
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Collision" unique_id=2095242276]
+position = Vector2(1, 9)
 shape = SubResource("RectangleShape2D_ir5lp")
 metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=900513618]
+texture = SubResource("AtlasTexture_q1q2r")

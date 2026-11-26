@@ -53,6 +53,8 @@ func end_game():
 	
 	ending_screen.hide_score()
 	await get_tree().create_timer(2).timeout
+	ending_screen.show_game_end()
+	await get_tree().create_timer(2).timeout
 	GlobalData.reset_game_stats()
 	GlobalData.reset_local_flags()
 	get_tree().change_scene_to_file("res://Scenes/title_screen.tscn")

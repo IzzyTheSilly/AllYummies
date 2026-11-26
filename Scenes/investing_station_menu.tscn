@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://c8hhfg3on3ylr"]
 
 [ext_resource type="Script" uid="uid://c11ltdgyvx2rq" path="res://Scripts/investing_station_menu.gd" id="1_5kjof"]
+[ext_resource type="AudioStream" uid="uid://8mmtkfthwcs2" path="res://Assets/Audio/soundshelfstudio-ui-error-pop-515668.mp3" id="2_l4mnv"]
 [ext_resource type="Texture2D" uid="uid://cmxhno0sjhg16" path="res://Assets/Sprites/menu_sprite.png" id="2_uo7s5"]
 [ext_resource type="FontFile" uid="uid://cdi5mwn3e6k61" path="res://Assets/Fonts/yoster.ttf" id="3_0apr1"]
+[ext_resource type="AudioStream" uid="uid://m84370qi5tk3" path="res://Assets/Audio/freesound_community-cash-register-purchase-87313.mp3" id="3_2vldg"]
 
 [node name="InvestingStationMenu" type="Control" unique_id=599790385 node_paths=PackedStringArray("stock_value_label", "option_highlights", "tip_label", "yummies_in_stock_label", "stock_value_update_timer", "tip_label_timer")]
 z_index = 2
@@ -19,6 +21,8 @@ tip_label = NodePath("TipLabel")
 yummies_in_stock_label = NodePath("YummiesInStockLabel")
 stock_value_update_timer = NodePath("StockValueUpdateTimer")
 tip_label_timer = NodePath("TipLabelTimer")
+error_sfx = ExtResource("2_l4mnv")
+purchase_sfx = ExtResource("3_2vldg")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1291871872]
 layout_mode = 0

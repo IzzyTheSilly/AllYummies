@@ -10,6 +10,9 @@ class_name Player
 ##How many yummies the player can collect with at once.
 @export var collection_stacking: int
 
+@export var animated_sprite: AnimatedSprite2D
+@export var animation_player: AnimationPlayer
+
 var auto_moving: bool = false
 var auto_moving_direction: Vector2
 
@@ -37,6 +40,8 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("cancel"):
 		direction = direction * 1.5
 	velocity = direction * speed
+	
+	process_animation(direction)
 	
 	process_interaction()
 	
@@ -103,6 +108,24 @@ func process_interaction() -> void:
 			UIHandler.change_select_investing_station(1)
 
 
+func process_animation(direction: Vector2):
+	if direction == Vector2.ZERO:
+		animation_player.play("stop")
+		return
+	
+	var cardinal_direction: Vector2 = get_direction(direction)
+	animation_player.play("walk")
+	match cardinal_direction:
+		Vector2.UP:
+			animated_sprite.play("up")
+		Vector2.DOWN:
+			animated_sprite.play("down")
+		Vector2.LEFT:
+			animated_sprite.play("left")
+		Vector2.RIGHT:
+			animated_sprite.play("right")
+
+
 func drop_yummy():
 	if GlobalData.collected_yummies_list.size() > 0:
 		GlobalData.collected_yummies_list[0].drop(position)
@@ -117,3 +140,10 @@ func auto_move(direction: Vector2, time: float):
 
 func _on_game_end():
 	game_end = true
+
+
+func get_direction(direction: Vector2) -> Vector2:
+	if abs(direction.x) > abs(direction.y):
+		return Vector2.RIGHT if direction.x > 0 else Vector2.LEFT
+	else:
+		return Vector2.DOWN if direction.y > 0 else Vector2.UP

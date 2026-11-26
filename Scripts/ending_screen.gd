@@ -21,3 +21,9 @@ func show_score(score: int):
 func hide_score():
 	final_gdy_label.hide()
 	score_label.hide()
+
+
+func show_game_end():
+	score_label.text = "GAME END"
+	var game_end_tween: Tween = get_tree().create_tween()
+	game_end_tween.tween_property(score_label, "modulate", Color(0, 0, 0, 0), 3)

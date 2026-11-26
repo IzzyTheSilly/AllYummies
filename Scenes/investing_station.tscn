@@ -1,22 +1,31 @@
 [gd_scene format=3 uid="uid://dgi0lk0hxv78q"]
 
 [ext_resource type="Script" uid="uid://ctn7pd226ktcn" path="res://Scripts/investing_station.gd" id="1_1bwtl"]
+[ext_resource type="Texture2D" uid="uid://dnykjr1oapjd7" path="res://Assets/Sprites/staion_sprites.png" id="2_esclt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ir5lp"]
-size = Vector2(60, 40)
+size = Vector2(80, 40)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q1q2r"]
-size = Vector2(60, 40)
+size = Vector2(78, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ir5lp"]
+atlas = ExtResource("2_esclt")
+region = Rect2(40, 80, 80, 40)
 
 [node name="InvestingStation" type="CharacterBody2D" unique_id=1606015159]
 collision_layer = 8
 script = ExtResource("1_1bwtl")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1123657313]
+[node name="Interact" type="CollisionShape2D" parent="." unique_id=1123657313]
 shape = SubResource("RectangleShape2D_ir5lp")
 
 [node name="Collision" type="StaticBody2D" parent="." unique_id=15706615]
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Collision" unique_id=1989735268]
+position = Vector2(0, 12)
 shape = SubResource("RectangleShape2D_q1q2r")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=97980125]
+texture = SubResource("AtlasTexture_ir5lp")

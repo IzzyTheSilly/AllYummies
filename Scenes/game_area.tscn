@@ -153,6 +153,7 @@ offset_right = -153.0
 offset_bottom = -151.0
 
 [node name="YummyInventory" parent="PlayerCharacter/Camera2D" unique_id=1270145067 instance=ExtResource("5_hmx0y")]
+z_index = 4
 offset_left = -60.0
 offset_top = -245.0
 offset_right = -60.0
@@ -167,6 +168,7 @@ offset_right = -157.0
 offset_bottom = -165.0
 
 [node name="Notifications" parent="PlayerCharacter/Camera2D" unique_id=1314199842 instance=ExtResource("7_h5xn8")]
+z_index = 1
 offset_left = -149.0
 offset_top = -18.0
 offset_right = 10.0
@@ -180,7 +182,7 @@ offset_right = -164.0
 offset_bottom = -179.0
 
 [node name="EndingScreen" parent="PlayerCharacter/Camera2D" unique_id=1118644805 instance=ExtResource("9_x6fr2")]
-z_index = 4
+z_index = 6
 offset_left = -160.0
 offset_top = -176.0
 offset_right = -160.0
