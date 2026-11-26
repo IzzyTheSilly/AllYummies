@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://rdgx4kdiqt45" path="res://Scripts/dialogue_choice_data.gd" id="1_8rl01"]
 [ext_resource type="Script" uid="uid://dvl6mehpirn4w" path="res://Scripts/dialogue_data.gd" id="2_kp1jj"]
 [ext_resource type="AudioStream" uid="uid://cilay0xwylgkn" path="res://Assets/Audio/soundshelfstudio-sci-fi-system-blip-525671.mp3" id="3_jt7dd"]
-[ext_resource type="Texture2D" uid="uid://c38nihrqswwdp" path="res://Assets/Sprites/irsela_laceholder.jpg" id="4_ii5i1"]
 [ext_resource type="Texture2D" uid="uid://cxyk4kqbaypfj" path="res://Assets/Sprites/irsela_spritesheet.png" id="4_ovqws"]
 [ext_resource type="Script" uid="uid://cprsdu68b8n21" path="res://Scripts/cutscene_data.gd" id="5_ayip7"]
 
@@ -11,7 +10,15 @@
 script = ExtResource("1_8rl01")
 options = Dictionary[String, int]({
 "Nope": 4,
-"Yeah": 3
+"Yea": 3
+})
+metadata/_custom_type_script = "uid://rdgx4kdiqt45"
+
+[sub_resource type="Resource" id="Resource_fekvv"]
+script = ExtResource("1_8rl01")
+options = Dictionary[String, int]({
+"Still no": 25,
+"Yep!": 3
 })
 metadata/_custom_type_script = "uid://rdgx4kdiqt45"
 
@@ -39,32 +46,322 @@ portrait = SubResource("AtlasTexture_63nfq")
 next_dialogue_index = 2
 metadata/_custom_type_script = "uid://dvl6mehpirn4w"
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_de3tv"]
+atlas = ExtResource("4_ovqws")
+region = Rect2(260, 260, 60, 60)
+
 [sub_resource type="Resource" id="Resource_x5kaa"]
 script = ExtResource("2_kp1jj")
-text = "Anyways, I assume you already know what to do, right?"
+text = "Anyways. I'm IRSELA, the ruler of this kingdom."
 blip = ExtResource("3_jt7dd")
-portrait = ExtResource("4_ii5i1")
-next_dialogue_choice_index = 0
+portrait = SubResource("AtlasTexture_de3tv")
+next_dialogue_index = 22
 metadata/_custom_type_script = "uid://dvl6mehpirn4w"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d0xg6"]
+atlas = ExtResource("4_ovqws")
+region = Rect2(80, 260, 60, 60)
 
 [sub_resource type="Resource" id="Resource_nai3r"]
 script = ExtResource("2_kp1jj")
 text = "Sweet, now go."
 blip = ExtResource("3_jt7dd")
-portrait = ExtResource("4_ii5i1")
+portrait = SubResource("AtlasTexture_d0xg6")
 metadata/_custom_type_script = "uid://dvl6mehpirn4w"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lr47m"]
+atlas = ExtResource("4_ovqws")
+region = Rect2(140, 260, 60, 60)
 
 [sub_resource type="Resource" id="Resource_fgar7"]
 script = ExtResource("2_kp1jj")
-text = "Wow, what a $#%@ing idiot."
+text = "Wow, what an idiot. How did you pass the interview?"
 blip = ExtResource("3_jt7dd")
-portrait = ExtResource("4_ii5i1")
+portrait = SubResource("AtlasTexture_lr47m")
+next_dialogue_index = 5
+metadata/_custom_type_script = "uid://dvl6mehpirn4w"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fekvv"]
+atlas = ExtResource("4_ovqws")
+region = Rect2(260, 260, 60, 60)
+
+[sub_resource type="Resource" id="Resource_vr0po"]
+script = ExtResource("2_kp1jj")
+text = "Anyways, I guess I'll explain your job."
+blip = ExtResource("3_jt7dd")
+portrait = SubResource("AtlasTexture_fekvv")
+next_dialogue_index = 6
+metadata/_custom_type_script = "uid://dvl6mehpirn4w"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ovqws"]
+atlas = ExtResource("4_ovqws")
+region = Rect2(200, 200, 60, 60)
+
+[sub_resource type="Resource" id="Resource_ovqws"]
+script = ExtResource("2_kp1jj")
+text = "In this kingdom, the economy runs on yummies."
+blip = ExtResource("3_jt7dd")
+portrait = SubResource("AtlasTexture_ovqws")
+next_dialogue_index = 7
+metadata/_custom_type_script = "uid://dvl6mehpirn4w"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_euayq"]
+atlas = ExtResource("4_ovqws")
+region = Rect2(260, 200, 60, 60)
+
+[sub_resource type="Resource" id="Resource_tprht"]
+script = ExtResource("2_kp1jj")
+text = "But because of rampant consumerism, our producers have been making yummies non-stop."
+blip = ExtResource("3_jt7dd")
+portrait = SubResource("AtlasTexture_euayq")
+next_dialogue_index = 8
+metadata/_custom_type_script = "uid://dvl6mehpirn4w"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e3ktp"]
+atlas = ExtResource("4_ovqws")
+region = Rect2(140, 200, 60, 60)
+
+[sub_resource type="Resource" id="Resource_6gjy8"]
+script = ExtResource("2_kp1jj")
+text = "And we don't have enough population (chummies) to handle it all."
+blip = ExtResource("3_jt7dd")
+portrait = SubResource("AtlasTexture_e3ktp")
+next_dialogue_index = 9
+metadata/_custom_type_script = "uid://dvl6mehpirn4w"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tprht"]
+atlas = ExtResource("4_ovqws")
+region = Rect2(260, 260, 60, 60)
+
+[sub_resource type="Resource" id="Resource_euayq"]
+script = ExtResource("2_kp1jj")
+text = "One might say, we have TOO MANY yummies..."
+blip = ExtResource("3_jt7dd")
+portrait = SubResource("AtlasTexture_tprht")
+next_dialogue_index = 10
+metadata/_custom_type_script = "uid://dvl6mehpirn4w"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5y25w"]
+atlas = ExtResource("4_ovqws")
+region = Rect2(80, 260, 60, 60)
+
+[sub_resource type="Resource" id="Resource_e3ktp"]
+script = ExtResource("2_kp1jj")
+text = "yet TOO LITTLE chummies. Hehe."
+blip = ExtResource("3_jt7dd")
+portrait = SubResource("AtlasTexture_5y25w")
+next_dialogue_index = 11
+metadata/_custom_type_script = "uid://dvl6mehpirn4w"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1x3nf"]
+atlas = ExtResource("4_ovqws")
+region = Rect2(140, 260, 60, 60)
+
+[sub_resource type="Resource" id="Resource_5y25w"]
+script = ExtResource("2_kp1jj")
+text = "..."
+blip = ExtResource("3_jt7dd")
+portrait = SubResource("AtlasTexture_1x3nf")
+next_dialogue_index = 12
+metadata/_custom_type_script = "uid://dvl6mehpirn4w"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6gjy8"]
+atlas = ExtResource("4_ovqws")
+region = Rect2(260, 260, 60, 60)
+
+[sub_resource type="Resource" id="Resource_1x3nf"]
+script = ExtResource("2_kp1jj")
+text = "So yeah, you need to make sure we have enough chummies to handle our yummy output."
+blip = ExtResource("3_jt7dd")
+portrait = SubResource("AtlasTexture_6gjy8")
+next_dialogue_index = 13
+metadata/_custom_type_script = "uid://dvl6mehpirn4w"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ilvl"]
+atlas = ExtResource("4_ovqws")
+region = Rect2(200, 200, 60, 60)
+
+[sub_resource type="Resource" id="Resource_urcjv"]
+script = ExtResource("2_kp1jj")
+text = "You can use our TRADING STATION to employ chummies and gain other buffs."
+blip = ExtResource("3_jt7dd")
+portrait = SubResource("AtlasTexture_8ilvl")
+next_dialogue_index = 14
+metadata/_custom_type_script = "uid://dvl6mehpirn4w"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_82fj4"]
+atlas = ExtResource("4_ovqws")
+region = Rect2(80, 260, 60, 60)
+
+[sub_resource type="Resource" id="Resource_8ilvl"]
+script = ExtResource("2_kp1jj")
+text = "You can also use our INVESTING STATION to put yummies in the stock market."
+blip = ExtResource("3_jt7dd")
+portrait = SubResource("AtlasTexture_82fj4")
+next_dialogue_index = 15
+metadata/_custom_type_script = "uid://dvl6mehpirn4w"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pvu54"]
+atlas = ExtResource("4_ovqws")
+region = Rect2(200, 200, 60, 60)
+
+[sub_resource type="Resource" id="Resource_82fj4"]
+script = ExtResource("2_kp1jj")
+text = "Invested yummies don't count towards our GDY, but you can get great returns."
+blip = ExtResource("3_jt7dd")
+portrait = SubResource("AtlasTexture_pvu54")
+next_dialogue_index = 16
+metadata/_custom_type_script = "uid://dvl6mehpirn4w"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dsupt"]
+atlas = ExtResource("4_ovqws")
+region = Rect2(80, 260, 60, 60)
+
+[sub_resource type="Resource" id="Resource_pvu54"]
+script = ExtResource("2_kp1jj")
+text = "More yummies in stock will also entice more chummies to come to our kingdom."
+blip = ExtResource("3_jt7dd")
+portrait = SubResource("AtlasTexture_dsupt")
+next_dialogue_index = 17
+metadata/_custom_type_script = "uid://dvl6mehpirn4w"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o532w"]
+atlas = ExtResource("4_ovqws")
+region = Rect2(260, 260, 60, 60)
+
+[sub_resource type="Resource" id="Resource_dsupt"]
+script = ExtResource("2_kp1jj")
+text = "And speaking of GDY, or Gross Domestic Yummy, that's the number you wanna increase."
+blip = ExtResource("3_jt7dd")
+portrait = SubResource("AtlasTexture_o532w")
+next_dialogue_index = 18
+metadata/_custom_type_script = "uid://dvl6mehpirn4w"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_urcjv"]
+atlas = ExtResource("4_ovqws")
+region = Rect2(200, 200, 60, 60)
+
+[sub_resource type="Resource" id="Resource_o532w"]
+script = ExtResource("2_kp1jj")
+text = "Every yummy contributes to our GDY."
+blip = ExtResource("3_jt7dd")
+portrait = SubResource("AtlasTexture_urcjv")
+next_dialogue_index = 19
+metadata/_custom_type_script = "uid://dvl6mehpirn4w"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gt80a"]
+atlas = ExtResource("4_ovqws")
+region = Rect2(260, 200, 60, 60)
+
+[sub_resource type="Resource" id="Resource_msjiy"]
+script = ExtResource("2_kp1jj")
+text = "But without chummies to protect the yummies, they'll eventually become BUMMIES."
+blip = ExtResource("3_jt7dd")
+portrait = SubResource("AtlasTexture_gt80a")
+next_dialogue_index = 20
+metadata/_custom_type_script = "uid://dvl6mehpirn4w"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ethgu"]
+atlas = ExtResource("4_ovqws")
+region = Rect2(80, 200, 60, 60)
+
+[sub_resource type="Resource" id="Resource_gt80a"]
+script = ExtResource("2_kp1jj")
+text = "Bummies are bad, and will decrease our GDY."
+blip = ExtResource("3_jt7dd")
+portrait = SubResource("AtlasTexture_ethgu")
+next_dialogue_index = 21
+metadata/_custom_type_script = "uid://dvl6mehpirn4w"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_msjiy"]
+atlas = ExtResource("4_ovqws")
+region = Rect2(80, 260, 60, 60)
+
+[sub_resource type="Resource" id="Resource_55kwv"]
+script = ExtResource("2_kp1jj")
+text = "If there are an excess of bummies, you can exterminate them, in our EXTERMINATOR."
+blip = ExtResource("3_jt7dd")
+portrait = SubResource("AtlasTexture_msjiy")
+next_dialogue_index = 23
+metadata/_custom_type_script = "uid://dvl6mehpirn4w"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ugcvy"]
+atlas = ExtResource("4_ovqws")
+region = Rect2(140, 260, 60, 60)
+
+[sub_resource type="Resource" id="Resource_ethgu"]
+script = ExtResource("2_kp1jj")
+text = " I assume you already know what to do, right?"
+blip = ExtResource("3_jt7dd")
+portrait = SubResource("AtlasTexture_ugcvy")
+next_dialogue_choice_index = 0
+metadata/_custom_type_script = "uid://dvl6mehpirn4w"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f252t"]
+atlas = ExtResource("4_ovqws")
+region = Rect2(140, 200, 60, 60)
+
+[sub_resource type="Resource" id="Resource_ugcvy"]
+script = ExtResource("2_kp1jj")
+text = "Also, yummies protected by chummies have a yellow thingamajig around them, and cannot turn into bummies, so yeah."
+blip = ExtResource("3_jt7dd")
+portrait = SubResource("AtlasTexture_f252t")
+next_dialogue_index = 24
+metadata/_custom_type_script = "uid://dvl6mehpirn4w"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vr0po"]
+atlas = ExtResource("4_ovqws")
+region = Rect2(140, 260, 60, 60)
+
+[sub_resource type="Resource" id="Resource_f252t"]
+script = ExtResource("2_kp1jj")
+text = "Anyways, that's all I have to say. Are you ready yet?"
+blip = ExtResource("3_jt7dd")
+portrait = SubResource("AtlasTexture_vr0po")
+next_dialogue_choice_index = 1
+metadata/_custom_type_script = "uid://dvl6mehpirn4w"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kpy2w"]
+atlas = ExtResource("4_ovqws")
+region = Rect2(80, 200, 60, 60)
+
+[sub_resource type="Resource" id="Resource_kpy2w"]
+script = ExtResource("2_kp1jj")
+text = "Are you serious?"
+blip = ExtResource("3_jt7dd")
+portrait = SubResource("AtlasTexture_kpy2w")
+next_dialogue_index = 26
+text_speed = 15.0
+metadata/_custom_type_script = "uid://dvl6mehpirn4w"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tl7kr"]
+atlas = ExtResource("4_ovqws")
+region = Rect2(140, 260, 60, 60)
+
+[sub_resource type="Resource" id="Resource_vv6i0"]
+script = ExtResource("2_kp1jj")
+text = "Okay, I'll repeat everything I just said word for word."
+blip = ExtResource("3_jt7dd")
+portrait = SubResource("AtlasTexture_tl7kr")
+next_dialogue_index = 27
+metadata/_custom_type_script = "uid://dvl6mehpirn4w"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vv6i0"]
+atlas = ExtResource("4_ovqws")
+region = Rect2(260, 260, 60, 60)
+
+[sub_resource type="Resource" id="Resource_tl7kr"]
+script = ExtResource("2_kp1jj")
+text = "Ehem..."
+blip = ExtResource("3_jt7dd")
+portrait = SubResource("AtlasTexture_vv6i0")
+next_dialogue_index = 6
 metadata/_custom_type_script = "uid://dvl6mehpirn4w"
 
 [resource]
 script = ExtResource("5_ayip7")
-dialogues = Array[ExtResource("2_kp1jj")]([SubResource("Resource_rqkk3"), SubResource("Resource_u83eq"), SubResource("Resource_x5kaa"), SubResource("Resource_nai3r"), SubResource("Resource_fgar7")])
-dialogue_choices = Array[ExtResource("1_8rl01")]([SubResource("Resource_hmx0y")])
+dialogues = Array[ExtResource("2_kp1jj")]([SubResource("Resource_rqkk3"), SubResource("Resource_u83eq"), SubResource("Resource_x5kaa"), SubResource("Resource_nai3r"), SubResource("Resource_fgar7"), SubResource("Resource_vr0po"), SubResource("Resource_ovqws"), SubResource("Resource_tprht"), SubResource("Resource_6gjy8"), SubResource("Resource_euayq"), SubResource("Resource_e3ktp"), SubResource("Resource_5y25w"), SubResource("Resource_1x3nf"), SubResource("Resource_urcjv"), SubResource("Resource_8ilvl"), SubResource("Resource_82fj4"), SubResource("Resource_pvu54"), SubResource("Resource_dsupt"), SubResource("Resource_o532w"), SubResource("Resource_msjiy"), SubResource("Resource_gt80a"), SubResource("Resource_55kwv"), SubResource("Resource_ethgu"), SubResource("Resource_ugcvy"), SubResource("Resource_f252t"), SubResource("Resource_kpy2w"), SubResource("Resource_vv6i0"), SubResource("Resource_tl7kr")])
+dialogue_choices = Array[ExtResource("1_8rl01")]([SubResource("Resource_hmx0y"), SubResource("Resource_fekvv")])
 set_flags = Dictionary[String, int]({
 "game_start": 1,
 "talk_to_irsela": 1
