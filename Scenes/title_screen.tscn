@@ -144,7 +144,7 @@ theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_o0f8b")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_twnyg")
 theme_override_styles/hover = SubResource("StyleBoxFlat_55kwv")
-text = "Options"
+text = "Settings"
 
 [node name="QuitButton" type="Button" parent="." unique_id=928748344]
 layout_mode = 1

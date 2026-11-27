@@ -13,6 +13,8 @@ class_name Player
 @export var animated_sprite: AnimatedSprite2D
 @export var animation_player: AnimationPlayer
 
+@export var plop_sfx: AudioStream
+
 var auto_moving: bool = false
 var auto_moving_direction: Vector2
 
@@ -129,6 +131,7 @@ func process_animation(direction: Vector2):
 func drop_yummy():
 	if GlobalData.collected_yummies_list.size() > 0:
 		GlobalData.collected_yummies_list[0].drop(position)
+		AudioManager.try_change_sfx_audio(plop_sfx, true, 0.8)
 
 
 func auto_move(direction: Vector2, time: float):

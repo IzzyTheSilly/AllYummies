@@ -27,7 +27,6 @@ func _ready() -> void:
 func start():
 	daytime_left_panel.show()
 	notifications.show()
-	daytime_left_panel.day_time_left_label.text = "Daytime Left: " + str(int(GlobalData.day_length)) + "min 0sec"
 
 
 func end():
@@ -156,3 +155,7 @@ func invest_yummy():
 
 func change_select_investing_station(direction: int):
 	investing_station_menu.change_select(direction)
+
+
+func set_day_time_left():
+	daytime_left_panel.set_timer()

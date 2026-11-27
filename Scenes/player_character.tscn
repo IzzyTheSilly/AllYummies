@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b1abic7bgamk7" path="res://Scripts/player_character.gd" id="1_o0f8b"]
 [ext_resource type="Texture2D" uid="uid://ccc40xq0skh0a" path="res://Assets/Sprites/yummer_sprites.png" id="2_cmdk4"]
+[ext_resource type="AudioStream" uid="uid://bwo0ar7853j8j" path="res://Assets/Audio/freesound_community-plop-sound-made-with-my-mouth-100690.mp3" id="2_o0f8b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ir5lp"]
 size = Vector2(20, 12)
@@ -207,6 +208,7 @@ interaction_raycast = NodePath("RayCast2D")
 interaction_distance = 30
 animated_sprite = NodePath("AnimatedSprite2D")
 animation_player = NodePath("AnimationPlayer")
+plop_sfx = ExtResource("2_o0f8b")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=12978143]
 shape = SubResource("RectangleShape2D_ir5lp")

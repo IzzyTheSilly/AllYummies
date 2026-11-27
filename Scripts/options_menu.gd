@@ -12,6 +12,8 @@ var page: int = 1
 @export var sfx_volume_slider: HSlider
 @export var music_volume_slider: HSlider
 
+@export var quit_cutscene_id: String
+
 
 func _ready() -> void:
 	UIHandler.options_menu = self
@@ -48,12 +50,14 @@ func _on_main_menu_button_pressed() -> void:
 
 
 func _on_next_page_button_pressed() -> void:
+	return
 	if page < pages.size():
 		page = page + 1
 		change_page(page)
 
 
 func _on_previous_page_button_pressed() -> void:
+	return
 	if page > 1:
 		page = page - 1
 		change_page(page)

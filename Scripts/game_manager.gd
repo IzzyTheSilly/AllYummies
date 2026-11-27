@@ -81,6 +81,7 @@ func end_game():
 
 func reset_day_timer():
 	day_timer.start(GlobalData.day_length * 60)
+	UIHandler.set_day_time_left()
 
 
 func stop_day_timer():

@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="CutsceneData" format=3 uid="uid://j2f7w0ywo6o2"]
+
+[ext_resource type="Script" uid="uid://rdgx4kdiqt45" path="res://Scripts/dialogue_choice_data.gd" id="1_ysyo5"]
+[ext_resource type="Script" uid="uid://dvl6mehpirn4w" path="res://Scripts/dialogue_data.gd" id="2_i4txj"]
+[ext_resource type="Script" uid="uid://cprsdu68b8n21" path="res://Scripts/cutscene_data.gd" id="3_d2l7a"]
+[ext_resource type="AudioStream" uid="uid://cilay0xwylgkn" path="res://Assets/Audio/soundshelfstudio-sci-fi-system-blip-525671.mp3" id="3_i4txj"]
+[ext_resource type="Texture2D" uid="uid://cxyk4kqbaypfj" path="res://Assets/Sprites/irsela_spritesheet.png" id="4_d2l7a"]
+
+[sub_resource type="Resource" id="Resource_p3t1a"]
+script = ExtResource("2_i4txj")
+text = "The Great Sugar Fountain
+-
+(Also known as 'Irsela's Bathtub')"
+blip = ExtResource("3_i4txj")
+next_dialogue_index = 1
+metadata/_custom_type_script = "uid://dvl6mehpirn4w"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j20kr"]
+atlas = ExtResource("4_d2l7a")
+region = Rect2(200, 200, 60, 60)
+
+[sub_resource type="Resource" id="Resource_0ommf"]
+script = ExtResource("2_i4txj")
+text = "Back off my pink sauce, chum."
+blip = ExtResource("3_i4txj")
+portrait = SubResource("AtlasTexture_j20kr")
+metadata/_custom_type_script = "uid://dvl6mehpirn4w"
+
+[resource]
+script = ExtResource("3_d2l7a")
+dialogues = Array[ExtResource("2_i4txj")]([SubResource("Resource_p3t1a"), SubResource("Resource_0ommf")])
+metadata/_custom_type_script = "uid://cprsdu68b8n21"

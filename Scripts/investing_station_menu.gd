@@ -10,7 +10,7 @@ var selected_option: int = 1
 @export var cooldown_label: RichTextLabel
 
 var stock_value: float = 1.0
-@export var stock_value_update_time: float = 15
+@export var stock_value_update_time: float = 10
 @export var stock_value_update_timer: Timer
 @export var tip_label_timer: Timer
 @export var cooldown_timer: Timer
@@ -116,8 +116,9 @@ func change_tip_text(text: String, time: float = 1.5):
 
 
 func _on_stock_value_update_timer_timeout() -> void:
-	stock_value = stock_value * GlobalData.yummy_interest_average
+	stock_value = stock_value * (GlobalData.yummy_interest_average + randf_range(-0.3, 0.32))
 	stock_value_label.text = "Stock Value: %.3f" % stock_value
+	stock_value_update_timer.start(stock_value_update_time + randf_range(-4, 4))
 
 
 func update_yummies_in_stock():

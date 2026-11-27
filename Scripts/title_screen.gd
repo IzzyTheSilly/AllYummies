@@ -28,7 +28,6 @@ func _on_play_button_pressed() -> void:
 	AudioManager.stop_music_audio()
 	await get_tree().create_timer(3).timeout
 	get_tree().change_scene_to_file("res://Scenes/game_area.tscn")
-	GameManager.reset_day_timer()
 
 
 func _on_options_button_pressed() -> void:

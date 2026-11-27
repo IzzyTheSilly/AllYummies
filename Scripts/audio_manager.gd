@@ -24,12 +24,13 @@ func change_sfx_volume(volume: float):
 		audio_stream_players[i].volume_db = linear_to_db(volume)
 
 
-func try_change_sfx_audio(audio: AudioStream, play_immediately: bool = false) -> int:
+func try_change_sfx_audio(audio: AudioStream, play_immediately: bool = false, offset: float = 0) -> int:
 	for i in range(1, 5):
 		if !audio_stream_players[i].playing:
 			audio_stream_players[i].stream = audio
 			if play_immediately:
-				audio_stream_players[i].play()
+				audio_stream_players[i].play(offset)
+				print(offset)
 			return 0
 	return 1
 

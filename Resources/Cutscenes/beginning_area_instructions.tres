@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="CutsceneData" format=3 uid="uid://dc2tiygm5ng3d"]
+
+[ext_resource type="Script" uid="uid://rdgx4kdiqt45" path="res://Scripts/dialogue_choice_data.gd" id="1_nmagc"]
+[ext_resource type="Script" uid="uid://dvl6mehpirn4w" path="res://Scripts/dialogue_data.gd" id="2_prekq"]
+[ext_resource type="Script" uid="uid://cprsdu68b8n21" path="res://Scripts/cutscene_data.gd" id="3_lxdtl"]
+[ext_resource type="AudioStream" uid="uid://cilay0xwylgkn" path="res://Assets/Audio/soundshelfstudio-sci-fi-system-blip-525671.mp3" id="3_prekq"]
+
+[sub_resource type="Resource" id="Resource_jgbm4"]
+script = ExtResource("2_prekq")
+text = "Looks like random letters on the ground..."
+blip = ExtResource("3_prekq")
+metadata/_custom_type_script = "uid://dvl6mehpirn4w"
+
+[resource]
+script = ExtResource("3_lxdtl")
+dialogues = Array[ExtResource("2_prekq")]([SubResource("Resource_jgbm4")])
+metadata/_custom_type_script = "uid://cprsdu68b8n21"
