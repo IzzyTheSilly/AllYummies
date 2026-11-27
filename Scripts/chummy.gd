@@ -13,6 +13,7 @@ var target: Vector2
 @export var speed: int
 
 @export var animated_sprite: AnimatedSprite2D
+@export var animation_player: AnimationPlayer
 
 
 func _ready() -> void:
@@ -35,10 +36,12 @@ func _ready() -> void:
 func start():
 	behaviour_timer.start()
 	change_state(BehaviourState.IDLE)
+	animation_player.play("wander")
 
 
 func end():
 	change_state(BehaviourState.STOP)
+	animation_player.stop()
 
 
 func _physics_process(delta: float) -> void:

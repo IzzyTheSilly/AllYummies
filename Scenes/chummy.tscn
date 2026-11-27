@@ -42,17 +42,59 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Chummy" type="CharacterBody2D" unique_id=486724092 node_paths=PackedStringArray("behaviour_timer", "animated_sprite")]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q1q2r"]
+size = Vector2(15, 14)
+
+[sub_resource type="Animation" id="Animation_6aenh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -11)]
+}
+
+[sub_resource type="Animation" id="Animation_c4yto"]
+resource_name = "wander"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.5, 2),
+"transitions": PackedFloat32Array(0.5, -2, 2, 1),
+"update": 0,
+"values": [Vector2(0, -11), Vector2(0, -13), Vector2(0, -9), Vector2(0, -11)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qe1ts"]
+_data = {
+&"RESET": SubResource("Animation_6aenh"),
+&"wander": SubResource("Animation_c4yto")
+}
+
+[node name="Chummy" type="CharacterBody2D" unique_id=486724092 node_paths=PackedStringArray("behaviour_timer", "animated_sprite", "animation_player")]
 z_as_relative = false
 y_sort_enabled = true
 collision_layer = 8
-collision_mask = 3
+collision_mask = 2
 motion_mode = 1
 script = ExtResource("1_onbqb")
 behaviour_timer = NodePath("BehaviourTimer")
 wander_range = 200
 speed = 30
 animated_sprite = NodePath("AnimatedSprite2D")
+animation_player = NodePath("AnimationPlayer")
 cutscene_ids = Array[String](["chummy_1"])
 metadata/_custom_type_script = "uid://bs6wnpnyqscgq"
 
@@ -66,5 +108,16 @@ scale = Vector2(1, 1.0000001)
 sprite_frames = SubResource("SpriteFrames_ir5lp")
 
 [node name="BehaviourTimer" type="Timer" parent="." unique_id=1326895815]
+
+[node name="Collision" type="StaticBody2D" parent="." unique_id=405169132]
+collision_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision" unique_id=825258951]
+position = Vector2(0.5, -1)
+shape = SubResource("RectangleShape2D_q1q2r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1380194797]
+libraries/ = SubResource("AnimationLibrary_qe1ts")
+autoplay = &"wander"
 
 [connection signal="timeout" from="BehaviourTimer" to="." method="_on_behaviour_timer_timeout"]

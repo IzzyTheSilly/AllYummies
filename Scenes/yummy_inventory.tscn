@@ -37,7 +37,6 @@ script = ExtResource("1_0o82a")
 slots = [NodePath("TextureRect/HBoxContainer/YummyInventorySlot"), NodePath("TextureRect/HBoxContainer/YummyInventorySlot2"), NodePath("TextureRect/HBoxContainer/YummyInventorySlot3"), NodePath("TextureRect/HBoxContainer/YummyInventorySlot4")]
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1501558698]
-modulate = Color(0.6588064, 0.6255009, 0.8743566, 1)
 layout_mode = 0
 offset_left = 9.0
 offset_top = 8.0

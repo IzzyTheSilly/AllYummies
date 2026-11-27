@@ -9,7 +9,8 @@ func _on_interact():
 	for i in range(GlobalData.collected_yummies_list.size()):
 		if GlobalData.collected_yummies_list[i]:
 			exterminate_yummy(GlobalData.collected_yummies_list[i])
-			break
+			return
+	UIHandler.notify("No yummies to exterminate!")
 
 
 func exterminate_yummy(yummy: Yummy):

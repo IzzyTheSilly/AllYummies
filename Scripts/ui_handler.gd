@@ -130,7 +130,7 @@ func update_inventory(type: int):
 
 func popup_inventory():
 	var show_tween: Tween = get_tree().create_tween()
-	show_tween.tween_property(inventory_panel, "position:y", -165, 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	show_tween.tween_property(inventory_panel, "position:y", -155, 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	await show_tween.finished
 	await get_tree().create_timer(0.7).timeout
 	var hide_tween: Tween = get_tree().create_tween()

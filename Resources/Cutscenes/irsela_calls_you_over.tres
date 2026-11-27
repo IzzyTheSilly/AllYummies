@@ -12,7 +12,7 @@ region = Rect2(200, 260, 60, 60)
 
 [sub_resource type="Resource" id="Resource_hmx0y"]
 script = ExtResource("2_u6f0m")
-text = "Hey, get over here."
+text = "Psst. Hey, get over here."
 blip = ExtResource("3_8in5m")
 portrait = SubResource("AtlasTexture_tlprh")
 metadata/_custom_type_script = "uid://dvl6mehpirn4w"

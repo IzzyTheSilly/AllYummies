@@ -38,8 +38,6 @@ func _physics_process(delta: float) -> void:
 	if direction:
 		interaction_raycast.position = -direction * 9
 		interaction_raycast.target_position = direction * interaction_distance
-	if Input.is_action_pressed("cancel"):
-		direction = direction * 1.5
 	velocity = direction * speed
 	
 	process_animation(direction)

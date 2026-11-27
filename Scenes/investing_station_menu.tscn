@@ -11,7 +11,7 @@
 atlas = ExtResource("6_2vldg")
 region = Rect2(260, 20, 20, 20)
 
-[node name="InvestingStationMenu" type="Control" unique_id=599790385 node_paths=PackedStringArray("stock_value_label", "option_highlights", "tip_label", "yummies_in_stock_label", "stock_value_update_timer", "tip_label_timer")]
+[node name="InvestingStationMenu" type="Control" unique_id=599790385 node_paths=PackedStringArray("stock_value_label", "option_highlights", "tip_label", "yummies_in_stock_label", "cooldown_label", "stock_value_update_timer", "tip_label_timer", "cooldown_timer")]
 z_index = 2
 layout_mode = 3
 anchors_preset = 15
@@ -24,8 +24,10 @@ stock_value_label = NodePath("StockValueLabel")
 option_highlights = [NodePath("InvestLabel/NinePatchRect"), NodePath("PullLabel/NinePatchRect")]
 tip_label = NodePath("TipLabel")
 yummies_in_stock_label = NodePath("YummiesInStockLabel")
+cooldown_label = NodePath("CooldownTimerLabel")
 stock_value_update_timer = NodePath("StockValueUpdateTimer")
 tip_label_timer = NodePath("TipLabelTimer")
+cooldown_timer = NodePath("CooldownTimer")
 error_sfx = ExtResource("2_l4mnv")
 purchase_sfx = ExtResource("3_2vldg")
 
@@ -68,6 +70,16 @@ offset_bottom = 149.0
 theme_override_fonts/normal_font = ExtResource("3_0apr1")
 theme_override_font_sizes/normal_font_size = 16
 text = "Yummies In Stock: 0"
+
+[node name="CooldownTimerLabel" type="RichTextLabel" parent="." unique_id=928981938]
+layout_mode = 0
+offset_left = 57.0
+offset_top = 132.0
+offset_right = 286.0
+offset_bottom = 171.0
+theme_override_fonts/normal_font = ExtResource("3_0apr1")
+theme_override_font_sizes/normal_font_size = 16
+text = "Cooldown: 0s"
 
 [node name="InvestLabel" type="RichTextLabel" parent="." unique_id=1802441231]
 layout_mode = 0
@@ -135,4 +147,8 @@ vertical_alignment = 1
 [node name="TipLabelTimer" type="Timer" parent="." unique_id=188058200]
 one_shot = true
 
+[node name="CooldownTimer" type="Timer" parent="." unique_id=871226297]
+one_shot = true
+
 [connection signal="timeout" from="StockValueUpdateTimer" to="." method="_on_stock_value_update_timer_timeout"]
+[connection signal="timeout" from="CooldownTimer" to="." method="_on_cooldown_timer_timeout"]

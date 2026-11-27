@@ -44,6 +44,7 @@ func end_game():
 	game_end.emit()
 	stop_day_timer()
 	in_gameplay = false
+	in_game = false
 	ending_screen.show()
 	UIHandler.set_menu_showing(UIHandler.Menu.NONE, false)
 	var end_screen_tween: Tween = get_tree().create_tween()
@@ -57,6 +58,8 @@ func end_game():
 	elif score < 0:
 		AudioManager.try_change_sfx_audio(bwomp_sfx, true)
 	await get_tree().create_timer(2).timeout
+	
+	ending = false
 	
 	if score > 100:
 		await CutsceneHandler.show_cutscene(ending_cutscenes_ids[0])
@@ -73,7 +76,6 @@ func end_game():
 	await get_tree().create_timer(3.5).timeout
 	GlobalData.reset_game_stats()
 	GlobalData.reset_local_flags()
-	ending = false
 	get_tree().change_scene_to_file("res://Scenes/title_screen.tscn")
 
 

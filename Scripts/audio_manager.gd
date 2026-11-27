@@ -54,7 +54,7 @@ func change_music_audio(audio: AudioStream, play_immediately: bool = false, fade
 func stop_music_audio():
 	var old_volume: float = audio_stream_players[6].volume_linear
 	var fade_out_tween: Tween = get_tree().create_tween()
-	fade_out_tween.tween_property(audio_stream_players[6], "volume_linear", 0, 4)
+	fade_out_tween.tween_property(audio_stream_players[6], "volume_linear", 0, 3)
 	await  fade_out_tween.finished
 	audio_stream_players[6].stop()
 	change_music_volume(old_volume)

@@ -79,7 +79,9 @@ func show_dialogue(dialogue: DialogueData):
 	
 	dialogue_has_finished = false
 	dialogue_box.portrait_area.show()
-	dialogue_box.change_portrait(dialogue.portrait)
+	if dialogue.portrait:
+		dialogue_box.change_portrait(dialogue.portrait)
+	else: dialogue_box.hide_portrait()
 	dialogue_box.change_blip(dialogue.blip)
 	dialogue_box.show()
 	await dialogue_box.show_text(dialogue.text, dialogue.text_speed)

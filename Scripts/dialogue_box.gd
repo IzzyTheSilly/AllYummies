@@ -91,6 +91,11 @@ func select_choice(choice: int):
 
 func change_portrait(image: Texture2D):
 	portrait_image.texture = image
+	portrait_area.show()
+
+
+func hide_portrait():
+	portrait_area.hide()
 
 
 func change_blip(blip: AudioStream):

@@ -7,7 +7,7 @@
 size = Vector2(18, 9.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5ow5o"]
-size = Vector2(20, 30)
+size = Vector2(20, 38)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jinyc"]
 atlas = ExtResource("3_ipdxr")
@@ -61,7 +61,7 @@ position = Vector2(-1, 15.75)
 shape = SubResource("RectangleShape2D_vkdgo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1186446353]
-position = Vector2(0, -12)
+position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_5ow5o")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=481971660]
