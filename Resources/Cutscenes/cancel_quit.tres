@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="CutsceneData" format=3 uid="uid://bddo6gxy2kswk"]
+
+[ext_resource type="Script" uid="uid://rdgx4kdiqt45" path="res://Scripts/dialogue_choice_data.gd" id="1_m4t3g"]
+[ext_resource type="Script" uid="uid://dvl6mehpirn4w" path="res://Scripts/dialogue_data.gd" id="2_4n5fa"]
+[ext_resource type="Script" uid="uid://cprsdu68b8n21" path="res://Scripts/cutscene_data.gd" id="3_maf5f"]
+[ext_resource type="AudioStream" uid="uid://cilay0xwylgkn" path="res://Assets/Audio/soundshelfstudio-sci-fi-system-blip-525671.mp3" id="3_oxda3"]
+[ext_resource type="Texture2D" uid="uid://cxyk4kqbaypfj" path="res://Assets/Sprites/irsela_spritesheet.png" id="4_p0d56"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p0d56"]
+atlas = ExtResource("4_p0d56")
+region = Rect2(80, 260, 60, 60)
+
+[sub_resource type="Resource" id="Resource_oxda3"]
+script = ExtResource("2_4n5fa")
+text = "Yeah that's what I thought."
+blip = ExtResource("3_oxda3")
+portrait = SubResource("AtlasTexture_p0d56")
+metadata/_custom_type_script = "uid://dvl6mehpirn4w"
+
+[resource]
+script = ExtResource("3_maf5f")
+dialogues = Array[ExtResource("2_4n5fa")]([SubResource("Resource_oxda3")])
+set_flags = Dictionary[String, int]({
+"are_you_sure": 2
+})
+flag_requirements = Dictionary[String, int]({
+"are_you_sure": 1
+})
+metadata/_custom_type_script = "uid://cprsdu68b8n21"

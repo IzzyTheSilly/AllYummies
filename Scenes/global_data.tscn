@@ -5,6 +5,7 @@
 [node name="GlobalData" type="Node" unique_id=42985718]
 script = ExtResource("1_gqdbo")
 local_flags = Dictionary[String, int]({
+"are_you_sure": 0,
 "game_start": 0,
 "move_player_down": 0,
 "move_player_left": 0,

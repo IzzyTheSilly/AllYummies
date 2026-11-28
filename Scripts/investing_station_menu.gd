@@ -63,6 +63,8 @@ func invest_yummy():
 		error()
 		return
 	for i in range(collected_yummies_list.size()):
+		if !is_instance_valid(collected_yummies_list[i]):
+			continue
 		if collected_yummies_list[i].bummy_state == Yummy.BummyState.YUMMY:
 			collected_yummies_list[i].exterminate()
 			GlobalData.add_yummies_invested(1)
@@ -115,8 +117,8 @@ func change_tip_text(text: String, time: float = 1.5):
 
 
 func _on_stock_value_update_timer_timeout() -> void:
-	if stock_value < 20.0:
-		stock_value = min(stock_value * (GlobalData.yummy_interest_average + randf_range(-0.3, 0.4)), 20)
+	if stock_value < 22.0:
+		stock_value = min(stock_value * (GlobalData.yummy_interest_average + randf_range(-0.3, 0.4)), 22)
 	else:
 		stock_value = stock_value * (GlobalData.yummy_interest_average + randf_range(-0.3, -0.1))
 	stock_value_label.text = "Stock Value: %.3f" % stock_value

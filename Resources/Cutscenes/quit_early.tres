@@ -6,14 +6,6 @@
 [ext_resource type="AudioStream" uid="uid://cilay0xwylgkn" path="res://Assets/Audio/soundshelfstudio-sci-fi-system-blip-525671.mp3" id="3_xnywm"]
 [ext_resource type="Texture2D" uid="uid://cxyk4kqbaypfj" path="res://Assets/Sprites/irsela_spritesheet.png" id="4_r8gao"]
 
-[sub_resource type="Resource" id="Resource_6paco"]
-script = ExtResource("1_2je1e")
-options = Dictionary[String, int]({
-"Nah": 3,
-"Yea": 2
-})
-metadata/_custom_type_script = "uid://rdgx4kdiqt45"
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_r8gao"]
 atlas = ExtResource("4_r8gao")
 region = Rect2(260, 200, 60, 60)
@@ -35,11 +27,15 @@ script = ExtResource("2_whdgr")
 text = "You'll lose your progress, are you sure you want to leave?"
 blip = ExtResource("3_xnywm")
 portrait = SubResource("AtlasTexture_6paco")
-next_dialogue_choice_index = 0
 metadata/_custom_type_script = "uid://dvl6mehpirn4w"
 
 [resource]
 script = ExtResource("3_6paco")
 dialogues = Array[ExtResource("2_whdgr")]([SubResource("Resource_xnywm"), SubResource("Resource_eduf6")])
-dialogue_choices = Array[ExtResource("1_2je1e")]([SubResource("Resource_6paco")])
+set_flags = Dictionary[String, int]({
+"are_you_sure": 1
+})
+flag_requirements = Dictionary[String, int]({
+"are_you_sure": 0
+})
 metadata/_custom_type_script = "uid://cprsdu68b8n21"

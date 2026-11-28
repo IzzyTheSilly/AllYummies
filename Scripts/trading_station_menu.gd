@@ -111,6 +111,8 @@ func take_yummy(cost: int) -> int:
 	var amount: int = 0
 	var index_array: Array[int]
 	for i in range(GlobalData.collected_yummies_list.size()):
+		if !is_instance_valid(GlobalData.collected_yummies_list[i]):
+			continue
 		if GlobalData.collected_yummies_list[i].bummy_state == Yummy.BummyState.YUMMY:
 			amount = amount + 1
 			index_array.append(i)
@@ -146,14 +148,13 @@ func option_1(stage: int):
 		2: GlobalData.add_chummies_rate(1)
 		3: GlobalData.add_chummy(1)
 		4: GlobalData.add_chummy_efficiency(1)
-		5: GlobalData.add_chummy(2)
+		5: GlobalData.add_chummy(1)
 		6: GlobalData.add_chummies_rate(1)
 		7: GlobalData.add_chummy(2)
 		8: GlobalData.add_chummy_efficiency(1)
-		9: GlobalData.add_chummy(3)
+		9: GlobalData.add_chummy(2)
 		10: GlobalData.add_chummies_rate(1)
-		11: GlobalData.add_chummy(3)
-		12: GlobalData.add_chummy_efficiency(1)
+		11: GlobalData.add_chummy(2)
 
 
 func option_2(stage: int):
@@ -171,7 +172,7 @@ func option_2(stage: int):
 				if GlobalData.yummies_list[i - count].bummy_state != Yummy.BummyState.YUMMY:
 					GlobalData.yummies_list[i - count].exterminate()
 					count = count + 1
-				if count >= 8:
+				if count >= 4:
 					break
 		7: GlobalData.max_yummy_invest = GlobalData.max_yummy_invest + 3
 		8: GlobalData.yummy_interest = GlobalData.yummy_interest + 0.05
@@ -184,7 +185,7 @@ func option_2(stage: int):
 				if GlobalData.yummies_list[i - count].bummy_state != Yummy.BummyState.YUMMY:
 					GlobalData.yummies_list[i - count].exterminate()
 					count = count + 1
-				if count >= 15:
+				if count >= 7:
 					break
 
 
@@ -198,11 +199,11 @@ func option_3(stage: int):
 		6: for yummy: Yummy in GlobalData.yummies_list:
 			yummy.set_health(yummy.health + 5)
 		7: player.interaction_distance = player.interaction_distance + 10
-		8: GlobalData.bummies_chance = GlobalData.bummies_chance - 4
+		8: GlobalData.bummies_chance = GlobalData.bummies_chance - 2
 		9: GameManager.add_time(60)
 		10: for yummy: Yummy in GlobalData.yummies_list:
 				yummy.set_health(yummy.health + 5)
-		11: GlobalData.bummies_chance = GlobalData.bummies_chance - 8
+		11: GlobalData.bummies_chance = GlobalData.bummies_chance - 2
 
 
 func error():

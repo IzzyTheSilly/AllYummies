@@ -328,7 +328,7 @@ animations = [{
 size = Vector2(69.01577, 52.717262)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gbx16"]
-size = Vector2(75.17674, 30.372812)
+size = Vector2(78.63694, 74.13625)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vaaaq"]
 size = Vector2(75.651115, 65.86057)
@@ -718,16 +718,17 @@ text = "Arrow keys to move"
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="." unique_id=386120714]
 z_index = -2
-offset_left = 77.0
-offset_top = -144.0
-offset_right = 170.0
-offset_bottom = -76.0
+offset_left = 84.00001
+offset_top = -152.0
+offset_right = 177.0
+offset_bottom = -72.52778
 rotation = 0.5009513
 mouse_filter = 2
 mouse_behavior_recursive = 1
 theme_override_colors/default_color = Color(0.65588903, 0.5156166, 0, 1)
 theme_override_fonts/normal_font = ExtResource("21_2cfm3")
-text = "Z to interact"
+text = "Z to interact/pick up yummy"
+scroll_active = false
 
 [node name="RichTextLabel3" type="RichTextLabel" parent="." unique_id=1846287327]
 z_index = -2
@@ -770,9 +771,10 @@ rotation = -0.43020752
 shape = SubResource("RectangleShape2D_ir5lp")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="BeginningAreaInstructions" unique_id=1684777217]
-position = Vector2(101, -110)
+position = Vector2(98.00001, -102)
 rotation = 0.5353825
 shape = SubResource("RectangleShape2D_gbx16")
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="BeginningAreaInstructions" unique_id=564813426]
 position = Vector2(101.62531, 80.52426)

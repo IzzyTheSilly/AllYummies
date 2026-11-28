@@ -25,7 +25,7 @@ var start_chummies: int = 3
 var start_yummies_rate: int = 18
 var start_chummies_rate: float = 0
 var start_chummy_efficiency: int = 1
-var start_bummies_chance: int = 20
+var start_bummies_chance: int = 22
 var yummy_interest_average: float = 1.05
 
 
@@ -74,6 +74,8 @@ func can_add_collected_yummies(amount: int) -> bool:
 
 func remove_collected_yummy(yummy: Yummy) -> int:
 	for i in range(collected_yummies_list.size()):
+		if !is_instance_valid(collected_yummies_list[i]):
+			continue
 		if collected_yummies_list[i] == yummy:
 			collected_yummies_list.pop_at(i)
 			UIHandler.update_inventory(int(yummy.bummy_state))
@@ -90,6 +92,8 @@ func add_yummy(yummy: Yummy):
 func remove_yummy(yummy: Yummy) -> int:
 	remove_collected_yummy(yummy)
 	for i in range(yummies_list.size()):
+		if !is_instance_valid(yummies_list[i]):
+			continue
 		if yummies_list[i] == yummy:
 			yummies_list.pop_at(i)
 			yummies_list_updated.emit()

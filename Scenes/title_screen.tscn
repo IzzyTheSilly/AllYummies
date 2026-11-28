@@ -110,7 +110,7 @@ title_music = ExtResource("2_12m1t")
 modulate = Color(1, 1, 1, 0.4627451)
 z_index = -1
 layout_mode = 0
-offset_right = 318.0
+offset_right = 321.0
 offset_bottom = 322.0
 mouse_filter = 2
 texture = ExtResource("2_twnyg")
@@ -178,7 +178,20 @@ offset_bottom = 320.0
 mouse_filter = 2
 texture = ExtResource("4_twnyg")
 
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=888987317]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 305.0
+offset_right = 334.0
+offset_bottom = 345.0
+mouse_filter = 2
+mouse_behavior_recursive = 1
+theme_override_fonts/normal_font = ExtResource("3_55kwv")
+theme_override_font_sizes/normal_font_size = 11
+text = "Made by: Faizah Suryani Izzati (A.K.A. IzzyTheSilly)"
+
 [node name="BlackScreen" type="ColorRect" parent="." unique_id=164489390]
+visible = false
 layout_mode = 0
 offset_right = 320.0
 offset_bottom = 321.0

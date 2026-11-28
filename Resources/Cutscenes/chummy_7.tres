@@ -12,7 +12,7 @@ region = Rect2(260, 260, 60, 60)
 
 [sub_resource type="Resource" id="Resource_ettdj"]
 script = ExtResource("2_i2njo")
-text = "I f*cking love air conditioning."
+text = "I ******* love air conditioning."
 blip = ExtResource("3_ettdj")
 portrait = SubResource("AtlasTexture_b8dls")
 metadata/_custom_type_script = "uid://dvl6mehpirn4w"

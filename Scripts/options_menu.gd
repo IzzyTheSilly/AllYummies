@@ -13,6 +13,10 @@ var page: int = 1
 @export var music_volume_slider: HSlider
 
 @export var quit_cutscene_id: String
+@export var cancel_quit_cutscene_id: String
+
+@export var are_you_sure: Panel
+@export var input_blocker: Control
 
 
 func _ready() -> void:
@@ -42,7 +46,12 @@ func _on_back_button_pressed() -> void:
 
 
 func _on_main_menu_button_pressed() -> void:
-	quit_to_title_screen()
+	if GameManager.in_gameplay:
+		input_blocker.show()
+		await CutsceneHandler.show_cutscene(quit_cutscene_id)
+		are_you_sure_()
+	else:
+		quit_to_title_screen()
 
 
 func quit_to_title_screen():
@@ -80,3 +89,18 @@ func _on_sfx_volume_slider_value_changed(value: float) -> void:
 func _on_music_volume_slider_value_changed(value: float) -> void:
 	AudioManager.change_music_volume(value)
 	GlobalData.music_volume = value
+
+
+func are_you_sure_():
+	are_you_sure.show()
+
+
+func _on_yes_pressed() -> void:
+	quit_to_title_screen()
+
+
+func _on_no_pressed() -> void:
+	await CutsceneHandler.show_cutscene(cancel_quit_cutscene_id)
+	are_you_sure.hide()
+	input_blocker.hide()
+	UIHandler.set_menu_showing(UIHandler.Menu.OPTIONS, false)

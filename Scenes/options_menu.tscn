@@ -3,6 +3,23 @@
 [ext_resource type="Script" uid="uid://myr57m6o6jrl" path="res://Scripts/options_menu.gd" id="1_plplt"]
 [ext_resource type="Texture2D" uid="uid://cmxhno0sjhg16" path="res://Assets/Sprites/menu_sprite.png" id="2_uj0ok"]
 [ext_resource type="FontFile" uid="uid://cdi5mwn3e6k61" path="res://Assets/Fonts/yoster.ttf" id="3_l1wg4"]
+[ext_resource type="Texture2D" uid="uid://cxcl1tp6ec3ci" path="res://Assets/Sprites/exterminator_splash.png" id="4_inh3s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l1wg4"]
+atlas = ExtResource("4_inh3s")
+region = Rect2(304, 304, 16, 16)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l1wg4"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.9686845, 0.17393678, 7.70092e-07, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 6
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o0f8b"]
 bg_color = Color(0.8267661, 0.5772089, 1, 1)
@@ -48,7 +65,24 @@ corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
-[node name="OptionsMenu" type="Control" unique_id=142809403 node_paths=PackedStringArray("pages", "back_button", "main_menu_button", "dialogue_volume_slider", "sfx_volume_slider", "music_volume_slider")]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7qxa8"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.96, 0.91968006, 0.3552, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.56516063, 0.50646865, 0, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[node name="OptionsMenu" type="Control" unique_id=142809403 node_paths=PackedStringArray("pages", "back_button", "main_menu_button", "dialogue_volume_slider", "sfx_volume_slider", "music_volume_slider", "are_you_sure", "input_blocker")]
 z_index = 2
 layout_mode = 3
 anchors_preset = 15
@@ -65,6 +99,10 @@ main_menu_button = NodePath("MainMenuButton")
 dialogue_volume_slider = NodePath("Page1/DialogueVolumeSlider")
 sfx_volume_slider = NodePath("Page1/SFXVolumeSlider")
 music_volume_slider = NodePath("Page1/MusicVolumeSlider")
+quit_cutscene_id = "quit_early"
+cancel_quit_cutscene_id = "cancel_quit"
+are_you_sure = NodePath("AreYouSure")
+input_blocker = NodePath("InputBlocker")
 
 [node name="Background" type="TextureRect" parent="." unique_id=326081557]
 layout_mode = 1
@@ -105,6 +143,10 @@ offset_left = 21.0
 offset_top = 27.0
 offset_right = 216.0
 offset_bottom = 59.0
+theme_override_icons/grabber = SubResource("AtlasTexture_l1wg4")
+theme_override_icons/grabber_highlight = SubResource("AtlasTexture_l1wg4")
+theme_override_icons/grabber_disabled = SubResource("AtlasTexture_l1wg4")
+theme_override_styles/slider = SubResource("StyleBoxFlat_l1wg4")
 max_value = 1.0
 step = 0.01
 value = 1.0
@@ -117,6 +159,10 @@ offset_left = 19.0
 offset_top = 74.0
 offset_right = 216.0
 offset_bottom = 106.0
+theme_override_icons/grabber = SubResource("AtlasTexture_l1wg4")
+theme_override_icons/grabber_highlight = SubResource("AtlasTexture_l1wg4")
+theme_override_icons/grabber_disabled = SubResource("AtlasTexture_l1wg4")
+theme_override_styles/slider = SubResource("StyleBoxFlat_l1wg4")
 max_value = 1.0
 step = 0.01
 value = 1.0
@@ -129,6 +175,10 @@ offset_left = 21.0
 offset_top = 116.0
 offset_right = 216.0
 offset_bottom = 148.0
+theme_override_icons/grabber = SubResource("AtlasTexture_l1wg4")
+theme_override_icons/grabber_highlight = SubResource("AtlasTexture_l1wg4")
+theme_override_icons/grabber_disabled = SubResource("AtlasTexture_l1wg4")
+theme_override_styles/slider = SubResource("StyleBoxFlat_l1wg4")
 max_value = 1.0
 step = 0.01
 value = 1.0
@@ -223,11 +273,12 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 57.0
+offset_left = 61.0
 offset_top = -7.0
-offset_right = 104.0
+offset_right = 108.0
 offset_bottom = 23.0
 grow_vertical = 0
+focus_mode = 0
 theme_override_fonts/font = ExtResource("3_l1wg4")
 theme_override_font_sizes/font_size = 11
 theme_override_styles/normal = SubResource("StyleBoxFlat_o0f8b")
@@ -237,10 +288,11 @@ text = "Close"
 
 [node name="MainMenuButton" type="Button" parent="." unique_id=1323681724]
 layout_mode = 0
-offset_left = 186.0
+offset_left = 184.0
 offset_top = 235.0
-offset_right = 261.0
+offset_right = 259.0
 offset_bottom = 263.0
+focus_mode = 0
 theme_override_fonts/font = ExtResource("3_l1wg4")
 theme_override_font_sizes/font_size = 11
 theme_override_styles/normal = SubResource("StyleBoxFlat_o0f8b")
@@ -255,6 +307,7 @@ offset_left = 202.0
 offset_top = 242.0
 offset_right = 262.0
 offset_bottom = 262.0
+focus_mode = 0
 theme_override_font_sizes/font_size = 8
 theme_override_styles/normal = SubResource("StyleBoxFlat_o0f8b")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_twnyg")
@@ -268,11 +321,71 @@ offset_left = 59.0
 offset_top = 242.0
 offset_right = 119.0
 offset_bottom = 262.0
+focus_mode = 0
 theme_override_font_sizes/font_size = 8
 theme_override_styles/normal = SubResource("StyleBoxFlat_o0f8b")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_twnyg")
 theme_override_styles/hover = SubResource("StyleBoxFlat_55kwv")
 text = "<---"
+
+[node name="InputBlocker" type="Panel" parent="." unique_id=767384054]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 1.0
+offset_top = -2.0
+offset_right = 321.0
+offset_bottom = 317.0
+
+[node name="AreYouSure" type="Panel" parent="." unique_id=1987079971]
+visible = false
+z_index = 3
+layout_mode = 0
+offset_left = 67.0
+offset_top = 100.0
+offset_right = 259.0
+offset_bottom = 207.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_7qxa8")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="AreYouSure" unique_id=710055809]
+layout_mode = 0
+offset_left = 5.0
+offset_top = -2.0
+offset_right = 187.0
+offset_bottom = 38.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_l1wg4")
+theme_override_font_sizes/normal_font_size = 18
+text = "Quit to main menu?"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Yes" type="Button" parent="AreYouSure" unique_id=1291640080]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 44.0
+offset_right = 83.0
+offset_bottom = 88.0
+focus_mode = 0
+theme_override_fonts/font = ExtResource("3_l1wg4")
+theme_override_styles/normal = SubResource("StyleBoxFlat_o0f8b")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_twnyg")
+theme_override_styles/hover = SubResource("StyleBoxFlat_55kwv")
+text = "Yep"
+
+[node name="No" type="Button" parent="AreYouSure" unique_id=1630264183]
+layout_mode = 0
+offset_left = 109.0
+offset_top = 44.0
+offset_right = 173.0
+offset_bottom = 88.0
+focus_mode = 0
+theme_override_fonts/font = ExtResource("3_l1wg4")
+theme_override_styles/normal = SubResource("StyleBoxFlat_o0f8b")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_twnyg")
+theme_override_styles/hover = SubResource("StyleBoxFlat_55kwv")
+text = "Nah"
 
 [connection signal="value_changed" from="Page1/DialogueVolumeSlider" to="." method="_on_dialogue_volume_slider_value_changed"]
 [connection signal="value_changed" from="Page1/SFXVolumeSlider" to="." method="_on_sfx_volume_slider_value_changed"]
@@ -281,3 +394,5 @@ text = "<---"
 [connection signal="pressed" from="MainMenuButton" to="." method="_on_main_menu_button_pressed"]
 [connection signal="pressed" from="NextPageButton" to="." method="_on_next_page_button_pressed"]
 [connection signal="pressed" from="PreviousPageButton" to="." method="_on_previous_page_button_pressed"]
+[connection signal="pressed" from="AreYouSure/Yes" to="." method="_on_yes_pressed"]
+[connection signal="pressed" from="AreYouSure/No" to="." method="_on_no_pressed"]

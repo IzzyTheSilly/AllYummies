@@ -24,6 +24,8 @@
 [ext_resource type="Resource" uid="uid://b5jo1x78o6op3" path="res://Resources/Cutscenes/chummy_5.tres" id="22_617j2"]
 [ext_resource type="Resource" uid="uid://bs4fm8orvjqca" path="res://Resources/Cutscenes/chummy_6.tres" id="23_w5ywl"]
 [ext_resource type="Resource" uid="uid://dtt0sglkprifh" path="res://Resources/Cutscenes/chummy_7.tres" id="24_irotk"]
+[ext_resource type="Resource" uid="uid://blo2xaok4ubwo" path="res://Resources/Cutscenes/quit_early.tres" id="25_617j2"]
+[ext_resource type="Resource" uid="uid://bddo6gxy2kswk" path="res://Resources/Cutscenes/cancel_quit.tres" id="26_w5ywl"]
 
 [node name="AssetDictionaries" type="Node" unique_id=1004349810]
 script = ExtResource("1_c04i8")
@@ -33,6 +35,7 @@ sprites = Dictionary[String, Texture]({
 cutscenes = Dictionary[String, ExtResource("2_ypqau")]({
 "bad_ending": ExtResource("17_yqvb2"),
 "beginning_area_instructions": ExtResource("18_i4nr5"),
+"cancel_quit": ExtResource("26_w5ywl"),
 "chummy_1": ExtResource("11_2jmbe"),
 "chummy_2": ExtResource("12_l6qb4"),
 "chummy_3": ExtResource("13_x1ssq"),
@@ -49,6 +52,7 @@ cutscenes = Dictionary[String, ExtResource("2_ypqau")]({
 "irsela_calls_you_back_right": ExtResource("15_5tqf6"),
 "irsela_calls_you_over": ExtResource("5_f68p6"),
 "mid_ending": ExtResource("16_v7d14"),
+"quit_early": ExtResource("25_617j2"),
 "sugar_fountain_sign": ExtResource("19_sdker"),
 "talk_to_irsela_0": ExtResource("3_p6sd1"),
 "talk_to_irsela_1": ExtResource("4_a51it")

@@ -35,17 +35,17 @@ metadata/_custom_type_script = "uid://rdds2cotks3s"
 [sub_resource type="Resource" id="Resource_wmkog"]
 script = ExtResource("2_8q8ky")
 description = "+1 Chummy Protection
-(Cost: 7 Yummies)"
-cost = 7
+(Cost: 12 Yummies)"
+cost = 12
 purchase_message = "Chummies empowered!"
 metadata/_custom_type_script = "uid://rdds2cotks3s"
 
 [sub_resource type="Resource" id="Resource_tnr8x"]
 script = ExtResource("2_8q8ky")
-description = "Employ 2 Chummies
+description = "Employ 1 Chummy
 (Cost: 10 Yummies)"
 cost = 10
-purchase_message = "Chummies employed!"
+purchase_message = "Chummy employed!"
 metadata/_custom_type_script = "uid://rdds2cotks3s"
 
 [sub_resource type="Resource" id="Resource_uxyur"]
@@ -67,14 +67,14 @@ metadata/_custom_type_script = "uid://rdds2cotks3s"
 [sub_resource type="Resource" id="Resource_7sho8"]
 script = ExtResource("2_8q8ky")
 description = "+1 Chummy Protection
-(Cost: 10 Yummies)"
-cost = 10
+(Cost: 21 Yummies)"
+cost = 21
 purchase_message = "Chummies empowered!"
 metadata/_custom_type_script = "uid://rdds2cotks3s"
 
 [sub_resource type="Resource" id="Resource_4t1w4"]
 script = ExtResource("2_8q8ky")
-description = "Employ 3 Chummies
+description = "Employ 2 Chummies
 (Cost: 17 Yummies)"
 cost = 17
 purchase_message = "Chummies employed!"
@@ -90,18 +90,10 @@ metadata/_custom_type_script = "uid://rdds2cotks3s"
 
 [sub_resource type="Resource" id="Resource_hf5wb"]
 script = ExtResource("2_8q8ky")
-description = "Employ 3 Chummies
+description = "Employ 2 Chummies
 (Cost: 20 Yummies)"
 cost = 20
 purchase_message = "Chummies employed!"
-metadata/_custom_type_script = "uid://rdds2cotks3s"
-
-[sub_resource type="Resource" id="Resource_ofq4t"]
-script = ExtResource("2_8q8ky")
-description = "+1 Chummy Protection
-(Cost: 15 Yummies)"
-cost = 15
-purchase_message = "Chummies empowered!"
 metadata/_custom_type_script = "uid://rdds2cotks3s"
 
 [sub_resource type="Resource" id="Resource_ik3a3"]
@@ -146,7 +138,7 @@ metadata/_custom_type_script = "uid://rdds2cotks3s"
 
 [sub_resource type="Resource" id="Resource_xxy53"]
 script = ExtResource("2_8q8ky")
-description = "Remove 8 Bummies
+description = "Remove 4 Bummies
 (Cost: 10 Yummies)"
 cost = 10
 purchase_message = "Bummies removed!"
@@ -194,7 +186,7 @@ metadata/_custom_type_script = "uid://rdds2cotks3s"
 
 [sub_resource type="Resource" id="Resource_xey3e"]
 script = ExtResource("2_8q8ky")
-description = "Remove 15 Bummies
+description = "Remove 7 Bummies
 (Cost: 18 Yummies)"
 cost = 18
 purchase_message = "Bummies removed!"
@@ -304,7 +296,7 @@ script = ExtResource("1_5ef75")
 selection_highlights = [NodePath("Background/Option1/NinePatchRect"), NodePath("Background/Option2/NinePatchRect"), NodePath("Background/Option3/NinePatchRect")]
 tip_label = NodePath("Background/TipLabel")
 option_labels = [NodePath("Background/Option1"), NodePath("Background/Option2"), NodePath("Background/Option3")]
-option_1_options = Array[ExtResource("2_8q8ky")]([SubResource("Resource_uv6nq"), SubResource("Resource_vsa4v"), SubResource("Resource_hmxx2"), SubResource("Resource_wmkog"), SubResource("Resource_tnr8x"), SubResource("Resource_uxyur"), SubResource("Resource_8q8ky"), SubResource("Resource_7sho8"), SubResource("Resource_4t1w4"), SubResource("Resource_em7s0"), SubResource("Resource_hf5wb"), SubResource("Resource_ofq4t")])
+option_1_options = Array[ExtResource("2_8q8ky")]([SubResource("Resource_uv6nq"), SubResource("Resource_vsa4v"), SubResource("Resource_hmxx2"), SubResource("Resource_wmkog"), SubResource("Resource_tnr8x"), SubResource("Resource_uxyur"), SubResource("Resource_8q8ky"), SubResource("Resource_7sho8"), SubResource("Resource_4t1w4"), SubResource("Resource_em7s0"), SubResource("Resource_hf5wb")])
 option_2_options = Array[ExtResource("2_8q8ky")]([SubResource("Resource_ik3a3"), SubResource("Resource_1o0kk"), SubResource("Resource_qs0o3"), SubResource("Resource_t81le"), SubResource("Resource_pua1g"), SubResource("Resource_xxy53"), SubResource("Resource_akw3x"), SubResource("Resource_wt1dg"), SubResource("Resource_on2bs"), SubResource("Resource_idudr"), SubResource("Resource_viq8s"), SubResource("Resource_xey3e")])
 option_3_options = Array[ExtResource("2_8q8ky")]([SubResource("Resource_ijg33"), SubResource("Resource_y2mke"), SubResource("Resource_675w7"), SubResource("Resource_6iham"), SubResource("Resource_jso5b"), SubResource("Resource_7vivi"), SubResource("Resource_1xydm"), SubResource("Resource_1u7px"), SubResource("Resource_bd4xr"), SubResource("Resource_tahtb"), SubResource("Resource_afl0o")])
 timer = NodePath("Timer")
