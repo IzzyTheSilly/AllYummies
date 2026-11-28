@@ -4,6 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://cmxhno0sjhg16" path="res://Assets/Sprites/menu_sprite.png" id="2_de3tv"]
 [ext_resource type="FontFile" uid="uid://cdi5mwn3e6k61" path="res://Assets/Fonts/yoster.ttf" id="3_d0xg6"]
 
+[sub_resource type="Gradient" id="Gradient_de3tv"]
+offsets = PackedFloat32Array(0, 0.16857143, 0.40857142, 0.7171429, 1)
+colors = PackedColorArray(1, 0, 0, 1, 0.96, 0.54399997, 0, 1, 0.87, 0.80764997, 0.12179999, 1, 0.47877327, 0.94, 0.075199984, 1, 0.0666666, 1, 0, 1)
+
 [node name="StatsViewerMenu" type="Control" unique_id=439564388 node_paths=PackedStringArray("gdy_label", "yummies_count_label", "yummies_rate_label", "bummies_count_label", "chummies_count_label", "chummy_rate_label", "days_left_label")]
 z_index = 2
 layout_mode = 3
@@ -20,6 +24,7 @@ bummies_count_label = NodePath("BummiesCountLabel")
 chummies_count_label = NodePath("ChummiesCountLabel")
 chummy_rate_label = NodePath("ChummiesRateLabel")
 days_left_label = NodePath("DaysLeft")
+gdy_label_gradient = SubResource("Gradient_de3tv")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=329594613]
 layout_mode = 0
@@ -29,13 +34,16 @@ texture = ExtResource("2_de3tv")
 
 [node name="StatsViewerLabel" type="RichTextLabel" parent="." unique_id=946370708]
 layout_mode = 0
-offset_left = 105.0
-offset_top = 55.0
-offset_right = 325.0
-offset_bottom = 95.0
+offset_left = 52.0
+offset_top = 47.0
+offset_right = 272.0
+offset_bottom = 87.0
 theme_override_fonts/normal_font = ExtResource("3_d0xg6")
+theme_override_font_sizes/normal_font_size = 22
 text = "STATS VIEWER"
 scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1731392967]
 visible = false
@@ -48,60 +56,62 @@ color = Color(0, 0, 0, 1)
 
 [node name="GDYLabel" type="RichTextLabel" parent="." unique_id=271534940]
 layout_mode = 0
-offset_left = 58.0
-offset_top = 84.0
-offset_right = 278.0
-offset_bottom = 124.0
+offset_left = 57.0
+offset_top = 98.0
+offset_right = 277.0
+offset_bottom = 138.0
+theme_override_colors/default_color = Color(1, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("3_d0xg6")
+bbcode_enabled = true
 text = "GDY: 10000"
 scroll_active = false
 
 [node name="YummiesCountLabel" type="RichTextLabel" parent="." unique_id=1091461205]
 layout_mode = 0
-offset_left = 58.0
-offset_top = 115.0
-offset_right = 279.0
-offset_bottom = 155.0
+offset_left = 57.0
+offset_top = 126.0
+offset_right = 278.0
+offset_bottom = 166.0
 theme_override_fonts/normal_font = ExtResource("3_d0xg6")
 text = "Yummies: 3"
 scroll_active = false
 
 [node name="YummiesRateLabel" type="RichTextLabel" parent="." unique_id=1373323609]
 layout_mode = 0
-offset_left = 59.0
-offset_top = 144.0
-offset_right = 274.0
-offset_bottom = 184.0
+offset_left = 57.0
+offset_top = 151.0
+offset_right = 272.0
+offset_bottom = 191.0
 theme_override_fonts/normal_font = ExtResource("3_d0xg6")
 text = "Yummies/Min: "
 scroll_active = false
 
 [node name="BummiesCountLabel" type="RichTextLabel" parent="." unique_id=154710346]
 layout_mode = 0
-offset_left = 59.0
-offset_top = 180.0
-offset_right = 280.0
-offset_bottom = 220.0
+offset_left = 57.0
+offset_top = 186.0
+offset_right = 278.0
+offset_bottom = 226.0
 theme_override_fonts/normal_font = ExtResource("3_d0xg6")
 text = "Bummies: poo"
 scroll_active = false
 
 [node name="ChummiesCountLabel" type="RichTextLabel" parent="." unique_id=1346329462]
 layout_mode = 0
-offset_left = 58.0
-offset_top = 211.0
-offset_right = 282.0
-offset_bottom = 249.0
+offset_left = 56.0
+offset_top = 215.0
+offset_right = 280.0
+offset_bottom = 253.0
 theme_override_fonts/normal_font = ExtResource("3_d0xg6")
 text = "Chummies: poo"
 scroll_active = false
 
 [node name="ChummiesRateLabel" type="RichTextLabel" parent="." unique_id=473265387]
 layout_mode = 0
-offset_left = 59.0
-offset_top = 242.0
-offset_right = 286.0
-offset_bottom = 282.0
+offset_left = 57.0
+offset_top = 245.0
+offset_right = 284.0
+offset_bottom = 285.0
 theme_override_fonts/normal_font = ExtResource("3_d0xg6")
 text = "Bummies: poo"
 scroll_active = false

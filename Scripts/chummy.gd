@@ -23,11 +23,15 @@ func _ready() -> void:
 	GlobalData.chummy_efficiency_changed.connect(_on_chummy_efficiency_changed)
 	behaviour_timer.stop()
 	
-	var random_cutscene: int = randi_range(0, 2)
+	var random_cutscene: int = randi_range(0, 6)
 	match random_cutscene:
 		0: cutscene_ids[0] = "chummy_1"
 		1: cutscene_ids[0] = "chummy_2"
 		2: cutscene_ids[0] = "chummy_3"
+		3: cutscene_ids[0] = "chummy_4"
+		4: cutscene_ids[0] = "chummy_5"
+		5: cutscene_ids[0] = "chummy_6"
+		6: cutscene_ids[0] = "chummy_7"
 	
 	await get_tree().create_timer(0.5).timeout
 	try_protect_yummies()

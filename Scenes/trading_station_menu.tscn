@@ -280,20 +280,23 @@ expand_mode = 1
 
 [node name="TitleLabel" type="RichTextLabel" parent="Background" unique_id=1801920594]
 layout_mode = 0
-offset_left = 79.0
-offset_top = 55.0
-offset_right = 249.0
-offset_bottom = 95.0
+offset_left = 60.0
+offset_top = 47.0
+offset_right = 259.0
+offset_bottom = 87.0
 theme_override_fonts/normal_font = ExtResource("6_ik3a3")
-theme_override_font_sizes/normal_font_size = 18
+theme_override_font_sizes/normal_font_size = 20
 text = "TRADING STATION"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Option1" type="RichTextLabel" parent="Background" unique_id=1703336132]
 layout_mode = 0
 offset_left = 50.0
-offset_top = 86.0
+offset_top = 90.0
 offset_right = 269.0
-offset_bottom = 137.0
+offset_bottom = 141.0
 theme_override_fonts/normal_font = ExtResource("6_ik3a3")
 theme_override_font_sizes/normal_font_size = 12
 text = "Employ 1 Chummy
@@ -305,9 +308,9 @@ vertical_alignment = 1
 [node name="NinePatchRect" type="NinePatchRect" parent="Background/Option1" unique_id=681457478]
 layout_mode = 0
 offset_left = 10.0
-offset_top = -1.0
+offset_top = 1.0
 offset_right = 212.0
-offset_bottom = 46.0
+offset_bottom = 49.0
 texture = SubResource("AtlasTexture_ir5lp")
 region_rect = Rect2(0, 0, 20, 20)
 patch_margin_left = 5
@@ -317,10 +320,10 @@ patch_margin_bottom = 5
 
 [node name="Option2" type="RichTextLabel" parent="Background" unique_id=1727019851]
 layout_mode = 0
-offset_left = 53.0
-offset_top = 121.0
-offset_right = 272.0
-offset_bottom = 199.0
+offset_left = 51.0
+offset_top = 122.0
+offset_right = 270.0
+offset_bottom = 200.0
 theme_override_fonts/normal_font = ExtResource("6_ik3a3")
 theme_override_font_sizes/normal_font_size = 12
 text = "Basket (+3 Inventory Space)
@@ -345,10 +348,10 @@ patch_margin_bottom = 5
 
 [node name="Option3" type="RichTextLabel" parent="Background" unique_id=126594676]
 layout_mode = 0
-offset_left = 49.0
-offset_top = 188.0
-offset_right = 275.0
-offset_bottom = 239.0
+offset_left = 47.0
+offset_top = 189.0
+offset_right = 273.0
+offset_bottom = 240.0
 theme_override_fonts/normal_font = ExtResource("6_ik3a3")
 theme_override_font_sizes/normal_font_size = 12
 text = "Speed Boost

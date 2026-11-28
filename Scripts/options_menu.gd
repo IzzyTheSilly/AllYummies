@@ -42,6 +42,10 @@ func _on_back_button_pressed() -> void:
 
 
 func _on_main_menu_button_pressed() -> void:
+	quit_to_title_screen()
+
+
+func quit_to_title_screen():
 	GameManager.in_game = false
 	UIHandler.set_menu_showing(UIHandler.Menu.NONE, false)
 	GlobalData.reset_local_flags()

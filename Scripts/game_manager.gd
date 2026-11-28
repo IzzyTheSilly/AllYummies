@@ -61,12 +61,14 @@ func end_game():
 	
 	ending = false
 	
-	if score > 100:
+	if score >= 200:
 		await CutsceneHandler.show_cutscene(ending_cutscenes_ids[0])
-	elif score > 50:
+	elif score >= 100:
 		await CutsceneHandler.show_cutscene(ending_cutscenes_ids[1])
-	elif score > 20:
+	elif score >= 50:
 		await CutsceneHandler.show_cutscene(ending_cutscenes_ids[2])
+	elif score >= 0:
+		await CutsceneHandler.show_cutscene(ending_cutscenes_ids[4])
 	elif score < 0:
 		await CutsceneHandler.show_cutscene(ending_cutscenes_ids[3])
 	

@@ -83,36 +83,37 @@ text = "Cooldown: 0s"
 
 [node name="InvestLabel" type="RichTextLabel" parent="." unique_id=1802441231]
 layout_mode = 0
-offset_left = 56.0
-offset_top = 146.0
-offset_right = 160.0
-offset_bottom = 241.0
+offset_left = 58.0
+offset_top = 152.0
+offset_right = 162.0
+offset_bottom = 247.0
 theme_override_fonts/normal_font = ExtResource("3_0apr1")
-theme_override_font_sizes/normal_font_size = 19
+theme_override_font_sizes/normal_font_size = 24
 text = "INVEST"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="NinePatchRect" type="NinePatchRect" parent="InvestLabel" unique_id=992359351]
 layout_mode = 0
-offset_left = 13.0
-offset_top = 32.0
-offset_right = 90.0
-offset_bottom = 62.0
+offset_left = 4.0
+offset_top = 30.0
+offset_right = 101.0
+offset_bottom = 67.0
 texture = SubResource("AtlasTexture_ir5lp")
 patch_margin_left = 5
 patch_margin_top = 5
 patch_margin_right = 5
 patch_margin_bottom = 5
+metadata/_edit_lock_ = true
 
 [node name="PullLabel" type="RichTextLabel" parent="." unique_id=318657289]
 layout_mode = 0
-offset_left = 157.0
-offset_top = 143.0
-offset_right = 261.0
-offset_bottom = 238.0
+offset_left = 163.0
+offset_top = 152.0
+offset_right = 267.0
+offset_bottom = 247.0
 theme_override_fonts/normal_font = ExtResource("3_0apr1")
-theme_override_font_sizes/normal_font_size = 19
+theme_override_font_sizes/normal_font_size = 24
 text = "PULL"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -120,15 +121,16 @@ vertical_alignment = 1
 [node name="NinePatchRect" type="NinePatchRect" parent="PullLabel" unique_id=50388344]
 visible = false
 layout_mode = 0
-offset_left = 24.0
-offset_top = 34.0
-offset_right = 81.0
-offset_bottom = 62.0
+offset_left = 16.0
+offset_top = 31.0
+offset_right = 88.0
+offset_bottom = 67.0
 texture = SubResource("AtlasTexture_ir5lp")
 patch_margin_left = 5
 patch_margin_top = 5
 patch_margin_right = 5
 patch_margin_bottom = 5
+metadata/_edit_lock_ = true
 
 [node name="TipLabel" type="RichTextLabel" parent="." unique_id=967718133]
 layout_mode = 0

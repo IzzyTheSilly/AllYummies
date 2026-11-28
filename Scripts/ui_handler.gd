@@ -159,3 +159,7 @@ func change_select_investing_station(direction: int):
 
 func set_day_time_left():
 	daytime_left_panel.set_timer()
+
+
+func quit_to_title_screen():
+	options_menu.quit_to_title_screen()

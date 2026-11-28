@@ -8,7 +8,7 @@
 [node name="GameManager" type="Node" unique_id=1903299399 node_paths=PackedStringArray("day_timer")]
 script = ExtResource("1_oj352")
 day_timer = NodePath("DayTimer")
-ending_cutscenes_ids = Array[String](["great_ending", "good_ending", "mid_ending", "bad_ending"])
+ending_cutscenes_ids = Array[String](["great_ending", "good_ending", "mid_ending", "bad_ending", "iffy_ending"])
 bg_music = ExtResource("2_e5fcp")
 cheer_sfx = ExtResource("4_yqty0")
 bwomp_sfx = ExtResource("5_71d4j")

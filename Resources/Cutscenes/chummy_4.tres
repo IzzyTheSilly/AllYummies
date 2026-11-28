@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="CutsceneData" format=3 uid="uid://ds2ch4e6na6t6"]
+
+[ext_resource type="Script" uid="uid://rdgx4kdiqt45" path="res://Scripts/dialogue_choice_data.gd" id="1_v8d72"]
+[ext_resource type="Script" uid="uid://dvl6mehpirn4w" path="res://Scripts/dialogue_data.gd" id="2_quu82"]
+[ext_resource type="Script" uid="uid://cprsdu68b8n21" path="res://Scripts/cutscene_data.gd" id="3_4hwrn"]
+[ext_resource type="AudioStream" uid="uid://cilay0xwylgkn" path="res://Assets/Audio/soundshelfstudio-sci-fi-system-blip-525671.mp3" id="3_88tfw"]
+[ext_resource type="Texture2D" uid="uid://kjkivuwtvves" path="res://Assets/Sprites/chummy_sprites.png" id="4_ex8a7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v8d72"]
+atlas = ExtResource("4_ex8a7")
+region = Rect2(260, 260, 60, 60)
+
+[sub_resource type="Resource" id="Resource_88tfw"]
+script = ExtResource("2_quu82")
+text = "I don't even know why I chose to work here."
+blip = ExtResource("3_88tfw")
+portrait = SubResource("AtlasTexture_v8d72")
+metadata/_custom_type_script = "uid://dvl6mehpirn4w"
+
+[resource]
+script = ExtResource("3_4hwrn")
+dialogues = Array[ExtResource("2_quu82")]([SubResource("Resource_88tfw")])
+metadata/_custom_type_script = "uid://cprsdu68b8n21"

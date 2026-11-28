@@ -9,9 +9,34 @@ size = Vector2(80, 40)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q1q2r"]
 size = Vector2(78, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ir5lp"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_esclt"]
 atlas = ExtResource("2_esclt")
 region = Rect2(40, 80, 80, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ooi03"]
+atlas = ExtResource("2_esclt")
+region = Rect2(120, 200, 80, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qrcym"]
+atlas = ExtResource("2_esclt")
+region = Rect2(120, 240, 80, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ir5lp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_esclt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ooi03")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qrcym")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 1.0
+}]
 
 [node name="InvestingStation" type="CharacterBody2D" unique_id=1606015159]
 collision_layer = 8
@@ -27,5 +52,7 @@ collision_layer = 2
 position = Vector2(0, 12)
 shape = SubResource("RectangleShape2D_q1q2r")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=97980125]
-texture = SubResource("AtlasTexture_ir5lp")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=365863512]
+sprite_frames = SubResource("SpriteFrames_ir5lp")
+autoplay = "default"
+frame_progress = 0.6031997

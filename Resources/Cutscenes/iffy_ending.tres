@@ -1,0 +1,47 @@
+[gd_resource type="Resource" script_class="CutsceneData" format=3 uid="uid://c44hjptoxpopw"]
+
+[ext_resource type="Script" uid="uid://rdgx4kdiqt45" path="res://Scripts/dialogue_choice_data.gd" id="1_1ixyb"]
+[ext_resource type="Script" uid="uid://dvl6mehpirn4w" path="res://Scripts/dialogue_data.gd" id="2_b3dt3"]
+[ext_resource type="AudioStream" uid="uid://cilay0xwylgkn" path="res://Assets/Audio/soundshelfstudio-sci-fi-system-blip-525671.mp3" id="3_b3dt3"]
+[ext_resource type="Script" uid="uid://cprsdu68b8n21" path="res://Scripts/cutscene_data.gd" id="3_qpvak"]
+[ext_resource type="Texture2D" uid="uid://cxyk4kqbaypfj" path="res://Assets/Sprites/irsela_spritesheet.png" id="4_qpvak"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qpvak"]
+atlas = ExtResource("4_qpvak")
+region = Rect2(140, 260, 60, 60)
+
+[sub_resource type="Resource" id="Resource_eqgkp"]
+script = ExtResource("2_b3dt3")
+text = "Aaaand we're back to where we started. Do you even know how to do your job?"
+blip = ExtResource("3_b3dt3")
+portrait = SubResource("AtlasTexture_qpvak")
+next_dialogue_index = 1
+metadata/_custom_type_script = "uid://dvl6mehpirn4w"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sdqfg"]
+atlas = ExtResource("4_qpvak")
+region = Rect2(260, 260, 60, 60)
+
+[sub_resource type="Resource" id="Resource_l3q56"]
+script = ExtResource("2_b3dt3")
+text = "Oh well, I guess you didn't do anything too bad..."
+blip = ExtResource("3_b3dt3")
+portrait = SubResource("AtlasTexture_sdqfg")
+next_dialogue_index = 2
+metadata/_custom_type_script = "uid://dvl6mehpirn4w"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eqgkp"]
+atlas = ExtResource("4_qpvak")
+region = Rect2(140, 260, 60, 60)
+
+[sub_resource type="Resource" id="Resource_33itt"]
+script = ExtResource("2_b3dt3")
+text = "Sorry chum, but you're gonna have to find another job after this."
+blip = ExtResource("3_b3dt3")
+portrait = SubResource("AtlasTexture_eqgkp")
+metadata/_custom_type_script = "uid://dvl6mehpirn4w"
+
+[resource]
+script = ExtResource("3_qpvak")
+dialogues = Array[ExtResource("2_b3dt3")]([SubResource("Resource_eqgkp"), SubResource("Resource_l3q56"), SubResource("Resource_33itt")])
+metadata/_custom_type_script = "uid://cprsdu68b8n21"

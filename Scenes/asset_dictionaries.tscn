@@ -19,6 +19,11 @@
 [ext_resource type="Resource" uid="uid://br2n6bynourbn" path="res://Resources/Cutscenes/bad_ending.tres" id="17_yqvb2"]
 [ext_resource type="Resource" uid="uid://dc2tiygm5ng3d" path="res://Resources/Cutscenes/beginning_area_instructions.tres" id="18_i4nr5"]
 [ext_resource type="Resource" uid="uid://j2f7w0ywo6o2" path="res://Resources/Cutscenes/sugar_fountain_sign.tres" id="19_sdker"]
+[ext_resource type="Resource" uid="uid://c44hjptoxpopw" path="res://Resources/Cutscenes/iffy_ending.tres" id="20_v7d14"]
+[ext_resource type="Resource" uid="uid://ds2ch4e6na6t6" path="res://Resources/Cutscenes/chummy_4.tres" id="21_xhfjg"]
+[ext_resource type="Resource" uid="uid://b5jo1x78o6op3" path="res://Resources/Cutscenes/chummy_5.tres" id="22_617j2"]
+[ext_resource type="Resource" uid="uid://bs4fm8orvjqca" path="res://Resources/Cutscenes/chummy_6.tres" id="23_w5ywl"]
+[ext_resource type="Resource" uid="uid://dtt0sglkprifh" path="res://Resources/Cutscenes/chummy_7.tres" id="24_irotk"]
 
 [node name="AssetDictionaries" type="Node" unique_id=1004349810]
 script = ExtResource("1_c04i8")
@@ -31,9 +36,14 @@ cutscenes = Dictionary[String, ExtResource("2_ypqau")]({
 "chummy_1": ExtResource("11_2jmbe"),
 "chummy_2": ExtResource("12_l6qb4"),
 "chummy_3": ExtResource("13_x1ssq"),
+"chummy_4": ExtResource("21_xhfjg"),
+"chummy_5": ExtResource("22_617j2"),
+"chummy_6": ExtResource("23_w5ywl"),
+"chummy_7": ExtResource("24_irotk"),
 "error": ExtResource("7_x1ssq"),
 "good_ending": ExtResource("15_yqvb2"),
 "great_ending": ExtResource("14_l6qb4"),
+"iffy_ending": ExtResource("20_v7d14"),
 "irsela_calls_you_back": ExtResource("6_6n55v"),
 "irsela_calls_you_back_left": ExtResource("14_x1ssq"),
 "irsela_calls_you_back_right": ExtResource("15_5tqf6"),

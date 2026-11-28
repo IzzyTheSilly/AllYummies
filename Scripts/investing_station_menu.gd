@@ -116,7 +116,10 @@ func change_tip_text(text: String, time: float = 1.5):
 
 
 func _on_stock_value_update_timer_timeout() -> void:
-	stock_value = stock_value * (GlobalData.yummy_interest_average + randf_range(-0.3, 0.32))
+	if stock_value < 20.0:
+		stock_value = min(stock_value * (GlobalData.yummy_interest_average + randf_range(-0.3, 0.35)), 20)
+	else:
+		stock_value = stock_value * (GlobalData.yummy_interest_average + randf_range(-0.5, -0.1))
 	stock_value_label.text = "Stock Value: %.3f" % stock_value
 	stock_value_update_timer.start(stock_value_update_time + randf_range(-4, 4))
 

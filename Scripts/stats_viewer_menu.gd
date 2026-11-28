@@ -10,13 +10,20 @@ class_name StatsViewerMenu
 @export var chummy_rate_label: RichTextLabel
 @export var days_left_label: RichTextLabel
 
+@export var gdy_label_gradient: Gradient
+
 
 func _ready() -> void:
 	UIHandler.stats_viewer_menu = self
 
 
 func update_stats():
-	gdy_label.text = "GDY: " + str(GlobalData.update_gdy())
+	var gdy: int = GlobalData.update_gdy()
+	gdy_label.clear()
+	gdy_label.push_color(gdy_label_gradient.sample(gdy/200.0))
+	gdy_label.add_text("GDY: " + str(gdy))
+	gdy_label.pop()
+	
 	yummies_count_label.text = "Yummies: " + str(GlobalData.yummies)
 	bummies_count_label.text = "Bummies: " + str(GlobalData.total_bummies())
 	days_left_label.text = "Days Left: " + str(GlobalData.days_left)

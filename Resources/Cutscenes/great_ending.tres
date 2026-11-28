@@ -12,7 +12,7 @@ region = Rect2(260, 200, 60, 60)
 
 [sub_resource type="Resource" id="Resource_an3lh"]
 script = ExtResource("2_an3lh")
-text = "Wow, you did better than I thought."
+text = "Wow, you did way better than I thought."
 blip = ExtResource("3_m7j0f")
 portrait = SubResource("AtlasTexture_x6fr2")
 next_dialogue_index = 1
