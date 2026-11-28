@@ -30,8 +30,10 @@ func try_change_sfx_audio(audio: AudioStream, play_immediately: bool = false, of
 			audio_stream_players[i].stream = audio
 			if play_immediately:
 				audio_stream_players[i].play(offset)
-				print(offset)
 			return 0
+	audio_stream_players[0].stream = audio
+	if play_immediately:
+		audio_stream_players[0].play(offset)
 	return 1
 
 

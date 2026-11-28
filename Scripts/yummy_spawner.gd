@@ -46,7 +46,6 @@ func spawn_yummy() -> Yummy:
 
 
 func spawn_yummy_in_inventory():
-	print("spawn yummy in inventory")
 	var yummy: Yummy = spawn_yummy()
 	yummy.change_state(Yummy.BehaviourState.COLLECTED)
 	GlobalData.add_collected_yummy(yummy)

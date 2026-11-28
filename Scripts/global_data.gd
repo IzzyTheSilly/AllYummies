@@ -47,8 +47,8 @@ var chummy_efficiency: int = start_chummy_efficiency
 
 ##Amount of yummies in the stock market, will not count towards total GDY.
 var yummies_in_stock_market: int = 0
-##Maximum amount of yummies you can pull from the stock market.
-var max_yummy_invest: int = 5
+##Maximum amount of yummies you can put in the stock market.
+var max_yummy_invest: int = 10
 ##How many extra yummies you get in the stock market per minute.
 var yummy_interest: float = yummy_interest_average
 
@@ -84,7 +84,7 @@ func remove_collected_yummy(yummy: Yummy) -> int:
 func add_yummy(yummy: Yummy):
 	yummies_list.append(yummy)
 	yummies_list_updated.emit()
-	update_yummy_amount(1, int(yummy.bummy_state), true)
+	update_yummy_amount(1, 0, true)
 
 
 func remove_yummy(yummy: Yummy) -> int:

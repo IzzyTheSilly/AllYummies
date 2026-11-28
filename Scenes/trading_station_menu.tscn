@@ -19,8 +19,8 @@ metadata/_custom_type_script = "uid://rdds2cotks3s"
 [sub_resource type="Resource" id="Resource_vsa4v"]
 script = ExtResource("2_8q8ky")
 description = "+1 Chummy/Min
-(Cost: 4 Yummies)"
-cost = 4
+(Cost: 5 Yummies)"
+cost = 5
 purchase_message = "Chummies enticed!"
 metadata/_custom_type_script = "uid://rdds2cotks3s"
 
@@ -51,41 +51,57 @@ metadata/_custom_type_script = "uid://rdds2cotks3s"
 [sub_resource type="Resource" id="Resource_uxyur"]
 script = ExtResource("2_8q8ky")
 description = "+1 Chummy/Min
-(Cost: 5 Yummies)"
-cost = 5
+(Cost: 8 Yummies)"
+cost = 8
 purchase_message = "Chummies enticed!"
 metadata/_custom_type_script = "uid://rdds2cotks3s"
 
 [sub_resource type="Resource" id="Resource_8q8ky"]
 script = ExtResource("2_8q8ky")
 description = "Employ 2 Chummies
-(Cost: 12 Yummies)"
-cost = 12
+(Cost: 14 Yummies)"
+cost = 14
 purchase_message = "Chummies employed!"
 metadata/_custom_type_script = "uid://rdds2cotks3s"
 
 [sub_resource type="Resource" id="Resource_7sho8"]
 script = ExtResource("2_8q8ky")
 description = "+1 Chummy Protection
-(Cost: 7 Yummies)"
-cost = 7
+(Cost: 10 Yummies)"
+cost = 10
 purchase_message = "Chummies empowered!"
 metadata/_custom_type_script = "uid://rdds2cotks3s"
 
 [sub_resource type="Resource" id="Resource_4t1w4"]
 script = ExtResource("2_8q8ky")
 description = "Employ 3 Chummies
-(Cost: 15 Yummies)"
-cost = 15
+(Cost: 17 Yummies)"
+cost = 17
 purchase_message = "Chummies employed!"
 metadata/_custom_type_script = "uid://rdds2cotks3s"
 
 [sub_resource type="Resource" id="Resource_em7s0"]
 script = ExtResource("2_8q8ky")
 description = "+1 Chummy/Min
-(Cost: 5 Yummies)"
-cost = 5
+(Cost: 15 Yummies)"
+cost = 15
 purchase_message = "Chummies enticed!"
+metadata/_custom_type_script = "uid://rdds2cotks3s"
+
+[sub_resource type="Resource" id="Resource_hf5wb"]
+script = ExtResource("2_8q8ky")
+description = "Employ 3 Chummies
+(Cost: 20 Yummies)"
+cost = 20
+purchase_message = "Chummies employed!"
+metadata/_custom_type_script = "uid://rdds2cotks3s"
+
+[sub_resource type="Resource" id="Resource_ofq4t"]
+script = ExtResource("2_8q8ky")
+description = "+1 Chummy Protection
+(Cost: 15 Yummies)"
+cost = 15
+purchase_message = "Chummies empowered!"
 metadata/_custom_type_script = "uid://rdds2cotks3s"
 
 [sub_resource type="Resource" id="Resource_ik3a3"]
@@ -96,76 +112,92 @@ cost = 3
 purchase_message = "Inventory increased!"
 metadata/_custom_type_script = "uid://rdds2cotks3s"
 
-[sub_resource type="Resource" id="Resource_hf5wb"]
+[sub_resource type="Resource" id="Resource_1o0kk"]
 script = ExtResource("2_8q8ky")
 description = "Slower Yummies
-(Cost: 2 Yummies)"
-cost = 2
+(Cost: 5 Yummies)"
+cost = 5
 purchase_message = "Yummies slowed!"
 metadata/_custom_type_script = "uid://rdds2cotks3s"
 
 [sub_resource type="Resource" id="Resource_qs0o3"]
 script = ExtResource("2_8q8ky")
 description = "Net (+5 Inventory Space)
-(Cost: 4 Yummies)"
-cost = 4
+(Cost: 6 Yummies)"
+cost = 6
 purchase_message = "Inventory increased!"
 metadata/_custom_type_script = "uid://rdds2cotks3s"
 
 [sub_resource type="Resource" id="Resource_t81le"]
 script = ExtResource("2_8q8ky")
 description = "+15 Yummies/Min
-(Cost: 3 Yummies)"
-cost = 3
+(Cost: 8 Yummies)"
+cost = 8
 purchase_message = "More yummies!"
 metadata/_custom_type_script = "uid://rdds2cotks3s"
 
 [sub_resource type="Resource" id="Resource_pua1g"]
 script = ExtResource("2_8q8ky")
 description = "Chest (+8 Inventory Space)
-(Cost: 5 Yummies)"
-cost = 5
+(Cost: 12 Yummies)"
+cost = 12
 purchase_message = "Inventory increased!"
 metadata/_custom_type_script = "uid://rdds2cotks3s"
 
 [sub_resource type="Resource" id="Resource_xxy53"]
 script = ExtResource("2_8q8ky")
-description = "Remove 5 Bummies
-(Cost: 5 Yummies)"
-cost = 5
+description = "Remove 8 Bummies
+(Cost: 10 Yummies)"
+cost = 10
 purchase_message = "Bummies removed!"
 metadata/_custom_type_script = "uid://rdds2cotks3s"
 
 [sub_resource type="Resource" id="Resource_akw3x"]
 script = ExtResource("2_8q8ky")
 description = "More Investings
-(Cost: 4 Yummies)"
-cost = 4
+(Cost: 8 Yummies)"
+cost = 8
 purchase_message = "Max invest increased!"
 metadata/_custom_type_script = "uid://rdds2cotks3s"
 
 [sub_resource type="Resource" id="Resource_wt1dg"]
 script = ExtResource("2_8q8ky")
 description = "Increase Interest
-(Cost: 5 Yummies)"
-cost = 5
+(Cost: 12 Yummies)"
+cost = 12
 purchase_message = "Interest incresed!"
 metadata/_custom_type_script = "uid://rdds2cotks3s"
 
 [sub_resource type="Resource" id="Resource_on2bs"]
 script = ExtResource("2_8q8ky")
 description = "More Investings
-(Cost: 6 Yummies)"
-cost = 6
+(Cost: 10 Yummies)"
+cost = 10
 purchase_message = "Max invest increased!"
 metadata/_custom_type_script = "uid://rdds2cotks3s"
 
 [sub_resource type="Resource" id="Resource_idudr"]
 script = ExtResource("2_8q8ky")
 description = "Increase Interest
-(Cost: 10 Yummies)"
-cost = 10
+(Cost: 14 Yummies)"
+cost = 14
 purchase_message = "Interet increased!"
+metadata/_custom_type_script = "uid://rdds2cotks3s"
+
+[sub_resource type="Resource" id="Resource_viq8s"]
+script = ExtResource("2_8q8ky")
+description = "+18 Yummies/Min
+(Cost: 15 Yummies)"
+cost = 15
+purchase_message = "More yummies!"
+metadata/_custom_type_script = "uid://rdds2cotks3s"
+
+[sub_resource type="Resource" id="Resource_xey3e"]
+script = ExtResource("2_8q8ky")
+description = "Remove 15 Bummies
+(Cost: 18 Yummies)"
+cost = 18
+purchase_message = "Bummies removed!"
 metadata/_custom_type_script = "uid://rdds2cotks3s"
 
 [sub_resource type="Resource" id="Resource_ijg33"]
@@ -179,16 +211,16 @@ metadata/_custom_type_script = "uid://rdds2cotks3s"
 [sub_resource type="Resource" id="Resource_y2mke"]
 script = ExtResource("2_8q8ky")
 description = "Further Reach
-(Cost: 4 Yummies)"
-cost = 4
+(Cost: 5 Yummies)"
+cost = 5
 purchase_message = "Arms elongated!"
 metadata/_custom_type_script = "uid://rdds2cotks3s"
 
 [sub_resource type="Resource" id="Resource_675w7"]
 script = ExtResource("2_8q8ky")
 description = "Add 30 Seconds
-(Cost: 5 Yummies)"
-cost = 5
+(Cost: 7 Yummies)"
+cost = 7
 purchase_message = "Time travelled!"
 metadata/_custom_type_script = "uid://rdds2cotks3s"
 
@@ -203,49 +235,57 @@ metadata/_custom_type_script = "uid://rdds2cotks3s"
 [sub_resource type="Resource" id="Resource_jso5b"]
 script = ExtResource("2_8q8ky")
 description = "Speed Boost
-(Cost: 5 Yummies)"
-cost = 5
+(Cost: 8 Yummies)"
+cost = 8
 purchase_message = "Speed boosted!"
 metadata/_custom_type_script = "uid://rdds2cotks3s"
 
 [sub_resource type="Resource" id="Resource_7vivi"]
 script = ExtResource("2_8q8ky")
 description = "Heal Yummies
-(Cost: 3 Yummies)"
-cost = 3
+(Cost: 8 Yummies)"
+cost = 8
 purchase_message = "Yummies healed!"
 metadata/_custom_type_script = "uid://rdds2cotks3s"
 
 [sub_resource type="Resource" id="Resource_1xydm"]
 script = ExtResource("2_8q8ky")
 description = "Increase Reach
-(Cost: 6 Yummies)"
-cost = 6
+(Cost: 10 Yummies)"
+cost = 10
 purchase_message = "Arms elongated!"
 metadata/_custom_type_script = "uid://rdds2cotks3s"
 
 [sub_resource type="Resource" id="Resource_1u7px"]
 script = ExtResource("2_8q8ky")
 description = "Decrease Bummification
-(Cost: 8 Yummies)"
-cost = 8
+(Cost: 12 Yummies)"
+cost = 12
 purchase_message = "Bummifyinglessed!"
 metadata/_custom_type_script = "uid://rdds2cotks3s"
 
 [sub_resource type="Resource" id="Resource_bd4xr"]
 script = ExtResource("2_8q8ky")
 description = "Add 1 Minute
-(Cost: 10 Yummies)"
-cost = 10
+(Cost: 15 Yummies)"
+cost = 15
 purchase_message = "Time travelled!"
 metadata/_custom_type_script = "uid://rdds2cotks3s"
 
 [sub_resource type="Resource" id="Resource_tahtb"]
 script = ExtResource("2_8q8ky")
 description = "Heal Yummies
-(Cost: 5 Yummies)"
-cost = 5
+(Cost: 10 Yummies)"
+cost = 10
 purchase_message = "Yummies healed!"
+metadata/_custom_type_script = "uid://rdds2cotks3s"
+
+[sub_resource type="Resource" id="Resource_afl0o"]
+script = ExtResource("2_8q8ky")
+description = "Decrease Bummification
+(Cost: 15 Yummies)"
+cost = 15
+purchase_message = "Bummifyinglessed!"
 metadata/_custom_type_script = "uid://rdds2cotks3s"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ir5lp"]
@@ -264,9 +304,9 @@ script = ExtResource("1_5ef75")
 selection_highlights = [NodePath("Background/Option1/NinePatchRect"), NodePath("Background/Option2/NinePatchRect"), NodePath("Background/Option3/NinePatchRect")]
 tip_label = NodePath("Background/TipLabel")
 option_labels = [NodePath("Background/Option1"), NodePath("Background/Option2"), NodePath("Background/Option3")]
-option_1_options = Array[ExtResource("2_8q8ky")]([SubResource("Resource_uv6nq"), SubResource("Resource_vsa4v"), SubResource("Resource_hmxx2"), SubResource("Resource_wmkog"), SubResource("Resource_tnr8x"), SubResource("Resource_uxyur"), SubResource("Resource_8q8ky"), SubResource("Resource_7sho8"), SubResource("Resource_4t1w4"), SubResource("Resource_em7s0")])
-option_2_options = Array[ExtResource("2_8q8ky")]([SubResource("Resource_ik3a3"), SubResource("Resource_hf5wb"), SubResource("Resource_qs0o3"), SubResource("Resource_t81le"), SubResource("Resource_pua1g"), SubResource("Resource_xxy53"), SubResource("Resource_akw3x"), SubResource("Resource_wt1dg"), SubResource("Resource_on2bs"), SubResource("Resource_idudr")])
-option_3_options = Array[ExtResource("2_8q8ky")]([SubResource("Resource_ijg33"), SubResource("Resource_y2mke"), SubResource("Resource_675w7"), SubResource("Resource_6iham"), SubResource("Resource_jso5b"), SubResource("Resource_7vivi"), SubResource("Resource_1xydm"), SubResource("Resource_1u7px"), SubResource("Resource_bd4xr"), SubResource("Resource_tahtb")])
+option_1_options = Array[ExtResource("2_8q8ky")]([SubResource("Resource_uv6nq"), SubResource("Resource_vsa4v"), SubResource("Resource_hmxx2"), SubResource("Resource_wmkog"), SubResource("Resource_tnr8x"), SubResource("Resource_uxyur"), SubResource("Resource_8q8ky"), SubResource("Resource_7sho8"), SubResource("Resource_4t1w4"), SubResource("Resource_em7s0"), SubResource("Resource_hf5wb"), SubResource("Resource_ofq4t")])
+option_2_options = Array[ExtResource("2_8q8ky")]([SubResource("Resource_ik3a3"), SubResource("Resource_1o0kk"), SubResource("Resource_qs0o3"), SubResource("Resource_t81le"), SubResource("Resource_pua1g"), SubResource("Resource_xxy53"), SubResource("Resource_akw3x"), SubResource("Resource_wt1dg"), SubResource("Resource_on2bs"), SubResource("Resource_idudr"), SubResource("Resource_viq8s"), SubResource("Resource_xey3e")])
+option_3_options = Array[ExtResource("2_8q8ky")]([SubResource("Resource_ijg33"), SubResource("Resource_y2mke"), SubResource("Resource_675w7"), SubResource("Resource_6iham"), SubResource("Resource_jso5b"), SubResource("Resource_7vivi"), SubResource("Resource_1xydm"), SubResource("Resource_1u7px"), SubResource("Resource_bd4xr"), SubResource("Resource_tahtb"), SubResource("Resource_afl0o")])
 timer = NodePath("Timer")
 error_sfx = ExtResource("3_hmxx2")
 purchase_sfx = ExtResource("4_ik3a3")

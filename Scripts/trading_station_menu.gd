@@ -152,6 +152,8 @@ func option_1(stage: int):
 		8: GlobalData.add_chummy_efficiency(1)
 		9: GlobalData.add_chummy(3)
 		10: GlobalData.add_chummies_rate(1)
+		11: GlobalData.add_chummy(3)
+		12: GlobalData.add_chummy_efficiency(1)
 
 
 func option_2(stage: int):
@@ -169,12 +171,21 @@ func option_2(stage: int):
 				if GlobalData.yummies_list[i - count].bummy_state != Yummy.BummyState.YUMMY:
 					GlobalData.yummies_list[i - count].exterminate()
 					count = count + 1
-				if count >= 5:
+				if count >= 8:
 					break
 		7: GlobalData.max_yummy_invest = GlobalData.max_yummy_invest + 3
 		8: GlobalData.yummy_interest = GlobalData.yummy_interest + 0.05
 		9: GlobalData.max_yummy_invest = GlobalData.max_yummy_invest + 5
 		10: GlobalData.yummy_interest = GlobalData.yummy_interest + 0.05
+		11: GlobalData.yummies_rate = GlobalData.yummies_rate + 18
+		12:
+			var count: int = 0
+			for i in range(GlobalData.yummies_list.size()):
+				if GlobalData.yummies_list[i - count].bummy_state != Yummy.BummyState.YUMMY:
+					GlobalData.yummies_list[i - count].exterminate()
+					count = count + 1
+				if count >= 15:
+					break
 
 
 func option_3(stage: int):
@@ -185,12 +196,13 @@ func option_3(stage: int):
 		4: GlobalData.bummies_chance = GlobalData.bummies_chance - 2
 		5: player.speed = player.speed + 15
 		6: for yummy: Yummy in GlobalData.yummies_list:
-			yummy.set_health(yummy.health + 2)
+			yummy.set_health(yummy.health + 5)
 		7: player.interaction_distance = player.interaction_distance + 10
 		8: GlobalData.bummies_chance = GlobalData.bummies_chance - 4
 		9: GameManager.add_time(60)
 		10: for yummy: Yummy in GlobalData.yummies_list:
-				yummy.set_health(yummy.health + 3)
+				yummy.set_health(yummy.health + 5)
+		11: GlobalData.bummies_chance = GlobalData.bummies_chance - 8
 
 
 func error():

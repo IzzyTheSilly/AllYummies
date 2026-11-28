@@ -58,7 +58,7 @@ func invest_yummy():
 		change_tip_text("No yummies in inventory!")
 		error()
 		return
-	elif GlobalData.yummies_in_stock_market >= GlobalData.max_yummy_invest:
+	if GlobalData.yummies_in_stock_market >= GlobalData.max_yummy_invest:
 		change_tip_text("Investing station is full!")
 		error()
 		return
@@ -84,7 +84,6 @@ func pull_yummy():
 		return
 	if GlobalData.yummies_in_stock_market > 0:
 		var yummy_exchange_rate: float = stock_value / stock_values[0]
-		print(yummy_exchange_rate)
 		var guaranteed_yummies = floor(yummy_exchange_rate)
 		var chance = (yummy_exchange_rate - guaranteed_yummies)
 		if randf_range(0, 1) < chance:
@@ -101,7 +100,7 @@ func pull_yummy():
 			purchase()
 			set_cooldown(15)
 		else:
-			change_tip_text("Inventory full!")
+			change_tip_text("Inventory doesn't fit!")
 			error()
 	else:
 		change_tip_text("No yummies invested yet!")
@@ -117,9 +116,9 @@ func change_tip_text(text: String, time: float = 1.5):
 
 func _on_stock_value_update_timer_timeout() -> void:
 	if stock_value < 20.0:
-		stock_value = min(stock_value * (GlobalData.yummy_interest_average + randf_range(-0.3, 0.35)), 20)
+		stock_value = min(stock_value * (GlobalData.yummy_interest_average + randf_range(-0.3, 0.4)), 20)
 	else:
-		stock_value = stock_value * (GlobalData.yummy_interest_average + randf_range(-0.5, -0.1))
+		stock_value = stock_value * (GlobalData.yummy_interest_average + randf_range(-0.3, -0.1))
 	stock_value_label.text = "Stock Value: %.3f" % stock_value
 	stock_value_update_timer.start(stock_value_update_time + randf_range(-4, 4))
 

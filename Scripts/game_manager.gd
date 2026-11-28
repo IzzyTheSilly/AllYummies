@@ -38,6 +38,7 @@ func start_game():
 
 
 func end_game():
+	var score: int = GlobalData.update_gdy()
 	ending = true
 	AudioManager.stop_music_audio()
 	CutsceneHandler.dialogue_box.hide()
@@ -50,12 +51,11 @@ func end_game():
 	var end_screen_tween: Tween = get_tree().create_tween()
 	end_screen_tween.tween_property(ending_screen, "modulate", Color(255, 255, 255), 3)
 	await end_screen_tween.finished
-	var score: int = GlobalData.update_gdy()
 	await ending_screen.show_score(score)
 	
-	if score > 100:
+	if score >= 100:
 		AudioManager.try_change_sfx_audio(cheer_sfx, true)
-	elif score < 0:
+	elif score < 50:
 		AudioManager.try_change_sfx_audio(bwomp_sfx, true)
 	await get_tree().create_timer(2).timeout
 	
@@ -95,11 +95,10 @@ func get_day_time_left() -> float:
 
 
 func add_time(time: int):
-	day_timer.start(day_timer.time_left + 30)
+	day_timer.start(day_timer.time_left + time)
 
 
 func _on_day_timer_timeout() -> void:
-	print("timeot")
 	end_game()
 	UIHandler.notify("Day End!")
 	if days_left == 1:
